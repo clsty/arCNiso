@@ -1,0 +1,71 @@
+#+title: 构建与定制指南
+#+author: clsty (https://github.com/clsty)
+
+* 构建说明
+这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。
+
+** 环境要求
+- 一个可联网的、AMD64 架构的 Arch Linux 系统。
+- 以普通用户身份登录，且具有 sudo 权限。
+
+** 分步说明
+*** 安装依赖（约 1 分钟，依赖网速）
+（这里使用 pacman 安装 paru 的前提是已添加 archlinuxcn 源，否则请自行用其他方法安装 paru）
+#+begin_src bash
+sudo pacman -Sy --needed paru
+sudo pacman -S --needed archiso git rsync archiso sha256sum pandoc base-devel fd
+#+end_src
+
+*** 获取本项目（约 1 分钟，依赖网速）
+可以从 release 获取最新稳定版本的 tarball 并解压构建；
+
+也可以直接克隆本仓库，为此在 bash 或 zsh 中运行：
+#+begin_src bash
+git clone --filter=blob:none https://github.com/clsty/arCNiso
+#+end_src
+其中 =--filter=blob:none= 是为了仅下载所需的对象，而忽略多余的 blob，以便加快速度。
+
+*** 准备 .emacs.d（可选；约 5 分钟，依赖网速）
+运行 =./homebase/prepareemacs.sh= 即可。
+
+注：若你不打算在 arCNiso 中离线使用 Emacs，则这一步不是必须的。
+#+begin_quote
+本项目在 =.gitignore= 中忽略了 =.emacs.d= 中的 =eln-cache= 与 =elpa= 等目录与文件，但它们对于离线使用 Emacs 配置是必要的。
+目的是，一方面降低文件结构的复杂度，另一方面避免大量的 elisp 代码导致本项目的主要成分被 GitHub 误判为 Emacs Lisp。
+#+end_quote
+
+*** 准备 AUR 包（约 30 分钟，依赖网速和 CPU 速度）
+arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分），
+因此需要提前构建它们。
+
+可以利用 ~./aur/full-update.sh~ 自动构建这些包。
+但请注意，此脚本可能仍存在一些问题，可能无法一次直接地完成所有工作，或合理避免重复工作，还可能会出现构建时缺依赖报错的问题，对此只要据报错信息手动解决即可。
+或者，清理一下 ~./aur/cache~ 目录。
+
+*** 正式构建（约 5 分钟，依赖网速和 CPU 速度）
+运行 =makeiso.sh= （若 =OUT= 目录存在，则会被删除）。
+
+输出的镜像文件位于 ~./OUT~ 下（为了方便使用虚拟机进行测试，每次输出时会固定更名为 ~arCNiso.iso~ ）。
+
+*注：之后（除非打算更新 AUR 包）每次修改了项目文件想重新构建时，都可以直接运行 =makeiso.sh= 。*
+
+* 如何定制
+简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 =./airootfs/etc/motd-zh_CN= ，然后用 =./makeiso.sh= 再次构建即可。
+
+而如果你想做一些深层次的定制，比如添加、删除一些包或 systemd 服务等，你就需要了解项目内各个文件与目录结构的作用了。
+为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
+因此，你所需要的正是 [[https://wiki.archlinux.org/title/Archiso][ArchWiki 的 archiso 条目]]。
+
+此外，这里还提供以下信息：
+- 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
+- 从 tty 可以手动启动图形环境，可运行 ~arCNiso-xfce4~ 。
+
+* 附：其他脚本
+** 自动打包源码
+本项目包含了 =./makearchive.sh= 脚本，功能是由 git 输出 tar 包（因此会遵循 =.gitignore= 等规则），但目前并没有找到或者说开发出什么有意义的用法。
+** 自动发布
+本项目包含了 =./publishiso*= 系列脚本，它们由 clsty 开发，并用于自动发布。
+
+如果只是为了构建此项目，你并不需要这些脚本。
+
+如果你也想用这些脚本，来自动发布你基于本项目修改的分支、或者一个完全不同的项目，你需要自行做适当的修改调整。

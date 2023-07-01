@@ -1,0 +1,2 @@
+#!/bin/bash
+expac -H M '%m\t%n'|sort -hr|less

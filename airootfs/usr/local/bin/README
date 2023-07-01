@@ -1,0 +1,6 @@
+#!/bin/bash
+read -p "请输入对应数字。1=在线版；2=离线版：" pp
+case $pp in
+    1) sufirefox "https://github.com/clsty/arCNiso" ;;
+    2) sufirefox "/home/archer/README.html" ;;
+esac

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1.0
+Type=Application
+Name=originalterminal
+Comment=Show a terminal as what original archiso did.
+Exec=konsole --hide-menubar --hide-tabbar -e arcnot
+OnlyShowIn=XFCE;
+RunHook=0
+StartupNotify=false
+Terminal=false
+Hidden=false
+

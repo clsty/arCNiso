@@ -1,0 +1,12 @@
+#!/bin/bash
+case $TERM in
+    "linux") /usr/bin/loadkeys $* ;;
+    *)
+        echo '无法使用 loadkeys 更改键位映射，因为你不是在原版 archiso 的 tty 或者说 virtual console 中，而是处于 xfce4 图形环境中。
+
+推荐使用 xfce4 的系统设置（从屏幕左下角的启动菜单中找到它）来修改键位映射。
+
+或者，你也可以在终端里使用 setxkbmap（参见 https://wiki.archlinux.org/title/Xorg/Keyboard_configuration ）。例如，若你想为标准美式键盘使用 dvorak 键位映射，可以输入：
+setxkbmap -layout us,us -variant ,dvorak'
+        ;;
+esac

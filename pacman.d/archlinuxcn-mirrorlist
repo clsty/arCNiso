@@ -1,0 +1,107 @@
+## https://github.com/archlinuxcn/mirrorlist-repo
+
+## OpenTUNA (China CDN) (ipv4, https)
+Server = https://opentuna.cn/archlinuxcn/$arch
+
+## 北京外国语大学 (北京) (ipv4, ipv6, http, https)
+## Added: 2020-05-18
+Server = https://mirrors.bfsu.edu.cn/archlinuxcn/$arch
+
+## 北京大学 (北京) (ipv4, ipv6, http, https)
+## Added: 2023-02-26
+Server = https://mirrors.pku.edu.cn/archlinuxcn/$arch
+
+## 腾讯云 (Global CDN) (ipv4, http, https)
+## Added: 2018-11-23
+Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
+
+## 网易 (China CDN) (ipv4, http, https)
+Server = https://mirrors.163.com/archlinux-cn/$arch
+
+## 阿里云 (Global CDN) (ipv4, ipv6, http, https)
+## Added: 2020-07-03
+Server = https://mirrors.aliyun.com/archlinuxcn/$arch
+
+## 清华大学 (北京) (ipv4, ipv6, http, https)
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
+
+## 中国科学技术大学 (安徽合肥) (ipv4, ipv6, http, https)
+Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+
+## 哈尔滨工业大学 (黑龙江哈尔滨) (ipv4, ipv6, http, https)
+## Added: 2021-01-09
+Server = https://mirrors.hit.edu.cn/archlinuxcn/$arch
+
+## 吉林大学 (吉林长春) (ipv4, ipv6, http, https)
+## Added: 2023-04-21
+Server = https://mirrors.jlu.edu.cn/archlinuxcn/$arch
+
+## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
+## Added: 2017-06-05
+Server = https://mirrors.zju.edu.cn/archlinuxcn/$arch
+
+## 重庆大学 (重庆) (ipv4, ipv6, http, https)
+Server = https://mirrors.cqu.edu.cn/archlinuxcn/$arch
+
+## SJTUG 软件源镜像服务 (上海) (ipv4, ipv6, https)
+## Added: 2018-05-21
+Server = https://mirror.sjtu.edu.cn/archlinux-cn/$arch
+
+## 南京大学 (江苏南京) (ipv4, ipv6, http, https)
+Server = https://mirrors.nju.edu.cn/archlinuxcn/$arch
+
+## 南方科技大学 (广东深圳) (ipv4, ipv6, http, https)
+## Added: 2021-08-17
+Server = https://mirrors.sustech.edu.cn/archlinuxcn/$arch
+
+## 武昌首义学院 (湖北武汉) (ipv4, ipv6, http, https)
+## Added: 2023-04-07
+Server = https://mirrors.wsyu.edu.cn/archlinuxcn/$arch
+
+## NCKU CCNS (Taiwan) (ipv4, http, https)
+## Added: 2021-06-30
+## Resources provided by NCKU CSIE
+Server = https://archlinux.ccns.ncku.edu.tw/archlinuxcn/$arch
+
+## xTom (Hong Kong server) (Hong Kong) (ipv4, ipv6, http, https)
+## Added: 2017-09-18
+## Blocking users in mainland China
+Server = https://mirrors.xtom.hk/archlinuxcn/$arch
+
+## xTom (US server) (San Jose, CA, United States) (ipv4, ipv6, http, https)
+## Added: 2019-02-19
+## Blocking users in mainland China
+Server = https://mirrors.xtom.us/archlinuxcn/$arch
+
+## xTom (Netherlands server) (Amsterdam, the Netherlands) (ipv4, ipv6, http, https)
+## Added: 2019-09-07
+## Blocking users in mainland China
+Server = https://mirrors.xtom.nl/archlinuxcn/$arch
+
+## xTom (Germany server) (Duesseldorf, Germany) (ipv4, ipv6, http, https)
+## Added: 2021-05-07
+## Blocking users in mainland China
+Server = https://mirrors.xtom.de/archlinuxcn/$arch
+
+## xTom (Estonia server) (Tallinn, Estonia) (ipv4, ipv6, http, https)
+## Added: 2021-05-27
+## Blocking users in mainland China
+Server = https://mirrors.xtom.ee/archlinuxcn/$arch
+
+## xTom (Japan server) (Osaka, Japan) (ipv4, ipv6, http, https)
+## Added: 2022-01-17
+## Blocking users in mainland China
+Server = https://mirrors.xtom.jp/archlinuxcn/$arch
+
+## xTom (Australia server) (Sydney, Australia) (ipv4, ipv6, http, https)
+## Added: 2022-07-03
+## Blocking users in mainland China
+Server = https://mirrors.xtom.au/archlinuxcn/$arch
+
+## Open Computing Facility, UC Berkeley (Berkeley, CA, United States) (ipv4, ipv6, http, https)
+## Added: 2019-02-19
+Server = https://mirrors.ocf.berkeley.edu/archlinuxcn/$arch
+
+
+## Our main server (Amsterdam, the Netherlands) (ipv4, ipv6, http, https)
+Server = https://repo.archlinuxcn.org/$arch

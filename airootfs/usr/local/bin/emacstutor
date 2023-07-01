@@ -1,0 +1,2 @@
+#!/bin/bash
+emacs -nw --eval='(help-with-tutorial-spec-language)'

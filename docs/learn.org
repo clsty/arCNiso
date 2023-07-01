@@ -1,0 +1,89 @@
+#+title: 入门与进阶帮助
+#+author: clsty (https://github.com/clsty)
+
+# TODO 添加其他帮助系统，如 --help -h man 以及在线 mannual、chatgpt类 AI 等
+* 序
+:PROPERTIES:
+:TOC:      :include all :depth 3
+:END:
+:CONTENTS:
+- [[#序][序]]
+- [[#资源][资源]]
+  - [[#arch-linux][Arch Linux]]
+  - [[#其他网站][其他网站]]
+- [[#入门][入门]]
+- [[#进阶][进阶]]
+:END:
+
+以下提到的相关资源，基本上都是由各个社区与个人免费提供的。
+
+*在此向他们致敬，并期待读者能与作者一起，以宣传、完善、翻译、贡献条目、打软件包、捐助等等的一种或多种方式参与其中，共同为全人类的自由开源与共享精神添砖加瓦。*
+* 资源
+** Arch Linux
+对于 Arch Linux，最常用的网站自然是[[https://archlinux.org][官网]]。
+
+官网的首页，展示的是 Arch Linux 的新闻。
+#+begin_quote
+新闻的作用之一是作为系统变动信息的公告，因此在每次升级 Arch Linux 之前推荐查阅。
+
+但实际上，真正会影响到升级的改动是很少的（可能两三年才有一次），
+如果真的出现了问题，再看新闻并手动修复也不迟。
+
+即使真的对稳定性有很高要求，只要做好快照备份也能做到万无一失。
+#+end_quote
+除此之外，它还提供了一些子网站。
+其中 *最重要* 的就是 [[https://wiki.archlinux.org][ArchWiki]]。
+#+begin_quote
+Wiki 是一种可供多人合作写作的资料系统，常被用于编写百科。
+#+end_quote
+其中的部分条目有中文版（相关页面实际上是链接到了 archlinuxcn），可以在右上角的 Languages 中选择语言。
+
+*ArchWiki 是最为丰富的 Linux 发行版 Wiki，推荐作为 Arch Linux 使用过程中各种问题的第一参考。*
+
+其次是 [[https://bbs.archlinux.org][Arch Forums]] 即论坛，这里可供 Arch Linux（注意不包括 Arch Linux 的衍生发行版）的使用者进行交流探讨。
+在使用中遇到一些技术问题，可以尝试在这里找到解决方案，或遵循其规则进行提问求助。
+
+此外还有 [[https://archlinux.org/packages][Arch Packages]] 与 [[https://aur.archlinux.org][AUR]] 分别可用于查询官方源与 AUR 所提供的软件包。
+#+begin_quote
+AUR 是对 Arch Linux 官方源的一种补充。
+
+与官方源提供二进制包不同，AUR 仅存储 PKGBUILD。
+如果二进制包是“宝物”，那么 PKGBUILD 就相当于“藏宝图”。
+用户通过某种方法（直接 git clone 或使用 AUR 助手）获取 PKGBUILD 之后，
+使用 makepkg 就能（经过一系列自动化流程）获取并安装真正的软件包了。
+
+需要注意的是，AUR 中的 PKGBUILD 是由 Arch Linux 用户上传的，而不是 Arch Linux 官方，因此无法保证其不含有恶意代码（当然，被发现上传含有恶意代码的 PKGBUILD 的用户则会被处罚）。
+为确保安全，在安装一个 AUR 包之前，用户应先自行检查其 PKGBUILD。
+
+Arch Packages 所含的几个软件源（包括 core、extra、multilib 以及对应的 testing 源）是 Arch Linux 官方所唯一支持的；AUR 以及其他第三方源（包括下面提到的 archlinuxcn 源）均未得到 Arch Linux 官方支持。
+用户可以为 AUR 中的软件包投票；呼声较高的可能会被官方选中，并转移至官方源。
+当然，不被官方支持的包，无论投票数多高，也不太可能被转移至官方源中，例如 yay、paru 等 AUR 助手。
+
+更多信息可以阅读 ArchWiki 上的这几个条目：
+[[https://wiki.archlinuxcn.org/wiki/Arch_User_Repository][Arch 用户软件仓库 (AUR)]]、
+[[https://wiki.archlinuxcn.org/wiki/Makepkg][makepkg]]、
+[[https://wiki.archlinuxcn.org/wiki/PKGBUILD][PKGBUILD]]、
+[[https://wiki.archlinuxcn.org/wiki/Arch_Build_System][ABS]]、
+[[https://wiki.archlinuxcn.org/wiki/AUR_helpers][AUR 助手]]。
+#+end_quote
+
+所以，archlinuxcn 是什么呢？
+它是 Arch Linux 社区在国内的分支（得到 Arch Linux 官方的承认，但并不是 Arch Linux 官方本身），有自己的[[https://archlinuxcn.org][网站]]、软件源、论坛以及交流频道。目前，ArchWiki 条目的中文版页面也存放在这里。
+
+软件源，即 archlinuxcn 源，简称 cn 源、国内源。
+- 注意它也不被 Arch Linux 官方支持（但是你或许可以说“它被 archlinuxcn 官方支持”）。
+- 同 AUR 一样，archlinuxcn 源是对 Arch Linux 官方源的一种补充，只是它是二进制源，且由 archlinuxcn 社区自行维护。
+
+交流频道：无论是 Arch Linux 还是 archlinuxcn，都有自己的在线交流频道（或者说群组），你可以使用对应的通讯软件（可参考[[https://github.com/clsty/arCNiso/blob/main/docs/feature.org][特性列表]]中的“通讯软件”）来加入一些频道，比如 [[https://www.archlinuxcn.org/archlinuxcn-group-mailling-list][archlinuxcn]]（请遵循其[[https://wiki.archlinuxcn.org/wiki/Project:Arch_Linux_中文社区交流群指引][指引]]）、[[https://wiki.archlinux.org/title/Arch_IRC_channels][Arch IRC]] 等。（声明：本项目与这些交流频道均无任何关联。）
+** 其他网站
+- [[https://emacs-china.org][Emacs China]]，最大的 Emacs 中文社区。
+- [[https://distrowatch.com][DistroWatch]]，各 Linux 发行版的综合信息站点。
+- [[https://www.protondb.com][ProtonDB]]，Linux 上各种游戏的兼容性信息，从中可以窥见 Linux 的游戏生态。
+
+* 入门
+- 首推《[[https://missing-semester-cn.github.io][计算机教育中缺失的一课]]》（英文原版：[[https://missing.csail.mit.edu][The Missing Semester of Your CS Education]]），它包含了 Shell、Vim、Git 等方面的知识。
+  推荐先学习“课程概览与 shell”“Shell 工具和脚本”这两部分。
+  - 关于 Vim 的部分，如果你使用 arCNiso，则你可以改为用 Evil-tutor（在 arCNiso 的终端中输入 eviltutor 即可进入 evil-tutor）学习 Vim 式编辑器。
+* 进阶
+- 继续完成《[[https://missing-semester-cn.github.io][计算机教育中缺失的一课]]》。
+- [[https://wangdoc.com/bash][阮一峰的 Bash 脚本教程]]：由著名的技术博客作者阮一峰写成（[[https://github.com/wangdoc/bash-tutorial][仓库地址]]）。
