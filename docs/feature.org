@@ -1,0 +1,114 @@
+#+title: 功能与设计
+#+author: clsty (https://github.com/clsty)
+
+在特性列表中，尝试列举本镜像相对于官方 archiso 所具有的特性（细节过多，可能会有所遗漏）。
+
+在设计说明中，给出部分设计的背景原因与考量。
+
+* 特性列表
+** 图形环境
+以 xfce4 为核心，进行了多方面的配置。
+- 主题：主要主题为 sweet，图标主题为 papirus，以 kvantum 作为引擎。
+- 字体：配置 fontconfig。
+- 终端：采用 konsole。
+- 命令行：采用 oh-my-zsh 以及 powerlevel10k。
+- 用户：设置了 archer 作为具有 sudo 权限且自动登录的用户。
+** 硬件与外设
+- 全局键位：在 tty 与图形界面中，均交换了左 ~Ctrl~ 与大写锁定键，并提供了 =resetkeymap= 命令供复原。
+- 蓝牙：配置了蓝牙所需的软件包、内核模块与服务。
+- 屏幕键盘：安装了 onboard，并将其启动器放在 xfce 的右下角。
+- 亮度：提供了 brightnessctl 和 ddcutil。
+- 音频：安装了 pipewire 相关的软件包。
+- 显卡驱动：为多种显卡及虚拟机环境添加了显卡驱动。
+- 网络：
+  - 添加了 NetworkManager 相关软件并启用相关服务（以 ~wpa_supplicant~ 作为无线后端）。
+  - 禁用 systemd-networkd 并移除了 iwd、dhcpcd、dhclient 以防冲突。
+  - 提供命令行工具 git、curl。
+** 网络应用
+- Firefox 浏览器：
+  - 配置了 vim 键位插件。
+  - 进行了部分美化、实用化的配置。
+  - 移除了 lynx；若运行 lynx，则在找不到 lynx 时询问是否要立即安装或使用 Firefox 替代。
+- 通讯软件：
+  - 由于这些软件在离线时无法使用，本项目不打算将它们内置，需要时可以手动安装：
+  - nheko：（开源开放的）Matrix 通讯架构的客户端，需要配合 keepassXC 使用。
+    - 安装命令： ~sudo pacman -S nheko~
+  - Gajim：支持 Jabber/XMPP 协议（一种开源开放的即时通讯协议）。
+    - 安装命令： ~sudo pacman -S gajim~
+  - Quassel IRC：支持 IRC 协议（一种开源开放的即时通讯协议）。
+    - 安装命令： ~sudo pacman -S quassel-monolithic-qt~
+  - QQ：本项目建立了 =~/.config/QQ/crash_files= 以防止 QQ 闪退。
+    - 安装命令： ~paru linux-qq~
+  - 邮箱：为节省空间，未预装邮件客户端。建议通过 Firefox 在线访问邮箱的网页端。
+** 命令行与自动化
+- 为 zsh 安装了 oh-my-zsh 配置框架及 p10k 主题。
+- AUR 构建：本项目在构建来自 AUR 的包时，使用脚本尽可能做到自动化。
+- alias：内置的 zsh 被配置使用了一些 alias，详见其 zshrc。
+- 内置脚本：在 ~/usr/local/bin/~ 内置了一些脚本，以供快速执行一些任务。
+** 本地化
+- 区域：配置了时区等。
+- 语言：配置了中文。
+- 输入法：配置了 fcitx5-rime。
+** 编辑器与文件管理
+- 提供了 GUI 的 emacs 与 TUI 的 emacsnw（本质上是 ~emacs -nw~ ）
+  - 配置了 evil。
+- 提供了 TUI 的 nvim。
+- 移除了 vim；在找不到 vi、vim 时，使用 nvim 自动替代之。
+- 提供 vi 键位风格的 TUI 软件 vifm 与 ranger，以增强文件操作效率。
+- 提供 TUI 的 ncdu 以快速查看存储占用分布。
+- 提供命令行工具 ack、tree、fd。
+- 提供 GUI 文件管理器 dolphin 。
+- 提供 peazip 及 p7zip 以支持解压缩。
+** 分区与系统引导
+- 提供 PartitionManager 作为 GUI 磁盘管理器。
+- 提供 TestDisk 作为 TUI 的分区表恢复及引导修复软件。
+- 提供 Timeshift 、btrfs-assistant 及 Snapper 作为快照的备份恢复软件。
+- 提供 EFIBootEditor 作为 efibootmgr 的 GUI 前端。
+- 提供 grub-customizer 作为（功能有限的）GRUB 自定义配置工具。
+- 提供 Ventoy（同时具有 GUI 与 CLI）以进行一些特殊操作。
+** 录制截取
+- OBS Studio：用于录屏。
+- Screenkey：显示实时按键，辅助录屏。
+- Xfce4-screenshooter：用于截图。
+** 其它
+- keepassXC：密码管理器，并为 nheko 提供安全服务。同时安装了对应的 Firefox 插件。
+- vlc：音视频播放器。
+- zathura：文档阅读器，支持 PDF、EPUB、XPS 等格式。
+- Ristretto：图像查看器。
+- neofetch：展示系统信息。
+** 用户引导
+- motd：添加了中文版本的 motd，并在 arCNiso 启动时自动展示。
+- 安装指南：提供 =Installation_guide= 命令的一个等价入口 =arcnguide= ，并改为用 Firefox 打开中文版的 Wiki 页面及本镜像提供的 hint。
+- 软件包与源：配置了国内的镜像源与 archlinuxcn 源，并且在使用 AUR 助手 paru 时自动安装 paru 和 base-devel。
+- 根分区大小：配置为 1 GiB（而不是原版 archiso 的 256 MiB），并提供 =modifyrootspace= 供实时修改。
+
+* 设计说明
+以下说明部分设计背后的考虑与背景。
+
+- 采用 xfce4 作为图形环境，而不是某个 Window Manager。
+  - xfce4 对鼠标操作支持较好，便于所有用户上手；WM 的操作风格则过于个性化，很可能引起劝退。
+  - 各大 WM 目前似乎没有什么好的方案来（半）自动化地识别、排列、旋转外接显示器，而需要在配置文件里手动声明。
+ 
+- 采用 linux 主线内核，而不是 linux-zen。
+  - 综合来看，使用 linux-zen 比 linux 主线内核新增的占用空间太大，比如 virtual-box-guest-utils 依赖 linux。
+    如果强行用 linux-zen 那么就要改用 virtual-box-guest-dkms-vmsvga，而这就需要 dkms 和 linux-zen-headers 了。
+
+- 用 =wpa_supplicant= 而不是 =iwd= 作为 NetworkManager 后端。
+  - 关键原因：
+    - iwd 据说不支持少数网络认证，而本镜像的特色功能之一就是提供 Firefox 浏览器以便连接到校园网等需要认证的网络。
+  - 详细说明：
+    - 官方 archiso 自带的 wifi 联网工具是 iwd（对应的命令行交互入口是 iwctl）。
+    - 本镜像采用的则是 NetworkManager，这是一套集大成的网络连接解决方案（包括有线与无线网），默认采用 =wpa_supplicant= 作为无线后端，也可使用 iwd 作为后端；但两者冲突，只能二选一。
+    - =wpa_supplicant= 较老，iwd 更新一些，但是 iwd 据说存在一些 802.1X 认证的问题，见 https://github.com/NixOS/nixpkgs/issues/105560 。
+
+- 移除 vim 并将其指向 nvim（neovim）。
+  - nvim 位于 vi 系软件中的最前沿，且已足够成熟。
+  - 之所以不使用 Emacs evil 替代之，是因为目前尚无法使得 emacs 具有 vim 那样的启动速度。
+
+- 在 xfce4 启动时，运行一个 sufirefoxd，以支持从 root 帐户命令 archer 帐户的 Firefox 打开网页。
+  - 之所以不使用 =nohup su archer -c "firefox foo.foo" &= ，是因为实验发现这种做法有重大缺陷：
+    - 这样打开的 Firefox 是不支持输入法的。
+    - 若已经有同一个 profile 的 Firefox 运行，则这样做会报错“Firefox 已经运行但无响应”。
+
+- GUI 文件管理器选择 Dolphin，而不是 Thunar 等。
+  - Dolphin 是少数自带对安卓的 MTP 协议的直接支持的 GUI 文件管理器（用 USB 连接到安卓设备并在其上启用 MTP 之后，Dolphin 的左侧面板就会显示这个设备），目前暂时找不到这方面的合适替代。

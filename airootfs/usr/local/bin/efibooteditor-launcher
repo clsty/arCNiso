@@ -1,0 +1,16 @@
+#!/bin/bash
+# 这是从 timeshift-launcher 直接改过来的。
+app_command='efibooteditor'
+
+if [ "$(id -u)" -eq 0 ]; then
+	# user is admin
+	${app_command}
+else
+	# user is not admin
+	if echo $- | grep "i" >/dev/null 2>&1; then
+		# script is running in interactive mode
+		su - -c "${app_command}"
+	else
+		sudo "${app_command}"
+	fi
+fi

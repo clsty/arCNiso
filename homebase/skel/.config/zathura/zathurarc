@@ -1,0 +1,6 @@
+set default-bg "rgba(33, 44, 55, 0.4)"
+set recolor-lightcolor "rgba(33, 44, 55, 0.5)"
+set recolor-darkcolor "rgba(255, 255, 255, 1.0)"
+set recolor true
+set selection-clipboard clipboard
+set font "monospace normal 18"

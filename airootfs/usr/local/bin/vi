@@ -1,0 +1,5 @@
+#!/bin/bash
+if test -f "/usr/bin/vi";
+then /usr/bin/vi $*
+else nvim "$@"
+fi

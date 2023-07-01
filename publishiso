@@ -1,0 +1,13 @@
+#!/bin/bash
+# @Author: clsty <ph-tyhu@outlook.com>
+# @Title: arCNiso publishiso: auto publish file.
+# @URL: https://github.com/clsty/arCNiso
+# @License: GNU GPL v3.0 License
+
+function try { "$@" || sleep 0; }
+set -e
+cd $(dirname $0)
+
+./publishiso-1-release.sh $1
+./publishiso-2-bt.sh
+./publishiso-3-alist.sh

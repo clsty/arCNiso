@@ -1,0 +1,8 @@
+#!/bin/bash
+user=archer
+urlfile=/home/$user/.cache/tempwebpageurl
+mkdir -p /home/$user/.cache
+case "$(whoami)" in
+    "root") su $user -c "echo $1 >$urlfile" ;;
+    "$user") echo "$1" >$urlfile ;;
+esac

@@ -1,0 +1,11 @@
+[$Version]
+update_info=filepicker.upd:filepicker-remove-old-previews-entry
+
+[Colors:View]
+BackgroundNormal=50, 50, 50
+
+[KDE]
+ShowDeleteCommand=false
+
+[PreviewSettings]
+MaximumRemoteSize=0

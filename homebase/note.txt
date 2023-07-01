@@ -1,0 +1,6 @@
+在 makeiso.sh 构建时，依次：
+- 复制 public 到 airootfs/etc/skel 与 airootfs/root
+- 复制（覆盖）skel 到 airootfs/etc/skel
+- 复制（覆盖）root 到 airootfs/root
+
+makeiso 调用 mkarchiso 时，airootfs/skel 会被复制成每个非 root 用户的 home 文件夹，如 /home/archer 。
