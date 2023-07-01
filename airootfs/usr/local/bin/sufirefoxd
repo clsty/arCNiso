@@ -1,0 +1,10 @@
+#!/bin/bash
+urlfile=$HOME/.cache/tempwebpageurl
+while true;do
+  if test -f $urlfile;then
+    url="$(cat $urlfile)"
+    nofail rm $urlfile
+    nohup firefox "$url" >/dev/null 2>/dev/null &
+  fi
+  sleep 1
+done

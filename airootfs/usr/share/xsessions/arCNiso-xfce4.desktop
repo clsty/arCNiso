@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=arCNiso-xfce4
+Name[zh_CN]=Xfce 会话
+Comment=Use this session to run Xfce as your desktop environment
+Comment[zh_CN]=使用此会话将 Xfce 作为您的桌面环境运行
+Exec=arCNiso-xfce4
+Icon=
+Type=Application
+DesktopNames=XFCE

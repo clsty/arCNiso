@@ -1,0 +1,11 @@
+#!/bin/bash
+if test -f "/usr/bin/lynx"
+then /usr/bin/lynx "$@"
+else echo "lynx 未安装，你可以在线安装 lynx (1) 或将 \"${1}\" 作为参数传递给 Firefox 浏览器（2）。"
+     pp=1;read -p "请输入对应数字 [1/2]：" pp
+     case $pp in
+         1) sudo pacman -S --noconfirm lynx||sudo pacman -Sy --noconfirm lynx
+            /usr/bin/lynx "$@" ;;
+         2) sufirefox "$1"  ;;
+     esac
+fi

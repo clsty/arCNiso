@@ -1,0 +1,308 @@
+# 尤其注意，行尾不能有注释或多余空格，否则可能找不到包。
+### AUR
+# 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
+# ---- BEGINof AUR ---- #
+btrfs-assistant
+candy-icons-git
+efibooteditor
+oh-my-zsh-git
+peazip-gtk2-bin
+sweet-theme-full-git
+sweet-kde-theme-git
+timeshift
+ttf-lxgw-wenkai
+ventoy-bin
+zsh-theme-powerlevel10k-git
+# ---- ENDof AUR ---- #
+#paru 现在改为要使用时在线安装
+#nwg-look-bin 为了生成一些配置文件，已经生成在 airootfs 里就不需要了
+
+# 字体问题
+# 中文字体 ----------------
+# 包：ttf-lxgw-wenkai-screen 名：LXGW WenKai Screen
+# 感觉有点糊
+# 包：ttf-lxgw-wenkai 名：LXGW WenKai Mono
+# 占空间小，就是有点细，而且在konsole下会有奇怪的光标漂移问题
+# 英文字体 ----------------
+# 名：DroidSansM Nerd Font
+# 相比普通的WenKai太粗了，不搭
+# 包：adobe-source-code-pro-fonts 名：Source Code Pro
+# 虽然还是有点粗，但比较扁，跟中文方块字反而还比较契合
+# 是 gtk2 的（经一系列依赖链的）依赖之一，没办法去掉。
+# 不带 nerd-font（有一个打了 nerd 补丁的版本但是没法作为 gtk 的依赖）
+# 包：noto-fonts（系列）：效果最好但是近 1G
+
+### archlinuxcn
+archlinuxcn-keyring
+
+### Arch Linux 官方源
+## 外设
+xf86-input-synaptics
+xf86-input-evdev
+onboard
+brightnessctl
+ddcutil
+networkmanager
+nm-connection-editor
+bluez
+bluez-utils
+blueman
+## 终端工具
+neofetch
+git
+curl
+fzf
+man-pages-zh_cn
+## 字体
+fontconfig
+ttf-nerd-fonts-symbols-mono
+#noto-fonts
+#noto-fonts-cjk
+#noto-fonts-emoji
+#powerline-fonts
+#ttf-jetbrains-mono-nerd
+#ttf-jetbrains-mono
+## 音频
+pipewire
+pipewire-audio
+pipewire-alsa
+pipewire-pulse
+pavucontrol
+wireplumber
+## 磁盘与文件
+partitionmanager
+testdisk
+par2cmdline
+ack
+tree
+fd
+ncdu
+snapper
+dolphin
+vifm
+ranger
+p7zip
+## 日常应用
+firefox
+firefox-i18n-zh-cn
+zathura
+zathura-pdf-mupdf
+keepassxc
+vlc
+emacs
+neovim
+konsole
+ristretto
+# 看软件包占用
+expac
+## 截取
+obs-studio
+screenkey
+## 输入法
+fcitx5
+fcitx5-configtool
+fcitx5-gtk
+fcitx5-qt
+fcitx5-nord
+fcitx5-rime
+## 图形化
+exo
+garcon
+#thunar
+#thunar-volman
+tumbler
+xfce4-screenshooter
+xfce4-appfinder
+xfce4-panel
+#xfce4-power-manager
+xfce4-session
+xfce4-settings
+#xfce4-terminal
+xfconf
+xfdesktop
+xfwm4
+#xfwm4-themes
+#xfburn
+xfce4-battery-plugin
+xfce4-clipman-plugin
+#xfce4-cpufreq-plugin
+#xfce4-cpugraph-plugin
+#xfce4-diskperf-plugin
+xfce4-fsguard-plugin
+#xfce4-genmon-plugin
+#genmon: 显示某个脚本的 stdout ，暂时用不到
+#xfce4-mount-plugin
+xfce4-mpc-plugin
+#xfce4-netload-plugin
+xfce4-notifyd
+xfce4-pulseaudio-plugin
+#xfce4-screensaver
+#xfce4-sensors-plugin
+xfce4-systemload-plugin
+xfce4-taskmanager
+#xfce4-time-out-plugin
+#xfce4-timer-plugin
+xfce4-wavelan-plugin
+#xfce4-weather-plugin
+xfce4-xkb-plugin
+wmctrl
+#xorg-xwininfo wmctrl自己就能据-r Konsole找到窗口了，不需要从xwininfo获得id
+xorg-server
+#picom
+## 主题
+qt5ct
+qt6ct
+#breeze-icons
+#adwaita-cursors
+libappindicator-gtk3
+# papirus这个icon theme，如果不用的话，很多地方（尤其是功能性、指示性的，不是应用程序的）会缺图标，比如 konsole 的“拆分视图”。
+# 并且它也只是感觉上比较大，实际上去掉之后也才减了30MB
+papirus-icon-theme
+grub-customizer
+## 杂项
+xclip
+## AMD 独显
+mesa
+#xf86-video-amdgpu xf86用于modesetting，但现在不需要这个就行；其其他功能也用不上，除非写 xorg config
+## Intel 核显
+mesa
+#xf86-video-intel 无人维护，新旧i卡都用不上
+## Nvidia 独显
+mesa
+#xf86-video-nouveau
+## qemu 虚拟机
+virglrenderer
+qemu-guest-agent
+## virtualbox 虚拟机
+virtualbox-guest-utils
+#xf86-video-vmware
+## linux-zen
+# 要用 linux-zen 就要用 dkms 版的 broadcom-wl-dkms，就要依赖 dkms，继而依赖 gcc，占用空间较大。
+# dkms
+# linux-zen
+# linux-zen-headers
+# broadcom-wl-dkms
+
+### releng 原版包列表
+# 注：每过几个月，最好检查一下最新的 releng
+# 移除：vim grml-zsh-config virtualbox-guest-utils-nox
+# 移除：dhcpcd dhclient iwd lynx
+alsa-utils
+amd-ucode
+arch-install-scripts
+archinstall
+b43-fwcutter
+base
+bind
+brltty
+broadcom-wl
+btrfs-progs
+clonezilla
+cloud-init
+cryptsetup
+darkhttpd
+ddrescue
+dhclient
+diffutils
+dmidecode
+dmraid
+dnsmasq
+dosfstools
+e2fsprogs
+edk2-shell
+efibootmgr
+espeakup
+ethtool
+exfatprogs
+f2fs-tools
+fatresize
+foot-terminfo
+fsarchiver
+gnu-netcat
+gpart
+gpm
+gptfdisk
+grub
+hdparm
+hyperv
+intel-ucode
+irssi
+iw
+jfsutils
+kitty-terminfo
+less
+lftp
+libfido2
+libusb-compat
+linux
+linux-atm
+linux-firmware
+linux-firmware-marvell
+livecd-sounds
+lsscsi
+lvm2
+man-db
+man-pages
+mc
+mdadm
+memtest86+
+memtest86+-efi
+mkinitcpio
+mkinitcpio-archiso
+mkinitcpio-nfs-utils
+modemmanager
+mtools
+nano
+nbd
+ndisc6
+nfs-utils
+nilfs-utils
+nmap
+ntfs-3g
+nvme-cli
+open-iscsi
+open-vm-tools
+openconnect
+openssh
+openvpn
+partclone
+parted
+partimage
+pcsclite
+ppp
+pptpclient
+pv
+qemu-guest-agent
+refind
+reflector
+reiserfsprogs
+rp-pppoe
+rsync
+rxvt-unicode-terminfo
+screen
+sdparm
+sg3_utils
+smartmontools
+sof-firmware
+squashfs-tools
+sudo
+syslinux
+systemd-resolvconf
+tcpdump
+terminus-font
+testdisk
+tmux
+tpm2-tss
+udftools
+usb_modeswitch
+usbmuxd
+usbutils
+vpnc
+wezterm-terminfo
+wireless-regdb
+wireless_tools
+wpa_supplicant
+wvdial
+xfsprogs
+xl2tpd
+zsh

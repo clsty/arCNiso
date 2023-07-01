@@ -1,0 +1,9 @@
+[Unit]
+Description=arCNiso prepare
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/arCNiso/prepare.sh
+
+[Install]
+WantedBy=multi-user.target

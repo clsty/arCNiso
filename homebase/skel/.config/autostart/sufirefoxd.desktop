@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=0.1.0
+Type=Application
+Name=sufirefoxd
+Comment=Run a daemon that detect temp url file to open with firefox as current user.
+Exec=sufirefoxd
+OnlyShowIn=XFCE;
+RunHook=0
+StartupNotify=false
+Terminal=false
+Hidden=false
+

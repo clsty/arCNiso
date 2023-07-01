@@ -1,0 +1,8 @@
+Interface=lo
+Autohide=false
+AutohideMissing=false
+SignalColors=true
+ShowIcon=true
+ShowBar=true
+Command=nm-connection-editor
+

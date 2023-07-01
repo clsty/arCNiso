@@ -1,0 +1,6 @@
+#!/bin/bash
+if test -f "/usr/bin/vim"
+  # 注意如果直接写 vim，就会调用自身，无限循环。
+then /usr/bin/vim $*
+else nvim "$@"
+fi
