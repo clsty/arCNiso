@@ -38,7 +38,7 @@ Wiki 是一种可供多人合作写作的资料系统，常被用于编写百科
 #+end_quote
 其中的部分条目有中文版（相关页面实际上是链接到了 archlinuxcn），可以在右上角的 Languages 中选择语言。
 
-*ArchWiki 是最为丰富的 Linux 发行版 Wiki，推荐作为 Arch Linux 使用过程中各种问题的第一参考。*
+*ArchWiki 是最为丰富的 Linux 发行版 Wiki，推荐作为 Arch Linux 使用过程中各种问题的（除官方文档与手册外的）第一参考。*
 
 其次是 [[https://bbs.archlinux.org][Arch Forums]] 即论坛，这里可供 Arch Linux（注意不包括 Arch Linux 的衍生发行版）的使用者进行交流探讨。
 在使用中遇到一些技术问题，可以尝试在这里找到解决方案，或遵循其规则进行提问求助。
@@ -83,7 +83,7 @@ Arch Packages 所含的几个软件源（包括 core、extra、multilib 以及�
 * 入门
 - 首推《[[https://missing-semester-cn.github.io][计算机教育中缺失的一课]]》（英文原版：[[https://missing.csail.mit.edu][The Missing Semester of Your CS Education]]），它包含了 Shell、Vim、Git 等方面的知识。
   推荐先学习“课程概览与 shell”“Shell 工具和脚本”这两部分。
-  - 关于 Vim 的部分，如果你使用 arCNiso，则你可以改为用 Evil-tutor（在 arCNiso 的终端中输入 eviltutor 即可进入 evil-tutor）学习 Vim 式编辑器。
+  - 也推荐学习 Vim，但若你使用 arCNiso，则你可以改为用 [[https://github.com/clsty/evil-tutor-sc][evil-tutor-sc]]（在 arCNiso 的终端中输入 eviltutor 即可）学习 Vim 式编辑器。
 * 进阶
 - 继续完成《[[https://missing-semester-cn.github.io][计算机教育中缺失的一课]]》。
 - [[https://wangdoc.com/bash][阮一峰的 Bash 脚本教程]]：由著名的技术博客作者阮一峰写成（[[https://github.com/wangdoc/bash-tutorial][仓库地址]]）。
