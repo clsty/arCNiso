@@ -1,5 +1,5 @@
 #!/bin/bash
-# @Author: clsty <ph-tyhu@outlook.com>
+# @Author: clsty <celestial.y@outlook.com>
 # @Title: arCNiso makearchive: auto make archive file.
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
