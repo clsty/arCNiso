@@ -48,12 +48,13 @@ Wiki 是一种可供多人合作写作的资料系统，常被用于编写百科
 AUR 是对 Arch Linux 官方源的一种补充。
 
 与官方源提供二进制包不同，AUR 仅存储 PKGBUILD。
-如果二进制包是“宝物”，那么 PKGBUILD 就相当于“藏宝图”。
-用户通过某种方法（直接 git clone 或使用 AUR 助手）获取 PKGBUILD 之后，
+如果二进制包是“宝物”，那么 PKGBUILD 就相当于“藏宝图”，对应的构建工具 makepkg 则相当于“自动寻宝机器人”。
+
+具体地，用户通过某种方法（直接 git clone 或使用 AUR 助手）获取 PKGBUILD 之后，
 使用 makepkg 就能（经过一系列自动化流程）获取并安装真正的软件包了。
 
 需要注意的是，AUR 中的 PKGBUILD 是由 Arch Linux 用户上传的，而不是 Arch Linux 官方，因此无法保证其不含有恶意代码（当然，被发现上传含有恶意代码的 PKGBUILD 的用户则会被处罚）。
-为确保安全，在安装一个 AUR 包之前，用户应先自行检查其 PKGBUILD。
+为确保安全，在安装一个 AUR 包之前，用户应先自行检查其 PKGBUILD，比如看源（source）是否来自软件对应的官方。
 
 Arch Packages 所含的几个软件源（包括 core、extra、multilib 以及对应的 testing 源）是 Arch Linux 官方所唯一支持的；AUR 以及其他第三方源（包括下面提到的 archlinuxcn 源）均未得到 Arch Linux 官方支持。
 用户可以为 AUR 中的软件包投票；呼声较高的可能会被官方选中，并转移至官方源。
