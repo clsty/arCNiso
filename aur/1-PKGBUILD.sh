@@ -1,5 +1,5 @@
 #!/bin/bash
-# @Author: clsty <ph-tyhu@outlook.com>
+# @Author: clsty <celestial.y@outlook.com>
 # @Title: arCNiso aur-builder: auto build aur packages to local repo.
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
