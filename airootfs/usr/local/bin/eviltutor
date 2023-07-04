@@ -1,2 +1,7 @@
 #!/bin/bash
-emacs -nw --eval='(evil-tutor-sc-start)'
+echo "接下来将运行 Emacs，并打开 Emacs Evil 中文教程。"
+read -p "请输入对应数字。1=尝试从上次教程继续；2=全新开始：" pp
+case "$pp" in
+    2) emacs -nw --eval='(evil-tutor-sc-start-new)' ;;
+    *) emacs -nw --eval='(evil-tutor-sc-start)' ;;
+esac
