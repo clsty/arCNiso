@@ -9,7 +9,7 @@ cd $(dirname $0)
 
 iso="$(cat publishiso-filename)"
 
-# 先安装 aur/alist-bin，然后 alist server，然后按照提示在浏览器打开alist界面（默认是 http://0.0.0.0:5244），用户名admin，初始密码也是看命令行里给出的提示。
+# 先安装 aur/alist-bin，然后 sudo systemctl enable --now alist ，再在浏览器打开alist界面（默认是 http://0.0.0.0:5244），用户名和密码则是看 sudo alist admin --data /var/lib/alist
 # 然后添加 123pan 的存储，挂载到 /123pan（注意这是 alist 下的某个目录，不是本地目录），填写用户名与密码，选本地代理，最后勾选流式上传，保存。
 # 建议 sudo systemctl enable alist，这样之后 alist 会自动运行。
 #
@@ -18,8 +18,8 @@ iso="$(cat publishiso-filename)"
 # 地址是 http://0.0.0.0:5244/dav/123pan （"http://0.0.0.0:5244/dav/" 是 alist 的 webdav 地址）
 # 用户名与密码就是 alist 的那个。
 # 这样就添加完毕了，可以用 rclone copy 等方法进行传输。
-try rclone deletefile 123pan:/release/arCNiso/$iso
-rclone copy -P ./release/$iso 123pan:/release/arCNiso/
+try rclone deletefile 123pan:/release/arCNiso/"$iso"
+rclone copy -P ./release/"$iso" 123pan:/release/arCNiso/
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以
