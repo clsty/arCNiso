@@ -9,6 +9,14 @@ cd $(dirname $0)
 
 iso="$(cat publishiso-filename)"
 
+# 注意，此自动发布已失效！！
+# 当前配置：打开web代理、webdav本地代理，
+# 根文件夹ID填0，
+# 打开流式上传，
+# 结果：要么提示 504 method not allowed，要么提示 object not found，
+# （但是上传 README.org 这种级别的小文件就完全没问题。）
+# 如果不打开流式上传，则会立即上传到 100%（显然，这是本地缓存）然后等15分钟都没传完（显然是卡了，平时5分钟就传完了的）
+
 # 先安装 aur/alist-bin，然后 sudo systemctl enable --now alist ，再在浏览器打开alist界面（默认是 http://0.0.0.0:5244），用户名和密码则是看 sudo alist admin --data /var/lib/alist
 # 然后添加 123pan 的存储，挂载到 /123pan（注意这是 alist 下的某个目录，不是本地目录），填写用户名与密码，选本地代理，最后勾选流式上传，保存。
 # 建议 sudo systemctl enable alist，这样之后 alist 会自动运行。
