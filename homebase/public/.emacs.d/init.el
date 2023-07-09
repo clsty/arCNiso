@@ -176,6 +176,11 @@
   :hook (after-init . ivy-mode))
 ;;}}}
 
+;;{{{ tramp
+(use-package auto-sudoedit)
+(auto-sudoedit-mode 1)
+;;}}}
+
 ;;{{{ 自动备份
 (setq backup-by-copying t ; 自动备份
       backup-directory-alist '(("." . "~/.saves")) ; 自动备份在目录"~/.saves"下
