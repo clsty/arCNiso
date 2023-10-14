@@ -8,6 +8,21 @@ function try { "$@" || sleep 0; }
 set -e
 cd $(dirname $0)
 
+echo "Checking if every needed command is available..."
+checkexist() {
+	if command -v $1 >/dev/null 2>&1; then
+		echo "Command $1 found."
+	else
+		echo "Error: Command $1 not found, aborting..."
+		exit 1
+	fi
+}
+
+for i in fd qbittorrent-nox transmission-create gh rclone; do
+	checkexist $i
+done
+echo "Great, every needed command is available."
+
 ./publishiso-1-release.sh $1
 ./publishiso-2-bt.sh
 ./publishiso-3-alist.sh

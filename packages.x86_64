@@ -9,7 +9,6 @@ oh-my-zsh-git
 peazip-gtk2-bin
 sweet-theme-full-git
 sweet-kde-theme-git
-timeshift
 ttf-lxgw-wenkai
 ventoy-bin
 zsh-theme-powerlevel10k-git
@@ -78,6 +77,7 @@ tree
 fd
 ncdu
 snapper
+timeshift
 dolphin
 vifm
 ranger
