@@ -32,7 +32,7 @@
 ;; 刷新插件列表
 ;(unless package-archive-contents (package-refresh-contents))
 ;; 自动安装 use-package. 在Emacs 29中已内置故可省略
-(unless (package-installed-p 'use-package) (package-install 'use-package))
+;(unless (package-installed-p 'use-package) (package-install 'use-package))
 ;; 自动安装所有使用 use-package 声明的插件
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
@@ -183,7 +183,7 @@
 
 ;;{{{ 自动备份
 (setq backup-by-copying t ; 自动备份
-      backup-directory-alist '(("." . "~/.saves")) ; 自动备份在目录"~/.saves"下
+      backup-directory-alist '(("." . "~/.saves")) ; 自动备份目录
       delete-old-versions t ; 自动删除旧的备份文件
       kept-new-versions 6 ; 保留最近的6个备份文件
       kept-old-versions 2 ; 保留最早的2个备份文件

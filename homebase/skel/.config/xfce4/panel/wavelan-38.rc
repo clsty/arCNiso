@@ -1,4 +1,4 @@
-Interface=lo
+Interface=wlp1s0
 Autohide=false
 AutohideMissing=false
 SignalColors=true
