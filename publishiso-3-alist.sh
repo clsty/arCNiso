@@ -26,8 +26,11 @@ iso="$(cat publishiso-filename)"
 # 地址是 http://0.0.0.0:5244/dav/123pan （"http://0.0.0.0:5244/dav/" 是 alist 的 webdav 地址）
 # 用户名与密码就是 alist 的那个。
 # 这样就添加完毕了，可以用 rclone copy 等方法进行传输。
-echo "You may open https://www.123pan.com/ to upload now."
-echo "or https://cowtransfer.com/"
+echo "You may vist website below to upload now."
+echo "https://www.123pan.com/2433802/2433803"
+echo "https://cowtransfer.com/"
+releasepath="$(pwd)/release"
+wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
 #try rclone deletefile 123pan:/release/arCNiso/"$iso"
 #rclone copy -P ./release/"$iso" 123pan:/release/arCNiso/
 

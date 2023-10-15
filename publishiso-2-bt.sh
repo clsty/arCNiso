@@ -45,14 +45,14 @@ mkdir -p bt
 # 每天只更新一次tracker
 date="$(date +%Y%m%d)"
 olddate="$(try cat bt/trackerlistdate)"
-if [ y"$date" != y"$olddate" ] ; then curl "$trackerlist" -o bt/tracker.txt ; fi
-echo "$date" > bt/trackerlistdate
+if [ y"$date" != y"$olddate" ]; then curl "$trackerlist" -o bt/tracker.txt; fi
+echo "$date" >bt/trackerlistdate
 
 echo "开始制作种子。"
 # 使用 transmission 制作种子；qbittorrent-nox 不在 cli 中提供此工具
 transmission-create "$(pwd)/release/$iso" -o $tf -c "$ver 版本发布的镜像文件。源地址：https://github.com/clsty/arCNiso"
-for i in $(cat bt/tracker.txt);do
-transmission-edit -a "$i" $tf
+for i in $(cat bt/tracker.txt); do
+	transmission-edit -a "$i" $tf
 done
 echo "结束制作种子。"
 
@@ -67,5 +67,6 @@ echo "结束添加种子。"
 echo "开始创建 $ver 的 release 。"
 cp $tf $tfr
 try gh release delete $ver -y
+echo "注：若在这上面出现 release not found 是因为尝试删除指定 release 未果，是正常的。"
 gh release create $ver $tfr --generate-notes --latest --notes-file result.log --verify-tag
 echo "结束创建 $ver 的 release 。"
