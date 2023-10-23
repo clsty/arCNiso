@@ -24,7 +24,7 @@ However, *feel free to fork* this project and modify to make your own (of course
 * 简介
 [[https://github.com/clsty/arCNiso][arCNiso™]]（简称 arCN™）是一个自由开源的 archiso 镜像。
 
-其保留了官方原版 archiso 的所有功能，并面向@@html:<b>@@简体中文的中国用户@@html:</b>@@，就@@html:<b>@@安装系统、维护系统与临时使用@@html:</b>@@这三种用途进行了加强定制。
+其保留了官方原版 archiso 镜像的所有功能，并面向@@html:<b>@@简体中文的中国用户@@html:</b>@@，就@@html:<b>@@安装系统、维护系统与临时使用@@html:</b>@@这三种用途进行了加强定制。
 
 - arCNiso 不仅面向新手，也面向熟手，比如：
   - oh-my-zsh 与 p10k 总比裸 grml-zsh 好用；
@@ -55,15 +55,17 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 * 获取与运行
 ** 如何获取镜像文件
-- 法一（推荐，但仅最新版）：从 [[https://alist.celestialy.top/arCNiso/release][Celestial.y 的存储分享]] 下载（不需要登录，但是有密码：clsty）。
-- 法二（含有历史版本）：从 [[https://www.123pan.com/s/fU5iVv-tYaZ3.html][123 云盘]]（ +不需要登录或下载客户端，也不会限速+ 更新：123pan 目前也变得要登录了，而且广告超级多，原本没有广告的。后期可能会弃用）下载。
-  - 正如通过 http 方式下载 archiso 之后需要验证签名，下载完成之后建议手动验证版本对应的 [[https://github.com/clsty/arCNiso/releases][sha256sum]]。
-- 法三（但可能没人做种）：从 [[https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent][release]] 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
-  - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[[https://www.qbittorrent.org/download][这里]]下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
-  - 不需要手动验证 sha256sum（BT 客户端会自动验证）。
+- 从 [[https://github.com/clsty/arCNiso/releases/latest][GitHub Releases]] 或 [[https://alist.celestialy.top/arCNiso/release][Celestial.y 的存储分享（不需要登录，但是有密码：clsty）]] 下载即可。
+  - 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
+  - 正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [[https://github.com/clsty/arCNiso/releases][sha256sum]]。
 #+begin_quote
-- 镜像文件体积较大，无法在 GitHub Release 中直接提供。
-- 题外话，若想长期使用 BT 客户端，则更推荐 [[https://github.com/c0re100/qBittorrent-Enhanced-Edition][qbittorrent 增强版]]。
+- 备用方法：从 [[https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent][GitHub Releases]] 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
+  - 理论上来说，这也是不错的方法，但目前的做种时间较短（换句话说，时间不巧的话可能完全无法下载）。
+  - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[[https://www.qbittorrent.org/download][这里]]下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
+  - 题外话，若想长期使用 BT 客户端，则更推荐 [[https://github.com/c0re100/qBittorrent-Enhanced-Edition][qbittorrent 增强版]]。
+  - 不需要手动验证 sha256sum（BT 客户端会自动验证）。
+- 过时的备用方法：从 [[https://www.123pan.com/s/fU5iVv-tYaZ3.html][123pan]] 下载。
+  - 在过去，由于 123pan 相对来说比较良心，免登录、无广告且不需要客户端也不限速，这曾是主要方法；但不久之后 123pan 进行了一系列操作，比如限制 AList 挂载（这导致自动发布不再可行）、增加广告量、加大免登录下载的限制等等，于是此法逐渐弃用。
 #+end_quote
 - Q：但是，如果我说我不想直接下载，而是从源码自己编译一份，顺便做些修改（觉得不错的话还可以给你 [[https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.org][PR]]），阁下又将如何应对？
 - A：没问题，来看[[https://github.com/clsty/arCNiso/blob/main/docs/BUILD.org][构建]]。

@@ -69,4 +69,5 @@ cp $tf $tfr
 try gh release delete $ver -y
 echo "注：若在这上面出现 release not found 是因为尝试删除指定 release 未果，是正常的。"
 gh release create $ver $tfr --generate-notes --latest --notes-file result.log --verify-tag
+gh release upload $ver "$(pwd)/release/$iso"
 echo "结束创建 $ver 的 release 。"
