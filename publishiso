@@ -18,7 +18,7 @@ checkexist() {
 	fi
 }
 
-for i in fd qbittorrent-nox transmission-create gh rclone; do
+for i in fd qbittorrent-nox transmission-create gh; do
 	checkexist $i
 done
 echo "Great, every needed command is available."
