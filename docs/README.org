@@ -55,8 +55,8 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 * 获取与运行
 ** 如何获取镜像文件
-- 法一（推荐，但仅最新版）：从 [[https://alist.celestialy.top/public/arCNiso/release]] 下载（不需要登录，但是有密码：clsty）。
-- 法二（含有历史版本）：从 [[https://www.123pan.com/s/fU5iVv-tYaZ3.html][123 云盘]]（ +不需要登录或下载客户端，也不会限速+ 更新：123pan 目前也变得要登录了，而且广告超级多，原本没有广告的。后期可能会弃用）直接下载最新的 iso 镜像文件。
+- 法一（推荐，但仅最新版）：从 [[https://alist.celestialy.top/arCNiso/release][Celestial.y 的存储分享]] 下载（不需要登录，但是有密码：clsty）。
+- 法二（含有历史版本）：从 [[https://www.123pan.com/s/fU5iVv-tYaZ3.html][123 云盘]]（ +不需要登录或下载客户端，也不会限速+ 更新：123pan 目前也变得要登录了，而且广告超级多，原本没有广告的。后期可能会弃用）下载。
   - 正如通过 http 方式下载 archiso 之后需要验证签名，下载完成之后建议手动验证版本对应的 [[https://github.com/clsty/arCNiso/releases][sha256sum]]。
 - 法三（但可能没人做种）：从 [[https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent][release]] 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
   - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[[https://www.qbittorrent.org/download][这里]]下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
@@ -74,7 +74,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
   - 也可以将镜像文件通过 dd 或 Rufus 等工具写入到 U 盘中，但这远不如 Ventoy 灵活。
 - Q：其实——我的电脑系统全挂掉了（或出厂不含系统），也暂时无法借用他人电脑，这样也能制作 arCNiso 启动盘吗？
 - A：（ =>v>= 没想到吧.png）就算这样也还是有办法的——你可以使用安卓设备（手机、平板等）来做这件事。
-  - 安装 EtchDroid USB writer，它可从[[https://github.com/Depau/EtchDroid/releases][项目主页的 Release]] 或 [[https://f-droid.org/packages/eu.depau.etchdroid][F-Droid]] 下载（这里也提供 [[https://www.123pan.com/s/fU5iVv-snaZ3.html][123 云盘链接]]，但更新未必及时）。
+  - 安装 EtchDroid USB writer，它可从[[https://github.com/Depau/EtchDroid/releases][项目主页的 Release]] 或 [[https://f-droid.org/packages/eu.depau.etchdroid][F-Droid]] 下载（这里也提供 [[https://alist.celestialy.top/android][Celestial.y 的存储分享]]，密码 clsty；但更新未必及时）。
   - 将 U 盘插到安卓设备上，使用刚才安装的 EtchDroid 将前面获取到的 arCNiso 镜像文件写入到 U 盘中。
 #+begin_quote
 当你的电脑（通过 ventoy 或其他途径）启动本镜像之后，会自动进入启动流程。
