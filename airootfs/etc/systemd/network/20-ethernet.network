@@ -7,7 +7,7 @@ Name=eth*
 
 [Network]
 DHCP=yes
-IPv6PrivacyExtensions=yes
+MulticastDNS=yes
 
 # systemd-networkd does not set per-interface-type default route metrics
 # https://github.com/systemd/systemd/issues/17698
