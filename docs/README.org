@@ -55,10 +55,10 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 * 获取与运行
 ** 如何获取镜像文件
-- 法一（推荐）：从 [[https://alist.celestialy.top/public/arCNiso/release]] 下载（不需要登录，但是有密码：clsty）。
+- 法一（推荐，但仅最新版）：从 [[https://alist.celestialy.top/public/arCNiso/release]] 下载（不需要登录，但是有密码：clsty）。
 - 法二（含有历史版本）：从 [[https://www.123pan.com/s/fU5iVv-tYaZ3.html][123 云盘]]（ +不需要登录或下载客户端，也不会限速+ 更新：123pan 目前也变得要登录了，而且广告超级多，原本没有广告的。后期可能会弃用）直接下载最新的 iso 镜像文件。
   - 正如通过 http 方式下载 archiso 之后需要验证签名，下载完成之后建议手动验证版本对应的 [[https://github.com/clsty/arCNiso/releases][sha256sum]]。
-- 法三：从 [[https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent][release]] 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
+- 法三（但可能没人做种）：从 [[https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent][release]] 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
   - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[[https://www.qbittorrent.org/download][这里]]下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
   - 不需要手动验证 sha256sum（BT 客户端会自动验证）。
 #+begin_quote
