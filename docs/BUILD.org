@@ -13,7 +13,7 @@
 （这里使用 pacman 安装 paru 的前提是已添加 archlinuxcn 源，否则请自行用其他方法安装 paru）
 #+begin_src bash
 sudo pacman -Sy --needed paru
-sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp
+sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake
 #+end_src
 
 *** 获取本项目（约 1 分钟，依赖网速）

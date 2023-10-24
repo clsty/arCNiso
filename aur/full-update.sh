@@ -31,11 +31,11 @@ checkexist() {
 	fi
 }
 
-for i in git awk paru makepkg getopts repo-add asp; do
-	checkexist $i
+for i in cmake git awk paru makepkg getopts repo-add asp; do
+	checkexist $i || echo "Command $i not found, aborting" && exit
 done
 echo "Great, every needed command is available."
-
+exit
 if [[ "${force}" != f ]]; then
 	bash 1-PKGBUILD.sh
 	bash 2-prepare.sh
