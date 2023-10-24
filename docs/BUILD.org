@@ -60,6 +60,17 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 ~arCNiso-xfce4~ 。
 
+* 追踪 releng
+注：这一条仅作为作者的记录，只要本项目仍在维护（指最后发布的镜像距现在最多两个月），就说明对 releng 的追踪仍在继续，读者不必担心。
+** 必要性
+本项目是基于 releng 的，而 releng 本身与 archiso 工具又是不断更新的。
+这就会导致一个问题：如果本项目从旧 releng 拿来的基础部分不变，却与新 releng 偏离过大，则可能无法用最新的 archiso 及配套工具来成功构建本项目的 arCNiso 镜像（或者即使得到了镜像也无法正常运行）。
+** 方法论
+- 关注 GitLab 上 releng 的最新变化，如
+  - https://gitlab.archlinux.org/archlinux/archiso/-/commits/master/configs/releng?ref_type=heads
+  - https://gitlab.archlinux.org/archlinux/releng/-/commits/master/?ref_type=HEADS
+- 使用 diff 类工具（如 kompare）对比本项目目录与 archiso 所提供的 =/usr/share/archiso/configs/releng= 目录。
+
 * 附：其他脚本
 ** 自动打包源码
 本项目包含了 =./makearchive.sh= 脚本，功能是由 git 输出 tar 包（因此会遵循 =.gitignore= 等规则），但目前并没有找到或者说开发出什么有意义的用法。
