@@ -54,6 +54,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 祝你使用愉快！
 
 * 获取与运行
+注：要运行此镜像的机器，最低内存 3GiB（此时使用 Firefox 仍有崩溃风险），推荐内存 4GiB 及以上。
 ** 如何获取镜像文件
 - 从 [[https://github.com/clsty/arCNiso/releases/latest][GitHub Releases]] 或 [[https://alist.celestialy.top/arCNiso/release][Celestial.y 的存储分享（不需要登录，但是有密码：clsty）]] 下载即可。
   - 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
