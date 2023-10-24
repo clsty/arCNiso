@@ -1,0 +1,5 @@
+github.com^partitionKey=%28https%2Cgithub.com%29	0	19654	1729664580704,1,1
+www.archlinux.org	0	19654	1729664634742,1,1
+github.githubassets.com	0	19654	1729664582782,1,0
+services.addons.mozilla.org	0	19654	1729664569424,1,0
+firefox.settings.services.mozilla.com	0	19654	1729664567808,1,0

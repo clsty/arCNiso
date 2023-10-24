@@ -1,0 +1,3 @@
+https:push.services.mozilla.com:443:.::3	0	19654	https:push.services.mozilla.com:443:push.services.mozilla.com:443::n:1700721741:h3:y:1698128566:n::|n:y:
+https:safebrowsing.googleapis.com:443:.:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:3	0	19654	https:safebrowsing.googleapis.com:443:safebrowsing.googleapis.com:443::n:1698129284:h3:n:1698129277:n:^firstPartyDomain=safebrowsing.86868755-6b82-4842-b301-72671a0db32e.mozilla:|n:y:
+https:config.immersivetranslate.com:443:.::3	0	19654	https:config.immersivetranslate.com:443:config.immersivetranslate.com:443::n:1698216158:h3:y:1698129277:n::|n:y:
