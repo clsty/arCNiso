@@ -8,11 +8,11 @@ efibooteditor
 oh-my-zsh-git
 peazip-gtk2-bin
 sweet-kde-theme-git
+sweet-theme-full-git
 ttf-lxgw-wenkai
 ventoy-bin
 zsh-theme-powerlevel10k-git
 # ---- ENDof AUR ---- #
-#sweet-theme-full-git
 #paru 现在改为要使用时在线安装
 #nwg-look-bin 为了生成一些配置文件，已经生成在 airootfs 里就不需要了
 
