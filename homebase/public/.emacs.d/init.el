@@ -183,10 +183,11 @@
 
 ;;{{{ 自动备份
 (setq backup-by-copying t ; 自动备份
-      backup-directory-alist '(("." . "~/.saves")) ; 自动备份目录
+      backup-directory-alist `(("." . "~/.cache/backups/")) ; 自动备份目录
+      auto-save-file-name-transforms `((".*" "~/.cache/autosaves/" t)) ; 自动保存目录，注意这个目录可能需要手动创建
       delete-old-versions t ; 自动删除旧的备份文件
-      kept-new-versions 6 ; 保留最近的6个备份文件
-      kept-old-versions 2 ; 保留最早的2个备份文件
+      kept-new-versions 6 ; 保留最近的n个备份文件
+      kept-old-versions 2 ; 保留最早的n个备份文件
       version-control t) ; 多次备份
 ;;}}}
 
