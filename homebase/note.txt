@@ -4,3 +4,9 @@
 - 复制（覆盖）root 到 airootfs/root
 
 makeiso 调用 mkarchiso 时，airootfs/skel 会被复制成每个非 root 用户的 home 文件夹，如 /home/archer 。
+
+zsh 配置的区别：
+- skel 的 zshrc 会 echo 提醒用户，当前用户并非 root，若要安装系统则要切换到 root。因此 p10k 的配置中要把 INSTANT PROMPT 设为 quite 以防报错。
+- root 的 zshrc 则不会这样提醒用户，所以 p10k 的 INSTANT PROMPT 照旧为 verbose。
+
+此外，在 root 与 skel 中都保留一个空的 .cache 目录是有用的，防止部分程序试图在 .cache 中新建文件（夹）时报错。
