@@ -134,7 +134,7 @@
 - 你在这个阶段并没有花费什么时间与精力，比如你使用了某种自动化工具。
 #+begin_quote
 - archinstall：那么这个自动化工具……
-- [[https://github.com/clsty/ulerm][ulerm]]：没错，正是在下。
+- [[https://github.com/clsty/ulerm][ulerm]]： +没错，正是在下+ （其实还没做好，敬请期待）。
 
 注：目前，新手不建议使用 archinstall，主要原因之一是用它安装的 Arch Linux 和与正常途径安装的可能会有一些差别，而这些差别可能在日后导致问题。
 #+end_quote
