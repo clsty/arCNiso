@@ -35,7 +35,9 @@ wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
 # rclone delete 会将一个目录下的所有文件（包括子文件夹里的）都删除，且无需确认，也不会报错；但是所有子文件夹都不会被删除
 #try rclone delete clsty:/public/arCNiso/release
 #rclone copy -P ./release/"$iso" clsty:/public/arCNiso/release/
+echo "正在用 rsync 删除已存在的 iso..."
 rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
+echo "正在用 rsync 同步 iso..."
 rsync --delete-before --info=progress2 -avre ssh ./release/ $(cat ./ignored/rsyncpath)
 
 # （以下方法实测不可行）
