@@ -70,6 +70,7 @@
 - 提供 Timeshift 、btrfs-assistant 及 Snapper 作为快照的备份恢复软件。
 - 提供 EFIBootEditor 作为 efibootmgr 的 GUI 前端。
 - 提供 grub-customizer 作为（功能有限的）GRUB 自定义配置工具。
+  - 配置了 ~usbcore.autosuspend=-1 btusb.enable_autosuspend=N bluetooth.disable_ertm=Y~ 作为内核参数，以提升外设连接的稳定性。
 - 提供 Ventoy（同时具有 GUI 与 CLI）以进行一些特殊操作。
 ** 录制截取
 - OBS Studio：用于录屏。
@@ -92,6 +93,28 @@
 
 - 弃用 Firfox 的动态主题。
   - 减少卡死几率。
+
+- 对 squashfs 使用 zstd 而非 xz 的压缩算法参数。
+  - 以较小的尺寸增幅为代价，zstd 相较于 xz 生成镜像，无论是编译速度还是启动速度、运行速度都快很多。
+  - 以 v2.3.0 与 v2.3.1 为例（测试环境相同，且显存、内存充足）：
+  - v2.3.0：采用 releng 默认的 =xz -Xbcj x86 -Xdict-size 1M= 作为 squashfs 参数。
+    - 体积：1572MB
+    - 秒表计时的启动测试：
+      - 启动：00:00
+      - GRUB 出现：00:06
+      - tty 自动登录：01:12
+      - 黑屏开始：01:28
+      - 黑屏结束：02:00
+      - Konsole 弹出，zsh 提示符可用：02:36
+  - v2.3.1：改用 =zstd -Xcompression-level 15= 作为 squashfs 参数。
+    - 体积：1753MB
+    - 秒表计时的启动测试：
+      - 启动：00:00
+      - GRUB 出现：00:07
+      - tty 自动登录：00:47
+      - 黑屏开始：00:53
+      - 黑屏结束：01:02
+      - Konsole 弹出，zsh 提示符可用：01:15
 
 - 弃用 xfce4 用于自动挂载的插件。
   - 自动挂载不是官方 archiso 的默认行为，从而使情况出乎用户预料之外。
