@@ -96,8 +96,8 @@
 
 - 对 squashfs 使用 zstd 而非 xz 的压缩算法参数。
   - 以较小的尺寸增幅为代价，zstd 相较于 xz 生成镜像，无论是编译速度还是启动速度、运行速度都快很多。
-  - 以 v2.3.0 与 v2.3.1 为例（测试环境相同，且显存、内存充足）：
-  - v2.3.0：采用 releng 默认的 =xz -Xbcj x86 -Xdict-size 1M= 作为 squashfs 参数。
+  - 以相应的 commit 之前（以下称为 A）与之后（以下称为 B）的两个版本的对比为例（测试环境相同，且内存充足）：
+  - A：采用 releng 默认的 =xz -Xbcj x86 -Xdict-size 1M= 作为 squashfs 参数。
     - 体积：1572MB
     - 秒表计时的启动测试：
       - 启动：00:00
@@ -106,7 +106,7 @@
       - 黑屏开始：01:28
       - 黑屏结束：02:00
       - Konsole 弹出，zsh 提示符可用：02:36
-  - v2.3.1：改用 =zstd -Xcompression-level 15= 作为 squashfs 参数。
+  - B：改用 =zstd -Xcompression-level 15= 作为 squashfs 参数。
     - 体积：1753MB
     - 秒表计时的启动测试：
       - 启动：00:00
