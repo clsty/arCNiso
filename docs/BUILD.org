@@ -17,7 +17,7 @@ sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake
 #+end_src
 
 *** 获取本项目（约 1 分钟，依赖网速）
-可以从 release 获取最新稳定版本的 tarball 并解压构建；
+可以从 GitHub Releases 获取最新稳定版本的 tarball 并解压构建；
 
 也可以直接克隆本仓库，为此在 bash 或 zsh 中运行：
 #+begin_src bash

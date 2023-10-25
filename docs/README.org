@@ -77,7 +77,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
   - 也可以将镜像文件通过 dd 或 Rufus 等工具写入到 U 盘中，但这远不如 Ventoy 灵活。
 - Q：其实——我的电脑系统全挂掉了（或出厂不含系统），也暂时无法借用他人电脑，这样也能制作 arCNiso 启动盘吗？
 - A：（ =>v>= 没想到吧.png）就算这样也还是有办法的——你可以使用安卓设备（手机、平板等）来做这件事。
-  - 安装 EtchDroid USB writer，它可从[[https://github.com/Depau/EtchDroid/releases][项目主页的 Release]] 或 [[https://f-droid.org/packages/eu.depau.etchdroid][F-Droid]] 下载（这里也提供 [[https://alist.celestialy.top/android][Celestial.y 的存储分享]]，密码 clsty；但更新未必及时）。
+  - 安装 EtchDroid USB writer，它可从[[https://github.com/Depau/EtchDroid/releases][项目主页的 Releases]] 或 [[https://f-droid.org/packages/eu.depau.etchdroid][F-Droid]] 下载（这里也提供 [[https://alist.celestialy.top/android][Celestial.y 的存储分享]]，密码 clsty；但更新未必及时）。
   - 将 U 盘插到安卓设备上，使用刚才安装的 EtchDroid 将前面获取到的 arCNiso 镜像文件写入到 U 盘中。
 #+begin_quote
 当你的电脑（通过 ventoy 或其他途径）启动本镜像之后，会自动进入启动流程。
