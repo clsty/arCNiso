@@ -23,7 +23,6 @@ source profiledef.sh
 iso="${iso_name}-${iso_version}-$1-${arch}.iso"
 echo $iso >publishiso-filename
 mkdir -p release
-rm -r ./release/*
 cp -f OUT/$originiso release/$iso || if ! test -f release/$iso; then exit 1; fi
 
 sed -i "1c\文件名：$iso" result.log
