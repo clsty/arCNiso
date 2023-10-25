@@ -58,7 +58,9 @@ echo "结束制作种子。"
 
 echo "开始添加种子。"
 # 默认在浏览器访问 http://localhost:8080 即可进入 qbittorrent 界面（WebUI）。
+echo "尝试在后台运行 qbittorrent-nox..."
 try qbittorrent-nox -d # 尝试在后台运行
+echo "尝试向 qbittorrent-nox 添加任务..."
 qbittorrent-nox "$tf" --save-path="$(pwd)/release/"
 #transmission-remote --add "$tf" --download-dir "$(pwd)/release/"
 #transmission-remote -t $(transmission-remote -l | grep "$iso" | awk '{print $ver}') -s --find "$(pwd)/release/"
