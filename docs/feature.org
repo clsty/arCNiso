@@ -6,6 +6,9 @@
 在设计说明中，给出部分设计的背景原因与考量。
 
 * 特性列表
+** 启动与内核
+- 安全启动：利用 shim 添加了安全启动支持（注：这只是说，在开启安全启动时可以正常启动 arCNiso，并非是使用 arCNiso 安装的系统一定支持安全启动。当然，若要安装一份支持安全启动的 Linux，则本身支持安全启动的 Live CD 也是便利的）。
+- 内核参数：添加了 ~usbcore.autosuspend=-1 btusb.enable_autosuspend=N bluetooth.disable_ertm=Y~ 作为内核参数，以提升部份外设连接的稳定性。
 ** 图形环境
 以 xfce4 为核心，进行了多方面的配置。
 - 主题：主要主题为 sweet，图标主题为 papirus，以 kvantum 作为引擎。
@@ -70,7 +73,6 @@
 - 提供 Timeshift 、btrfs-assistant 及 Snapper 作为快照的备份恢复软件。
 - 提供 EFIBootEditor 作为 efibootmgr 的 GUI 前端。
 - 提供 grub-customizer 作为（功能有限的）GRUB 自定义配置工具。
-  - 配置了 ~usbcore.autosuspend=-1 btusb.enable_autosuspend=N bluetooth.disable_ertm=Y~ 作为内核参数，以提升外设连接的稳定性。
 - 提供 Ventoy（同时具有 GUI 与 CLI）以进行一些特殊操作。
 ** 录制截取
 - OBS Studio：用于录屏。
@@ -96,7 +98,7 @@
 
 - 对 squashfs 使用 zstd 而非 xz 的压缩算法参数。
   - 以较小的尺寸增幅为代价，zstd 相较于 xz 生成镜像，无论是编译速度还是启动速度、运行速度都快很多。
-  - 以相应的 commit 之前（以下称为 A）与之后（以下称为 B）的两个版本的对比为例（测试环境相同，且内存充足）：
+  - 以相应的 commit 之前（以下称为 A）与之后（以下称为 B）的两个版本的对比为例（测试环境相同，均为 VirtualBox 虚拟机，从宿主机具有的超低压 CPU 分配了两个线程，分配 3GB 内存）：
   - A：采用 releng 默认的 =xz -Xbcj x86 -Xdict-size 1M= 作为 squashfs 参数。
     - 体积：1572MB
     - 秒表计时的启动测试：
