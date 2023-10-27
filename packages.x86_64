@@ -36,7 +36,7 @@ shim-signed
 mokutil
 
 ### archlinuxcn
-archlinuxcn-keyring
+#archlinuxcn-keyring
 
 ### Arch Linux 官方源
 ## 外设
@@ -82,7 +82,7 @@ fd
 ncdu
 snapper
 timeshift
-dolphin
+#dolphin
 vifm
 ranger
 p7zip
@@ -112,8 +112,9 @@ fcitx5-rime
 ## 图形化
 exo
 garcon
-#thunar
-#thunar-volman
+thunar
+thunar-volman
+gvfs-mtp
 tumbler
 xfce4-screenshooter
 xfce4-appfinder
