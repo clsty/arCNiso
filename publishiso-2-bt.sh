@@ -5,6 +5,7 @@
 # @License: GNU GPL v3.0 License
 
 # 利用 github-cli 与 transmission 与 qbittorrent-nox 自动发布。
+# 种子文件会上传到 GitHub Releases。此过程中，iso 文件也会一并上传（需要大小小于 2GiB）
 # 需要配置 github-cli 。使用 gh auth login 。
 #
 # 注：为什么一定是两个软件（transmission,qbittorrent）而不是一个呢？

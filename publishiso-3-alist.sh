@@ -38,6 +38,7 @@ wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
 echo "正在用 rsync 删除已存在的 iso..."
 rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
 echo "正在用 rsync 同步 iso..."
+cp ./result.md ./release/README.md
 rsync --delete-before --info=progress2 -avre ssh ./release/ $(cat ./ignored/rsyncpath)
 
 # （以下方法实测不可行）
