@@ -65,6 +65,19 @@ rm /tmp/arCNiso/* # 注意这里应当只有软链接及 touched
 ln -sf $(pwd)/aur/pkgs /tmp/arCNiso/aur
 ln -sf $(pwd)/pacman.d /tmp/arCNiso/pacman.d
 
+# 准备相关密钥
+# https://wiki.archlinux.org/title/Archiso#Adding_repositories_to_the_image
+# https://github.com/archlinuxcn/archlinuxcn-keyring
+if [ -f ./githubrawprefix ]; then
+	githubrawprefix="$(cat ./githubrawprefix)"
+else
+	githubrawprefix="https://raw.githubusercontent.com/"
+fi
+for i in "archlinuxcn.gpg" "archlinuxcn-trusted" "archlinuxcn-revoked"; do
+	curl -o ./airootfs/usr/share/pacman/keyrings/"${i}" "${githubrawprefix}"archlinuxcn/archlinuxcn-keyring/master/"${i}"
+done
+# 注：以上与添加 archlinuxcn-keyring 到包名列表是互斥的（二选一）
+
 # 构建
 mkdir -p OUT TMP
 sudo rm -rf OUT TMP
@@ -78,15 +91,15 @@ else
 fi
 sudo rm -rf TMP
 sudo chown -R $(whoami):$(whoami) ./OUT
-mv OUT/"$(fd --base-directory OUT .iso)" OUT/arCNiso.iso
+mv $(find OUT -name "*.iso") OUT/arCNiso.iso
 
 # 清理临时家目录
 try rm -rf ./airootfs/etc/skel
 try rm -rf ./airootfs/root
 
 # 输出信息
+export name=$(basename $(find OUT -name "*.iso"))
 export size=$(du -a -B MB OUT/*.iso | cut -f1 -d"	")
-export name=$(find OUT -name "*.iso")
 export sha256sum=$(sha256sum OUT/*.iso | cut -f1 -d" ")
 
 echo "文件名：${name}

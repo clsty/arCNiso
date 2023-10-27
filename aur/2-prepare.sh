@@ -3,7 +3,7 @@
 # @Title: arCNiso aur-builder: auto build aur packages to local repo.
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
-function nofail { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
 while getopts "hf" opt;do
       case $opt in
           "h") help=h;;
@@ -28,5 +28,5 @@ for i in $t;do
 	     [yY]) echo 好的，开始 prepare... ;;
 	     [aA]) force=f ;;
 	      *) continue ;;esac;fi
-        nofail makepkg -o --nodeps
+        aaa makepkg -o --nodeps
 done

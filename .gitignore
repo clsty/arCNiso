@@ -3,6 +3,7 @@
 !/secureboot/patch.sh
 !/secureboot/diff.sh
 !/secureboot/genkey.sh
+/githubrawprefix
 /db.key
 /db.crt
 /db.cer
@@ -19,6 +20,7 @@
 /archive
 /airootfs/etc/skel
 /airootfs/root
+/airootfs/usr/share/pacman/keyrings/*
 /ignored
 /result.log
 /result.md

@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+echo "下面执行 pacman 的初始化。请耐心等待。"
+rm -rf /etc/pacman.d/gnupg/*
+pacman-key --init --verbose
+pacman-key --populate --verbose

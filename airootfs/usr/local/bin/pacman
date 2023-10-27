@@ -1,0 +1,21 @@
+#!/bin/bash
+
+while true; do
+	stat=$(systemctl is-active pacman-init)
+	case "$stat" in
+	"activating")
+		echo "现在时间：$(date)"
+		echo "将要执行：pacman" "$@"
+		echo "但是，pacman-init.service 仍在运行中（注：此过程可能持续至开机后 7 分钟才能完成），暂不可使用 pacman，否则可能导致 pacman 初始化失败。"
+		echo "正在重试（直到 pacman-init.service 运行完毕）..."
+		sleep 3
+		;;
+	"active") break ;;
+	"inactive" | *)
+		echo "警告：出现异常，pacman-init.service 的状态为\"$stat\"，这可能表示 pacman 未成功初始化。可能需要运行 pacman-reinit 来强制执行初始化。"
+		break
+		;;
+	esac
+done
+
+/usr/bin/pacman "$@"

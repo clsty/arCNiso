@@ -93,6 +93,10 @@
 * 设计说明
 以下说明部分设计背后的考虑与背景。
 
+- 为 =pacman= 添加防呆设计，以检查 =pacman-init.service= 的执行情况。
+  - 原因：在 archiso 的某次更新之后（注意到此时 ArchWiki 的 archiso 条目中有自定义源时要手动加密钥的说明）， =pacman-init.service= 中的 =Exec=pacman-key --populate= 总是会在“Locally signing trusted keys in keyring...”卡住，似乎是因为 arCNiso 相比 archiso 额外添加了 archlinuxcn 源导致耗时大大增加。此时若使用 =pacman -Sy <package>= 安装任意包，都会导致 =pacman-init.service= 失败，表现为使用 pacman 时会出现各种 PGP 密钥问题。添加此检查之后，只有当 =pacman-init.service= 执行完毕，才允许运行 pacman。
+  - 缺点：仅仅这样仍然不够好，因为等待过程接近 7 分钟。应考虑提前生成 =/etc/pacman.d/gnupg/= （可能要对 mkarchiso 做 patch）。
+
 - 弃用 Firfox 的动态主题。
   - 减少卡死几率。
 
