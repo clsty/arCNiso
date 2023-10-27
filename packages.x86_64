@@ -12,6 +12,7 @@ sweet-theme-full-git
 ttf-lxgw-wenkai
 ventoy-bin
 zsh-theme-powerlevel10k-git
+shim-signed
 # ---- ENDof AUR ---- #
 #paru 现在改为要使用时在线安装
 #nwg-look-bin 为了生成一些配置文件，已经生成在 airootfs 里就不需要了
@@ -30,6 +31,9 @@ zsh-theme-powerlevel10k-git
 # 是 gtk2 的（经一系列依赖链的）依赖之一，没办法去掉。
 # 不带 nerd-font（有一个打了 nerd 补丁的版本但是没法作为 gtk 的依赖）
 # 包：noto-fonts（系列）：效果最好但是近 1G
+
+# 安全启动支持（另一个是AUR的shim-signed）
+mokutil
 
 ### archlinuxcn
 archlinuxcn-keyring
