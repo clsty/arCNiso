@@ -1,3 +1,11 @@
+/secureboot/*
+!/secureboot/mkarchiso.patch
+!/secureboot/patch.sh
+!/secureboot/diff.sh
+!/secureboot/genkey.sh
+/db.key
+/db.crt
+/db.cer
 /TMP
 /OUT
 /data

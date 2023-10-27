@@ -166,3 +166,4 @@ vim 本身是高效的、人体工学友好的编辑器，而它的键位设计�
 - [[https://github.com/clsty/evil-tutor-sc][evil-tutor-sc]]：本项目所使用的 Emacs 插件（作者也是 clsty =>v0= ）。
 - [[https://github.com/otsaloma/markdown-css][otsaloma's markdown-css]]：本项目的部分文档转为 html 所采用的 pandoc css 文件 =github.css= 。
 - [[https://unsplash.com/photos/lmvGn9rTGvY][high-rise buildings during nighttime]]：本项目所使用的壁纸。
+- [[https://github.com/Lokawn/archiso-sb-shim][archiso-sb-shim]]：本项目实现安全启动所采用的方案来源。
