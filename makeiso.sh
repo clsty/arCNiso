@@ -15,6 +15,7 @@ TIME1_s=$(date +%s)
 
 # 位置与权限校正
 cd $(dirname $0)
+try sudo umount ./TMP/x86_64/airootfs/*
 sudo chown -R $(whoami):$(whoami) .
 
 # 家目录就位
@@ -84,12 +85,19 @@ try rm -rf ./airootfs/etc/skel
 try rm -rf ./airootfs/root
 
 # 输出信息
-echo "文件名：$(fd --base-directory OUT .iso)" >result.log
-echo -n "大小：" >>result.log
-du -a -B MB OUT/*.iso | cut -f1 -d"	" >>result.log
-echo "sha256sum：" >>result.log
-sha256sum OUT/*.iso | cut -f1 -d" " >>result.log
-cat result.log
+export size=$(du -a -B MB OUT/*.iso | cut -f1 -d"	")
+export name=$(find OUT -name "*.iso")
+export sha256sum=$(sha256sum OUT/*.iso | cut -f1 -d" ")
+
+echo "文件名：${name}
+大小：${size}
+sha256sum：${sha256sum}" >result.log
+
+echo "文件名：${name}
+
+大小：${size}
+
+sha256sum：${sha256sum}" >result.md
 
 # 时间测量结束
 TIME2=$(date +%Y%m%d-%H:%M:%S)
