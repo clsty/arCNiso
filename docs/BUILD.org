@@ -42,26 +42,15 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 但请注意，此脚本可能仍存在一些问题，可能无法一次直接地完成所有工作，或者无法合理避免重复工作，还可能会出现构建时缺依赖报错的问题，对此只要据报错信息手动解决即可（大概需要你会一点 Bash）。
 或者，清理一下 ~./aur/cache~ 目录，或者其下早成问题的子目录。
 
-*** mkarchiso 修改（耗时未知）
-**** 简介
-对 mkarchiso 的完整修改，涉及两个方面：
+*** 安全启动支持（可选，耗时未知）
+为了支持安全启动，需要对 mkarchiso 进行修改。
+而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 =mkarchiso.diff= ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
 
-***** 其一：安全启动支持
-- mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 =mkarchiso.diff= ，注意此补丁包含的是完整修改）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
-- 这是一个相对复杂的可选项。若一切顺利自然是最好的，但使用者不必执著于 Secure Boot（尤其是多次失败时）。
-  1. 没有 Secure Boot 的系统依然可以正常使用。
-  2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
-  3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
+这是一个相对复杂的可选项。若一切顺利自然是最好的，但使用者不必执著于 Secure Boot（尤其是多次失败时）。
+1. 没有 Secure Boot 的系统依然可以正常使用。
+2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
+3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
 
-***** 其二：GPG 缓存支持（不安全，已禁用）
-本质上是提前生成 =/etc/pacman.d/gnupg= 。
-- 这一部分的意义在于，若不这么做，则会在 arCNiso 启动之后，由 =pacman-init.service= 生成 =/etc/pacman.d/gnupg= ，此过程耗时可能较长（高达 7 分钟），且在此之前无法使用 pacman（除非令 =SigLevel=Never= 并删除 =/usr/local/bin/pacman= ，但出于安全考量，并不推荐这样做）。
-
-**** 方案
-除了完整修改以外，根据需求，也可只进行一部分修改，或完全不修改，如下。
-
-*注意，以下三种方案只可选择其一。*
-**** 方案一：完整修改
 依赖：
 - 需要安装的包：efitools ed2k-shell sbsigntools shim-signed（来自 AUR）
 - 需要确保 =packages.x86_64= 含有的包名：mokutil shim-signed（来自 AUR）
@@ -71,12 +60,7 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - 运行 =./patchedmkarchiso/genkey.sh= 。
 - 运行 =./patchedmkarchiso/patch.sh= 并确保按照提示将 =./patchedmkarchiso/mkarchiso= 打补丁到位。
 - （可选）在确保上一步中对 =./patchedmkarchiso/mkarchiso= 文件的补丁确实已经完整地完成之后，运行 =./patchedmkarchiso/diff.sh= 来更新 =mkarchiso.diff= 补丁文件。
-**** 方案二：仅应用 GPG 缓存支持（不安全，已禁用）
-步骤：
-- 在 arCNiso 项目的根目录下运行 =cp -f /usr/bin/mkarchiso ./patchedmkarchiso/= 。
-- 参照 =./patchedmkarchiso/gpgcache.txt= 的说明来编辑 =./patchedmkarchiso/mkarchiso= 。
-**** 方案三：不修改 mkarchiso，直接使用原版 mkarchiso
-步骤：无需操作。
+
 *** 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 运行 =makeiso.sh= （若 =OUT= 目录存在，则会被删除）。
 

@@ -16,7 +16,7 @@ pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 # For detail see `man mksquashfs'
 #airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M')
-airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '14' '-b' '1M')
+airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '18' '-b' '1M')
 #airootfs_image_tool_options=('-comp' 'lzo' '-Xcompression-level' '9' '-b' '1M')
 file_permissions=(
 	["/etc/shadow"]="0:0:400"
@@ -33,6 +33,7 @@ file_permissions=(
 	["/usr/local/bin/modifyrootspace"]="0:0:755"
 	["/usr/local/bin/arCNiso-xfce4"]="0:0:755"
 	["/usr/local/bin/arCNiso-expac"]="0:0:755"
+	["/usr/local/bin/arcnadd-cn"]="0:0:755"
 	["/usr/local/bin/arcnot"]="0:0:755"
 	["/usr/local/bin/resetkeymap"]="0:0:755"
 	["/usr/local/bin/aaa"]="0:0:755"

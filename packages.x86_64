@@ -35,9 +35,6 @@ shim-signed
 # 安全启动支持（另一个是AUR的shim-signed）
 mokutil
 
-### archlinuxcn
-#archlinuxcn-keyring
-
 ### Arch Linux 官方源
 ## 外设
 xf86-input-synaptics
