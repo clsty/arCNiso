@@ -67,10 +67,9 @@ qbittorrent-nox "$tf" --save-path="$(pwd)/release/"
 #transmission-remote -t $(transmission-remote -l | grep "$iso" | awk '{print $ver}') -s --find "$(pwd)/release/"
 echo "结束添加种子。"
 
-echo "开始创建 $ver 的 release 。"
+echo "开始创建 $ver 的 release（并添加种子）。"
 cp $tf $tfr
 try gh release delete $ver -y
 echo "注：若在这上面出现 release not found 是因为尝试删除指定 release 未果，是正常的。"
 gh release create $ver $tfr --generate-notes --latest --notes-file result.log --verify-tag
-gh release upload $ver "$(pwd)/release/$iso"
 echo "结束创建 $ver 的 release 。"
