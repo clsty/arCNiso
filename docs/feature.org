@@ -87,8 +87,13 @@
 ** 用户引导
 - motd：添加了中文版本的 motd，并在 arCNiso 启动时自动展示。
 - 安装指南：提供 =Installation_guide= 命令的一个等价入口 =arcnguide= ，并改为用 Firefox 打开中文版的 Wiki 页面及本镜像提供的 hint。
-- 软件包与源：配置了国内的镜像源，提供命令 =arcnadd-cn= 来快速启用 archlinuxcn 源，并且在使用 AUR 助手 paru 时自动安装 paru 和 base-devel。
 - 根分区大小：配置为 1 GiB（而不是原版 archiso 的 256 MiB），并提供 =modifyrootspace= 供实时修改。
+** 软件包与源
+- 配置了国内的镜像源。
+- 提供命令 =arcnadd-cn= 来快速启用 archlinuxcn 源。
+- 在使用 AUR 助手 paru 时自动安装 paru 和 base-devel。
+- 禁用了 choose-mirror 与 reflector 服务（但仍可手动运行）。
+- 为 pacman 添加防呆设计。
 
 * 设计说明
 以下说明部分设计背后的考虑与背景。
