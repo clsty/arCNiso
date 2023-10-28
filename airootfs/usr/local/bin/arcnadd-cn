@@ -1,6 +1,7 @@
 #!/bin/bash
-# 此脚本可启用 archlinuxcn 源；并且，若中途失败，也可多次执行。
-echo "下面开始添加 archlinuxcn 源。请注意，此过程耗时可能长达 6 分钟。"
+# 此脚本可启用 archlinuxcn 仓库源及其密钥；并且在设计上使得即使中途失败，也可多次执行。
+echo "下面开始添加 archlinuxcn 仓库源及其密钥，此过程耗时约 1 至 6 分钟，在虚拟机中可能较慢。"
+systemctl start pacman-init
 echo '
 [archlinuxcn]
 Include = /etc/pacman.d/archlinuxcn-mirrorlist' > /etc/pacman.d/archlinuxcn.conf

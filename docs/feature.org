@@ -90,7 +90,7 @@
 - 根分区大小：配置为 1 GiB（而不是原版 archiso 的 256 MiB），并提供 =modifyrootspace= 供实时修改。
 ** 软件包与源
 - 配置了国内的镜像源。
-- 提供命令 =arcnadd-cn= 来快速启用 archlinuxcn 源。
+- 提供命令 =arcnadd-cn= 来快速启用 archlinuxcn 社区仓库源，并启用 rngd 来加速密钥环的添加。
 - 在使用 AUR 助手 paru 时自动安装 paru 和 base-devel。
 - 禁用了 choose-mirror 与 reflector 服务（但仍可手动运行）。
 - 为 pacman 添加防呆设计。
@@ -99,8 +99,8 @@
 以下说明部分设计背后的考虑与背景。
 
 - 为 =pacman= 添加防呆设计，以检查 =pacman-init.service= 的执行情况。
-  - 原因：已发现在添加 archlinuxcn 源密钥时，pacman-init.service 中的 =Exec=pacman-key --populate= 总是会在“Locally signing trusted keys in keyring...”卡住，并持续近 7 分钟，且此时若使用 =pacman -Sy <package>= 安装任意包，都会导致 =pacman-init.service= 失败，表现为使用 pacman 时会出现各种 PGP 密钥问题。添加此防呆设计之后，只有当 =pacman-init.service= 执行完毕，才允许运行 pacman。详见 https://github.com/clsty/arCNiso/issues/16 。
-  - 当前，arCNiso 已经不再内置 archlinuxcn 源密钥，但此防呆设计仍保留了下来。
+  - 原因：已发现在添加 archlinuxcn 社区仓库源密钥时，pacman-init.service 中的 =Exec=pacman-key --populate= 总是会在“Locally signing trusted keys in keyring...”卡住，并持续近 7 分钟（注：目前已为 arCNiso 启用 rngd，在物理机中可缩短至 1 分钟），且此时若使用 =pacman -Sy <package>= 安装任意包，都会导致 =pacman-init.service= 失败，表现为使用 pacman 时会出现各种 PGP 密钥问题。添加此防呆设计之后，只有当 =pacman-init.service= 执行完毕，才允许运行 pacman。详见 https://github.com/clsty/arCNiso/issues/16 。
+  - 当前，arCNiso 已经不再内置 archlinuxcn 社区仓库源密钥，但此防呆设计仍保留了下来。
 
 - 弃用 Firfox 的动态主题。
   - 减少卡死几率。
