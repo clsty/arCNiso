@@ -65,19 +65,6 @@ rm /tmp/arCNiso/* # 注意这里应当只有软链接及 touched
 ln -sf $(pwd)/aur/pkgs /tmp/arCNiso/aur
 ln -sf $(pwd)/pacman.d /tmp/arCNiso/pacman.d
 
-# 准备相关密钥
-# https://wiki.archlinux.org/title/Archiso#Adding_repositories_to_the_image
-# https://github.com/archlinuxcn/archlinuxcn-keyring
-if [ -f ./githubrawprefix ]; then
-	githubrawprefix="$(cat ./githubrawprefix)"
-else
-	githubrawprefix="https://raw.githubusercontent.com/"
-fi
-for i in "archlinuxcn.gpg" "archlinuxcn-trusted" "archlinuxcn-revoked"; do
-	curl -o ./airootfs/usr/share/pacman/keyrings/"${i}" "${githubrawprefix}"archlinuxcn/archlinuxcn-keyring/master/"${i}"
-done
-# 注：以上与添加 archlinuxcn-keyring 到包名列表是互斥的（二选一）
-
 # 构建
 mkdir -p OUT TMP
 sudo rm -rf OUT TMP
