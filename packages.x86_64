@@ -163,6 +163,7 @@ papirus-icon-theme
 grub-customizer
 ## 杂项
 xclip
+rng-tools
 ## AMD 独显
 mesa
 #xf86-video-amdgpu xf86用于modesetting，但现在不需要这个就行；其其他功能也用不上，除非写 xorg config
