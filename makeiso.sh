@@ -81,21 +81,22 @@ done
 # 构建
 mkdir -p OUT TMP
 sudo rm -rf OUT TMP
-if [ -f ./secureboot/mkarchiso ]; then
-	echo "已找到 secureboot 目录下的 mkarchiso，下面会尝试添加安全启动支持。"
-	cp ./secureboot/db.{cer,key,crt} ./
-	sudo ./secureboot/mkarchiso -v -w TMP -o OUT ./
+if [ -f ./patchedmkarchiso/mkarchiso ]; then
+	echo "已找到 patchedmkarchiso 目录下的 mkarchiso，将使用修改后的 mkarchiso。"
+	cp ./patchedmkarchiso/db.{cer,key,crt} ./
+	sudo ./patchedmkarchiso/mkarchiso -v -w TMP -o OUT ./
 else
-	echo "未找到 secureboot 目录下的 mkarchiso，将使用原版 mkarchiso。"
+	echo "未找到 patchedmkarchiso 目录下的 mkarchiso，将使用原版 mkarchiso。"
 	sudo mkarchiso -v -w TMP -o OUT ./
 fi
 sudo rm -rf TMP
 sudo chown -R $(whoami):$(whoami) ./OUT
 mv $(find OUT -name "*.iso") OUT/arCNiso.iso
 
-# 清理临时家目录
+# 清理临时文件（夹）
 try rm -rf ./airootfs/etc/skel
 try rm -rf ./airootfs/root
+try rm ./db.{cer,key,crt}
 
 # 输出信息
 export name=$(basename $(find OUT -name "*.iso"))
@@ -105,6 +106,7 @@ export sha256sum=$(sha256sum OUT/*.iso | cut -f1 -d" ")
 echo "文件名：${name}
 大小：${size}
 sha256sum：${sha256sum}" >result.log
+cat result.log
 
 echo "文件名：${name}
 

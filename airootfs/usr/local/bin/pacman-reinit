@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
-echo "下面执行 pacman 的初始化。请耐心等待。"
-rm -rf /etc/pacman.d/gnupg/*
+echo "5 秒后将执行 pacman 的初始化，请耐心等待。"
+sleep 5
+rm -rf /etc/pacman.d/gnupg/* /root/.gnupg/* /var/cache/pacman/pkg/*
+gpg --refresh-keys
 pacman-key --init --verbose
 pacman-key --populate --verbose
+pacman-key --refresh-keys
+echo "pacman 初始化执行完毕。"

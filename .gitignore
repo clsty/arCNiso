@@ -1,8 +1,9 @@
-/secureboot/*
-!/secureboot/mkarchiso.patch
-!/secureboot/patch.sh
-!/secureboot/diff.sh
-!/secureboot/genkey.sh
+/patchedmkarchiso/*
+!/patchedmkarchiso/mkarchiso.patch
+!/patchedmkarchiso/patch.sh
+!/patchedmkarchiso/diff.sh
+!/patchedmkarchiso/genkey.sh
+!/patchedmkarchiso/gpgcache.txt
 /githubrawprefix
 /db.key
 /db.crt

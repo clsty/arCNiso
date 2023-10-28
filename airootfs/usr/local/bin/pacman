@@ -12,7 +12,8 @@ while true; do
 		;;
 	"active") break ;;
 	"inactive" | *)
-		echo "警告：出现异常，pacman-init.service 的状态为\"$stat\"，这可能表示 pacman 未成功初始化。可能需要运行 pacman-reinit 来强制执行初始化。"
+		echo "注意：pacman-init.service 的状态为\"$stat\"。"
+		echo "若之后 pacman 遇到 PGP/GPG 密钥的相关报错，说明 pacman 未成功初始化，可以运行 pacman-reinit 来强制进行初始化。"
 		break
 		;;
 	esac
