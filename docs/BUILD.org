@@ -53,7 +53,7 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
   2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
   3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
 
-***** 其二：GPG 缓存支持
+***** 其二：GPG 缓存支持（不安全，已禁用）
 本质上是提前生成 =/etc/pacman.d/gnupg= 。
 - 这一部分的意义在于，若不这么做，则会在 arCNiso 启动之后，由 =pacman-init.service= 生成 =/etc/pacman.d/gnupg= ，此过程耗时可能较长（高达 7 分钟），且在此之前无法使用 pacman（除非令 =SigLevel=Never= 并删除 =/usr/local/bin/pacman= ，但出于安全考量，并不推荐这样做）。
 
@@ -71,13 +71,12 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - 运行 =./patchedmkarchiso/genkey.sh= 。
 - 运行 =./patchedmkarchiso/patch.sh= 并确保按照提示将 =./patchedmkarchiso/mkarchiso= 打补丁到位。
 - （可选）在确保上一步中对 =./patchedmkarchiso/mkarchiso= 文件的补丁确实已经完整地完成之后，运行 =./patchedmkarchiso/diff.sh= 来更新 =mkarchiso.diff= 补丁文件。
-**** 方案二：仅应用 GPG 缓存支持
+**** 方案二：仅应用 GPG 缓存支持（不安全，已禁用）
 步骤：
 - 在 arCNiso 项目的根目录下运行 =cp -f /usr/bin/mkarchiso ./patchedmkarchiso/= 。
 - 参照 =./patchedmkarchiso/gpgcache.txt= 的说明来编辑 =./patchedmkarchiso/mkarchiso= 。
 **** 方案三：不修改 mkarchiso，直接使用原版 mkarchiso
-步骤：
-- 将 =airootfs/etc/systemd/system/etc-pacman.d-gnupg.mount= 中的 =Where=/etc/pacman.d/gnupg-fake= 改回 =Where=/etc/pacman.d/gnupg= 。
+步骤：无需操作。
 *** 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 运行 =makeiso.sh= （若 =OUT= 目录存在，则会被删除）。
 

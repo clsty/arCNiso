@@ -3,7 +3,6 @@
 !/patchedmkarchiso/patch.sh
 !/patchedmkarchiso/diff.sh
 !/patchedmkarchiso/genkey.sh
-!/patchedmkarchiso/gpgcache.txt
 /githubrawprefix
 /db.key
 /db.crt

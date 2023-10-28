@@ -3,6 +3,6 @@ Description=Temporary /etc/pacman.d/gnupg directory
 # 实测若以下使用tmpfs且Options添加noswap则pacman-init.service会失败
 [Mount]
 What=ramfs
-Where=/etc/pacman.d/gnupg-fake
+Where=/etc/pacman.d/gnupg
 Type=ramfs
 Options=mode=0755

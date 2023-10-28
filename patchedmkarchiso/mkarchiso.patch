@@ -1,17 +1,6 @@
 --- /usr/bin/mkarchiso	2023-09-30 16:18:35.000000000 +0800
-+++ ./mkarchiso	2023-10-28 10:42:00.408989793 +0800
-@@ -299,7 +299,10 @@
-     # see `man 8 pacman` for further info
-     pacman-conf --config "${pacman_conf}" \
-         | sed "/CacheDir/d;/DBPath/d;/HookDir/d;/LogFile/d;/RootDir/d;/\[options\]/a CacheDir = ${_cache_dirs}
-+        /\[options\]/a GPGDir = ${pacstrap_dir}/etc/pacman.d/gnupg/
-         /\[options\]/a HookDir = ${pacstrap_dir}/etc/pacman.d/hooks/" >"${work_dir}/${buildmode}.pacman.conf"
-+    pacman-key --config "${pacman_conf}" --gpgdir ${pacstrap_dir}/etc/pacman.d/gnupg --init
-+    pacman-key --config "${pacman_conf}" --gpgdir ${pacstrap_dir}/etc/pacman.d/gnupg --populate
- }
- 
- # Prepare working directory and copy custom root file system files.
-@@ -374,6 +377,18 @@
++++ ./mkarchiso	2023-10-28 11:01:11.632608431 +0800
+@@ -374,6 +374,18 @@
      fi
  
      _msg_info "Done! Packages installed successfully."
@@ -30,7 +19,7 @@
  }
  
  # Customize installation.
-@@ -694,10 +709,14 @@
+@@ -694,10 +706,14 @@
          --locales="en@quot" \
          --themes="" \
          --sbat=/usr/share/grub/sbat.csv \
@@ -46,7 +35,7 @@
                      "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi")
  
      if [[ " ${bootmodes[*]} " =~ uefi-x64.systemd-boot.esp ]]; then
-@@ -711,8 +730,17 @@
+@@ -711,8 +727,17 @@
          _make_efibootimg "$efiboot_imgsize"
      fi
  
@@ -66,7 +55,7 @@
  
      # Copy GRUB files
      _run_once _make_common_bootmode_grub_copy_to_isofs
-@@ -739,8 +767,18 @@
+@@ -739,8 +764,18 @@
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
      install -d -m 0755 -- "${isofs_dir}/EFI/BOOT"
  
@@ -86,7 +75,7 @@
  
      # Copy GRUB configuration files
      _run_once _make_common_bootmode_grub_copy_to_isofs
-@@ -771,19 +809,35 @@
+@@ -771,19 +806,35 @@
          --locales="en@quot" \
          --themes="" \
          --sbat=/usr/share/grub/sbat.csv \
@@ -125,7 +114,7 @@
  
      # Copy GRUB files
      _run_once _make_common_bootmode_grub_copy_to_isofs
-@@ -817,8 +871,18 @@
+@@ -817,8 +868,18 @@
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
      install -d -m 0755 -- "${isofs_dir}/EFI/BOOT"
  
@@ -145,7 +134,7 @@
  
      # Copy GRUB files
      _run_once _make_common_bootmode_grub_copy_to_isofs
-@@ -844,13 +908,20 @@
+@@ -844,13 +905,20 @@
      # shellcheck disable=SC2076
      if [[ " ${bootmodes[*]} " =~ ' uefi-x64.systemd-boot.esp ' || " ${bootmodes[*]} " =~ ' uefi-x64.systemd-boot.eltorito ' ]]; then
          efiboot_files+=("${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi"
@@ -166,7 +155,7 @@
      efiboot_files+=("${profile}/efiboot/"
                      "${pacstrap_dir}/boot/vmlinuz-"*
                      "${pacstrap_dir}/boot/initramfs-"*".img"
-@@ -895,9 +966,17 @@
+@@ -895,9 +963,17 @@
  
      _run_once _make_common_bootmode_systemd-boot
  
@@ -186,7 +175,7 @@
  
      # Copy systemd-boot configuration files
      _run_once _make_common_bootmode_systemd-boot_conf.esp
-@@ -927,9 +1006,19 @@
+@@ -927,9 +1003,19 @@
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
      install -d -m 0755 -- "${isofs_dir}/EFI/BOOT"
  
