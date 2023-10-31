@@ -72,12 +72,14 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 =./airootfs/etc/motd-zh_CN= ，然后用 =./makeiso.sh= 再次构建即可。
 
 而如果你想做一些深层次的定制，比如添加、删除一些包或 systemd 服务等，你就需要了解项目内各个文件与目录结构的作用了。
-为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
-因此，你所需要的正是 [[https://wiki.archlinux.org/title/Archiso][ArchWiki 的 archiso 条目]]。
+- 为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
+  因此，你所需要的正是 [[https://wiki.archlinux.org/title/Archiso][ArchWiki 的 archiso 条目]]。
+- 其次，你可以看看 [[./feature.org]] ，它能告诉你 arCNiso 的诸多设计细节。
 
 此外，这里还提供以下信息：
 - 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 ~arCNiso-xfce4~ 。
+- =/usr/local/bin= 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
 
 * 追踪 releng
 注：这一条仅作为作者的记录，只要本项目仍在维护（指最后发布的镜像距现在最多两个月），就说明对 releng 的追踪仍在继续，读者不必担心。
