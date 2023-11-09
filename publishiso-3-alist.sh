@@ -36,7 +36,7 @@ wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
 # rclone delete 会将一个目录下的所有文件（包括子文件夹里的）都删除，且无需确认，也不会报错；但是所有子文件夹都不会被删除
 #try rclone delete clsty:/public/arCNiso/release
 #rclone copy -P ./release/"$iso" clsty:/public/arCNiso/release/
-function testfile {
+function testthefile {
 echo "正在测试 $1 是否存在..."
 echo "此测试将无限循环，直到 $1 存在"
 aaa test -f "$1"
