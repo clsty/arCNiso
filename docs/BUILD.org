@@ -97,8 +97,6 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - 使用 diff 类工具（如 kompare）对比本项目目录与 archiso 所提供的 =/usr/share/archiso/configs/releng= 目录。
 
 * 附：其他脚本
-** 自动打包源码
-本项目包含了 =./makearchive.sh= 脚本，功能是由 git 输出 tar 包（因此会遵循 =.gitignore= 等规则），但目前并没有找到或者说开发出什么有意义的用法。
 ** 自动发布
 本项目包含了 =./publishiso*= 系列脚本，它们由 clsty 开发，并用于自动发布。
 
