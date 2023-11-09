@@ -1,7 +1,9 @@
-anotherpac，存在的目的是直接从某些上游取得资源（而不是使用 Arch 或 AUR 的包）。
+anotherpac，存在的目的之一是直接从某些上游取得资源（而不是使用 Arch 或 AUR 的包），所谓“另一种包”。
 
-之所以这样做，有若干考虑，列举如下：
-- AUR 的一部分包不太稳定（比如 sweet-theme-full-git 和 sweet-kde-theme-git 这两个曾经存在于 AUR 的包已经永远逝去了）。
+另一个目的是去除 releng 本体以增加灵活性、降低随 archiso 的 releng 更新而更新的工作量。
+
+之所以直接从某些上游取得资源，有若干考虑，列举如下：
+- AUR 的一部分包不太稳定（比如 sweet-theme-full-git 和 sweet-kde-theme-git 这两个曾经存在于 AUR 的包消失了）。
 - 目前找不到足够好的检测 AUR 包是否需要升级的方法，full-update.sh 总是会把所有包都重打一遍，速度很慢。
 - 即使是 Arch 的包也可能在某些细节上不够好，比如 papirus-icon-theme 把 papirus-icon 的四个变种打包在一起，但本项目只用到其一，很浪费空间。
 
