@@ -4,7 +4,7 @@
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
 
-# 此脚本应当由 makeiso.sh 调用（而不是手动运行）。
+# 此脚本应当由 makeiso 调用（而不是手动运行）。
 
 # 注意部分目录应列于 .gitignore。编辑此脚本时应注意与之同步。
 

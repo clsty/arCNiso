@@ -65,14 +65,14 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - （可选）在确保上一步中对 =./patchedmkarchiso/mkarchiso= 文件的补丁确实已经完整地完成之后，运行 =./patchedmkarchiso/diff.sh= 来更新 =mkarchiso.diff= 补丁文件。
 
 *** 正式构建（约 5 分钟，依赖网速和 CPU 速度）
-运行 =makeiso.sh= （若 =OUT= 目录存在，则会被删除）。
+运行 =./makeiso= （若 =OUT= 目录存在，则会被删除）。
 
 输出的镜像文件位于 ~./OUT~ 下（为了方便使用虚拟机进行测试，每次输出时会固定更名为 ~arCNiso.iso~ ）。
 
-*注：之后（除非打算更新 AUR 包）每次修改了项目文件想重新构建时，都可以直接运行 ~makeiso.sh~ 。*
+*注：之后（除非打算更新 AUR 包）每次修改了项目文件想重新构建时，都可以直接运行 ~./makeiso~ 。*
 
 * 如何定制
-简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 =./airootfs/etc/motd-zh_CN= ，然后用 =./makeiso.sh= 再次构建即可。
+简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 =./airootfs/etc/motd-zh_CN= ，然后用 =./makeiso= 再次构建即可。
 
 而如果你想做一些深层次的定制，比如添加、删除一些包或 systemd 服务等，你就需要了解项目内各个文件与目录结构的作用了。
 - 为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
