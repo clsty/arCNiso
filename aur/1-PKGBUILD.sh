@@ -12,7 +12,19 @@ pkgend=$(awk '/# ---- ENDof AUR ---- #/{print NR}' ../packages.x86_64)
 pkgend=$(($pkgend-1))
 
 mkdir -p $base/cache; mkdir -p $base/pkgs; cd $base/cache
+if [[ "${force}" != f ]]; then read -r -p "是否从 AUR 下载 PKGBUILD？[a(余下全是)/y(是)/N(否)]" pp;case $pp in
+	     [yY]) echo 好的，开始 prepare... ;;
+	     [aA]) force=f ;;
+	      *) continue ;;esac;fi
 for i in $(sed -n "$pkgbeg , ${pkgend}p" ../../packages.x86_64) ;
 do
   aaa paru -G --noredownload $i
 done
+
+#cd "$base"/custom/PKGBUILD
+#t=(*)
+#for i in "${t[@]}";do
+#	echo "找到了自定义 PKGBUILD $i"
+#	mkdir -p "$base"/cache/"$i"
+#	cp -f "$i" "$base"/cache/"$i"/PKGBUILD
+#done

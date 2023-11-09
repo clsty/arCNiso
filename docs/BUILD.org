@@ -34,6 +34,9 @@ git clone --filter=blob:none https://github.com/clsty/arCNiso
 目的是，一方面降低文件结构的复杂度，另一方面避免大量的 elisp 代码导致本项目的主要成分被 GitHub 误判为 Emacs Lisp。
 #+end_quote
 
+*** 准备 anotherpac（约 5 分钟，依赖网速和 CPU 速度）
+运行 =./anotherpac/full-prepare.sh= 即可。
+
 *** 准备 AUR 包（约 30 分钟，依赖网速和 CPU 速度）
 arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分），
 因此需要提前构建它们。
@@ -80,6 +83,7 @@ arCNiso 使用了部分来自 AUR 的包（见 ~packages.x86_64~ 的开头部分
 - 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 ~arCNiso-xfce4~ 。
 - =/usr/local/bin= 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
+- 注意 =.gitignore= 。合理的 =.gitignore= 可以保护 Git 仓库免受临时性文件的拖累。
 
 * 追踪 releng
 注：这一条仅作为作者的记录，只要本项目仍在维护（指最后发布的镜像距现在最多两个月），就说明对 releng 的追踪仍在继续，读者不必担心。

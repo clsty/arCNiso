@@ -1,10 +1,11 @@
 #!/bin/bash
 set -e
+function try { "$@" || sleep 0; }
 
 selfpath="${BASH_SOURCE[0]}"
 cd "$(dirname $selfpath)"
 basedir="$(pwd)"
-target="$basedir"/cache/icons
+target="$basedir"/cache/papirus-icons
 tmpdir="/tmp/anotherpac/icons"
 
 ping -c1 github.com||if true;then echo "请确保能够连接到网络。";exit 1;fi

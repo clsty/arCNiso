@@ -100,7 +100,7 @@ vim 本身是高效的、人体工学友好的编辑器，而它的键位设计�
 #+end_quote
 *** 命令行 shell
 #+begin_quote
-简称 shell，也就是终端模拟器（konsole）里面的（或者说“连接着的”“承载着的”）那个存在。
+简称 shell，也就是终端模拟器（tilix）里面的（或者说“连接着的”“承载着的”）那个存在。
 #+end_quote
 *常识：* ~Ctrl+C~ 终止（卡住的时候请试试这个）。
 
@@ -108,14 +108,14 @@ vim 本身是高效的、人体工学友好的编辑器，而它的键位设计�
 
 *补全：* 在命令没打完的时候，试试按 ~Tab~ 键或上下方向键。
 
-*** 终端（konsole）
-*缩放字体大小：* ~Ctrl++~ 与 ~Ctrl+-~ 。
+*** 终端（tilix）
+*缩放字体大小：* ~Ctrl+=~ 与 ~Ctrl+-~ 。
 
 *翻页：* ~Shift+PageUp~ 向上翻页、 ~Shift+PageDown~ 向下翻页。
 
 *复制粘贴：* 先用鼠标选中，再 ~Ctrl+Shift+C~ 复制；用 ~Ctrl+Shift+V~ 粘贴（仅终端；一般的复制粘贴仍然是 ~Ctrl+C~ 及 ~Ctrl+V~ ）。
 
-*标签页与视图：* ~Ctrl+Shift+T~ 新建标签页、 ~Alt+1~ ~Alt+2~ 切换标签页、 ~Ctrl+Shift+(~ 左右分割视图、 ~Ctrl+Shift+)~ 上下分割视图、 ~Ctrl+Tab~ 切换视图、 ~Ctrl+Shift+W~ 关闭当前视图（或标签页）。
+*会话（即标签页）与终端（实际上是指分割视图的小终端窗格）：* ~Ctrl+Shift+T~ 新建会话、 ~Ctrl+Alt+1~ ~Ctrl+Alt+2~ 切换会话、 ~Ctrl+Alt+A~ 自动新建终端、 ~Alt+1~ ~Alt+2~ 切换终端、 ~Ctrl+Shift+W~ 关闭当前会话或终端。
 *** 一些终端程序
 *安装软件：* 使用 paru 可以从 AUR 安装软件。在 arCNiso 中使用 paru 的一种方法是，输入 =parui= 进入搜索界面。
 

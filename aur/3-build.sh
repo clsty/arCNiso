@@ -22,11 +22,11 @@ cd $(dirname $0) && base=$(pwd)
 cd $base/cache
 
 export PKGDEST="$base/pkgs"
-t=*
-for i in $t;do
+t=(*)
+for i in "${t[@]}";do
 	cd "$base/cache/$i"
 	echo "========进入 $i"; ls "$PKGDEST"; pp=n
-	if [[ "${force}" != f ]]; then read -r -p "以上是 PKGDEST 目录的情况。是否 prepare $i ？[a(余下全是)/y(是)/N(否)]" pp;case $pp in 
+	if [[ "${force}" != f ]]; then read -r -p "以上是 PKGDEST 目录的情况。是否 build $i ？[a(余下全是)/y(是)/N(否)]" pp;case $pp in 
 	     [yY]) echo 好的，开始 build... ;;
 	     [aA]) force=f ;;
 	      *) continue ;;esac;fi
