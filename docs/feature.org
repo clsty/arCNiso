@@ -131,9 +131,8 @@
 - 弃用 xfce4 用于自动挂载的插件。
   - 自动挂载不是官方 archiso 的默认行为，从而使情况出乎用户预料之外。
 
-- 采用 xfce4 作为图形环境，而不是某个 Window Manager。
-  - xfce4 对鼠标操作支持较好，便于所有用户上手；WM 的操作风格则过于个性化，很可能引起劝退。
-  - 各大 WM 目前似乎没有什么好的方案来（半）自动化地识别、排列、旋转外接显示器，而需要在配置文件里手动声明。
+- 采用 xfce4 作为图形环境，而不是某个 DE/WM。
+  - 详见 [[https://github.com/clsty/arCNiso/discussions/23]]
  
 - 采用 linux 主线内核，而不是 linux-zen。
   - 综合来看，使用 linux-zen 比 linux 主线内核新增的占用空间太大，比如 virtual-box-guest-utils 依赖 linux。

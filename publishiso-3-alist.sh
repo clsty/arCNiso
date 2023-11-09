@@ -27,9 +27,8 @@ iso="$(cat publishiso-filename)"
 # 地址是 http://0.0.0.0:5244/dav/123pan （"http://0.0.0.0:5244/dav/" 是 alist 的 webdav 地址）
 # 用户名与密码就是 alist 的那个。
 # 这样就添加完毕了，可以用 rclone copy 等方法进行传输。
-echo "You may vist website below to upload now."
+echo "现在可以打开以下网页手动上传了。"
 echo "https://www.123pan.com/2433802/2433803"
-echo "https://cowtransfer.com/"
 releasepath="$(pwd)/release"
 wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
 
@@ -44,10 +43,10 @@ aaa test -f "$1"
 testthefile ./ignored/rsyncpath
 
 echo "正在用 rsync 删除已存在的 iso..."
-rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
+aaa rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-rsync --delete-before --info=progress2 -avre ssh ./release/ $(cat ./ignored/rsyncpath)
+aaa rsync --delete-before --info=progress2 -avre ssh ./release/ $(cat ./ignored/rsyncpath)
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以
