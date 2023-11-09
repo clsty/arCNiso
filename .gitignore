@@ -9,7 +9,6 @@
 /db.cer
 /TMP
 /OUT
-/data
 /aur/pkgs
 /aur/cache
 /aur/custom/origin-PKGBUILD
@@ -18,10 +17,6 @@
 /homebase/public/.emacs.d/eln-cache
 /homebase/public/.emacs.d/elpa
 /homebase/public/.emacs.d/quelpa
-/archive
-/airootfs/etc/skel
-/airootfs/root
-/airootfs/usr
 /ignored
 /result.log
 /result.md
@@ -30,3 +25,9 @@
 *~
 *.gitignored
 gitignored-
+# releng
+/airootfs
+/efiboot
+/syslinux
+/grub/loopback.cfg
+/bootstrap_packages.x86_64

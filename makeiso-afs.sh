@@ -13,7 +13,6 @@ set -e # 遇错直接退出
 function try { "$@" || sleep 0; }
 
 releng="/usr/share/archiso/configs/releng"
-rAFS="$releng/airootfs"
 cache="anotherpac/cache"
 sweet="$cache/sweet-theme-backup"
 stored="anotherpac/stored"
@@ -21,14 +20,33 @@ AFS="airootfs"
 AFSshare="airootfs/usr/share"
 
 function afs-sync {
+# releng 就位
+# （由于对同一个目标目录、不同来源目录进行多次 rsync，--delete 每次都会导致删文件，这样读写损耗挺大的，应设法仅在想要刷新时才 --delete；或者将多个 rsync 的任务融合到一起（dry-run 输出列表？）再 --delete）
+# 这里暂时先把 --delete 注释掉
+#rsync -av --delete "$releng"/airootfs/ $AFS/
+rsync -av "$releng"/airootfs/ $AFS/
+rsync -av --delete "$releng"/syslinux/ syslinux/
+rsync -av --delete "$releng"/efiboot/ efiboot/
+rsync -av --delete "$releng"/grub/loopback.cfg grub/loopback.cfg
+rsync -av --delete "$releng"/bootstrap_packages.x86_64 bootstrap_packages.x86_64
+
 # anotherpac 目录就位
 mkdir -p $AFSshare/themes/sweet
 mkdir -p $AFSshare/Kvantum
 mkdir -p $AFSshare/color-schemes
 mkdir -p $AFSshare/icons
 
-rsync -av --delete $rAFS/usr/ $AFS/usr/
 rsync -av $stored/usr/ $AFS/usr/
+rsync -av $stored/etc/ $AFS/etc/
+for i in $(cat<<EOF
+choose-mirror.service
+iwd.service
+systemd-networkd.service
+EOF
+)
+do
+rm $AFS/etc/systemd/system/multi-user.target.wants/"$i"
+done
 
 rsync -av --delete $cache/papirus-icons/Papirus/ $AFSshare/icons/Papirus/
 rsync -av --delete $cache/papirus-icons/Papirus-Dark/ $AFSshare/icons/Papirus-Dark/
