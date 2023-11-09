@@ -4,8 +4,8 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=FileManager
-X-XFCE-CommandsWithParameter=/usr/bin/dolphin "%s"
-Icon=dolphin
-Name=dolphin
-X-XFCE-Commands=/usr/bin/dolphin
+X-XFCE-CommandsWithParameter=/usr/bin/thunar "%s"
+Icon=thunar
+Name=thunar
+X-XFCE-Commands=/usr/bin/thunar
 

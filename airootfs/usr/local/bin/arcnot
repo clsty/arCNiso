@@ -1,6 +1,5 @@
 #!/bin/zsh
 # 这个脚本本质上只是一个su root 的 wrapper。
 # 作为图形界面，需要以非 root 帐户登录，然而 archiso 官方版又是以 root 登录。再加上需要做好引导，就有了此脚本。
-wmctrl -r Konsole -b add,maximized_vert,maximized_horz &
 cat /etc/motd-zh_CN
 sudo su -c 'cd /root; su root'

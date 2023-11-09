@@ -4,8 +4,8 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=TerminalEmulator
-X-XFCE-CommandsWithParameter=/usr/bin/konsole "%s"
-Icon=konsole
-Name=konsole
-X-XFCE-Commands=/usr/bin/konsole
+X-XFCE-CommandsWithParameter=/usr/bin/tilix "%s"
+Icon=tilix
+Name=tilix
+X-XFCE-Commands=/usr/bin/tilix
 

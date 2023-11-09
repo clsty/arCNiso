@@ -25,7 +25,7 @@
 
 ** 声明
 1. *本文的适用性：本文同时适用于（官方的）原版 archiso 和（clsty 的）[[https://github.com/clsty/arCNiso][arCNiso]]。*
-2. *arCNiso 的适用性：此镜像完全适用于使用官方指南进行安装，但你应当使用 root 身份。为此，你可以使用开机启动时会自动弹出的 konsole。如果你手动打开了一个 konsole（可按 ~Ctrl+Alt+T~ 调出），你应当输入 ~arcnot~ 再按回车[fn::arcnot 其实只是切换到 root 帐户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。]。*
+2. *arCNiso 的适用性：此镜像完全适用于使用官方指南进行安装，但你应当使用 root 身份。为此，你可以使用开机启动时会自动弹出的 tilix。如果你手动打开了一个 tilix（可按 ~Ctrl+Alt+T~ 调出），你应当输入 ~arcnot~ 再按回车[fn::arcnot 其实只是切换到 root 帐户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。]。*
 3. arCNiso 相对于原版 archiso 的优点：arCNiso 不会降低最终要求，但会帮你优化学习路线。这意味着，当你最终完成 Arch Linux 的安装时，你的收获实际上与使用官方 archiso 是一致的。
 
 ** 建议

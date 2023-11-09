@@ -1,3 +1,4 @@
+/anotherpac/cache
 /patchedmkarchiso/*
 !/patchedmkarchiso/mkarchiso.patch
 !/patchedmkarchiso/patch.sh
@@ -11,6 +12,7 @@
 /data
 /aur/pkgs
 /aur/cache
+/aur/custom/origin-PKGBUILD
 /release
 /bt
 /homebase/public/.emacs.d/eln-cache
@@ -19,7 +21,10 @@
 /archive
 /airootfs/etc/skel
 /airootfs/root
-/airootfs/usr/share/pacman/keyrings/*
+/airootfs/usr/share/icons
+/airootfs/usr/share/themes
+/airootfs/usr/share/Kvantum
+/airootfs/usr/share/color-schemes
 /ignored
 /result.log
 /result.md

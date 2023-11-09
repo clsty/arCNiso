@@ -20,8 +20,8 @@ echo "
 ";exit 0; fi
 cd $(dirname $0) && base=$(pwd)
 cd $base/cache
-t=*
-for i in $t;do
+t=(*)
+for i in "${t[@]}";do
 	cd "$base/cache/$i"
 	echo "========进入 $i"; ls; pp=n
 	if [[ "${force}" != f ]]; then read -r -p "以上是 $i 目录的情况。是否 prepare？[a(余下全是)/y(是)/N(否)]" pp;case $pp in

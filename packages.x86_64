@@ -3,19 +3,19 @@
 # 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
 # ---- BEGINof AUR ---- #
 btrfs-assistant
-candy-icons-git
 efibooteditor
 oh-my-zsh-git
 peazip-gtk2-bin
-sweet-kde-theme-git
-sweet-theme-full-git
 ttf-lxgw-wenkai
 ventoy-bin
 zsh-theme-powerlevel10k-git
 shim-signed
 # ---- ENDof AUR ---- #
+# candy-icons-git sweet-theme-full-git sweet-kde-theme-git 包名换了
 #paru 现在改为要使用时在线安装
 #nwg-look-bin 为了生成一些配置文件，已经生成在 airootfs 里就不需要了
+#custom--sweet-1
+#custom--sweet-2
 
 # 字体问题
 # 中文字体 ----------------
@@ -92,7 +92,8 @@ keepassxc
 vlc
 emacs
 neovim
-konsole
+#konsole
+tilix
 ristretto
 # 看软件包占用
 expac
@@ -147,11 +148,12 @@ xfce4-taskmanager
 xfce4-wavelan-plugin
 #xfce4-weather-plugin
 xfce4-xkb-plugin
-wmctrl
+#wmctrl tilix自带--maxmize，不需要wmctrl最大化
 #xorg-xwininfo wmctrl自己就能据-r Konsole找到窗口了，不需要从xwininfo获得id
 xorg-server
 #picom
 ## 主题
+kvantum
 qt5ct
 qt6ct
 #breeze-icons
@@ -159,7 +161,7 @@ qt6ct
 libappindicator-gtk3
 # papirus这个icon theme，如果不用的话，很多地方（尤其是功能性、指示性的，不是应用程序的）会缺图标，比如 konsole 的“拆分视图”。
 # 并且它也只是感觉上比较大，实际上去掉之后也才减了30MB
-papirus-icon-theme
+#papirus-icon-theme
 grub-customizer
 ## 杂项
 xclip

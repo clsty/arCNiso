@@ -1,0 +1,23 @@
+[/]
+prompt-on-close=true
+quake-specific-monitor=0
+theme-variant='system'
+use-tabs=true
+
+[keybindings]
+terminal-zoom-in='<Primary>equal'
+
+[profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
+background-color='#2E2E34344040'
+background-transparency-percent=33
+badge-color='#AC7EA8'
+badge-color-set=false
+bold-color-set=false
+cursor-colors-set=false
+font='LXGW WenKai Mono 14'
+foreground-color='#DEDEDDDDDADA'
+highlight-colors-set=false
+palette=['#000000', '#A5A51D1D2D2D', '#2626A2A26969', '#C6C646460000', '#1A1A5F5FB4B4', '#616135358383', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#3333D1D17A7A', '#FFFF78780000', '#35358484E4E4', '#91914141ACAC', '#54FFFF', '#FFFFFF']
+use-system-font=false
+use-theme-colors=false
+visible-name='默认'
