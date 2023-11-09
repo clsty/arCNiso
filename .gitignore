@@ -21,10 +21,7 @@
 /archive
 /airootfs/etc/skel
 /airootfs/root
-/airootfs/usr/share/icons
-/airootfs/usr/share/themes
-/airootfs/usr/share/Kvantum
-/airootfs/usr/share/color-schemes
+/airootfs/usr
 /ignored
 /result.log
 /result.md
