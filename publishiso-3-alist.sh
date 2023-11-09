@@ -41,9 +41,8 @@ echo "正在测试 $1 是否存在..."
 echo "此测试将无限循环，直到 $1 存在"
 aaa test -f "$1"
 }
-testthefile ./ignored/rsyncpathh
-echo "hhhh"
-exit
+testthefile ./ignored/rsyncpath
+
 echo "正在用 rsync 删除已存在的 iso..."
 rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
 echo "正在用 rsync 同步 iso..."
