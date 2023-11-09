@@ -157,6 +157,8 @@ vim 本身是高效的、人体工学友好的编辑器，而它的键位设计�
 以下列举部分项目：
 - [[https://github.com/archlinux/archiso][archiso]]：本项目的直接基础，来自 Arch Linux 官方。
 - [[https://github.com/EliverLara/Sweet][Sweet Themes]]：本项目图形环境中 xfce4 等的主题。
+- [[https://github.com/PapirusDevelopmentTeam/papirus-icon-theme][Papirus icon]]：本项目所使用的图标主题。
+- [[https://github.com/gnunn1/tilix][Tilix]]：本项目所使用的终端模拟器。
 - [[https://www.ventoy.net][Ventoy]]：本项目所含工具，以及推荐使用的运行方案。
 - [[https://github.com/ohmyzsh/ohmyzsh][Oh My Zsh]]：本项目采用的 zsh 配置框架。
 - [[https://github.com/romkatv/powerlevel10k][Powerlevel10k]]：本项目采用的 zsh 主题。
