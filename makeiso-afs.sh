@@ -12,9 +12,12 @@
 set -e # 遇错直接退出
 function try { "$@" || sleep 0; }
 
+releng="/usr/share/archiso/configs/releng"
+rAFS="$releng/airootfs"
 cache="anotherpac/cache"
 sweet="$cache/sweet-theme-backup"
 stored="anotherpac/stored"
+AFS="airootfs"
 AFSshare="airootfs/usr/share"
 
 function afs-sync {
@@ -23,6 +26,10 @@ mkdir -p $AFSshare/themes/sweet
 mkdir -p $AFSshare/Kvantum
 mkdir -p $AFSshare/color-schemes
 mkdir -p $AFSshare/icons
+
+rsync -av --delete $rAFS/usr/ $AFS/usr/
+rsync -av $stored/usr/ $AFS/usr/
+
 rsync -av --delete $cache/papirus-icons/Papirus/ $AFSshare/icons/Papirus/
 rsync -av --delete $cache/papirus-icons/Papirus-Dark/ $AFSshare/icons/Papirus-Dark/
 
