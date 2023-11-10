@@ -1,5 +1,6 @@
 [/]
 prompt-on-close=true
+prompt-on-new-session=false
 quake-specific-monitor=0
 theme-variant='system'
 use-tabs=true
@@ -17,7 +18,7 @@ cursor-colors-set=false
 font='LXGW WenKai Mono 14'
 foreground-color='#DEDEDDDDDADA'
 highlight-colors-set=false
-palette=['#000000', '#A5A51D1D2D2D', '#2626A2A26969', '#C6C646460000', '#1A1A5F5FB4B4', '#616135358383', '#00AAAA', '#AAAAAA', '#545454', '#FF5454', '#3333D1D17A7A', '#FFFF78780000', '#35358484E4E4', '#91914141ACAC', '#54FFFF', '#FFFFFF']
+palette=['#000000', '#A5A51D1D2D2D', '#31316A6A2929', '#79795F5F1E1E', '#1C1C7171D8D8', '#616135358383', '#00AAAA', '#9A9A99999696', '#3D3D38384646', '#FF5454', '#2E2EC2C27E7E', '#E5E5A5A50A0A', '#6262A0A0EAEA', '#91914141ACAC', '#54FFFF', '#DEDEDDDDDADA']
 use-system-font=false
 use-theme-colors=false
 visible-name='默认'

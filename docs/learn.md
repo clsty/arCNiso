@@ -65,7 +65,7 @@
 -   注意它也不被 Arch Linux 官方支持（但是你或许可以说“它被 archlinuxcn 官方支持”）。
 -   同 AUR 一样，archlinuxcn 源是对 Arch Linux 官方源的一种补充，只是它是二进制源，且由 archlinuxcn 社区自行维护。
 
-交流频道：无论是 Arch Linux 还是 archlinuxcn，都有自己的在线交流频道（或者说群组），你可以使用对应的通讯软件（可参考[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.org)中的“通讯软件”）来加入一些频道，比如 [archlinuxcn](https://www.archlinuxcn.org/archlinuxcn-group-mailling-list)（请遵循其[指引](https://wiki.archlinuxcn.org/wiki/Project:Arch_Linux_中文社区交流群指引)）、[Arch IRC](https://wiki.archlinux.org/title/Arch_IRC_channels) 等。（声明：本项目与这些交流频道均无任何关联。）
+交流频道：无论是 Arch Linux 还是 archlinuxcn，都有自己的在线交流频道（或者说群组），你可以使用对应的通讯软件（可参考[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)中的“通讯软件”）来加入一些频道，比如 [archlinuxcn](https://www.archlinuxcn.org/archlinuxcn-group-mailling-list)（请遵循其[指引](https://wiki.archlinuxcn.org/wiki/Project:Arch_Linux_中文社区交流群指引)）、[Arch IRC](https://wiki.archlinux.org/title/Arch_IRC_channels) 等。（声明：本项目与这些交流频道均无任何关联。）
 
 
 ## Emacs

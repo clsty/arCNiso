@@ -4,8 +4,8 @@
 
 ## 环境要求
 
--   一个可联网的、AMD64 架构的 Arch Linux 系统。
--   以普通用户身份登录，且具有 sudo 权限。
+- 一个可联网的、AMD64 架构的 Arch Linux 系统。
+- 以普通用户身份登录，且具有 sudo 权限。
 
 ## 分步说明
 
@@ -61,21 +61,21 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 这是一个相对复杂的可选项。若一切顺利自然是最好的，但使用者不必执著于 Secure Boot（尤其是多次失败时）。
 
-1.  没有 Secure Boot 的系统依然可以正常使用。
-2.  Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
-3.  Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
+1. 没有 Secure Boot 的系统依然可以正常使用。
+2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
+3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
 
 依赖：
 
--   需要安装的包：efitools ed2k-shell sbsigntools shim-signed（来自 AUR）
--   需要确保 `packages.x86_64` 含有的包名：mokutil shim-signed（来自 AUR）
+- 需要安装的包：efitools ed2k-shell sbsigntools shim-signed（来自 AUR）
+- 需要确保 `packages.x86_64` 含有的包名：mokutil shim-signed（来自 AUR）
 
 步骤：
 
--   确保上述依赖已安排就绪。
--   运行 `./patchedmkarchiso/genkey.sh` 。
--   运行 `./patchedmkarchiso/patch.sh` 并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
--   （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行 `./patchedmkarchiso/diff.sh` 来更新 `mkarchiso.diff` 补丁文件。
+- 确保上述依赖已安排就绪。
+- 运行 `./patchedmkarchiso/genkey.sh` 。
+- 运行 `./patchedmkarchiso/patch.sh` 并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
+- （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行 `./patchedmkarchiso/diff.sh` 来更新 `mkarchiso.diff` 补丁文件。
 
 
 ### 正式构建（约 5 分钟，依赖网速和 CPU 速度）
@@ -93,22 +93,22 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 而如果你想做一些深层次的定制，比如添加、删除一些包或 systemd 服务等，你就需要了解项目内各个文件与目录结构的作用了。
 
--   为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
-    因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
--   其次，你可以看看 [feature.md](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
+- 为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
+  因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
+- 其次，你可以看看 [feature.md](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
 
 **此外，你还应当了解以下信息：**
 
--   由于 arCNiso 不包含 releng 本体（某种意义上，arCNiso 相当于对 releng 的一个补丁），直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
-    -   详见 `makeiso-afs.sh`。
-    -   实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
--   你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
--   从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
--   `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
--   注意 `.gitignore` 。合理的 `.gitignore` 可以保护 Git 仓库免受临时性文件的拖累。
--   `profiledef.sh` 中的 `airootfs_image_tool_options` 设定了压缩算法参数，它会影响到构建时长、镜像体积和镜像启动时长等。
-    -   推荐在测试构建时使用 gzip 1 级，这样能构大大加快构建速度。
-    -   构建成品时则推荐使用 zstd 18 级，在压缩率尚可的同时比 xz 具有快得多的启动速度。
+- 由于 arCNiso 不包含 releng 本体（某种意义上，arCNiso 相当于对 releng 的一个补丁），直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
+  - 详见 `makeiso-afs.sh`。
+  - 实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
+- 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
+- 从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
+- `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
+- 注意 `.gitignore` 。合理的 `.gitignore` 可以保护 Git 仓库免受临时性文件的拖累。
+- `profiledef.sh` 中的 `airootfs_image_tool_options` 设定了压缩算法参数，它会影响到构建时长、镜像体积和镜像启动时长等。
+  - 推荐在测试构建时使用 gzip 1 级，这样能构大大加快构建速度。
+  - 构建成品时则推荐使用 zstd 18 级，在压缩率尚可的同时比 xz 具有快得多的启动速度。
 
 
 # 追踪 releng
@@ -124,11 +124,11 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 ## 方法论
 
--   基本要求：避免启用会自动整理代码风格的功能（比如 Lazyvim 默认开启的某个插件），否则可能会给逐行比对（diff）带来巨大麻烦。
--   关注 GitLab 上 releng 的最新变化，如
-    -   <https://gitlab.archlinux.org/archlinux/archiso/-/commits/master/configs/releng?ref_type=heads>
-    -   <https://gitlab.archlinux.org/archlinux/releng/-/commits/master/?ref_type=HEADS>
--   使用 diff 类工具（如 kompare）对比本项目目录与 archiso 所提供的 `/usr/share/archiso/configs/releng` 目录。
+- 基本要求：避免启用会自动整理代码风格的功能（比如 Lazyvim 默认开启的某个插件），否则可能会给逐行比对（diff）带来巨大麻烦。
+- 关注 GitLab 上 releng 的最新变化，如
+  - <https://gitlab.archlinux.org/archlinux/archiso/-/commits/master/configs/releng?ref_type=heads>
+  - <https://gitlab.archlinux.org/archlinux/releng/-/commits/master/?ref_type=HEADS>
+- 使用 diff 类工具（除 diff 本身以外还有多种 TUI/GUI 前端可选）对比本项目目录与 archiso 所提供的 `/usr/share/archiso/configs/releng` 目录。
 
 
 # 附：其他脚本
@@ -145,4 +145,3 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 如果只是为了构建此项目，你并不需要这些脚本。
 
 如果你也想用这些脚本，来自动发布你基于本项目修改的分支、或者一个完全不同的项目，你需要自行做适当的修改调整。
-

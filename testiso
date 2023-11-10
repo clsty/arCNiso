@@ -1,0 +1,9 @@
+#!/bin/bash
+VMname=arCNiso
+set -e
+function try { "$@" || sleep 0; }
+cd $(dirname $0)
+try vboxmanage storagectl $VMname --name=IDE --add=ide --bootable=on
+vboxmanage storageattach $VMname --storagectl=IDE --port 0 --device 0 --type=dvddrive --medium OUT/*.iso
+
+nohup virtualboxvm --startvm $VMname >/dev/null 2>&1 &

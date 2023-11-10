@@ -1,0 +1,8 @@
+#!/bin/bash
+pp=n;read -p "真的要重新启动桌面环境吗？[y/N]" pp
+if [ "y$pp" != "yy" ];then exit;fi
+case $(whoami) in
+     "root") pkill xfce4 ;;
+     "archer") xfce4-session-logout --logout --fast ;;
+     #dbus-launch --autolaunch --binary-syntax --close-stderr
+esac

@@ -3,6 +3,9 @@ user=archer
 urlfile=/home/$user/.cache/tempwebpageurl
 mkdir -p /home/$user/.cache
 case "$(whoami)" in
-    "root") su $user -c "echo $1 >$urlfile" ;;
+    "root") su $user -c "echo '$1'>$urlfile" ;;
     "$user") echo "$1" >$urlfile ;;
 esac
+
+echo "[$0] 已经将以下 url 输出到 $urlfile 中："
+cat $urlfile

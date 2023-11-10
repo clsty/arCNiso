@@ -4,9 +4,6 @@
 !/patchedmkarchiso/patch.sh
 !/patchedmkarchiso/diff.sh
 !/patchedmkarchiso/genkey.sh
-/db.key
-/db.crt
-/db.cer
 /TMP
 /OUT
 /aur/pkgs

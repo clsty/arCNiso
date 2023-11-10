@@ -1,7 +1,22 @@
 #!/bin/bash
+set -e
+function try { "$@" || sleep 0; }
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+
 if [ "$(whoami)" = root ];then echo "paru 不能以 root 用户身份运行。请先切换到普通用户，比如 archer，为此请输入 su archer。";exit 1;fi
-# 若不存在 paru 则从 archlinuxcn 源（https://github.com/archlinuxcn/repo）安装
+
+function setupparuCn { sudo arcnadd-cn;sudo pacman -Sy --needed --noconfirm base-devel less paru; }
+function setupparuAur { sudo pacman -Sy --needed --noconfirm base-devel less
+try git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
+cd /tmp/paru-bin;aaa makepkg -si;cd /tmp;rm -rf /tmp/paru-bin; }
+
 if test -f "/usr/bin/paru"
 then /usr/bin/paru "$@"
-else sudo pacman -Sy --needed --noconfirm base-devel paru && $0 "$@"
+else echo -e "未找到 paru，是否要安装 paru？\na=aur/paru-bin\nc=archlinuxcn/paru\nn=不安装"
+	read -p "[A/c/n]" yn
+	case $yn in
+		n|N)exit;;
+		c|C)setupparuCn;$0 "$@";;
+		*)setupparuAur;$0 "$@";;
+	esac
 fi
