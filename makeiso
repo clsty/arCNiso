@@ -83,7 +83,7 @@ esac
 echo -e "文件名：${name}\n大小：${size}\nsha256sum：${sha256sum}" >result.log
 cat result.log
 
-echo "文件名：${name}\n\n大小：${size}\n\nsha256sum：${sha256sum}" >result.md
+echo -e "文件名：${name}\n\n大小：${size}\n\nsha256sum：${sha256sum}" >result.md
 
 # 时间测量结束
 TIME2=$(date +%Y%m%d-%H:%M:%S)

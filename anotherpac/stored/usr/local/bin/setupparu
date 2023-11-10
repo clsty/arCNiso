@@ -6,7 +6,7 @@ function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";s
 function setupparuCn { sudo arcnadd-cn;sudo pacman -Sy --needed --noconfirm base-devel less paru; }
 function setupparuAur { sudo pacman -Sy --needed --noconfirm base-devel less
 try git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
-cd /tmp/paru-bin;aaa makepkg -si;cd /tmp;rm -rf /tmp/paru-bin; }
+cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin; }
 
 case $(whoami) in
   root)sudo -u \#1000 "$0" "$@";exit;;
