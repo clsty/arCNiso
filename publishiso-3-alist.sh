@@ -42,11 +42,9 @@ aaa test -f "$1"
 }
 testthefile ./ignored/rsyncpath
 
-echo "正在用 rsync 删除已存在的 iso..."
-aaa rsync --delete-before --info=progress2 -avre ssh ./emptyfolder/ $(cat ./ignored/rsyncpath)
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-aaa rsync --delete-before --info=progress2 -avre ssh ./release/ $(cat ./ignored/rsyncpath)
+aaa rsync --delete-before --info=progress2 -avre ssh -f"+ $iso" -f"+ README.md" -f'R *' ./release/ $(cat ./ignored/rsyncpath)
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以

@@ -1,6 +1,6 @@
 #!/bin/bash
 VMname=arCNiso
-OUTpath=${1:=OUT}
+OUTpath=${1:-OUT}
 set -e
 function try { "$@" || sleep 0; }
 cd $(dirname $0)
