@@ -16,31 +16,31 @@ However, **feel free to fork** this project and modify to make your own (of cour
 
 其保留了官方原版 archiso 镜像的所有功能，并面向<b>简体中文的中国用户</b>，就<b>安装系统、维护系统与临时使用</b>这三种用途进行了加强定制。
 
--   arCNiso 不仅面向新手，也面向熟手，比如：
-    -   oh-my-zsh 与 p10k 总比裸 grml-zsh 好用；
-    -   需要 timeshift 等常用工具时，自带总比从 AUR 安装更省事；
-    -   需要 Secure Boot 支持时（官方 archiso 不支持 Secure Boot）；
-    -   使用平板电脑时，若没有 USB 无线或有线键盘，可用蓝牙管理器连接蓝牙键盘，或使用屏幕键盘，而不是束手无策；
-    -   ……
+- arCNiso 不仅面向新手，也面向熟手，比如：
+  - oh-my-zsh 与 p10k 总比裸 grml-zsh 好用；
+  - 需要 timeshift 等常用工具时，自带总比从 AUR 安装更省事；
+  - 需要 Secure Boot 支持时（官方 archiso 不支持 Secure Boot）；
+  - 使用平板电脑时，若没有 USB 无线或有线键盘，可用蓝牙管理器连接蓝牙键盘，或使用屏幕键盘，而不是束手无策；
+  - ……
 
 > arCNiso 不是什么：
 > 
-> -   它 **不是** Arch Linux 的图形化安装器，如含有 Calamares 的 [alci-iso](https://github.com/arch-linux-calamares-installer/alci-iso)。
->     -   因为它 **并不** 额外提供任何形如“黑箱”（指将正常的安装流程包装隐藏起来）的系统安装途径（官方 archiso 所提供的 archinstall 除外）。
-> -   它也 **不是** Arch Linux 的衍生发行版，如 EndeavourOS、CachyOS 等。
->     -   因为它 **并不** 提供这类发行版所独有的软件仓库。
-> -   同原版 archiso 一样，它也 **不** 支持离线安装 Arch Linux。
+> - 它 **不是** Arch Linux 的图形化安装器，如含有 Calamares 的 [alci-iso](https://github.com/arch-linux-calamares-installer/alci-iso)。
+>   - 因为它 **并不** 额外提供任何形如“黑箱”（指将正常的安装流程包装隐藏起来）的系统安装途径（官方 archiso 所提供的 archinstall 除外）。
+> - 它也 **不是** Arch Linux 的衍生发行版，如 EndeavourOS、CachyOS 等。
+>   - 因为它 **并不** 提供这类发行版所独有的软件仓库。
+> - 同原版 archiso 一样，它也 **不** 支持离线安装 Arch Linux。
 > 
 > 总之，arCNiso 本质上仍是 archiso，只是体积更大（例如 v1.2.1 的镜像文件大小为 1.56 GB，差不多比同时期的官方 archiso 的 0.81 GB 大一倍不到）且更好用。
 
 arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢。
 
--   欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
--   有任何看法或建议，欢迎在 [issue](https://github.com/clsty/arCNiso/issues) 中反馈或吐槽，或直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.org)）。
+- 欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
+- 有任何看法或建议，欢迎在 [issue](https://github.com/clsty/arCNiso/issues) 中反馈或吐槽，或直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)）。
 
-> -   **作为新手怕难度太高不会用** 或 **作为熟手担心难度太低把新手惯成白痴** ？来看[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.org)。
-> -   为什么会有这个项目？请看[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.org)。
-> -   更多特性与细节，以及某些设计的背景与考量，详见[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.org)。
+> - **作为新手怕难度太高不会用** 或 **作为熟手担心难度太低把新手惯成白痴** ？来看[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.md)。
+> - 为什么会有这个项目？请看[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
+> - 更多特性与细节，以及某些设计的背景与考量，详见[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
 
 祝你使用愉快！
 
@@ -52,32 +52,32 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 ## 如何获取镜像文件
 
--   从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享（不需要登录，但是有密码：clsty）](https://alist.celestialy.top/arCNiso/release) 下载即可。
-    -   国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
-    -   正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [sha256sum](https://github.com/clsty/arCNiso/releases)。
+- 从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享（不需要登录，但是有密码：clsty）](https://alist.celestialy.top/arCNiso/release) 下载即可。
+  - 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
+  - 正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [sha256sum](https://github.com/clsty/arCNiso/releases)。
 
-> -   备用方法：从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent) 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
->     -   理论上来说，这也是不错的方法，但目前的做种时间较短（换句话说，时间不巧的话可能完全无法下载）。
->     -   如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[这里](https://www.qbittorrent.org/download)下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
->     -   题外话，若想长期使用 BT 客户端，则更推荐 [qbittorrent 增强版](https://github.com/c0re100/qBittorrent-Enhanced-Edition)。
->     -   不需要手动验证 sha256sum（BT 客户端会自动验证）。
-> -   过时的备用方法：从 [123pan](https://www.123pan.com/s/fU5iVv-tYaZ3.html) 下载。
->     -   在过去，由于 123pan 相对来说比较良心，免登录、无广告且不需要客户端也不限速，这曾是主要方法；但不久之后 123pan 进行了一系列操作，比如限制 AList 挂载（这导致自动发布不再可行）、增加广告量、加大免登录下载的限制等等，于是此法逐渐弃用。
+> - 备用方法：从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent) 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
+>   - 理论上来说，这也是不错的方法，但目前的做种时间较短（换句话说，时间不巧的话可能完全无法下载）。
+>   - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[这里](https://www.qbittorrent.org/download)下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
+>   - 题外话，若想长期使用 BT 客户端，则更推荐 [qbittorrent 增强版](https://github.com/c0re100/qBittorrent-Enhanced-Edition)。
+>   - 不需要手动验证 sha256sum（BT 客户端会自动验证）。
+> - 过时的备用方法：从 [123pan](https://www.123pan.com/s/fU5iVv-tYaZ3.html) 下载。
+>   - 在过去，由于 123pan 相对来说比较良心，免登录、无广告且不需要客户端也不限速，这曾是主要方法；但不久之后 123pan 进行了一系列操作，比如限制 AList 挂载（这导致自动发布不再可行）、增加广告量、加大免登录下载的限制等等，于是此法逐渐弃用。
 
--   Q：但是，如果我说我不想直接下载，而是从源码自己编译一份，顺便做些修改（觉得不错的话还可以给你 [PR](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.org)），阁下又将如何应对？
--   A：没问题，来看[构建](https://github.com/clsty/arCNiso/blob/main/docs/BUILD.org)。
+- Q：但是，如果我说我不想直接下载，而是从源码自己编译一份，顺便做些修改（觉得不错的话还可以给你 [PR](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)），阁下又将如何应对？
+- A：没问题，来看[构建](https://github.com/clsty/arCNiso/blob/main/docs/BUILD.md)。
 
 
 ## 怎样运行（即制作启动盘）
 
--   Q：我已经获得了 iso 镜像文件，现在我要怎么运行它呢？像官方 archiso 那样吗？
--   A：是的，和官方 archiso（以及其他各种 Live 或 PE 镜像）一样。
-    -   推荐使用 Ventoy，参见 [Ventoy 使用说明](https://ventoy.net/cn/doc_start.html)，其中“拷贝镜像文件”中的“ISO 文件”对应于本项目所提供的 iso 镜像文件。
-    -   也可以将镜像文件通过 dd 或 Rufus 等工具写入到 U 盘中，但这远不如 Ventoy 灵活。
--   Q：其实——我的电脑系统全挂掉了（或出厂不含系统），也暂时无法借用他人电脑，这样也能制作 arCNiso 启动盘吗？
--   A：（ `>v>` 没想到吧.png）就算这样也还是有办法的——你可以使用安卓设备（手机、平板等）来做这件事。
-    -   安装 EtchDroid USB writer，它可从[项目主页的 Releases](https://github.com/Depau/EtchDroid/releases) 或 [F-Droid](https://f-droid.org/packages/eu.depau.etchdroid) 下载（这里也提供 [Celestial.y 的存储分享](https://alist.celestialy.top/android)，密码 clsty；但更新未必及时）。
-    -   将 U 盘插到安卓设备上，使用刚才安装的 EtchDroid 将前面获取到的 arCNiso 镜像文件写入到 U 盘中。
+- Q：我已经获得了 iso 镜像文件，现在我要怎么运行它呢？像官方 archiso 那样吗？
+- A：是的，和官方 archiso（以及其他各种 Live 或 PE 镜像）一样。
+  - 推荐使用 Ventoy，参见 [Ventoy 使用说明](https://ventoy.net/cn/doc_start.html)，其中“拷贝镜像文件”中的“ISO 文件”对应于本项目所提供的 iso 镜像文件。
+  - 也可以将镜像文件通过 dd 或 Rufus 等工具写入到 U 盘中，但这远不如 Ventoy 灵活。
+- Q：其实——我的电脑系统全挂掉了（或出厂不含系统），也暂时无法借用他人电脑，这样也能制作 arCNiso 启动盘吗？
+- A：（ `>v>` 没想到吧.png）就算这样也还是有办法的——你可以使用安卓设备（手机、平板等）来做这件事。
+  - 安装 EtchDroid USB writer，它可从[项目主页的 Releases](https://github.com/Depau/EtchDroid/releases) 或 [F-Droid](https://f-droid.org/packages/eu.depau.etchdroid) 下载（这里也提供 [Celestial.y 的存储分享](https://alist.celestialy.top/android)，密码 clsty；但更新未必及时）。
+  - 将 U 盘插到安卓设备上，使用刚才安装的 EtchDroid 将前面获取到的 arCNiso 镜像文件写入到 U 盘中。
 
 > 当你的电脑（通过 ventoy 或其他途径）启动本镜像之后，会自动进入启动流程。
 > 
@@ -89,7 +89,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 # 使用指南
 
-开机弹出的欢迎界面中已经给出了最关键的“注意事项”，<b>读完这个就可以直接开始使用了。</b>
+开机弹出的欢迎界面中已经给出了最关键的“注意事项”，**读完这个就可以直接开始使用了。**
 
 以下则是（没那么重要的）“技巧提示”及“问题与应对”。
 
@@ -142,8 +142,8 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 ### 更多
 
--   有关 Arch Linux、Linux 等方面，<b>推荐新手阅读[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.org)</b>。
--   arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.org)。
+-   有关 Arch Linux、Linux 等方面，**推荐新手阅读**[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
+-   arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
 
 
 ## 问题与应对（一般用不到）
@@ -193,7 +193,6 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 -   [霞鹜文楷](https://github.com/lxgw/WenKai)：本项目所采用的字体。
 -   [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器。
 -   [Emacs Evil](https://github.com/emacs-evil)：本项目所使用的 Emacs 插件。
--   [org-make-toc](https://github.com/alphapapa/org-make-toc)：为本项目的自述文档（即 README）等生成目录。
 -   [evil-tutor-sc](https://github.com/clsty/evil-tutor-sc)：本项目所使用的 Emacs 插件（作者也是 clsty `>v0` ）。
 -   [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
 -   [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。

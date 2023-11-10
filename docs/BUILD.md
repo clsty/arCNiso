@@ -95,9 +95,9 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 -   为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
     因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
--   其次，你可以看看 [](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
+-   其次，你可以看看 [feature.md](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
 
-****此外，你还应当了解以下信息：****
+**此外，你还应当了解以下信息：**
 
 -   由于 arCNiso 不包含 releng 本体（某种意义上，arCNiso 相当于对 releng 的一个补丁），直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
     -   详见 `makeiso-afs.sh`。
