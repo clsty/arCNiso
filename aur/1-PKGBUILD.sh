@@ -12,13 +12,14 @@ pkgend=$(awk '/# ---- ENDof AUR ---- #/{print NR}' ../packages.x86_64)
 pkgend=$(($pkgend-1))
 
 mkdir -p $base/cache; mkdir -p $base/pkgs; cd $base/cache
+get=true
 if [[ "${force}" != f ]]; then read -r -p "是否从 AUR 下载 PKGBUILD？[a(余下全是)/y(是)/N(否)]" pp;case $pp in
 	     [yY]) echo 好的，开始 prepare... ;;
 	     [aA]) force=f ;;
-	      *) continue ;;esac;fi
+	     *) get=false ;;esac;fi
 for i in $(sed -n "$pkgbeg , ${pkgend}p" ../../packages.x86_64) ;
 do
-  aaa paru -G --noredownload $i
+  if $get;then aaa paru -G --noredownload $i;fi
 done
 
 #cd "$base"/custom/PKGBUILD

@@ -1,0 +1,24 @@
+#!/bin/bash
+set -e
+function try { "$@" || sleep 0; }
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+
+function setupparuCn { sudo arcnadd-cn;sudo pacman -Sy --needed --noconfirm base-devel less paru; }
+function setupparuAur { sudo pacman -Sy --needed --noconfirm base-devel less
+try git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
+cd /tmp/paru-bin;aaa makepkg -si;cd /tmp;rm -rf /tmp/paru-bin; }
+
+case $(whoami) in
+  root)sudo -u \#1000 "$0" "$@";exit;;
+esac
+
+if test -f "/usr/bin/paru"
+then sleep 0
+else echo -e "未找到 paru，是否要安装 paru？\na=aur/paru-bin\nc=archlinuxcn/paru\nn=不安装"
+  read -p "[A/c/n]" yn
+  case $yn in
+    n|N)exit 1;;
+    c|C)setupparuCn;;
+    *)setupparuAur;;
+  esac
+fi
