@@ -169,7 +169,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 -   Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
 
 > 部分读者可能会觉得此处小题大做（“有必要做这样一份声明吗”），
-> 为此请阅读[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.org)。
+> 为此请阅读[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
 
 
 ## 许可
