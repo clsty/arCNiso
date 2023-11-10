@@ -4,6 +4,7 @@
 profile=$HOME/.mozilla/firefox/fawis2kz.default-release
 urlfile=$HOME/.cache/tempwebpageurl
 while true;do
+  whoami >/tmp/sufirefoxuser
   if test -f $urlfile;then
     readarray -t urls < $urlfile
     aaa rm $urlfile
@@ -11,7 +12,7 @@ while true;do
     ps -C firefox||(firefox >/dev/null 2>&1 & sleep 10)
     for i in ${urls[@]}
       do firefox --profile "$profile" --new-tab "$i"
-      sleep 0.5
+      sleep "0.5"
     done
   fi
   sleep 1

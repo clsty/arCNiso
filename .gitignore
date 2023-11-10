@@ -6,6 +6,7 @@
 !/patchedmkarchiso/genkey.sh
 /TMP
 /OUT
+/TEST
 /aur/pkgs
 /aur/cache
 /aur/custom/origin-PKGBUILD

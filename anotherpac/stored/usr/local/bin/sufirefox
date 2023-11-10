@@ -1,5 +1,5 @@
 #!/bin/bash
-user=archer
+user=$(cat /tmp/sufirefoxuser)
 urlfile=/home/$user/.cache/tempwebpageurl
 mkdir -p /home/$user/.cache
 case "$(whoami)" in

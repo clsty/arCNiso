@@ -1,9 +1,4 @@
 #!/bin/bash
-fzfparu(){
-  paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S
-}
-# 若不存在 paru 则从 archlinuxcn 源（https://github.com/archlinuxcn/repo）安装
-if test -f "/usr/bin/paru"
-then fzfparu
-else sudo pacman -Sy --needed --noconfirm base-devel paru && fzfparu
-fi
+set -e
+setupparu
+paru -Slq | fzf --multi --preview 'paru -Si {1}' | xargs -ro paru -S

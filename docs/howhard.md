@@ -19,10 +19,10 @@ arCNiso 本质上仍然是 archiso。
 
 | |archiso|arCNiso|
 |-|-|-|
-|字体显示|tty|xfce4|
+|基本界面|tty|xfce4|
 |字体显示|终端点阵|图形环境|
 |语言环境|仅英文|默认中文界面、中文输入法|
-|终端|tty|konsole 及 pty|
+|终端|tty|Tilix 及 pty|
 |shell|grml-zsh|oh-my-zsh、p10k|
 |浏览器|lynx|Firefox 及其插件|
 |WiFi|iwctl|nmtui|
