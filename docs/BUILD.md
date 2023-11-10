@@ -95,12 +95,12 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 -   为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
     因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
--   其次，你可以看看 <./feature.md> ，它能告诉你 arCNiso 的诸多设计细节。
+-   其次，你可以看看 [](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
 
 ****此外，你还应当了解以下信息：****
 
 -   由于 arCNiso 不包含 releng 本体（某种意义上，arCNiso 相当于对 releng 的一个补丁），直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
-    -   详见 \`makeiso-afs.sh\`。
+    -   详见 `makeiso-afs.sh`。
     -   实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
 -   你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 -   从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
