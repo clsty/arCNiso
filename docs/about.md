@@ -26,9 +26,9 @@
 “删了你这破猫猫主题！老娘再也不用官方 archiso 了！”
 
 啪一声回车，电光石火之间，李华忽然意识到了好像有什么不对。
-
-    /bin/ls: no such file or directory
-
+```bash
+/bin/ls: no such file or directory
+```
 ……
 
 “昨天回去试了我做的主题了喵～？感觉怎么样喵喵～？”
