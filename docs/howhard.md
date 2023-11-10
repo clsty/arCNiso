@@ -17,8 +17,7 @@ arCNiso 本质上仍然是 archiso。
 
 相比原版 archiso，使用 arCNiso 是舒适的，部分对比见下表：
 
-|-----|
-|-|archiso|arCNiso|
+| |archiso|arCNiso|
 |-|-|-|
 |字体显示|tty|xfce4|
 |字体显示|终端点阵|图形环境|
@@ -29,7 +28,6 @@ arCNiso 本质上仍然是 archiso。
 |WiFi|iwctl|nmtui|
 |指针输入|无|鼠标、触摸屏、触控板|
 |聊天工具|无|matrix、irc、xmpp、QQ|
-|-----|
 
 ## 引导
 
