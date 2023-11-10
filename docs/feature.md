@@ -113,6 +113,7 @@
 - vlc：音视频播放器。
 - zathura：文档阅读器，支持 PDF、EPUB、XPS 等格式。
 - gimagereader：基于 tesseract 的 OCR。
+  - 若需要识别中文，应手动安装 `tesseract-data-chi_sim`。
 - Ristretto：图像查看器。
 - neofetch：展示系统信息。
 
