@@ -7,7 +7,7 @@
 
 1.  **本文的适用性：本文同时适用于（官方的）原版 archiso 和（clsty 的）[arCNiso](https://github.com/clsty/arCNiso)。**
 2.  **arCNiso 的适用性：此镜像完全适用于使用官方指南进行安装，但你应当使用 root 身份。为此，你可以使用开机启动时会自动弹出的 tilix。如果你手动打开了一个 tilix（可按 `Ctrl+Alt+T` 调出），你应当输入 `arcnot` 再按回车<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。**
-3.  arCNiso 相对于原版 archiso 的优点：arCNiso 不会降低最终要求，但会帮你优化学习路线。这意味着，当你最终完成 Arch Linux 的安装时，你的收获实际上与使用官方 archiso 是一致的。
+3.  arCNiso 相对于原版 archiso 的优点：arCNiso 不会降低最终要求，但会帮你优化学习路线。这意味着，当你最终完成 Arch Linux 的安装时，你的收获实际上与使用官方 archiso 是一致的<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup><sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>。
 
 
 ## 建议
@@ -113,7 +113,7 @@
 
 不过，如果你想了解得更深一点，比如 UEFI 与 GPT 的情形下为什么要指定 esp，boot 分区又是什么，等等，那么：
 
-- 请先阅读本文中的“[arch-linux-启动流程](#Arch Linux 启动流程)”一节。
+- 请先阅读本文中的“[Arch Linux 启动流程](#arch-linux-启动流程)”一节。
 
 在此基础上：
 
@@ -179,3 +179,5 @@
 # 注
 
 <sup><a id="fn.1" href="#fnr.1">1</a></sup> arcnot 其实只是切换到 root 帐户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。
+<sup><a id="fn.2" href="#fnr.2">2</a></sup> <https://github.com/clsty/arCNiso/blob/main/docs/about.md>
+<sup><a id="fn.3" href="#fnr.3">3</a></sup> <https://github.com/clsty/arCNiso/blob/main/docs/howhard.md>
