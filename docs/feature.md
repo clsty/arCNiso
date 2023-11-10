@@ -80,7 +80,7 @@
 
 - 提供了 GUI 的 emacs 与 TUI 的 emacsnw（本质上是 `emacs -nw` ）
   - 配置了 evil。
-- 提供了 TUI 的 nvim。
+- 提供了 TUI 的 nvim 及简单配置与美化。
 - 移除了 vim；在找不到 vi、vim 时，使用 nvim 自动替代之。
 - 提供 GUI 文件管理器 Thunar。
 - 提供 vi 键位风格的 TUI 文件管理器 vifm 与 ranger，以增强文件操作效率。
