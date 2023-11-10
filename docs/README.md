@@ -50,8 +50,10 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 # 获取与运行
 
-注：要运行此镜像的机器，最低内存 3GiB（此时使用 Firefox 仍有崩溃风险），推荐内存 4GiB 及以上。
-
+## 环境要求
+- CPU：`amd64` 架构（即 `x86_64` 架构；未来可能支持其他架构）。
+- 显存：最低 128MiB。
+- 内存：最低 3GiB（此时使用 Firefox 仍有崩溃风险），推荐 4GiB 及以上。
 
 ## 如何获取镜像文件
 
@@ -195,11 +197,12 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 - [Ventoy](https://www.ventoy.net)：本项目所含工具，以及推荐使用的运行方案。
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)：本项目采用的 zsh 配置框架。
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)：本项目采用的 zsh 主题。
+- [neovim](https://github.com/neovim/neovim)：本项目所采用的编辑器之一。
+- [Everforest](https://github.com/sainnhe/everforest)：本项目采用的 neovim 主题。
 - [霞鹜文楷](https://github.com/lxgw/WenKai)：本项目所采用的字体。
-- [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器。
+- [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器之一。
 - [Emacs Evil](https://github.com/emacs-evil)：本项目所使用的 Emacs 插件。
 - [evil-tutor-sc](https://github.com/clsty/evil-tutor-sc)：本项目所使用的 Emacs 插件（作者也是 clsty `>v0` ）。
 - [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
-
