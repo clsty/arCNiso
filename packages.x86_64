@@ -86,7 +86,7 @@ zathura
 zathura-pdf-mupdf
 # tesseract 是 zathura-pdf-mupdf 依赖链中的一环，且它至少依赖一种语言的数据包，所以这里手动指定
 tesseract
-tesseract-data-chi_sim
+#tesseract-data-chi_sim
 tesseract-data-eng
 # 顺便再装一个 tesseract 的 GUI，以及其所需要的 hunspell 的拼写词典
 gimagereader-qt
