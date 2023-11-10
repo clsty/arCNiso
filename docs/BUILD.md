@@ -136,7 +136,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ## 测试脚本
 
 `./testiso` 用于利用 VirtualBox 对镜像进行测试运行。
-使用前可能需要手动配置 VirtualBox 虚拟机（参见 [环境要求](./feature.md#环境要求)），并使虚拟机名为 arCNiso。
+使用前可能需要手动配置 VirtualBox 虚拟机（参见 [环境要求](./README.md#环境要求)），并使虚拟机名为 arCNiso。
 
 ## 自动发布
 
