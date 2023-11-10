@@ -8,9 +8,38 @@ basedir="$(pwd)"
 target="$basedir"/skel/.mozilla/firefox/fawis2kz.default-release
 
 cleanff() {
-	for i in "cert_override.txt" "SiteSecurityServiceState.txt" "storage-sync-v2.sqlite-shm" "favicons.sqlite-wal" "favicons.sqlite.corrupt" "protections.sqlte" "sessionstore.jsonlz4" "cookies.sqlite-wal" "cookies.sqlite" "key4.db" "logins.json" "sessionstore.js" "permissions.sqlite" "content-prefs.sqlite" "webappsstore.sqlite-wal" "webappsstore.sqlite" "formhistory.sqlite" cache2 safebrowsing crashes storage datareporting startupCache minidumps saved-telemetry-pings thumbnails sessionstore-backups bookmarkbackups; do
-		rm -rf "$target"/"$i"
-	done
+for i in $(cat<<EOF
+cert_override.txt
+SiteSecurityServiceState.txt
+storage-sync-v2.sqlite-shm
+favicons.sqlite-wal
+favicons.sqlite.corrupt
+protections.sqlte
+sessionstore.jsonlz4
+cookies.sqlite-wal
+cookies.sqlite
+key4.db
+logins.json
+sessionstore.js
+permissions.sqlite
+content-prefs.sqlite
+webappsstore.sqlite-wal
+webappsstore.sqlite
+formhistory.sqlite
+cache2
+safebrowsing
+crashes
+storage
+datareporting
+startupCache
+minidumps
+saved-telemetry-pings
+thumbnails
+sessionstore-backups
+bookmarkbackups
+EOF
+)
+do rm -rf "$target"/"$i";done
 }
 
 cleanff
