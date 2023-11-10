@@ -81,10 +81,10 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 > 当你的电脑（通过 ventoy 或其他途径）启动本镜像之后，会自动进入启动流程。
 > 
-> -   首先会进入 GRUB 界面，5 秒后自动选择第一项。
-> -   执行 Linux 启动阶段，并由控制台展示（左侧给出每个单项的彩色状态指示）。
-> -   进入 tty 界面，展示 motd（即 Arch Linux 图标）并自动登录到 archer 帐户（其具有 sudo 权限）。
-> -   图形环境（xfce4）启动，弹出[欢迎界面](https://github.com/clsty/arCNiso/blob/main/airootfs/etc/motd-zh_CN)。
+> - 首先会进入 GRUB 界面，5 秒后自动选择第一项。
+> - 执行 Linux 启动阶段，并由控制台展示（左侧给出每个单项的彩色状态指示）。
+> - 进入 tty 界面，展示 motd（即 Arch Linux 图标）并自动登录到 archer 帐户（其具有 sudo 权限）。
+> - 图形环境（xfce4）启动，弹出[欢迎界面](https://github.com/clsty/arCNiso/blob/main/airootfs/etc/motd-zh_CN)。
 
 
 # 使用指南
@@ -142,20 +142,22 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 ### 更多
 
--   有关 Arch Linux、Linux 等方面，**推荐新手阅读**[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
--   arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
+- 有关 Arch Linux、Linux 等方面，**推荐新手阅读**[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
+- arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
 
 
 ## 问题与应对（一般用不到）
 
--   不小心进入了 tty
-    -   启动时，会自动登录 tty1 并启动 xfce4。若不小心切到了别的 tty，可以用 `Ctrl+Alt+F1` 再切回来。
--   若 CPU 性能弱，则启动速度较慢。
-    -   从 GRUB 到 tty 界面要很长一段时间，从 tty 界面到 xfce4 出现又有很长一段黑屏。在某低配电脑上总计时间甚至可达两分钟。原因初步推测为，镜像为了节省空间，经由 squashfs 高度压缩，解压时对 CPU 多核性能要求较高。
-    -   建议耐心等待。
--   在 VirtualBox 虚拟机中使用本镜像时，不够稳定，尤其是 Firefox。
-    -   建议使用 VMSVGA 作为显卡控制器、启用 3D 加速并给足显存（128 MB）。
-    -   在 Linux 下建议改用 QEMU/KVM 虚拟机。
+- 不小心进入了 tty
+  - 启动时，会自动登录 tty1 并启动 xfce4。若不小心切到了别的 tty，可以用 `Ctrl+Alt+F1` 再切回来。
+- 若 CPU 性能弱，则启动速度较慢。
+  - 从 GRUB 到 tty 界面要很长一段时间，从 tty 界面到 xfce4 出现又有很长一段黑屏。在某低配电脑上总计时间甚至可达两分钟。原因初步推测为，镜像为了节省空间，经由 squashfs 高度压缩，解压时对 CPU 多核性能要求较高。
+  - 建议耐心等待。
+- 在 VirtualBox 虚拟机中使用本镜像时，不够稳定，尤其是 Firefox。
+  - 建议使用 VMSVGA 作为显卡控制器、启用 3D 加速并给足显存（128 MB）。
+  - 在 Linux 下建议改用 QEMU/KVM 虚拟机。
+- 桌面上的面板（任务栏）未加载出来。
+  - 在 VirtualBox 虚拟机下，偶尔会遇到这种情况。此时可用 `arcnlogout` 退出（并自动重启）桌面环境。
 
 
 # 其他
@@ -163,10 +165,10 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 ## 商标声明
 
--   arCNiso™ 与 arCN™ 是本项目的未注册商标，本项目对此保留所有权利。
--   Arch Linux™ 是 [Arch Linux](https://archlinux.org) 的未注册商标。
-    -   本项目 **不是** Arch Linux™ 官方发布的，与 Arch Linux™ 官方亦 **无** 任何关联。
--   Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
+- arCNiso™ 与 arCN™ 是本项目的未注册商标，本项目对此保留所有权利。
+- Arch Linux™ 是 [Arch Linux](https://archlinux.org) 的未注册商标。
+  - 本项目 **不是** Arch Linux™ 官方发布的，与 Arch Linux™ 官方亦 **无** 任何关联。
+- Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
 
 > 部分读者可能会觉得此处小题大做（“有必要做这样一份声明吗”），
 > 为此请阅读[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
@@ -174,8 +176,8 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 
 ## 许可
 
--   本项目以 GNU GPL 3.0 License 发布。
--   项目文件中所包含的其他软件项目的部分，均维持其原有 License。
+- 本项目以 GNU GPL 3.0 License 发布。
+- 项目文件中所包含的其他软件项目的部分，均维持其原有 License。
 
 
 ## 致谢
@@ -183,18 +185,18 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 在此感谢本项目所用到或参考到的各项目的作者、开发者与维护者。
 以下列举部分项目：
 
--   [archiso](https://github.com/archlinux/archiso)：本项目的直接基础，来自 Arch Linux 官方。
--   [Sweet Themes](https://github.com/EliverLara/Sweet)：本项目图形环境中 xfce4 等的主题。
--   [Papirus icon](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)：本项目所使用的图标主题。
--   [Tilix](https://github.com/gnunn1/tilix)：本项目所使用的终端模拟器。
--   [Ventoy](https://www.ventoy.net)：本项目所含工具，以及推荐使用的运行方案。
--   [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)：本项目采用的 zsh 配置框架。
--   [Powerlevel10k](https://github.com/romkatv/powerlevel10k)：本项目采用的 zsh 主题。
--   [霞鹜文楷](https://github.com/lxgw/WenKai)：本项目所采用的字体。
--   [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器。
--   [Emacs Evil](https://github.com/emacs-evil)：本项目所使用的 Emacs 插件。
--   [evil-tutor-sc](https://github.com/clsty/evil-tutor-sc)：本项目所使用的 Emacs 插件（作者也是 clsty `>v0` ）。
--   [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
--   [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
--   [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
+- [archiso](https://github.com/archlinux/archiso)：本项目的直接基础，来自 Arch Linux 官方。
+- [Sweet Themes](https://github.com/EliverLara/Sweet)：本项目图形环境中 xfce4 等的主题。
+- [Papirus icon](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)：本项目所使用的图标主题。
+- [Tilix](https://github.com/gnunn1/tilix)：本项目所使用的终端模拟器。
+- [Ventoy](https://www.ventoy.net)：本项目所含工具，以及推荐使用的运行方案。
+- [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)：本项目采用的 zsh 配置框架。
+- [Powerlevel10k](https://github.com/romkatv/powerlevel10k)：本项目采用的 zsh 主题。
+- [霞鹜文楷](https://github.com/lxgw/WenKai)：本项目所采用的字体。
+- [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器。
+- [Emacs Evil](https://github.com/emacs-evil)：本项目所使用的 Emacs 插件。
+- [evil-tutor-sc](https://github.com/clsty/evil-tutor-sc)：本项目所使用的 Emacs 插件（作者也是 clsty `>v0` ）。
+- [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
+- [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
+- [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
 

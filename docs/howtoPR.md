@@ -5,7 +5,7 @@
 
 1.  不要引入与本项目的许可（GPLv3）不兼容的代码或文件等。
 2.  请自己至少测试成功过一次再来提交（如果只是不成熟的建议，请使用 issue）。
-3.  请确认你提交的 PR 没有被[设计说明](https://github.com/clsty/arCNiso/blob/main/docs/feature.org#设计说明)涉及（比如你想把 linux 主线内核改成 linux-zen）。
+3.  请确认你提交的 PR 没有被[设计说明](https://github.com/clsty/arCNiso/blob/main/docs/feature.md#设计说明)涉及（比如你想把 linux 主线内核改成 linux-zen）。
     -   若已有涉及，则请先看下对应的原因（比如 linux-zen 会占用更多空间），并确保你认为你的 PR 确实有更好的理由；或者先提交 issue 与作者沟通讨论。
 
 在此之外的一切总体上有益处的 PR，一般都是被欢迎的，包括但不限于：

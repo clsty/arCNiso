@@ -36,7 +36,7 @@ arCNiso 本质上仍然是 archiso。
 核心部分是在图形环境启动时，显示中文欢迎界面进行简洁而又充分的引导。其中最重要的是：
 
 -   命令 README 会展示自述文档。
--   命令 `arcnguide` 会打开中文版的官方安装指南，以及[对照式安装帮助](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.org)；后者又将引导至[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.org)。
+-   命令 `arcnguide` 会打开中文版的官方安装指南，以及[对照式安装帮助](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md)；后者又将引导至[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
 
 这有助于新手快速找到探索方向，并进入合理的学习路线。
 

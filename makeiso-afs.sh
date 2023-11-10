@@ -71,12 +71,10 @@ done
 
 # 家目录就位
 rsync -av --delete ./homebase/public/ ./airootfs/etc/skel/
-rsync -av --delete ./homebase/public/ ./airootfs/root/
+rsync -av ./homebase/public/ ./airootfs/root/
 rsync -av ./homebase/skel/ ./airootfs/etc/skel/
 rsync -av ./homebase/root/ ./airootfs/root/
-# TODO: pandoc 目前无法将org文件中的 "#+begin/end_quote" 中包含的 "=...=" 或 "~...~" 等行内代码块正确地转换出来，无论是输出到md还是html都如此。
-# 当前只能避免在 "#+begin/end_quote" 中使用 "=...=" 或 "~...~" 等行内代码块。
-pandoc docs/README.org \
+pandoc docs/README.md \
 	-N \
 	--output=./airootfs/etc/skel/README.html \
 	--metadata title="arCNiso 自述文档（pandoc 离线版）" \
@@ -85,7 +83,7 @@ pandoc docs/README.org \
 	--css=docs/github.css \
 	--highlight-style=haddock \
 	--standalone
-pandoc docs/Installation_hint.org \
+pandoc docs/Installation_hint.md \
 	-N \
 	--output=./airootfs/etc/skel/Installation_hint.html \
 	--metadata title="Arch Linux 安装提示（pandoc 离线版）" \

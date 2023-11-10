@@ -1,6 +1,6 @@
 # 序
 
-本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.org)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
+本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
 
 
 ## 声明
@@ -12,7 +12,7 @@
 
 ## 建议
 
-先快速地略读一遍[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.org)。
+先快速地略读一遍[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
 这不是必须的，但无疑能让你在之后的安装或使用中更加得心应手。
 
 在安装完成之后，可以再次精读此文。

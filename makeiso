@@ -34,8 +34,10 @@ mkdir -p OUT TMP
 sudo rm -rf OUT TMP
 if [ -f ./patchedmkarchiso/mkarchiso ]; then
 	echo "已找到 patchedmkarchiso 目录下的 mkarchiso，将使用修改后的 mkarchiso。"
-	cp ./patchedmkarchiso/db.{cer,key,crt} ./
-	sudo ./patchedmkarchiso/mkarchiso -v -w TMP -o OUT ./
+        # 一定要 cd 到这里面来，因为打了补丁之后 mkarchiso 会引用 db.{cer,key,crt}，显然当直接提到这些文件（而没有给路径）时，它应当位于 working directory。当然，在补丁里把这些路径都给出来也可以，但麻烦。
+	cd ./patchedmkarchiso/
+	sudo ./mkarchiso -v -w ../TMP -o ../OUT ../
+	cd ../
 else
 	echo "未找到 patchedmkarchiso 目录下的 mkarchiso，将使用原版 mkarchiso。"
 	sudo mkarchiso -v -w TMP -o OUT ./
@@ -46,7 +48,6 @@ mv $(find OUT -name "*.iso") OUT/arCNiso.iso
 
 # 清理临时文件（夹）
 ./makeiso-afs.sh clean
-try rm ./db.{cer,key,crt}
 
 # 输出信息
 export name=$(basename $(find OUT -name "*.iso"))

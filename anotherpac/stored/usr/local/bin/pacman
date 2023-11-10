@@ -1,11 +1,33 @@
 #!/bin/bash
+
+# {{{ 判断参数
+parabackup="$@"
+para=$(getopt -q \
+       -o DQRSTUFVh \
+       -l database,query,remove,sync,deptest,upgrade,files,version,help \
+       -n "$0" -- "$@")
+eval set -- "$para"
+# 目前采用白名单，即仅允许 -QRVh
+waitinit=true
+while true ; do
+  case "$1" in
+    -Q|--query|-R|--query|-V|--version|-h|--help) waitinit=false ;shift;;
+    --) break ;;
+    *) shift ;;
+  esac
+done
+
+eval set -- "$parabackup"
+# }}}
+
+
 T=10
-while true; do
+while $waitinit; do
 	stat=$(systemctl is-active pacman-init)
 	case "$stat" in
 	"activating")
 		echo "现在时间：$(date)；将要执行：pacman" "$@"
-		echo "但是，pacman-init.service 仍在运行中（最久可能持续至开机后 1 分钟才能完成），暂不可使用 pacman，否则可能导致 pacman 初始化失败。"
+		echo "但是，pacman-init.service 仍在运行中（最久可能持续至联网后 1 分钟才能完成），暂不可使用 pacman，否则可能导致 pacman 初始化失败。"
 		echo "$T 秒之后重试（直到 pacman-init.service 运行完毕）..."
 		sleep $T
 		;;

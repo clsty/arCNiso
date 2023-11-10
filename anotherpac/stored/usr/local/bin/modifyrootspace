@@ -1,4 +1,4 @@
 #!/bin/bash
-echo ${1? 错误：请指定一个参数，作为要临时修改成的容量，例如“modifyrootspace 2G”。} || exit
+echo ${1? 错误：请指定一个参数，作为要临时修改成的容量，例如“2G”、“1024M”等。} || exit
 sudo mount -o remount,size=$1 /run/archiso/cowspace
 echo "执行了 \"sudo mount -o remount,size=$1 /run/archiso/cowspace\"。"

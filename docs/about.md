@@ -89,7 +89,7 @@ archiso 是 Arch Linux 提供的 Live CD。
 
 以上，就是 arCNiso 出现的原因了。
 
-它所具有的特性，已经在 [README](https://github.com/clsty/arCNiso)、[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.org)、[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.org)等处说明，这里不再重复。
+它所具有的特性，已经在 [README](https://github.com/clsty/arCNiso)、[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.md)、[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)等处说明，这里不再重复。
 
 总之，相比 archiso，用 arCNiso 来安装、维护或临时使用 Arch Linux 时，
 你的心情能够更加愉悦、效率能够超级加倍，也使得你在把 Arch Linux 安利出去时能够更有底气。

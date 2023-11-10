@@ -1,16 +1,10 @@
 #!/bin/sh
-#
-# SPDX-License-Identifier: GPL-3.0-or-later
 if ping -c1 archlinuxcn.org ;then
-  sufirefox "https://wiki.archlinuxcn.org/wiki/Installation_Guide"
-  sleep 3
-  sufirefox "/home/archer/Installation_hint.html" # 考虑到国内可能无法把 github 加载出来
-  sleep 3
-  sufirefox "https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.org"
+  sufirefox "https://wiki.archlinuxcn.org/wiki/Installation_Guide
+/home/archer/Installation_hint.html
+https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md"
 else
   echo "无法连接到 archlinuxcn.org，暂时使用离线版。注：一般是无法离线安装 Arch Linux 的。"
-  sleep 3
-  sufirefox "/home/archer/Installation_guide.html"
-  sleep 3
-  sufirefox "/home/archer/Installation_hint.html"
+  sufirefox "/home/archer/Installation_guide.html
+/home/archer/Installation_hint.html"
 fi

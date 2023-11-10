@@ -76,7 +76,6 @@ fd
 ncdu
 snapper
 timeshift
-#dolphin
 vifm
 ranger
 p7zip
@@ -85,11 +84,17 @@ firefox
 firefox-i18n-zh-cn
 zathura
 zathura-pdf-mupdf
+# tesseract 是 zathura-pdf-mupdf 依赖链中的一环，且它至少依赖一种语言的数据包，所以这里手动指定
+tesseract
+tesseract-data-chi_sim
+tesseract-data-eng
+# 顺便再装一个 tesseract 的 GUI，以及其所需要的 hunspell 的拼写词典
+gimagereader-qt
+hunspell-en_us
 keepassxc
 vlc
 emacs
 neovim
-#konsole
 tilix
 ristretto
 # 看软件包占用
@@ -156,9 +161,6 @@ qt6ct
 #breeze-icons
 #adwaita-cursors
 libappindicator-gtk3
-# papirus这个icon theme，如果不用的话，很多地方（尤其是功能性、指示性的，不是应用程序的）会缺图标，比如 konsole 的“拆分视图”。
-# 并且它也只是感觉上比较大，实际上去掉之后也才减了30MB
-#papirus-icon-theme
 grub-customizer
 ## 杂项
 xclip
