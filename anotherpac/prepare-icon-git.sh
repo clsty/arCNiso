@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "注：此脚本暂时没有什么作用。"&&exit
 echo "icons 准备流程开始。"
 set -e
 
@@ -13,6 +12,6 @@ echo "!! 现在将准备 icons（使用 git），请确保网络通畅。"
 read -p "按回车继续：" tmpvar
 
 cd $target
-git clone https://github.com/PapirusDevelopmentTeam/papirus-icon-theme||(cd papirus-icon-theme&&git pull)
+git clone https://github.com/clsty/papirus-icon-theme||(cd papirus-icon-theme&&git pull)
 
 echo "icons 准备流程完毕。"

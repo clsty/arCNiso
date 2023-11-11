@@ -8,4 +8,4 @@ cd "$(dirname $selfpath)"
 basedir="$(pwd)"
 
 aaa ./prepare-sweet.sh
-aaa ./prepare-icon.sh
+aaa ./prepare-icon-git.sh
