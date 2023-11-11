@@ -31,37 +31,38 @@ sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/ar
 sudo docker exec -it arch /bin/bash
 ```
 
-#### 附：一些常用的 docker 命令
-获取信息
-```bash
-# 列出正在运行的容器
-#（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
-docker ps
-
-# 实时显示正在运行的容器的资源占用情况
-docker stats
-
-# 查看 docker 各种类型的磁盘占用
-docker system df -v
-
-# 查看容器信息
-docker inspect <容器名或id>
-```
-管理容器
-```bash
-# 启动
-docker container start <容器名或id>
-# 重启
-docker container restart <容器名或id>
-# 停止
-docker container stop <容器名或id>
-# 移除
-docker container rm <容器名或id>
-```
-在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
-```bash
-docker cp <源路径> <目标路径>
-```
+> **附：一些常用的 docker 命令**
+> 
+> 获取信息
+> ```bash
+> # 列出正在运行的容器
+> #（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
+> docker ps
+> 
+> # 实时显示正在运行的容器的资源占用情况
+> docker stats
+> 
+> # 查看 docker 各种类型的磁盘占用
+> docker system df -v
+> 
+> # 查看容器信息
+> docker inspect <容器名或id>
+> ```
+> 管理容器
+> ```bash
+> # 启动
+> docker container start <容器名或id>
+> # 重启
+> docker container restart <容器名或id>
+> # 停止
+> docker container stop <容器名或id>
+> # 移除
+> docker container rm <容器名或id>
+> ```
+> 在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
+> ```bash
+> docker cp <源路径> <目标路径>
+> ```
 
 ### 配置基本环境
 
