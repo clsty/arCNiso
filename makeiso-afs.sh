@@ -48,8 +48,8 @@ do
 rm $AFS/etc/systemd/system/multi-user.target.wants/"$i"
 done
 
-rsync -av --delete $cache/papirus-icon-theme/Papirus/ $AFSshare/icons/Papirus/
-rsync -av --delete $cache/papirus-icon-theme/Papirus-Dark/ $AFSshare/icons/Papirus-Dark/
+rsync -av --delete $cache/icons/papirus-icon-theme/Papirus/ $AFSshare/icons/Papirus/
+rsync -av --delete $cache/icons/papirus-icon-theme/Papirus-Dark/ $AFSshare/icons/Papirus-Dark/
 
 # 利用 clsty/sweet-theme-backup 项目中大多数路径相对 /usr/share/ 保持一致的特性，批量进行同步
 # 注意目录的路径结尾要有斜杠
