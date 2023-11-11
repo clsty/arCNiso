@@ -40,11 +40,11 @@ echo "正在测试 $1 是否存在..."
 echo "此测试将无限循环，直到 $1 存在"
 aaa test -f "$1"
 }
-testthefile ./ignored/rsyncpath
+testthefile ./ignored/rsyncpath-publishiso
 
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-aaa rsync --delete-before --info=progress2 -avre ssh -f"+ $iso" -f"+ README.md" -f'R *' ./release/ $(cat ./ignored/rsyncpath)
+aaa rsync --delete-before --info=progress2 -avre ssh -f"+ $iso" -f"+ README.md" -f'R *' ./release/ $(cat ./ignored/rsyncpath-publishiso)
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以
