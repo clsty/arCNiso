@@ -90,11 +90,11 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 sudo pacman -S --needed --noconfirm efitools sbsigntools
 paru -S --needed shim-signed
 ```
-- 运行
+- 生成密钥
 ```bash
 ./patchedmkarchiso/genkey.sh
 ```
-- 运行
+- 打补丁
 ```bash
 ./patchedmkarchiso/patch.sh
 ```
@@ -108,7 +108,10 @@ paru -S --needed shim-signed
 
 ### 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 
-运行 `./makeiso` （若 `OUT` 目录存在，则会被删除）。
+运行（若 `OUT` 目录存在，则会被删除）：
+```bash
+./makeiso
+```
 
 输出的镜像文件位于 `./OUT` 下（为了方便使用虚拟机进行测试，每次输出时会固定更名为 `arCNiso.iso` ）。
 
