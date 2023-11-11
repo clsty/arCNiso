@@ -13,8 +13,14 @@ aaa test -f "$1"
 }
 testthefile ./ignored/rsyncpath-getiso
 
-aaa rsync \
-  --info=progress2 -avre ssh \
-  -f"+ OUT/arCNiso.iso" -f"+ result.log" -f"+ result.md" \
-  -f'- *' \
+filter=$(cat<<EOF
++ OUT/***
++ result.log
++ result.md
+- *
+EOF
+)
+
+aaa rsync -i --info=progress2 -avre ssh \
+  -f._<(echo "$filter") \
   $(cat ./ignored/rsyncpath-getiso) ./
