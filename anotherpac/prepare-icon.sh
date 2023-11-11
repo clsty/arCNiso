@@ -8,10 +8,6 @@ basedir="$(pwd)"
 target="$basedir"/cache/papirus-icons
 tmpdir="/tmp/anotherpac/icons"
 
-ping -c1 github.com||if true;then echo "请确保能够连接到网络。";exit 1;fi
-echo "!! 现在将准备 icons（使用 svn），请确保网络通畅。"
-read -p "按回车继续：" tmpvar
-
 rm -rf "$tmpdir"
 mkdir -p "$tmpdir"
 mkdir -p "$target"
