@@ -1,2 +1,0 @@
-custom 目录下存放着自定义的 PKGBUILD 相关文件。
-其中 custom/PKGBUILD/ 下面的 PKGBUILD 才会被用于安装。
