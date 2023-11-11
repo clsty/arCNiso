@@ -36,6 +36,7 @@ for i in cmake git awk paru makepkg getopts repo-add asp; do
 done
 echo "Great, every needed command is available."
 
+bash 9-deps.sh
 if [[ "${force}" != f ]]; then
 	bash 1-PKGBUILD.sh
 	bash 2-prepare.sh
