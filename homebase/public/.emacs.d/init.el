@@ -23,12 +23,12 @@
 ;; org 仅仅为了 org-plus-contrib 这一个包，org 重度用户使用
 ;; gnu-devel 收录 gnu 中的包的开发中版本，一般不必启用（与 gnu 的关系类似于 melpa 与 stable-melpa 的关系）
 ;; nongnu-devel 收录 nongnu 中的包的开发中版本，一般不必启用
-(setq package-archives '(("gnu" . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-                         ("nongnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+(setq package-archives '(("gnu" . "https://mirrors.cernet.edu.cn/elpa/gnu/")
+                         ("nongnu" . "http://mirrors.cernet.edu.cn/elpa/nongnu/")
                          ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/")
-                         ("melpa" . "https://mirrors.ustc.edu.cn/elpa/melpa/")
+                         ("melpa" . "https://mirrors.cernet.edu.cn/elpa/melpa/")
                          ;("melpa" . "https://melpa.org/packages/")
-                         ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")))
+                         ("nongnu" . "https://mirrors.cernet.edu.cn/elpa/nongnu/")))
 ;; 刷新插件列表
 ;(unless package-archive-contents (package-refresh-contents))
 ;; 自动安装 use-package. 在Emacs 29中已内置故可省略
