@@ -88,7 +88,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 - 安装依赖：
 ```bash
 sudo pacman -S --needed --noconfirm efitools sbsigntools
-paru -S shim-signed
+paru -S --needed shim-signed
 ```
 - 运行
 ```bash
