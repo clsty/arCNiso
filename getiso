@@ -1,0 +1,20 @@
+#!/bin/bash
+# 在另一台机器上构建后，此脚本能将相关输出文件传回本机器以备测试及后续发布（并且不需要做构建所需的那些准备工作）。
+
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+function try { "$@" || sleep 0; }
+set -e
+cd $(dirname $0)
+
+function testthefile {
+echo "正在测试 $1 是否存在..."
+echo "此测试将无限循环，直到 $1 存在"
+aaa test -f "$1"
+}
+testthefile ./ignored/rsyncpath-getiso
+
+aaa rsync \
+  --info=progress2 -avre ssh \
+  -f"+ OUT/arCNiso.iso" -f"+ result.log" -f"+ result.md" \
+  -f'- *' \
+  $(cat ./ignored/rsyncpath-getiso) ./
