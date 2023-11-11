@@ -3,4 +3,4 @@
 cd $(dirname $0)
 cp -f /usr/bin/mkarchiso ./mkarchiso-original
 
-diff -uNr ./mkarchiso-original ./mkarchiso >mkarchiso.patch
+diff -uNr mkarchiso-original mkarchiso >mkarchiso.patch
