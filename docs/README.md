@@ -173,6 +173,7 @@ arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢
 - arCNiso™ 与 arCN™ 是本项目的未注册商标，本项目对此保留所有权利。
 - Arch Linux™ 是 [Arch Linux](https://archlinux.org) 的未注册商标。
   - 本项目 **不是** Arch Linux™ 官方发布的，与 Arch Linux™ 官方亦 **无** 任何关联。
+  - 本项目亦与 [Arch Linux CN 社区](https://www.archlinuxcn.org/) **无关**。
 - Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
 
 > 部分读者可能会觉得此处小题大做（“有必要做这样一份声明吗”），
