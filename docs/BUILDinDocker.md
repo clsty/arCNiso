@@ -81,6 +81,10 @@ pacman -S --noconfirm --needed archiso git rsync pandoc base-devel fd asp cmake 
 # 创建普通用户并加入 wheel 组
 useradd -mG wheel archer
 
+# 若前面映射到了容器的家目录内部，useradd 会跳过创建它的步骤，这里需要手动初始化家目录
+cp /etc/skel/.bash{_logout,_profile,rc} /home/archer/
+chown -R archer:archer /home/archer
+
 # 为 wheel 组赋予 sudo 权限
 #（也可手动编辑 sudoers 文件，将 `# %wheel ALL=(ALL:ALL) NOPASSWD: ALL' 去掉注释）
 sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers
