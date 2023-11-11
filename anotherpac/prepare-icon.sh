@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "icons 准备流程开始。"
 set -e
 function try { "$@" || sleep 0; }
 
