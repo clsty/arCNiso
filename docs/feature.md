@@ -143,7 +143,7 @@
   - 减少卡死几率。
 
 - 对 squashfs 使用 zstd 而非 xz 的压缩算法参数。
-  - 涉及到的文件： `airootfs/etc/mkinitcpio.conf.d/archiso.conf` 和 `profiledef.sh` 。
+  - 涉及到的文件： `/etc/mkinitcpio.conf.d/archiso.conf` 和 `profiledef.sh` 。
   - 以较小的尺寸增幅为代价，zstd 相较于 xz 生成镜像，无论是编译速度还是启动速度、运行速度都快很多。
   - 以相应的 commit 之前（以下称为 A）与之后（以下称为 B）的两个版本的对比为例（测试环境相同，均为 VirtualBox 虚拟机，从宿主机具有的超低压 CPU 分配了两个线程，分配 3GB 内存）：
   - A：采用 releng 默认的 `xz -Xbcj x86 -Xdict-size 1M` 作为 squashfs 参数。

@@ -15,8 +15,8 @@ arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 # 从文件读取数组变量（一个元素一行）并赋给 airootfs_image_tool_options
-# 此文件由 makeiso 写入
-readarray -t airootfs_image_tool_options < /tmp/MKARCHISO_IMAGE_TOOL_PROFILE
+# 此文件由 makeiso 写入; touch 是防止其它程序 source 本文件时报错文件不存在
+touch /tmp/MKARCHISO_IMAGE_TOOL_PROFILE;readarray -t airootfs_image_tool_options < /tmp/MKARCHISO_IMAGE_TOOL_PROFILE
 file_permissions=(
 	["/etc/shadow"]="0:0:400"
 	["/etc/gshadow"]="0:0:400"
