@@ -8,7 +8,8 @@ basedir="$(pwd)"
 target="$basedir"/public/.emacs.d
 rsync -av --delete "$target"/ "$target".gitignored/
 
-which emacs||sudo pacman -S --needed emacs-nativecomp
+sudo pacman -S --needed --noconfirm xclip
+which emacs||sudo pacman -S --noconfirm --needed emacs-nativecomp
 ping -c1 mirrors.ustc.edu.cn||if true;then echo "请确保能够连接到网络。";exit 1;fi
 echo "!! 现在将准备 .emacs.d，请确保网络通畅。"
 echo "1. 接下来会调用两次 sudo，分别用于 mount --bind 和 umount 到 ~/.emacs.d 。"

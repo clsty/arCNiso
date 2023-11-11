@@ -11,10 +11,13 @@
 
 ### 安装依赖（约 1 分钟，依赖网速）
 
-（这里使用 pacman 安装 paru 的前提是已添加 archlinuxcn 源，否则请自行用其他方法安装 paru）
 ```bash
-sudo pacman -Sy --needed paru
-sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake
+sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake less sudo
+
+# 安装 paru（若已添加 archlinuxcn 等第三方源，也可用 pacman 直接安装）
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
+cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 ```
 
 ### 获取本项目（约 1 分钟，依赖网速）
@@ -23,7 +26,7 @@ sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake
 
 也可以直接克隆本仓库，为此在 bash 或 zsh 中运行：
 ```bash
-git clone --filter=blob:none https://github.com/clsty/arCNiso
+git clone --filter=blob:none https://github.com/clsty/arCNiso&&cd arCNiso
 ```
 
 其中 `--filter=blob:none` 是为了仅下载所需的对象，而忽略多余的 blob，以便加快速度。
@@ -31,7 +34,11 @@ git clone --filter=blob:none https://github.com/clsty/arCNiso
 
 ### 准备 .emacs.d（可选；约 5 分钟，依赖网速）
 
-运行 `./homebase/prepareemacs.sh` 即可。
+运行
+```bash
+./homebase/prepareemacs.sh
+```
+接下来按指示操作即可。
 
 注：若你不打算在 arCNiso 中离线使用 Emacs，则这一步不是必须的。
 
@@ -41,7 +48,12 @@ git clone --filter=blob:none https://github.com/clsty/arCNiso
 
 ### 准备 anotherpac（约 5 分钟，依赖网速和 CPU 速度）
 
-运行 `./anotherpac/full-prepare.sh` 即可。
+运行
+```bash
+./anotherpac/full-prepare.sh
+```
+接下来按指示操作即可。
+（可能需要重复运行几次，使得初始化全部完成，直到再次运行时 Emacs 不会弹窗报错或报警告。）
 
 
 ### 准备 AUR 包（约 30 分钟，依赖网速和 CPU 速度）
@@ -49,7 +61,11 @@ git clone --filter=blob:none https://github.com/clsty/arCNiso
 arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分），
 因此需要提前构建它们。
 
-可以利用 `./aur/full-update.sh` 自动构建这些包。
+可以利用（加 `-f` 以强制全部构建）
+```bash
+./aur/full-update.sh
+```
+自动构建这些包。
 但请注意，此脚本可能仍存在一些问题，可能无法一次直接地完成所有工作，或者无法合理避免重复工作，还可能会出现构建时缺依赖报错的问题，对此只要据报错信息手动解决即可（大概需要你会一点 Bash）。
 或者，清理一下 `./aur/cache` 目录，或者其下早成问题的子目录。
 
