@@ -1,11 +1,12 @@
 # 构建说明
-
 这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。
 
 ## 环境要求
-
+### 从 Arch Linux 系统直接编译
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
+### 从 Arch Linux 的 Docker 镜像编译
+参见[构建说明（Docker 版）](./BUILDinDocker.md)。
 
 ## 分步说明
 

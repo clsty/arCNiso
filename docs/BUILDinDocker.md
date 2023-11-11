@@ -1,11 +1,14 @@
-# 构建说明（docker 版）（WIP）
+# 构建说明（docker 版）
 这里说明如何从一个 Arch Linux 的 Docker 容器内构建本项目文件。
 
-**此途径暂不可用（WIP），仅供参考**
 ## 环境要求
 
 - 一个可联网的、AMD64 架构的操作系统。
-- 可使用 Docker（或 podman）。
+- 可使用 root 用户或具有 sudo 权限的普通用户。
+- 已经安装 Docker。
+  - 或者 podman，但以下仅以 docker 为例。
+- 启用了 Docker 相关服务，比如 `systemctl enable docker --now`。
+- 磁盘空间：视具体情况而定，某次实测约占用宿主机共计不到 8GiB 的空间。
 
 ## 分步说明
 
@@ -18,24 +21,55 @@ sudo docker pull ghcr.io/archlinux/archlinux:latest
 
 # 从镜像创建容器
 # 名为 arch（--name arch）、允许终端登录（-t）并后台运行（-d）、持续运行（--restart=unless-stopped）、允许 mount（--privileged）
-#（加 -v <宿主目录路径>:<容器目录路径> 可以映射目录）
+#（加 -v <宿主目录路径>:<容器目录路径> 可以将宿主机目录映射到容器内，例如：-v $HOME/arCNiso-build:/home/archer/arCNiso）
 #（加 -p <宿主端口>:<容器端口> 可以映射端口）
 sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
-
-# 列出正在运行的容器
-#（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
-#（docker container (re)start/stop/rm 等可以管理容器）
-#（docker cp 可用于在宿主与容器之间复制文件）
-#（docker inspect 可查看容器信息）
-sudo docker ps
 
 # 进入容器
 sudo docker exec -it arch /bin/bash
 ```
-### 配置基本环境
+
+#### 一些常用的 docker 命令
+获取信息
 ```bash
-# 由于没有 vi/vim/nano 等编辑器，这里直接更换镜像源
-echo 'Server = https://mirrors.aliyun.com/archlinux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
+# 列出正在运行的容器
+#（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
+docker ps
+
+# 实时显示正在运行的容器的资源占用情况
+docker stats
+
+# 查看 docker 各种类型的磁盘占用
+docker system df -v
+
+# 查看容器信息
+docker inspect <容器名或id>
+```
+管理容器
+```bash
+# 启动
+docker container start <容器名或id>
+# 重启
+docker container restart <容器名或id>
+# 停止
+docker container stop <容器名或id>
+# 移除
+docker container rm <容器名或id>
+```
+在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
+```bash
+docker cp <源路径> <目标路径>
+```
+
+### 配置基本环境
+
+注：由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
+
+这里以教育网（CERNET）提供的联合镜像站 MirrorZ 为例；
+也可以从 [Arch Linux 国内镜像源列表](https://archlinux.org/mirrorlist/?country=CN&protocol=https&ip_version=4&use_mirror_status=on)里自己找一个镜像源。
+```bash
+# 为 pacman 换源
+echo 'Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
 
 # 更新并安装必要软件
 pacman -Syu --noconfirm neovim
@@ -60,3 +94,10 @@ su - archer
 sudo docker exec -it -u archer -w /home/archer arch /bin/bash
 ```
 余下步骤参见[构建说明](./BUILD.md)。
+
+而在得到生成的镜像文件之后，可以使用 `docker cp` 等方法将其取出容器
+（如果之前 `docker run` 时配置了目录映射，也可直接利用被映射的目录）。
+例如：
+```bash
+docker cp arch:/home/archer/arCNiso/OUT $HOME/OUT
+```

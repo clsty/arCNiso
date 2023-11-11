@@ -34,11 +34,3 @@ for i in $(sed -n "$pkgbeg , ${pkgend}p" ../../packages.x86_64) ;
 do
   if $get;then aaa paru -G --noredownload $i;fi
 done
-
-#cd "$base"/custom/PKGBUILD
-#t=(*)
-#for i in "${t[@]}";do
-#	echo "找到了自定义 PKGBUILD $i"
-#	mkdir -p "$base"/cache/"$i"
-#	cp -f "$i" "$base"/cache/"$i"/PKGBUILD
-#done
