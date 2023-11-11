@@ -1,6 +1,6 @@
 #!/bin/bash
 cd $(dirname $0)
-cp -f /usr/bin/mkarchiso .
+cp -f /usr/bin/mkarchiso ./mkarchiso-original
 patch -p0 -i mkarchiso.patch
 echo "补丁已打，但可能失败（看上面的提示）并生成 mkarchiso.rej 文件。"
 echo "若有失败部分，请一边阅读 ./mkarchiso.rej，一边手动编辑 ./mkarchiso。"

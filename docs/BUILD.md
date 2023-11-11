@@ -83,17 +83,27 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
 3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
 
-依赖：
-
-- 需要安装的包：efitools ed2k-shell sbsigntools shim-signed（来自 AUR）
+**步骤：**
 - 需要确保 `packages.x86_64` 含有的包名：mokutil shim-signed（来自 AUR）
-
-步骤：
-
-- 确保上述依赖已安排就绪。
-- 运行 `./patchedmkarchiso/genkey.sh` 。
-- 运行 `./patchedmkarchiso/patch.sh` 并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
-- （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行 `./patchedmkarchiso/diff.sh` 来更新 `mkarchiso.diff` 补丁文件。
+- 安装依赖：
+```bash
+sudo pacman -S --needed --noconfirm efitools sbsigntools
+paru -S shim-signed
+```
+- 运行
+```bash
+./patchedmkarchiso/genkey.sh
+```
+- 运行
+```bash
+./patchedmkarchiso/patch.sh
+```
+  并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
+- （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行
+```bash
+./patchedmkarchiso/diff.sh
+```
+  来更新 `mkarchiso.diff` 补丁文件。
 
 
 ### 正式构建（约 5 分钟，依赖网速和 CPU 速度）
