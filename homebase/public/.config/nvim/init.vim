@@ -4,7 +4,6 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 
-set wrapmargin=2
 set scrolloff=5
 
 set incsearch

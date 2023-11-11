@@ -42,7 +42,7 @@ if [[ "${force}" != f ]]; then
 	bash 3-build.sh
 	bash 4-repoadd.sh
 else
-	bash 1-PKGBUILD.sh
+	bash 1-PKGBUILD.sh -f
 	bash 2-prepare.sh -f
 	bash 3-build.sh -f
 	bash 4-repoadd.sh

@@ -4,6 +4,19 @@
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
 function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+while getopts "hf" opt;do
+      case $opt in
+          "h") help=h;;
+          "f") force=f;;
+          "?") help=h;;
+      esac
+done
+if [[ "$help" = h ]]; then
+echo "
+这是用于对 ../../packages.x86_64 中的 AUR 包自动下载 PKGBUILD 的脚本。
+-f	不询问，对所有 AUR 包下载 PKGBUILD。
+-h	显示此帮助。
+";exit 0; fi
 cd $(dirname $0) && base=$(pwd)
 
 pkgbeg=$(awk '/# ---- BEGINof AUR ---- #/{print NR}' ../packages.x86_64) 
