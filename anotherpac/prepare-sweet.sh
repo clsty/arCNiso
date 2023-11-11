@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "sweet theme 准备流程开始。"
 set -e
 function try { "$@" || sleep 0; }
 

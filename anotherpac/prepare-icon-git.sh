@@ -1,5 +1,6 @@
 #!/bin/bash
 echo "注：此脚本暂时没有什么作用。"&&exit
+echo "icons 准备流程开始。"
 set -e
 
 selfpath="${BASH_SOURCE[0]}"
