@@ -126,6 +126,7 @@
 
 - 配置了国内的镜像源。
 - 提供命令 `arcnadd-cn` 来快速启用 archlinuxcn 社区仓库源，并启用 rngd 来加速密钥环的添加。
+  - 注：本项目与 archlinuxcn 社区无关。
 - 在使用 AUR 助手 paru 时半自动安装 paru 和 base-devel。
 - 禁用了 choose-mirror 与 reflector 服务（但仍可手动运行）。
 - 为 pacman 添加防呆设计。
