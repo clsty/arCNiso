@@ -6,7 +6,7 @@ function try { "$@" || sleep 0; }
 selfpath="${BASH_SOURCE[0]}"
 cd "$(dirname $selfpath)"
 basedir="$(pwd)"
-target="$basedir"/cache/papirus-icon-theme
+target="$basedir"/cache/icons/papirus-icon-theme
 tmpdir="/tmp/anotherpac/icons"
 
 rm -rf "$tmpdir"
