@@ -19,7 +19,8 @@ git push
 git push --tags -f
 
 originiso="$(fd --base-directory OUT .iso)"
-source profiledef.sh
+# 如果不先 declare 的话，source profiledef.sh 会报错（虽然问题不大）
+declare -A file_permissions=();source profiledef.sh
 iso="${iso_name}-${iso_version}-$1-${arch}.iso"
 echo $iso >publishiso-filename
 mkdir -p release
