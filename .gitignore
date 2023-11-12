@@ -1,9 +1,10 @@
 /anotherpac/cache
 /patchedmkarchiso/*
 !/patchedmkarchiso/mkarchiso.patch
-!/patchedmkarchiso/patch.sh
-!/patchedmkarchiso/diff.sh
+!/patchedmkarchiso/PATCH.sh
+!/patchedmkarchiso/DIFF.sh
 !/patchedmkarchiso/genkey.sh
+!/patchedmkarchiso/deps.sh
 /TMP
 /OUT
 /TEST

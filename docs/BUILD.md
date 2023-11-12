@@ -76,7 +76,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ### 安全启动支持（可选，耗时未知）
 
 为了支持安全启动，需要对 mkarchiso 进行修改。
-而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.diff` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
+而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.patch` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
 
 这是一个相对复杂的可选项。若一切顺利自然是最好的，但使用者不必执著于 Secure Boot（尤其是多次失败时）。
 
@@ -88,8 +88,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 - 需要确保 `packages.x86_64` 含有的包名：mokutil shim-signed（来自 AUR）
 - 安装依赖：
 ```bash
-sudo pacman -S --needed --noconfirm efitools sbsigntools
-paru -S --needed shim-signed
+./patchedmkarchiso/deps.sh
 ```
 - 生成密钥
 ```bash
@@ -97,14 +96,30 @@ paru -S --needed shim-signed
 ```
 - 打补丁
 ```bash
-./patchedmkarchiso/patch.sh
+./patchedmkarchiso/PATCH.sh
 ```
   并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
 - （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行
 ```bash
-./patchedmkarchiso/diff.sh
+./patchedmkarchiso/DIFF.sh
 ```
-  来更新 `mkarchiso.diff` 补丁文件。
+  来更新 `mkarchiso.patch` 补丁文件。
+
+> **附：几种情况的参考应对方法**
+>
+> - 官方 mkarchiso（源文件）有更新。
+>   1. 使用 PATCH.sh，将 mkarchiso 打补丁到位（由于源文件 mkarchiso 有更新，所以补丁可能会应用失败，这时需要手动操作）。
+>   2. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚处理好的补丁版 mkarchiso 进行对比，来更新补丁。
+>
+> - 想要对补丁版 mkarchiso 进行修改。
+>   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按官方 mkarchiso 有更新来处理。
+>   2. 按需修改补丁版 mkarchiso。
+>   3. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚修改好的补丁版 mkarchiso 进行对比，来更新补丁。
+>
+> - 想要对 diff 的参数进行修改，例如 diff -u 变成 diff -U5 。
+>   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按官方 mkarchiso 有更新来处理。
+>   2. 按需修改 DIFF.sh 中的所有 diff 命令。
+>   3. 删除 mkarchiso.patch，再使用 DIFF.sh 创建新补丁。
 
 
 ### 正式构建（约 5 分钟，依赖网速和 CPU 速度）

@@ -1,7 +1,9 @@
 #!/bin/bash
+set -e
 cd $(dirname $0)
+
 cp -f /usr/bin/mkarchiso ./mkarchiso-original
-patch mkarchiso-original -p0 -i mkarchiso.patch -o mkarchiso
+patch mkarchiso-original -N -p0 -i mkarchiso.patch -o mkarchiso||sleep 0
 chmod +x mkarchiso
 echo "补丁已打，但可能失败（看上面的提示）并生成 mkarchiso.rej 文件。"
 echo "若有失败部分，请一边阅读 ./mkarchiso.rej，一边手动编辑 ./mkarchiso。"

@@ -132,6 +132,13 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+# VTE fix
+# https://gnunn1.github.io/tilix-web/manual/vteconfig/
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+  source /etc/profile.d/vte.sh
+fi
+
 case $TERM in
     linux) [[ ! -f ~/.p10k-tty.zsh ]] || source ~/.p10k-tty.zsh ;;
     *) echo "请注意，当前用户为 $(whoami) 而非 root。"
