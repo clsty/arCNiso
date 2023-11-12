@@ -27,54 +27,24 @@ sudo docker pull ghcr.io/archlinux/archlinux:latest
 >
 > 加 `-v <宿主目录路径>:<容器目录路径>` 可以将宿主机目录映射到容器内。
 > 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦。
-> 例如（下面与更下面的两种 `docker run` 二选一）：
-> ```bash
-> sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
-> ```
 
+以下两种 `docker run` 二选一：
 ```bash
+# 映射目录路径（根据实际需要自行修改 -v 参数）
+sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
+```
+```bash
+# 不映射目录路径
 sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
 ```
 
-> （不能用 `docker run` 创建名称已经存在的容器，若已创建则须先将其停止并删除）
+> 提示：重复使用 `docker run` 可能会因容器重名而报错，此时须先将重名容器停止并删除。
+> 参见文档末尾附录。
 
 进入容器：
 ```bash
 sudo docker exec -it arch /bin/bash
 ```
-
-> **附：一些常用的 docker 命令**
-> 
-> 获取信息
-> ```bash
-> # 列出正在运行的容器
-> #（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
-> docker ps
-> 
-> # 实时显示正在运行的容器的资源占用情况
-> docker stats
-> 
-> # 查看 docker 各种类型的磁盘占用
-> docker system df -v
-> 
-> # 查看容器信息
-> docker inspect <容器名或id>
-> ```
-> 管理容器
-> ```bash
-> # 启动
-> docker container start <容器名或id>
-> # 重启
-> docker container restart <容器名或id>
-> # 停止
-> docker container stop <容器名或id>
-> # 移除
-> docker container rm <容器名或id>
-> ```
-> 在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
-> ```bash
-> docker cp <源路径> <目标路径>
-> ```
 
 ### 配置基本环境
 
@@ -122,3 +92,38 @@ sudo docker exec -it -u archer -w /home/archer/arCNiso-build arch /bin/bash
 ```bash
 docker cp arch:/home/archer/arCNiso/OUT $HOME/OUT
 ```
+
+## 附：一些常用的 docker 命令
+获取信息
+```bash
+# 列出正在运行的容器
+#（加 -a 列出所有容器，加 --no-trunc 关闭缩略显示）
+docker ps
+
+# 实时显示正在运行的容器的资源占用情况
+docker stats
+
+# 查看 docker 各种类型的磁盘占用
+docker system df -v
+
+# 查看容器信息
+docker inspect <容器名或id>
+```
+
+管理容器
+```bash
+# 启动
+docker container start <容器名或id>
+# 重启
+docker container restart <容器名或id>
+# 停止
+docker container stop <容器名或id>
+# 移除
+docker container rm <容器名或id>
+```
+
+在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
+```bash
+docker cp <源路径> <目标路径>
+```
+
