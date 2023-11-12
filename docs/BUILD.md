@@ -137,7 +137,7 @@ git pull
 ```
 ### 更新 .emacs.d
 ```bash
-./homebase/prepareemacs.sh
+./homebase/prepareemacs.sh -f
 ```
 接下来按指示操作即可。
 ### 更新 anotherpac
