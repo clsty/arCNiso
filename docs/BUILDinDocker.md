@@ -13,21 +13,28 @@
 ## 分步说明
 
 ### 准备 Docker 容器
-参见 [archlinux/archlinux-docker](https://github.com/archlinux/archlinux-docker)，以 Debian Linux 作为宿主机为例，运行：
+参见 [archlinux/archlinux-docker](https://github.com/archlinux/archlinux-docker)，以 Debian Linux 作为宿主机为例。
+
+拉取镜像：
 ```bash
-# 拉取镜像
 #（docker images/rmi 可以列出/删除镜像）
 sudo docker pull ghcr.io/archlinux/archlinux:latest
-
-# 从镜像创建容器
-# 名为 arch（--name arch）、允许终端登录（-t）并后台运行（-d）、持续运行（--restart=unless-stopped）、允许 mount（--privileged）
-#（加 -p <宿主端口>:<容器端口> 可以映射端口）
-# 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦
-# 加 -v <宿主目录路径>:<容器目录路径> 可以将宿主机目录映射到容器内
-# 例： sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
+```
+从镜像创建容器：
+> 名为 arch（`--name arch`）、允许终端登录（`-t`）并后台运行（`-d`）、持续运行（`--restart=unless-stopped`）、允许 mount（`--privileged`）
+>（加 `-p <宿主端口>:<容器端口>` 可以映射端口）
+>
+> 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦
+> `加 -v <宿主目录路径>:<容器目录路径>` 可以将宿主机目录映射到容器内
+> 例：
+> ```bash
+> sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
+> ```
+```bash
 sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
-
-# 进入容器
+```
+进入容器：
+```bash
 sudo docker exec -it arch /bin/bash
 ```
 
@@ -99,6 +106,8 @@ su - archer
 之后每次从宿主机进入此 docker 环境，可使用以下命令：
 ```bash
 sudo docker exec -it -u archer -w /home/archer arch /bin/bash
+# 或者
+sudo docker exec -it -u archer -w /home/archer/arCNiso-build arch /bin/bash
 ```
 余下步骤参见[构建说明](./BUILD.md)。
 

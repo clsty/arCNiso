@@ -107,17 +107,17 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 > **附：几种情况的参考应对方法**
 >
-> - 官方 mkarchiso（源文件）有更新。
->   1. 使用 PATCH.sh，将 mkarchiso 打补丁到位（由于源文件 mkarchiso 有更新，所以补丁可能会应用失败，这时需要手动操作）。
+> - 源文件 `mkarchiso-original`（由 `/usr/bin/mkarchiso` 复制而来，Arch Linux 官方提供）或补丁 `mkarchiso.patch`（由本项目提供）有更新。
+>   1. 使用 PATCH.sh，将 mkarchiso 打补丁到位（若源文件有更新，或者本项目提供的补丁还未同步源文件的最近更新，补丁可能会应用失败，这时需要手动操作）。
 >   2. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚处理好的补丁版 mkarchiso 进行对比，来更新补丁。
 >
 > - 想要对补丁版 mkarchiso 进行修改。
->   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按官方 mkarchiso 有更新来处理。
+>   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按源文件有更新来处理。
 >   2. 按需修改补丁版 mkarchiso。
 >   3. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚修改好的补丁版 mkarchiso 进行对比，来更新补丁。
 >
 > - 想要对 diff 的参数进行修改，例如 diff -u 变成 diff -U5 。
->   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按官方 mkarchiso 有更新来处理。
+>   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按源文件有更新来处理。
 >   2. 按需修改 DIFF.sh 中的所有 diff 命令。
 >   3. 删除 mkarchiso.patch，再使用 DIFF.sh 创建新补丁。
 
