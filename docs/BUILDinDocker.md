@@ -27,13 +27,14 @@ sudo docker pull ghcr.io/archlinux/archlinux:latest
 >
 > 加 `-v <宿主目录路径>:<容器目录路径>` 可以将宿主机目录映射到容器内。
 > 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦。
-> 例：
+> 例如（下面与更下面的两种 `docker run` 二选一）：
 > ```bash
 > sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
 > ```
 ```bash
 sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
 ```
+> （不能用 `docker run` 创建名称已经存在的容器，若已创建则须先将其停止并删除）
 进入容器：
 ```bash
 sudo docker exec -it arch /bin/bash
