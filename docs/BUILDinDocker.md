@@ -83,7 +83,7 @@ su - archer
 ```bash
 sudo docker exec -it -u archer -w /home/archer arch /bin/bash
 # 或者
-sudo docker exec -it -u archer -w /home/archer/arCNiso-build arch /bin/bash
+sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 ```
 余下步骤参见[构建说明](./BUILD.md)。
 
