@@ -23,17 +23,18 @@ cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 
 ### 获取本项目（约 1 分钟，依赖网速）
 
-可以从 GitHub Releases 获取最新稳定版本的 tarball 并解压构建；
-
-也可以直接克隆本仓库，为此在 bash 或 zsh 中运行：
+克隆本仓库，为此在 bash 或 zsh 中运行：
 ```bash
 # 路径可自拟
 d=$HOME/arCNiso
 git clone --filter=blob:none https://github.com/clsty/arCNiso $d&&cd $d
 ```
-
 其中 `--filter=blob:none` 是为了仅下载所需的对象，而忽略多余的 blob，以便加快速度。
 
+如果注重稳定性，建议切换到最新的 tag：
+```bash
+git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
+```
 
 ### 准备 .emacs.d（可选；约 5 分钟，依赖网速）
 
