@@ -37,6 +37,8 @@ saved-telemetry-pings
 thumbnails
 sessionstore-backups
 bookmarkbackups
+AlternateServices.bin
+SiteSecurityServiceState.bin
 EOF
 )
 do rm -rf "$target"/"$i";done
