@@ -99,28 +99,12 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ./patchedmkarchiso/PATCH.sh
 ```
   并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
-- （可选）在确保上一步中对 `./patchedmkarchiso/mkarchiso` 文件的补丁确实已经完整地完成之后，运行
-```bash
-./patchedmkarchiso/DIFF.sh
-```
-  来更新 `mkarchiso.patch` 补丁文件。
 
-> **附：几种情况的参考应对方法**
+> 注：本项目会持续追踪 mkarchiso 的更新，在已经追踪到最新的 mkarchiso 的前提下，`PATCH.sh` 应当能顺利执行且无须手动操作；即使追踪不够及时，patch 工具也有一定的容错性，手动操作的工作量不至于太多。
+> 
+> 而 `DIFF.sh` 则是用于追踪最新的 mkarchiso 并更新补丁。也就是说，`DIFF.sh` 不属于构建工具，而是维护工具，因此不在此处涉及。
 >
-> - 源文件 `mkarchiso-original`（由 `/usr/bin/mkarchiso` 复制而来，Arch Linux 官方提供）或补丁 `mkarchiso.patch`（由本项目提供）有更新。
->   1. 使用 PATCH.sh，将 mkarchiso 打补丁到位（若源文件有更新，或者本项目提供的补丁还未同步源文件的最近更新，补丁可能会应用失败，这时需要手动操作）。
->   2. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚处理好的补丁版 mkarchiso 进行对比，来更新补丁。
->
-> - 想要对补丁版 mkarchiso 进行修改。
->   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按源文件有更新来处理。
->   2. 按需修改补丁版 mkarchiso。
->   3. 使用 DIFF.sh，根据官方 mkarchiso 与刚刚修改好的补丁版 mkarchiso 进行对比，来更新补丁。
->
-> - 想要对 diff 的参数进行修改，例如 diff -u 变成 diff -U5 。
->   1. 利用 DIFF.sh 判断 mkarchiso.patch 是否精确反映了差异；若否，先按源文件有更新来处理。
->   2. 按需修改 DIFF.sh 中的所有 diff 命令。
->   3. 删除 mkarchiso.patch，再使用 DIFF.sh 创建新补丁。
-
+> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参见[定制与维护](./update.md)。
 
 ### 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 
@@ -131,64 +115,46 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 输出的镜像文件位于 `./OUT` 下（为了方便使用虚拟机进行测试，每次输出时会固定更名为 `arCNiso.iso` ）。
 
-**注：之后（除非打算更新 AUR 包）每次修改了项目文件想重新构建时，都可以直接运行 `./makeiso` 。**
+## 再次构建
+如果短时间内多次构建，不必重复进行正式构建之前的准备工作，可以直接运行 `./makeiso`。
 
+但是，比如一个月之后再次构建呢？此时对整个项目进行再次的准备工作就比较有必要了——不过，当然，并不是完全从零开始。
 
-# 如何定制
+以下进行分步说明，但并不是所有步骤都必要，请根据实际情况适当安排。
 
-简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 `motd-zh_CN` ，然后用 `./makeiso` 再次构建即可。
+以下默认工作目录为 `arCNiso` 的项目文件夹。
+### 更新系统
+以 paru 为例：
+```bash
+function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+aaa paru -Sy&&aaa paru -Su --noconfirm
+```
+注意，部分软件包在更新之后可能需要重启系统才能正常工作。
+### 更新 arCNiso 项目仓库
+```bash
+git pull
+```
+### 更新 .emacs.d
+```bash
+./homebase/prepareemacs.sh
+```
+接下来按指示操作即可。
+### 更新 anotherpac
+```bash
+./anotherpac/full-prepare.sh
+```
+### 更新 AUR 包
+```bash
+./aur/full-update.sh -f
+```
+### 更新 mkarchiso
+```bash
+./patchedmkarchiso/PATCH.sh
+```
+### 正式构建
+```bash
+./makeiso
+```
 
-而如果你想做一些深层次的定制，比如添加、删除一些包或 systemd 服务等，你就需要了解项目内各个文件与目录结构的作用了。
-
-- 为此，请先知晓：本项目（除去一些其他文件以外）的主体部分正是 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
-  因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
-- 其次，你可以看看 [feature.md](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
-
-**此外，你还应当了解以下信息：**
-
-- 由于 arCNiso 不包含 releng 本体（某种意义上，arCNiso 相当于对 releng 的一个补丁），直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
-  - 详见 `makeiso-afs.sh`。
-  - 实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
-- 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
-- 从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
-- `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
-- 注意 `.gitignore` 。合理的 `.gitignore` 可以保护 Git 仓库免受临时性文件的拖累。
-- `profiledef.sh` 中的 `airootfs_image_tool_options` 设定了压缩算法参数，它会影响到构建时长、镜像体积和镜像启动时长等。
-  - 推荐在测试构建时使用 gzip 1 级，这样能构大大加快构建速度。
-  - 构建成品时则推荐使用 zstd 18 级，在压缩率尚可的同时比 xz 具有快得多的启动速度。
-
-
-# 追踪 releng
-
-注：这一条仅作为作者的记录，只要本项目仍在维护（指最后一次发布的镜像的时间距现在两个月以内），就说明对 releng 的追踪仍在继续，读者不必担心。
-
-
-## 必要性
-
-本项目是基于 releng 的，而 releng 本身与 archiso 工具又是不断更新的。
-这就会导致一个问题：如果本项目从旧 releng 拿来的基础部分不变，却与新 releng 偏离过大，则可能无法用最新的 archiso 及配套工具来成功构建本项目的 arCNiso 镜像（或者即使得到了镜像也无法正常运行）。
-
-
-## 方法论
-
-- 基本要求：避免启用会自动整理代码风格的功能（比如 Lazyvim 默认开启的某个插件），否则可能会给逐行比对（diff）带来巨大麻烦。
-- 关注 GitLab 上 releng 的最新变化，如
-  - <https://gitlab.archlinux.org/archlinux/archiso/-/commits/master/configs/releng?ref_type=heads>
-  - <https://gitlab.archlinux.org/archlinux/releng/-/commits/master/?ref_type=HEADS>
-- 使用 diff 类工具（除 diff 本身以外还有多种 TUI/GUI 前端可选）对比本项目目录与 archiso 所提供的 `/usr/share/archiso/configs/releng` 目录。
-
-
-# 附：其他脚本
-
-## 测试脚本
-
-`./testiso` 用于利用 VirtualBox 对镜像进行测试运行。
-使用前可能需要手动配置 VirtualBox 虚拟机（参见[环境要求](./README.md#环境要求)），并使虚拟机名为 arCNiso。
-
-## 自动发布
-
-本项目包含了 `./publishiso*` 系列脚本，它们由 clsty 开发，并用于自动发布。
-
-如果只是为了构建此项目，你并不需要这些脚本。
-
-如果你也想用这些脚本，来自动发布你基于本项目修改的分支、或者一个完全不同的项目，你需要自行做适当的修改调整。
+## 延伸阅读
+- [定制与维护](./update.md)
