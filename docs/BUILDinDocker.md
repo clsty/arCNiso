@@ -20,6 +20,7 @@
 #（docker images/rmi 可以列出/删除镜像）
 sudo docker pull ghcr.io/archlinux/archlinux:latest
 ```
+
 从镜像创建容器：
 > 名为 arch（`--name arch`）、允许终端登录（`-t`）并后台运行（`-d`）、持续运行（`--restart=unless-stopped`）、允许 mount（`--privileged`）。
 >
@@ -28,7 +29,7 @@ sudo docker pull ghcr.io/archlinux/archlinux:latest
 > 加 `-v <宿主目录路径>:<容器目录路径>` 可以将宿主机目录映射到容器内。
 > 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦。
 
-以下两种 `docker run` 二选一：
+（以下两种 `docker run` 二选一）
 ```bash
 # 映射目录路径（根据实际需要自行修改 -v 参数）
 sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
