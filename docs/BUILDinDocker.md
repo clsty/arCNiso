@@ -123,7 +123,7 @@ docker container stop <容器名或id>
 docker container rm <容器名或id>
 ```
 
-在宿主与容器之间复制文件，其中容器路径以 <容器名或id> 加冒号开头
+在宿主与容器之间复制文件，其中容器路径以 `<容器名或id>:`开头（例如 `arch:/home/archer/`）
 ```bash
 docker cp <源路径> <目标路径>
 ```
