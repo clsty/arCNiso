@@ -77,5 +77,6 @@
 
 - `./testiso`：用于利用 VirtualBox 对镜像进行测试运行。
   - 使用前可能需要手动配置 VirtualBox 虚拟机（参见[环境要求](./README.md#环境要求)），并使虚拟机名为 arCNiso。
+  - 推荐设置将 `ignored/path` 设置为共享目录，自动挂载到虚拟机内，以便在宿主机与虚拟机之间传输文件（但是 symlink 类的无法直接这样传输，可以先用 tar 打包，或换用 ssh 的 scp 传文件）。
 
 - `./publishiso` 等系列脚本：用于自动发布。
