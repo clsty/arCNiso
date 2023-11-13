@@ -27,3 +27,4 @@ echo "Great, every needed command is available."
 ./publishiso-2-bt.sh
 ./publishiso-3-alist.sh
 ./publishiso-4-gh.sh
+./publishiso-5-local.sh
