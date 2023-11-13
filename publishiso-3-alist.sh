@@ -9,6 +9,15 @@ set -e
 cd $(dirname $0)
 
 iso="$(cat publishiso-filename)"
+filter=$(cat<<EOF
++ $(cat publishiso-filename)
++ README.md
+-s *
++r *
+EOF
+)
+
+cat <(echo "$filter")
 
 # 注意，此自动发布已失效！！
 # 当前配置：打开web代理、webdav本地代理，
@@ -44,7 +53,9 @@ testthefile ./ignored/rsyncpath-publishiso
 
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-aaa rsync --delete-before --info=progress2 -avre ssh -f"+ $iso" -f"+ README.md" -f'R *' ./release/ $(cat ./ignored/rsyncpath-publishiso)
+aaa rsync --delete-before --info=progress2 -avre ssh \
+  -f._<(echo "$filter") \
+  ./release/ $(cat ./ignored/rsyncpath-publishiso)
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以
