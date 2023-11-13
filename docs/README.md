@@ -36,7 +36,7 @@ However, **feel free to fork** this project and modify to make your own (of cour
 > 
 > 总之，arCNiso 本质上仍是 archiso，只是体积更大（例如 v1.2.1 的镜像文件大小为 1.56 GB，差不多比同时期的官方 archiso 的 0.81 GB 大一倍不到）且更好用。
 
-arCNiso 历经较为充分的打磨，可放心使用，真心希望你能喜欢。
+arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.com/clsty/arCNiso/blob/main/docs/update.md)中（目前暂定大约每月更新一次），可放心使用，真心希望你能喜欢。
 
 - 欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
 - 有任何看法或建议，欢迎在 [issue](https://github.com/clsty/arCNiso/issues) 中反馈或吐槽，或直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)）。
