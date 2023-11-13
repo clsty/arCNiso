@@ -4,6 +4,9 @@ OUTpath=${1:-OUT}
 set -e
 function try { "$@" || sleep 0; }
 cd $(dirname $0)
+
+mkdir -p ignored/path
+
 try vboxmanage storagectl $VMname --name=IDE --add=ide --bootable=on
 vboxmanage storageattach $VMname --storagectl=IDE --port 0 --device 0 --type=dvddrive --medium $OUTpath/*.iso
 
