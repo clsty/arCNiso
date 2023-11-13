@@ -11,7 +11,7 @@ echo "正在测试 $1 是否存在..."
 echo "此测试将无限循环，直到 $1 存在"
 aaa test -f "$1"
 }
-testthefile ./ignored/rsyncpath-getiso
+testthefile ./ignoredinfo/rsyncpath-getiso
 
 filter=$(cat<<EOF
 + OUT/***
@@ -23,4 +23,4 @@ EOF
 
 aaa rsync -i --info=progress2 -avre ssh \
   -f._<(echo "$filter") \
-  $(cat ./ignored/rsyncpath-getiso) ./
+  $(cat ./ignoredinfo/rsyncpath-getiso) ./

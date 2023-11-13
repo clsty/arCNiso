@@ -25,15 +25,15 @@ echo "正在测试 $1 是否存在..."
 echo "此测试将无限循环，直到 $1 存在"
 aaa test -f "$1"
 }
-testthefile ./ignored/rsyncpath-local
+testthefile ./ignoredinfo/rsyncpath-local
 
-ls $(cat ./ignored/rsyncpath-local)
+ls $(cat ./ignoredinfo/rsyncpath-local)
 
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
 aaa sudo rsync --delete-before --info=progress2 -avr \
   -f._"$filterfile" \
-  ./release/ $(cat ./ignored/rsyncpath-local)
+  ./release/ $(cat ./ignoredinfo/rsyncpath-local)
 
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以

@@ -16,7 +16,8 @@
 /homebase/public/.emacs.d/eln-cache
 /homebase/public/.emacs.d/elpa
 /homebase/public/.emacs.d/quelpa
-/ignored
+/ignoredinfo
+/ignored/*
 /result.log
 /result.md
 /publishiso-version
