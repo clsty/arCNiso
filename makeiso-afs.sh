@@ -94,8 +94,12 @@ pandoc docs/Installation_hint.md \
 	--embed-resources \
 	--standalone
 #lynx -dump -nolist "https://wiki.archlinux.org/title/Installation_Guide?action=render" >> ./airootfs/etc/skel/Installation_guide.txt
-#curl "https://wiki.archlinuxcn.org/wiki/Installation_Guide?action=render" -o ./airootfs/etc/skel/Installation_guide.html
-pandoc "https://wiki.archlinuxcn.org/wiki/Installation_Guide?action=render" \
+
+# 直接用 pandoc 加网址，目前会出现 500 Internal Server Error
+# 所以先用 curl 下载
+curl "https://wiki.archlinuxcn.org/wiki/Installation_Guide?action=render" -o ./airootfs/etc/skel/Installation_guide.curl.html
+
+pandoc "./airootfs/etc/skel/Installation_guide.curl.html" \
 	-N -f html \
 	--output ./airootfs/etc/skel/Installation_guide.html \
 	--metadata title="安装指南（来自 Arch Linux 中文维基，pandoc 离线版）" \
