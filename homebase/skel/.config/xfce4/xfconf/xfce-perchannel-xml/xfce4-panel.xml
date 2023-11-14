@@ -166,7 +166,6 @@
       <property name="expand" type="bool" value="true"/>
     </property>
     <property name="plugin-30" type="string" value="xfce4-clipman-plugin"/>
-    <property name="plugin-38" type="string" value="wavelan"/>
     <property name="plugin-39" type="string" value="battery"/>
     <property name="plugin-40" type="string" value="systemload">
       <property name="swap" type="empty">
