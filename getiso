@@ -15,6 +15,7 @@ testthefile ./ignoredinfo/rsyncpath-getiso
 
 filter=$(cat<<EOF
 + OUT/***
++ TEST/***
 + result.log
 + result.md
 - *
