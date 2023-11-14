@@ -39,7 +39,7 @@ However, **feel free to fork** this project and modify to make your own (of cour
 arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.com/clsty/arCNiso/blob/main/docs/update.md)中（目前暂定大约每月更新一次），可放心使用，真心希望你能喜欢。
 
 - 欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
-- 有任何看法或建议，欢迎在 [issue](https://github.com/clsty/arCNiso/issues) 中反馈或吐槽，或直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)）。
+- 有任何看法或建议，欢迎在 [Issues](https://github.com/clsty/arCNiso/issues) 中反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中吐槽，也可直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)）。
 
 > - **作为新手怕难度太高不会用** 或 **作为熟手担心难度太低把新手惯成白痴** ？来看[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.md)。
 > - 为什么会有这个项目？请看[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
@@ -164,6 +164,8 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - 桌面上的面板（任务栏）未加载出来。
   - 在 VirtualBox 虚拟机下，偶尔会遇到这种情况。此时可用 `arcnlogout` 退出（并自动重启）桌面环境。
 
+其他问题可以来 [Issues](https://github.com/clsty/arCNiso/issues) 反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中提问。
+
 
 # 其他
 
@@ -206,3 +208,4 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
+- [archlinuxcn](https://www.archlinuxcn.org)：本项目引用的 ArchWiki 中文版页面的发布站点以及 archlinuxcn 软件源的提供者（注：本项目与 archlinuxcn 无关）。
