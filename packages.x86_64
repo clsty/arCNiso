@@ -61,8 +61,6 @@ ttf-nerd-fonts-symbols-mono
 #ttf-jetbrains-mono-nerd
 #ttf-jetbrains-mono
 ## 音频
-mpd
-xfmpc
 pipewire
 pipewire-audio
 pipewire-alsa
@@ -140,7 +138,7 @@ xfce4-fsguard-plugin
 #xfce4-genmon-plugin
 #genmon: 显示某个脚本的 stdout ，暂时用不到
 #xfce4-mount-plugin
-xfce4-mpc-plugin
+#xfce4-mpc-plugin
 #xfce4-netload-plugin
 xfce4-notifyd
 xfce4-pulseaudio-plugin

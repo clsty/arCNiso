@@ -1,8 +1,0 @@
-Interface=wlp1s0
-Autohide=false
-AutohideMissing=false
-SignalColors=true
-ShowIcon=true
-ShowBar=true
-Command=nm-connection-editor
-

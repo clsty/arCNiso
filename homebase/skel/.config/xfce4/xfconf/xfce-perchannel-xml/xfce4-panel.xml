@@ -160,7 +160,6 @@
         <value type="string" value="-logout-dialog"/>
       </property>
     </property>
-    <property name="plugin-28" type="string" value="xfce4-mpc-plugin"/>
     <property name="plugin-29" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
       <property name="expand" type="bool" value="true"/>
