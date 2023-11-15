@@ -16,7 +16,8 @@
 sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake less sudo
 
 # 安装 paru（若已添加 archlinuxcn 等第三方源，也可用 pacman 直接安装）
-function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+function aaa {
+while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
 git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
 cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 ```
@@ -128,7 +129,8 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ### 更新系统
 以 paru 为例：
 ```bash
-function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
+function aaa {
+while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
 aaa paru -Sy&&aaa paru -Su --noconfirm
 ```
 注意，部分软件包在更新之后可能需要重启系统才能正常工作。
