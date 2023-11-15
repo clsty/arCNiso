@@ -209,3 +209,6 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
 - [archlinuxcn](https://www.archlinuxcn.org)：本项目引用的 ArchWiki 中文版页面的发布站点以及 archlinuxcn 软件源的提供者（注：本项目与 archlinuxcn 无关）。
+
+## 类似项目
+见[类似项目](https://github.com/clsty/arCNiso/blob/main/docs/similar-projects.md)。
