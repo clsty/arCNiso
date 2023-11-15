@@ -62,6 +62,7 @@ ttf-nerd-fonts-symbols-mono
 #ttf-jetbrains-mono
 ## 音频
 mpd
+xfmpc
 pipewire
 pipewire-audio
 pipewire-alsa

@@ -22,7 +22,7 @@ However, **feel free to fork** this project and modify to make your own (of cour
 - arCNiso 不仅面向新手，也面向熟手，比如：
   - oh-my-zsh 与 p10k 总比裸 grml-zsh 好用；
   - 需要 timeshift 等常用工具时，自带总比从 AUR 安装更省事；
-  - 需要 Secure Boot 支持时（官方 archiso 不支持 Secure Boot）；
+  - 需要安全启动时，本镜像恰好支持（官方 archiso 目前不支持）；
   - 使用平板电脑时，若没有 USB 无线或有线键盘，可用蓝牙管理器连接蓝牙键盘，或使用屏幕键盘，而不是束手无策；
   - ……
 

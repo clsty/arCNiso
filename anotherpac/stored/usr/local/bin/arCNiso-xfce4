@@ -16,7 +16,7 @@ export XDG_SESSION_DESKTOP=xfce4
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
 
-export EDITOR=emacsnw
+export EDITOR=nvim
 export BROWSER=firefox
 
 #DISPLAY=":0" picom -b &
