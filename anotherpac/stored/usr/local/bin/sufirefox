@@ -1,10 +1,10 @@
 #!/bin/bash
-user=$(cat /tmp/sufirefoxuser)
-urlfile=/home/$user/.cache/tempwebpageurl
-mkdir -p /home/$user/.cache
+export ffuser=$(cat /tmp/sufirefoxuser)
+urlfile=/home/$ffuser/.cache/tempwebpageurl
+mkdir -p /home/$ffuser/.cache
 case "$(whoami)" in
-    "root") su $user -c "echo '$1'>$urlfile" ;;
-    "$user") echo "$1" >$urlfile ;;
+    "root") su $ffuser -c "echo '$1'>$urlfile" ;;
+    "$ffuser") echo "$1" >$urlfile ;;
 esac
 
 echo "[$0] 已经将以下 url 输出到 $urlfile 中："

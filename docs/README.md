@@ -1,4 +1,4 @@
-![某个版本 arCNiso 的截图](https://github.com/clsty/arCNiso/raw/main/screenshot.png)
+![arCNiso v2.3.2](https://github.com/clsty/arCNiso/raw/main/screenshot.png)
 
 **To non-Chinese users**
 
