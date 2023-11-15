@@ -57,7 +57,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ## 如何获取镜像文件
 
-从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享（不需要登录，但是有密码：clsty）](https://alist.celestialy.top/arCNiso/release) 下载即可。
+从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享](https://alist.celestialy.top/arCNiso/release)（不需要登录，但是有密码：`clsty`）下载即可。
 - 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
 - 正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [sha256sum](https://github.com/clsty/arCNiso/releases)。
 
@@ -79,7 +79,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
   - 也可以将镜像文件通过 dd 或 Rufus 等工具写入到 U 盘中，但这远不如 Ventoy 灵活。
 - Q：其实——我的电脑系统全挂掉了（或出厂不含系统），也暂时无法借用他人电脑，这样也能制作 arCNiso 启动盘吗？
 - A：（ `>v>` 没想到吧.png）就算这样也还是有办法的——你可以使用安卓设备（手机、平板等）来做这件事。
-  - 安装 EtchDroid USB writer，它可从[项目主页的 Releases](https://github.com/Depau/EtchDroid/releases) 或 [F-Droid](https://f-droid.org/packages/eu.depau.etchdroid) 下载（这里也提供 [Celestial.y 的存储分享](https://alist.celestialy.top/android)，密码 clsty；但更新未必及时）。
+  - 安装 EtchDroid USB writer，它可从[项目主页的 Releases](https://github.com/Depau/EtchDroid/releases) 或 [F-Droid](https://f-droid.org/packages/eu.depau.etchdroid) 下载（这里也提供 [Celestial.y 的存储分享](https://alist.celestialy.top/android)，密码 `clsty`；但更新未必及时）。
   - 将 U 盘插到安卓设备上，使用刚才安装的 EtchDroid 将前面获取到的 arCNiso 镜像文件写入到 U 盘中。
 
 > 当你的电脑（通过 ventoy 或其他途径）启动本镜像之后，会自动进入启动流程。
