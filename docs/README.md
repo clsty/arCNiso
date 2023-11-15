@@ -186,7 +186,9 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 在此感谢本项目所用到或参考到的各项目的作者、开发者与维护者。
 
-以下列举部分项目。请注意，除非明确说明关联，否则以下项目的官方默认均与本项目无关。
+以下列举部分项目。
+
+> **声明：除非明确说明关联，否则以下项目的官方默认均与本项目无关。**
 
 - [archiso](https://github.com/archlinux/archiso)：本项目的直接基础，来自 Arch Linux 官方。
 - [Sweet Themes](https://github.com/EliverLara/Sweet)：本项目图形环境中 xfce4 等的主题。
