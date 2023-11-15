@@ -3,22 +3,22 @@
 # @Title: arCNiso publishiso: auto publish file.
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
+#
 function aaa { while true;do if "$@";then break;else echo "!! Retrying \"$@\"";sleep 1;fi;done; }
 function try { "$@" || sleep 0; }
 set -e
 cd $(dirname $0)
 
 iso="$(cat publishiso-filename)"
-
-filterfile=$(mktemp)
-cat<<EOF
+filter=$(cat<<EOF
 + $(cat publishiso-filename)
++ README.md
 -s *
 +r *
 EOF
->$filterfile
+)
 
-cat $filterfile
+cat <(echo "$filter")
 
 function testthefile {
 echo "正在测试 $1 是否存在..."
@@ -29,12 +29,14 @@ testthefile ./ignoredinfo/rsyncpath-local
 
 ls $(cat ./ignoredinfo/rsyncpath-local)
 
+echo "$filterfile"
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-aaa sudo rsync --delete-before --info=progress2 -avr \
-  -f._"$filterfile" \
+aaa rsync --delete-before --info=progress2 -avr \
+  -f._<(echo "$filter") \
   ./release/ $(cat ./ignoredinfo/rsyncpath-local)
 
+ls $(cat ./ignoredinfo/rsyncpath-local)
 # （以下方法实测不可行）
 # 如果想用挂载到本地的方法的话，可以
 # mkdir -p ~/123pan
