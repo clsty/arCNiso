@@ -57,17 +57,15 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ## 如何获取镜像文件
 
-- 从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享（不需要登录，但是有密码：clsty）](https://alist.celestialy.top/arCNiso/release) 下载即可。
-  - 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
-  - 正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [sha256sum](https://github.com/clsty/arCNiso/releases)。
+从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest) 或 [Celestial.y 的存储分享（不需要登录，但是有密码：clsty）](https://alist.celestialy.top/arCNiso/release) 下载即可。
+- 国内用户与 GitHub Releases 的连接很可能不稳定，宜使用 Celestial.y 的存储分享。
+- 正如通过 http 方式下载官方 archiso 镜像之后需要验证签名，（无论哪种方式）在下载完成之后，都建议手动验证版本对应的 [sha256sum](https://github.com/clsty/arCNiso/releases)。
 
 > - 备用方法：从 [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest/download/arCNiso.latest.torrent) 下载最新的 torrent 种子文件，再使用 qbittorrent（或其他任一 BT 客户端）打开它，以下载 iso 镜像文件。
 >   - 理论上来说，这也是不错的方法，但目前的做种时间较短（换句话说，时间不巧的话可能完全无法下载）。
 >   - 如果你没有 BT 客户端，安装一个即可（这很简单），例如你可以从[这里](https://www.qbittorrent.org/download)下载 qbittorrent。安卓上也有 BT 客户端，例如 LibreTorrent（可从 F-Droid 下载）。
 >   - 题外话，若想长期使用 BT 客户端，则更推荐 [qbittorrent 增强版](https://github.com/c0re100/qBittorrent-Enhanced-Edition)。
 >   - 不需要手动验证 sha256sum（BT 客户端会自动验证）。
-> - 过时的备用方法：从 [123pan](https://www.123pan.com/s/fU5iVv-tYaZ3.html) 下载。
->   - 在过去，由于 123pan 相对来说比较良心，免登录、无广告且不需要客户端也不限速，这曾是主要方法；但不久之后 123pan 进行了一系列操作，比如限制 AList 挂载（这导致自动发布不再可行）、增加广告量、加大免登录下载的限制等等，于是此法逐渐弃用。
 
 - Q：但是，如果我说我不想直接下载，而是从源码自己编译一份，顺便做些修改（觉得不错的话还可以给你 [PR](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)），阁下又将如何应对？
 - A：没问题，来看[构建](https://github.com/clsty/arCNiso/blob/main/docs/BUILD.md)。
@@ -155,9 +153,6 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 - 不小心进入了 tty
   - 启动时，会自动登录 tty1 并启动 xfce4。若不小心切到了别的 tty，可以用 `Ctrl+Alt+F1` 再切回来。
-- 若 CPU 性能弱，则启动速度较慢。
-  - 从 GRUB 到 tty 界面要很长一段时间，从 tty 界面到 xfce4 出现又有很长一段黑屏。在某低配电脑上总计时间甚至可达两分钟。原因初步推测为，镜像为了节省空间，经由 squashfs 高度压缩，解压时对 CPU 多核性能要求较高。
-  - 建议耐心等待。
 - 在 VirtualBox 虚拟机中使用本镜像时，不够稳定，尤其是 Firefox。
   - 建议使用 VMSVGA 作为显卡控制器、启用 3D 加速并给足显存（128 MB）。
   - 在 Linux 下建议改用 QEMU/KVM 虚拟机。
@@ -190,7 +185,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 ## 致谢
 
 在此感谢本项目所用到或参考到的各项目的作者、开发者与维护者。
-以下列举部分项目：
+以下列举部分项目。请注意，除非明确说明关联，否则以下项目的官方默认均与本项目无关。
 
 - [archiso](https://github.com/archlinux/archiso)：本项目的直接基础，来自 Arch Linux 官方。
 - [Sweet Themes](https://github.com/EliverLara/Sweet)：本项目图形环境中 xfce4 等的主题。
@@ -208,7 +203,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
-- [archlinuxcn](https://www.archlinuxcn.org)：本项目引用的 ArchWiki 中文版页面的发布站点以及 archlinuxcn 软件源的提供者（注：本项目与 archlinuxcn 无关）。
+- [archlinuxcn](https://www.archlinuxcn.org)：本项目引用的 ArchWiki 中文版页面的发布站点以及 archlinuxcn 软件源的提供者。
 
 ## 类似项目
 见[类似项目](https://github.com/clsty/arCNiso/blob/main/docs/similar-projects.md)。

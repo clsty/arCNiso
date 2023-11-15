@@ -19,6 +19,33 @@ EOF
 
 cat <(echo "$filter")
 
+function testthefile {
+echo "正在测试 $1 是否存在..."
+echo "此测试将无限循环，直到 $1 存在"
+aaa test -f "$1"
+}
+testthefile ./ignoredinfo/rsyncpath-publishiso
+
+echo "正在用 rsync 同步 iso..."
+cp -f ./result.md ./release/README.md
+aaa rsync --delete-before --info=progress2 -avre ssh \
+  -f._<(echo "$filter") \
+  ./release/ $(cat ./ignoredinfo/rsyncpath-publishiso)
+
+# =================================
+# =================================
+# =================================
+# 以下代码仅作存档。
+# 以下方法实测不可行）
+# 如果想用挂载到本地的方法的话，可以
+# mkdir -p ~/123pan
+# rclone mount 123pan:/ ~/123pan --cache-dir /tmp/123pan --vfs-cache-mode full --multi-thread-streams 8  --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 800M --buffer-size 4096M
+# 最后这句会“卡住”，但实际上只是前台运行罢了。可以放到脚本里，后台运行此脚本。
+# 这样就可以通过 ~/123pan 访问 123pan 了。
+#rsync -av --progress ./release/$iso ~/123pan/release/arCNiso/
+#
+#
+#
 # 注意，此自动发布已失效！！
 # 当前配置：打开web代理、webdav本地代理，
 # 根文件夹ID填0，
@@ -36,31 +63,8 @@ cat <(echo "$filter")
 # 地址是 http://0.0.0.0:5244/dav/123pan （"http://0.0.0.0:5244/dav/" 是 alist 的 webdav 地址）
 # 用户名与密码就是 alist 的那个。
 # 这样就添加完毕了，可以用 rclone copy 等方法进行传输。
-echo "现在可以打开以下网页手动上传了。"
-echo "https://www.123pan.com/2433802/2433803"
-releasepath="$(pwd)/release"
-wl-copy "$releasepath" && echo "Path \"$releasepath\" has been copied."
-
+#
+#
 # rclone delete 会将一个目录下的所有文件（包括子文件夹里的）都删除，且无需确认，也不会报错；但是所有子文件夹都不会被删除
 #try rclone delete clsty:/public/arCNiso/release
 #rclone copy -P ./release/"$iso" clsty:/public/arCNiso/release/
-function testthefile {
-echo "正在测试 $1 是否存在..."
-echo "此测试将无限循环，直到 $1 存在"
-aaa test -f "$1"
-}
-testthefile ./ignoredinfo/rsyncpath-publishiso
-
-echo "正在用 rsync 同步 iso..."
-cp -f ./result.md ./release/README.md
-aaa rsync --delete-before --info=progress2 -avre ssh \
-  -f._<(echo "$filter") \
-  ./release/ $(cat ./ignoredinfo/rsyncpath-publishiso)
-
-# （以下方法实测不可行）
-# 如果想用挂载到本地的方法的话，可以
-# mkdir -p ~/123pan
-# rclone mount 123pan:/ ~/123pan --cache-dir /tmp/123pan --vfs-cache-mode full --multi-thread-streams 8  --vfs-read-chunk-size 256M --vfs-read-chunk-size-limit 800M --buffer-size 4096M
-# 最后这句会“卡住”，但实际上只是前台运行罢了。可以放到脚本里，后台运行此脚本。
-# 这样就可以通过 ~/123pan 访问 123pan 了。
-#rsync -av --progress ./release/$iso ~/123pan/release/arCNiso/
