@@ -2,6 +2,7 @@
 
 本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
 
+关于其他安装途径，可参阅 [Installation_methods](https://github.com/clsty/arCNiso/blob/main/docs/Installation_methods.md)。
 
 ## 声明
 
