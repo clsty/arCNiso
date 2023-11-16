@@ -3,6 +3,7 @@
 # ArchWiki: Installation Guide
 即按照 [ArchWiki 的安装指南](https://wiki.archlinux.org/title/Installation_guide)手动操作。
 主要依赖 Bash。
+> 注：实际上 archiso 默认的 shell 不是 bash 而是 zsh，在本文语境下可将 Bash 看成 Bash 与 Zsh 的统称。
 
 Arch Linux 官方和很多 Arch Linux 用户（包括 clsty）在安装途径的推荐上的满足的一个共同点是，都至少推荐首次安装 Arch Linux 时应当使用这种途径一次。
 
