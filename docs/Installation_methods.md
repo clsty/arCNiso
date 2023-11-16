@@ -18,7 +18,7 @@ Arch Linux 官方和很多 Arch Linux 用户（包括 clsty）在安装途径的
 ## 自己编写
 通过参阅 Installation Guide 来自己编写 bash 脚本来安装 Arch Linux，这在本质上和直接参阅 Installation Guide 来安装 Arch Linux 的方法是完全一致的——只存在形式上的区别，即将本来直接放在互动式 Bash 中的命令，放到了脚本里再由 Bash 执行。
 
-当然，这需要对 Bash 语言的掌握有一定要求。
+当然，这对 Bash 语言的掌握有一定要求。
 ## 公开脚本
 从零开始手写 bash 脚本虽然是不错的学习实践，在某种层面上也属于重复造轮子，因为已经有很多这样的脚本公开在互联网上了。
 
