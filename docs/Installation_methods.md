@@ -1,4 +1,4 @@
-这里收集一些 Arch Linux 的安装途径，仅供参考。
+这里收集一些 Arch Linux 的安装途径，仅供参考，而不作推荐（除了自己编写 bash 脚本与参阅 ArchWiki 的 Installation Guide 以外）。
 
 # ArchWiki: Installation Guide
 即按照 [ArchWiki 的安装指南](https://wiki.archlinux.org/title/Installation_guide)手动操作。
@@ -35,9 +35,15 @@ Arch Linux 官方和很多 Arch Linux 用户（包括 clsty）在安装途径的
 - 首次安装即使用 archinstall 可能使你错失使用 ArchWiki 的 Installation Guide 的重大意义（参见本文对 Installation Guide 安装途径的描述）。
 
 # Calamares
-这是 Linux 图形化安装器，不局限于 Arch Linux。
+[Calamares](https://calamares.io) 是 Linux 图形化安装器，不局限于 Arch Linux。
 提供此工具来安装 Arch Linux 的项目有很多，比如 [ALCI](https://github.com/arch-linux-calamares-installer/alci-iso)。
 
 很多 Arch Linux 用户不会推荐新手使用 Calamares，这主要有两个原因：
 - Calamares 是图形化安装器，与官方指南使用的 Bash 可看作是不同的途径，效果也不完全一致。
 - 首次安装即使用 Calamares 可能使你错失使用 ArchWiki 的 Installation Guide 的重大意义（参见本文对 Installation Guide 安装途径的描述）。
+
+# 备份恢复类
+所谓安装系统，什么是安装呢？如果将“安装”定义为“使得硬盘上出现一个可用的操作系统”，那么“将备份好的副本恢复到硬盘上”也当然属于“安装系统”。
+
+所以，一些全盘备份恢复类的工具也可用作“安装” Arch Linux 的一种途径（前提是你有一份值得信任的备份副本）。
+例如 `dd`、ghost 等。
