@@ -116,7 +116,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 **次重要：** 在命令没打完的时候，试试按 `Tab` 键或上下方向键。
 
-**其他：** `Ctrl+U` 删至行首、 `Ctrl+W` 删除一个单词等（更多参见[21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)）。
+**其他：** `Ctrl+U` 删至行首、 `Ctrl+W` 删除一个单词等（更多参见 [21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)）。
 
 
 ### 终端（tilix）
