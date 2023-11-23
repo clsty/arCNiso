@@ -116,7 +116,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - 按 `Ctrl+C` 终止（卡住的时候请试试这个）。
 - 在命令没打完的时候，试试按 `Tab` 键或上下方向键来补全。
 
-其他快捷键可参见 [21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)）。
+其他快捷键可参见 [21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)。
 
 
 ### 终端（tilix）
