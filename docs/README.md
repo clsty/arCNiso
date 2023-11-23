@@ -136,12 +136,12 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 **alias：** 请使用 `grep ^alias ~/.zshrc` 查看其末尾处的 alias，这有助于你提高输入命令的效率。
 
-**vifm：** 在 arCNiso 中使用 vifm 时，可以按 ZZ 退出并切换工作目录。
+**vifm：** 在 arCNiso 中使用 vifm 时，可以按 `Z` `Z` 退出并切换工作目录。
 
 
 ### 输入法
 
-按左 `Ctrl` 加空格键以切换输入法，按 `Ctrl` 加分号打开剪贴板管理器（按 ESC 退出）。
+按左 `Ctrl` `空格` 以切换输入法，按 `Ctrl` `;` 打开剪贴板管理器（按 `ESC` 退出）。
 
 
 ### 更多
