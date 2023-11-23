@@ -15,6 +15,8 @@
 以 xfce4 为核心，进行了多方面的配置。
 
 - 主题：主要主题为 sweet，图标主题为 papirus，以 kvantum 作为引擎。
+- 壁纸：采用 [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)，据称于 2018.1.15 的冬夜摄于北京中信大厦（中国尊）98 层。
+  - 没有版权问题，而且是张不错的城市夜景图（仅主观评价）。
 - 字体：配置 fontconfig。
 - 终端：采用 Tilix。
 - 命令行：采用 oh-my-zsh 以及 powerlevel10k。

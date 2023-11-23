@@ -110,12 +110,13 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 ### 命令行 shell
 
 > 简称 shell，也就是终端模拟器（tilix）里面的（或者说“连接着的”“承载着的”）那个存在。
+> 官方 archiso 与本项目的默认 shell 都是 zsh。
 
-**常识：** `Ctrl+C` 终止（卡住的时候请试试这个）。
+**最重要：** `Ctrl+C` 终止（卡住的时候请试试这个）。
 
-**输入：** `Ctrl+U` 删至行首、 `Ctrl+W` 删除一个单词、。
+**次重要：** 在命令没打完的时候，试试按 `Tab` 键或上下方向键。
 
-**补全：** 在命令没打完的时候，试试按 `Tab` 键或上下方向键。
+**其他：** `Ctrl+U` 删至行首、 `Ctrl+W` 删除一个单词等（更多参见[21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)）。
 
 
 ### 终端（tilix）
@@ -145,7 +146,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ### 更多
 
-- 有关 Arch Linux、Linux 等方面，**推荐新手阅读**[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
+- 有关 Arch Linux、Linux 等方面，推荐**新手**阅读[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
 - arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
 
 
