@@ -134,7 +134,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 **安装软件：** 使用 paru 可以从 AUR 安装软件。在 arCNiso 中使用 paru 的一种方法是，输入 `parui` 进入搜索界面。
 
-**alias：** 请使用 `less ~/.zshrc` 查看其末尾处的 alias（按 q 退出），这有助于你提高输入命令的效率。
+**alias：** 请使用 `grep ^alias ~/.zshrc` 查看其末尾处的 alias，这有助于你提高输入命令的效率。
 
 **vifm：** 在 arCNiso 中使用 vifm 时，可以按 ZZ 退出并切换工作目录。
 
