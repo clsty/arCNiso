@@ -35,7 +35,7 @@
 ## mkarchiso
 应根据特定场景实行相应的步骤。
 
-- 场景：源文件 `mkarchiso-original`（由 `/usr/bin/mkarchiso` 复制而来，Arch Linux 官方提供）有更新。
+- 场景：源文件 `mkarchiso-original`（由 `/usr/bin/mkarchiso` 复制而来，Arch Linux 官方提供）可能有更新。
   1. 使用 `PATCH.sh`，将 mkarchiso 打补丁到位（若源文件的更新超过了补丁的容错范围，补丁可能会应用失败，这时需要手动操作）。
   2. 使用 `DIFF.sh`，根据官方 mkarchiso 与刚刚处理好的补丁版 mkarchiso 进行对比，来更新补丁。
 
