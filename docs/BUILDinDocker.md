@@ -54,6 +54,9 @@ sudo docker exec -it arch /bin/bash
 这里以教育网（CERNET）提供的联合镜像站 MirrorZ 为例；
 也可以从 [Arch Linux 国内镜像源列表](https://archlinux.org/mirrorlist/?country=CN&protocol=https&ip_version=4&use_mirror_status=on)里自己找一个镜像源。
 ```bash
+# 配置时区
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 # 为 pacman 换源
 echo 'Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
 
