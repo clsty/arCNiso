@@ -21,7 +21,7 @@ filter=$(cat<<EOF
 - *
 EOF
 )
-
-aaa rsync -i --info=progress2 -avre ssh \
+# 对下面的命令加 aaa 时，若命令由 C-c 中断并重启，实测发生过无视 filter 把整个目录都作为目标的情况。
+rsync -i --info=progress2 -avre ssh \
   -f._<(echo "$filter") \
   $(cat ./ignoredinfo/rsyncpath-getiso) ./
