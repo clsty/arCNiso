@@ -113,7 +113,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 > 官方 archiso 与本项目的默认 shell 都是 zsh。
 
 如果你第一次使用命令行 shell，你至少应该了解：
-- 按 `Ctrl+C` 终止（卡住的时候请试试这个）。
+- 按 `Ctrl`+`C` 终止（卡住的时候请试试这个）。
 - 在命令没打完的时候，试试按 `Tab` 键或上下方向键来补全。
 
 其他快捷键可参见 [21 个专业 Linux 用户喜爱的实用终端快捷键](https://linux.cn/article-16228-1.html)。
@@ -121,13 +121,13 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ### 终端（tilix）
 
-**缩放字体大小：** `Ctrl+=` 与 `Ctrl+-` 。
+**缩放字体大小：** `Ctrl`+`=` 与 `Ctrl`+`-` 。
 
-**翻页：** `Shift+PageUp` 向上翻页、 `Shift+PageDown` 向下翻页。
+**翻页：** `Shift`+`PageUp` 向上翻页、 `Shift`+`PageDown` 向下翻页。
 
-**复制粘贴：** 先用鼠标选中，再 `Ctrl+Shift+C` 复制；用 `Ctrl+Shift+V` 粘贴（仅终端；一般的复制粘贴仍然是 `Ctrl+C` 及 `Ctrl+V` ）。
+**复制粘贴：** 先用鼠标选中，再 `Ctrl`+`Shift`+`C` 复制；用 `Ctrl`+`Shift`+`V` 粘贴（仅终端；一般的复制粘贴仍然是 `Ctrl`+`C` 及 `Ctrl`+`V` ）。
 
-**会话（即标签页）与终端（实际上是指分割视图的小终端窗格）：** `Ctrl+Shift+T` 新建会话、 `Ctrl+Alt+1` `Ctrl+Alt+2` 切换会话、 `Ctrl+Alt+A` 自动新建终端、 `Alt+1` `Alt+2` 切换终端、 `Ctrl+Shift+W` 关闭当前会话或终端。
+**会话（即标签页）与终端（实际上是指分割视图的小终端窗格）：** `Ctrl`+`Shift`+`T` 新建会话、 `Ctrl`+`Alt`+`1` `Ctrl`+`Alt`+`2` 切换会话、 `Ctrl`+`Alt`+`A` 自动新建终端、 `Alt`+`1` `Alt`+`2` 切换终端、 `Ctrl`+`Shift`+`W` 关闭当前会话或终端。
 
 
 ### 一些终端程序
@@ -153,7 +153,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 ## 问题与应对（一般用不到）
 
 - 不小心进入了 tty
-  - 启动时，会自动登录 tty1 并启动 xfce4。若不小心切到了别的 tty，可以用 `Ctrl+Alt+F1` 再切回来。
+  - 启动时，会自动登录 tty1 并启动 xfce4。若不小心切到了别的 tty，可以用 `Ctrl`+`Alt`+`F1` 再切回来。
 - 在 VirtualBox 虚拟机中使用本镜像时，不够稳定，尤其是 Firefox。
   - 建议使用 VMSVGA 作为显卡控制器、启用 3D 加速并给足显存（128 MB）。
   - 在 Linux 下建议改用 QEMU/KVM 虚拟机。
