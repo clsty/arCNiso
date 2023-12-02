@@ -4,6 +4,6 @@ case $TERM in
 *)
 	echo "你不需要使用 setfont 更改字体。
 原因：你使用的不是原版 archiso 的 tty（或者说 virtual console），而是图形终端模拟器，而它的字体也已经被适当配置。
-若仍要调整字体：可用 Ctrl+- 和 Ctrl+= 来缩放大小，也可在右键菜单里新建或编辑用户配置。"
+若仍要调整字体：可用 Ctrl+- 和 Ctrl+= 来缩放大小，（对于 Tilix）也可在首选项里编辑配置方案。"
 	;;
 esac
