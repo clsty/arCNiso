@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 cd $(dirname $0)
-# 确保已经安装 efitools
+# Dependency: efitools
 # https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot#Creating_keys
 # Create a GUID for owner identification
 uuidgen --random >GUID.txt
