@@ -113,6 +113,12 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 
 ## /////////////// 分类：安全启动  ///////////////
 
+### Archboot
+- 链接：
+  - <https://archboot.com>
+- 并不是基于 archiso，而是并行的。
+- 疑似具有半官方性质。其开发者为 [tpowa](https://archlinux.org/people/developers/#tpowa)，而 archiso 的开发者（团队）为 arch-releng team。
+
 ### archiso-sb-shim（停更于 2022）
 - 链接：
   - <https://github.com/solsticedhiver/archiso-sb-shim>
