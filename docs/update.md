@@ -14,7 +14,7 @@
 - 由于 arCNiso 不包含 releng 本体，直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
   - 详见 `makeiso-afs.sh`。
   - 实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
-- 你可以使用 arCNiso-expac 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
+- 你可以使用 `arCNiso-expac` 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
 - `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
 - 留心 `.gitignore` 中的每一行。
@@ -82,6 +82,6 @@
 
 - `./testiso`：用于利用 VirtualBox 对镜像进行测试运行。
   - 使用前可能需要手动配置 VirtualBox 虚拟机（参见[环境要求](./README.md#环境要求)），并使虚拟机名为 arCNiso。
-  - 推荐设置将 `ignored/path` 设置为共享目录，自动挂载到虚拟机内，以便在宿主机与虚拟机之间传输文件（但是 symlink 类的无法直接这样传输，可以先用 tar 打包，或换用 ssh 的 scp 传文件）。
+  - 推荐将 `ignored/path` 设置为共享目录，自动挂载到虚拟机内，以便在宿主机与虚拟机之间传输文件（但是 symlink 类的无法直接这样传输，可以先用 tar 打包，或换用 ssh 的 scp 传文件）。
 
 - `./publishiso` 等系列脚本：用于自动发布。
