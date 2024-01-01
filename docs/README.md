@@ -1,4 +1,4 @@
-![arCNiso v2.3.2](https://github.com/clsty/arCNiso/raw/main/screenshot.png)
+![Screenshot of arCNiso v2.3.2](https://github.com/clsty/arCNiso/raw/main/screenshot.png)
 
 **To non-Chinese users**
 
@@ -52,8 +52,8 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ## 环境要求
 - CPU：`amd64` 架构（即 `x86_64` 架构；未来可能支持其他架构）。
-- 显存：最低 128MiB。
-- 内存：最低 3GiB（此时使用 Firefox 仍有崩溃风险），推荐 4GiB 及以上。
+- 显存：最低 128 MB。
+- 内存：最低 3 GiB（此时使用 Firefox 仍有崩溃风险），推荐 4 GiB 及以上。
 
 ## 如何获取镜像文件
 
