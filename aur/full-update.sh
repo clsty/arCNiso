@@ -31,7 +31,7 @@ checkexist() {
 	fi
 }
 
-for i in cmake git awk paru makepkg getopts repo-add asp; do
+for i in cmake git awk paru makepkg getopts repo-add; do
 	checkexist $i
 done
 echo "Great, every needed command is available."

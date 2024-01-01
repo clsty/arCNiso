@@ -1,6 +1,6 @@
 #!/bin/bash
 # @Author: clsty <celestial.y@outlook.com>
-# @Title: arCNiso publishiso: auto publish file.
+# @Title: arCNiso publishiso: auto publish files.
 # @URL: https://github.com/clsty/arCNiso
 # @License: GNU GPL v3.0 License
 #

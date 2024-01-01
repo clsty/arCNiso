@@ -8,8 +8,7 @@ cd "$(dirname $selfpath)"
 basedir="$(pwd)"
 target="$basedir"/cache/sweet-theme-backup
 
-mkdir -p "$target"
-cd "$target"
+mkdir -p "$target";cd "$target"
 try git init -b main
 try git remote add origin https://github.com/clsty/sweet-theme-backup.git
 git pull --depth=1 origin main

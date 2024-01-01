@@ -13,7 +13,7 @@
 ### 安装依赖（约 1 分钟，依赖网速）
 
 ```bash
-sudo pacman -S --needed archiso git rsync pandoc base-devel fd asp cmake less sudo
+sudo pacman -S --needed archiso git rsync pandoc base-devel fd cmake less sudo
 
 # 安装 paru（若已添加 archlinuxcn 等第三方源，也可用 pacman 直接安装）
 function aaa { while true;do if "$@";then break;else echo "[aaa] Retrying \"$@\"";sleep 1;fi;done; }
