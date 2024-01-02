@@ -21,7 +21,7 @@ AFSshare="airootfs/usr/share"
 
 function afs-sync {
 # releng 就位
-# （由于对同一个目标目录、不同来源目录进行多次 rsync，--delete 每次都会导致删文件，这样读写损耗挺大的，应设法仅在想要刷新时才 --delete；或者将多个 rsync 的任务融合到一起（dry-run 输出列表？）再 --delete）
+# （由于对同一个目标目录、不同来源目录进行多次 rsync，--delete 每次都会导致删文件，这样读写损耗挺大的，不过开启了 CoW 的 btrfs 应该没问题；否则应设法仅在想要刷新时才 --delete；或者将多个 rsync 的任务融合到一起（dry-run 输出列表？）再 --delete）
 # 这里暂时先把 --delete 注释掉
 #rsync -av --delete "$releng"/airootfs/ $AFS/
 rsync -av "$releng"/airootfs/ $AFS/
@@ -75,24 +75,24 @@ rsync -av ./homebase/public/ ./airootfs/root/
 rsync -av ./homebase/skel/ ./airootfs/etc/skel/
 rsync -av ./homebase/root/ ./airootfs/root/
 pandoc docs/README.md \
-	-N \
-	--output=./airootfs/etc/skel/README.html \
-	--metadata title="arCNiso 自述文档（pandoc 离线版）" \
-	--metadata date="$(date +%x)" \
-	--to=html5 \
-	--css=docs/github.css \
-	--highlight-style=haddock \
-	--standalone
+  -N \
+  --output=./airootfs/etc/skel/README.html \
+  --metadata title="arCNiso 自述文档（pandoc 离线版）" \
+  --metadata date="$(date +%x)" \
+  --to=html5 \
+  --css=docs/github.css \
+  --highlight-style=haddock \
+  --standalone
 pandoc docs/Installation_hint.md \
-	-N \
-	--output=./airootfs/etc/skel/Installation_hint.html \
-	--metadata title="Arch Linux 安装提示（pandoc 离线版）" \
-	--metadata date="$(date +%x)" \
-	--to=html5 \
-	--css=docs/github.css \
-	--highlight-style=haddock \
-	--embed-resources \
-	--standalone
+  -N \
+  --output=./airootfs/etc/skel/Installation_hint.html \
+  --metadata title="Arch Linux 安装提示（pandoc 离线版）" \
+  --metadata date="$(date +%x)" \
+  --to=html5 \
+  --css=docs/github.css \
+  --highlight-style=haddock \
+  --embed-resources \
+  --standalone
 #lynx -dump -nolist "https://wiki.archlinux.org/title/Installation_Guide?action=render" >> ./airootfs/etc/skel/Installation_guide.txt
 
 # 直接用 pandoc 加网址，目前会出现 500 Internal Server Error
@@ -100,15 +100,15 @@ pandoc docs/Installation_hint.md \
 curl "https://wiki.archlinuxcn.org/wiki/Installation_Guide?action=render" -o ./airootfs/etc/skel/Installation_guide.curl.html
 
 pandoc "./airootfs/etc/skel/Installation_guide.curl.html" \
-	-N -f html \
-	--output ./airootfs/etc/skel/Installation_guide.html \
-	--metadata title="安装指南（来自 Arch Linux 中文维基，pandoc 离线版）" \
-	--metadata date="$(date +%x)" \
-	--to=html5 \
-	--css=docs/github.css \
-	--highlight-style=haddock \
-	--embed-resources \
-	--standalone
+  -N -f html \
+  --output ./airootfs/etc/skel/Installation_guide.html \
+  --metadata title="安装指南（来自 Arch Linux 中文维基，pandoc 离线版）" \
+  --metadata date="$(date +%x)" \
+  --to=html5 \
+  --css=docs/github.css \
+  --highlight-style=haddock \
+  --embed-resources \
+  --standalone
 }
 
 function afs-clean {
@@ -123,6 +123,6 @@ done
 }
 
 case $1 in
-	sync)afs-sync;;
-	clean)afs-clean;;
+  sync)afs-sync;;
+  clean)afs-clean;;
 esac
