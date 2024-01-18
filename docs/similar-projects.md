@@ -82,6 +82,11 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 - XFCE4；此外还有不带 GUI 的几个变种，包括 arm 支持。
 - （疑似）利用 GitHub Actions 自动构建。
 
+### Archuseriso
+- 链接：
+  - <https://github.com/laurent85v/archuseriso>
+- XFCE4；其在定位上是构建 Live CD 或安装持久化 Live 系统到 U 盘的工具，XFCE4 是其中一种配置。
+
 ### `Archiso_XFCE4`（停更于 2020）
 - 链接：
   - <https://github.com/Dogcatfee/Archiso_XFCE4>
