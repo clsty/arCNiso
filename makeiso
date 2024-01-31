@@ -15,7 +15,7 @@ function write_afs_profile {
 afs_profile_path=/tmp/MKARCHISO_IMAGE_TOOL_PROFILE
 # For detail see `man mksquashfs'
 case $1 in
-  1)airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '18' '-b' '1M');;
+  1)airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '22' '-b' '1M');;
   2)airootfs_image_tool_options=('-comp' 'gzip' '-Xcompression-level' '1' '-b' '1M');;
   3)airootfs_image_tool_options=('-comp' 'lzo' '-Xcompression-level' '9' '-b' '1M');;
   *)airootfs_image_tool_options=('-comp' 'xz' '-Xbcj' 'x86' '-b' '1M' '-Xdict-size' '1M');;

@@ -39,6 +39,7 @@ sessionstore-backups
 bookmarkbackups
 AlternateServices.bin
 SiteSecurityServiceState.bin
+extensions.json
 EOF
 )
 do rm -rf "$target"/"$i";done

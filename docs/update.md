@@ -11,12 +11,11 @@
 
 **此外，你还应当了解以下信息：**
 
-- 由于 arCNiso 不包含 releng 本体，直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本及相关文件（夹）。
-  - 详见 `makeiso-afs.sh`。
-  - 实际上此脚本同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
+- 由于 arCNiso 不包含 releng 本体，直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本 `makeiso-afs.sh` 及相关文件（夹）。
+  - `makeiso-afs.sh` 同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
 - 你可以使用 `arCNiso-expac` 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
-- `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 arcn 开头的主要面向使用者，arCNiso- 开头的主要面向开发者。
+- `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 `arcn` 开头的主要面向使用者，`arCNiso-` 开头的主要面向开发者。
 - 留心 `.gitignore` 中的每一行。
   - 由 `.gitignore` 忽略的文件（夹）不会被包含在 Git 仓库中，通常是临时性或者外部性的，在构建前准备好，或在构建中生成。
   - 合理的 `.gitignore` 可以保护 Git 仓库免受临时性文件的拖累。
@@ -30,7 +29,7 @@
 追踪更新是其中最基本的（即使不是工作量最大的），这里对其进行简要说明。
 
 **注：本项目的维护工作目前由 clsty 执行，这里仅作为记录与参考，并不是指构建或使用本项目须参与维护。**
-> 当然，假如本项目最后一次发布镜像的时间距现在超过两个月，使用者就可能有必要参考本节内容了。
+> 当然，假如本项目最后一次发布镜像的时间距现在超过两个月，使用者就可能要参考本节内容来构建最新镜像了。
 
 ## mkarchiso
 应根据特定场景实行相应的步骤。

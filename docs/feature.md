@@ -101,7 +101,6 @@
 
 ## 录制截取
 
-- OBS Studio：用于录屏。
 - Screenkey：显示实时按键，辅助录屏。
 - Xfce4-screenshooter：用于截图。
 
