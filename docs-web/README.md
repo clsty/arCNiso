@@ -11,7 +11,10 @@
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-更多可参见 [Starlight’s docs](https://starlight.astro.build/) 和 [the Astro documentation](https://docs.astro.build)。
+更多可参见：
+- 前端框架：[Astro documentation](https://docs.astro.build)
+- 基于 Astro 的文档生成器：[Starlight’s docs](https://starlight.astro.build/)
+- Starlight 自带的代码块编辑器：[Expressive-code](https://expressive-code.com/key-features/text-markers/)
 
 - 编辑侧边栏：可编辑 `astro.config.mjs`
 

@@ -13,6 +13,11 @@ However, **feel free to fork** this project and modify to make your own (of cour
 - [使用指南](#使用指南)
 - [其他](#其他)
 
+> [!IMPORTANT]
+> 注意，arCNiso 的文档即将迁移至基于 Astro 的 Starlight。
+> 见 <https://blog.celestialy.top/arCNiso>（测试阶段，仍未完成）。
+> 在这之后，大部分文档将转移至 `docs-web` 目录下，自述文档将转移回根目录，而 `docs` 目录将被删除。
+
 # 简介
 
 [arCNiso™](https://github.com/clsty/arCNiso)（简称 arCN™）是一个自由开源的 archiso 镜像。
