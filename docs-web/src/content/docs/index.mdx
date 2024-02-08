@@ -5,27 +5,33 @@ template: splash
 hero:
   tagline: ✨中国用户友好型 <b>archiso</b>✨
   actions:
-    - text: 开始阅读
+    - text: 下载 arCNiso
       link: /arCNiso/readme/
       icon: right-arrow
       variant: primary
-    - text: GitHub
+    - text: GitHub 仓库
       link: https://github.com/clsty/arCNiso/
       icon: github
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## 文档
+## 特性
 
-<CardGrid>
-	<Card title="Widgets" icon="open-book">
-        List of Builtin [Widgets](./config/widgets)
+<CardGrid stagger>
+	<Card title="图形界面" icon="moon">
+    XFCE4 桌面 | 暗黑主题全覆盖
 	</Card>
-	<Card title="Utilities" icon="open-book">
-		[Utility functions](./config/utils)
+	<Card title="适配国内" icon="translate">
+    中文界面 | Fcitx5 输入法 | 默认国内镜像源
 	</Card>
-	<Card title="Examples" icon="open-book">
-		Have a look at some simple and not simple [examples](./config/examples)
+	<Card title="高效终端" icon="laptop">
+    集成 Oh My Zsh 与 Powerlevel10k
+	</Card>
+	<Card title="自由开源" icon="openCollective">
+    GPLv3 协议
+	</Card>
+	<Card title="处处细节" icon="open-book">
+    安全启动、触屏支持等，见[特性](./misc/feature)
 	</Card>
 </CardGrid>

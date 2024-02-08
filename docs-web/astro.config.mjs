@@ -18,6 +18,7 @@ export default defineConfig({
           baseUrl: 'https://github.com/clsty/arCNiso/tree/main/docs-web',
       },
       customCss: ['./src/styles/custom.css'],
+      favicon: '/favicon.ico',
 			sidebar: [
         { label: '总述', link: 'readme', },
         {
