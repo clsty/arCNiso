@@ -1,0 +1,31 @@
+---
+title: arCNiso
+description: ✨中国用户友好型 archiso✨
+template: splash
+hero:
+  tagline: 中国用户<i>友好型</i> <b>archiso</b>
+  actions:
+    - text: 开始阅读
+      link: /arCNiso/README/
+      icon: right-arrow
+      variant: primary
+    - text: GitHub
+      link: https://github.com/clsty/arCNiso/
+      icon: github
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## 文档
+
+<CardGrid>
+	<Card title="Widgets" icon="open-book">
+        List of Builtin [Widgets](./config/widgets)
+	</Card>
+	<Card title="Utilities" icon="open-book">
+		[Utility functions](./config/utils)
+	</Card>
+	<Card title="Examples" icon="open-book">
+		Have a look at some simple and not simple [examples](./config/examples)
+	</Card>
+</CardGrid>
