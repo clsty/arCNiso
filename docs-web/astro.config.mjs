@@ -25,9 +25,10 @@ export default defineConfig({
           label: '构建与维护',
           collapsed: false,
           items: [
-            { label: '构建', link: 'build/build' },
-            { label: '于 Docker 中构建', link: 'build/buildindocker' },
-            { label: '维护', link: 'build/update' },
+            { label: '构建', link: 'dev/build' },
+            { label: '于 Docker 中构建', link: 'dev/buildindocker' },
+            { label: '定制', link: 'dev/modify' },
+            { label: '维护', link: 'dev/maintaining' },
           ]
         },
         {
