@@ -4,7 +4,7 @@ title: 构建说明（docker 版）
 
 这里说明如何从一个 Arch Linux 的 Docker 容器内构建本项目文件。
 
-## 环境要求
+# 环境要求
 
 - 一个可联网的、AMD64 架构的操作系统。
 - 可使用 root 用户或具有 sudo 权限的普通用户。
@@ -13,9 +13,9 @@ title: 构建说明（docker 版）
 - 启用了 Docker 相关服务，比如 `systemctl enable docker --now`。
 - 磁盘空间：视具体情况而定，某次实测约占用宿主机共计不到 8GiB 的空间。
 
-## 分步说明
+# 分步说明
 
-### 准备 Docker 容器
+## 准备 Docker 容器
 参见 [archlinux/archlinux-docker](https://github.com/archlinux/archlinux-docker)，以 Debian Linux 作为宿主机为例。
 
 拉取镜像：
@@ -50,7 +50,7 @@ sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/ar
 sudo docker exec -it arch /bin/bash
 ```
 
-### 配置基本环境
+## 配置基本环境
 
 注：由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
 
@@ -82,7 +82,7 @@ sed -i '/^# %wheel ALL=(ALL:ALL) NOPASSWD: ALL/s/^# //' /etc/sudoers
 su - archer 
 ```
 
-## 后续
+# 后续
 这样，docker 的基本环境就配置完毕了。
 
 之后每次从宿主机进入此 docker 环境，可使用以下命令：
@@ -100,7 +100,7 @@ sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 docker cp arch:/home/archer/arCNiso/OUT $HOME/OUT
 ```
 
-## 附：一些常用的 docker 命令
+# 附：一些常用的 docker 命令
 获取信息
 ```bash
 # 列出正在运行的容器
