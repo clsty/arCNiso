@@ -4,16 +4,16 @@ title: 构建说明
 
 这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。
 
-## 环境要求
-### 在 Arch Linux 系统中构建
+# 环境要求
+## 在 Arch Linux 系统中构建
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
-### 在 Docker 容器中构建
+## 在 Docker 容器中构建
 参见[构建说明（Docker 版）](./BUILDinDocker.md)。
 
-## 分步说明
+# 分步说明
 
-### 安装依赖（约 1 分钟，依赖网速）
+## 安装依赖（约 1 分钟，依赖网速）
 
 ```bash
 sudo pacman -S --needed archiso git rsync pandoc base-devel fd cmake less sudo
@@ -24,7 +24,7 @@ git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
 cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 ```
 
-### 获取本项目（约 1 分钟，依赖网速）
+## 获取本项目（约 1 分钟，依赖网速）
 
 克隆本仓库，为此在 bash 或 zsh 中运行：
 ```bash
@@ -39,7 +39,7 @@ git clone --filter=blob:none https://github.com/clsty/arCNiso $d&&cd $d
 git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 ```
 
-### 准备 .emacs.d（可选；约 5 分钟，依赖网速）
+## 准备 .emacs.d（可选；约 5 分钟，依赖网速）
 
 运行
 ```bash
@@ -54,7 +54,7 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 > 目的是，一方面降低文件结构的复杂度，另一方面避免大量的 elisp 代码导致本项目的主要成分被 GitHub 误判为 Emacs Lisp。
 
 
-### 准备 anotherpac（约 5 分钟，依赖网速和 CPU 速度）
+## 准备 anotherpac（约 5 分钟，依赖网速和 CPU 速度）
 
 运行
 ```bash
@@ -63,7 +63,7 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 接下来按指示操作即可。
 
 
-### 准备 AUR 包（约 30 分钟，依赖网速和 CPU 速度）
+## 准备 AUR 包（约 30 分钟，依赖网速和 CPU 速度）
 
 arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分），
 因此需要提前构建它们。
@@ -77,7 +77,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 或者，清理一下 `./aur/cache` 目录，或者其下造成问题的子目录。
 
 
-### 安全启动支持（可选，耗时未知）
+## 安全启动支持（可选，耗时未知）
 
 为了支持安全启动，需要对 mkarchiso 进行修改。
 而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.patch` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
@@ -110,7 +110,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 >
 > 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[定制与维护](./update.md)。
 
-### 正式构建（约 5 分钟，依赖网速和 CPU 速度）
+## 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 
 运行（若 `OUT` 目录存在，则会被删除）：
 ```bash
@@ -119,7 +119,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 输出的镜像文件位于 `./OUT` 下（为了方便使用虚拟机进行测试，每次输出时会固定更名为 `arCNiso.iso` ）。
 
-## 再次构建
+# 再次构建
 如果短时间内多次构建，不必重复进行正式构建之前的准备工作，可以直接运行 `./makeiso`。
 
 但是，比如一个月之后再次构建呢？
@@ -128,38 +128,38 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 以下进行分步说明，但并不是所有步骤都必要，请根据实际情况适当安排。
 
 以下默认工作目录为 `arCNiso` 的项目文件夹。
-### 更新系统
+## 更新系统
 以 paru 为例：
 ```bash
 function aaa { while true;do if "$@";then break;else echo "[aaa] Retrying \"$@\"";sleep 1;fi;done; }
 aaa paru -Sy&&aaa paru -Su --noconfirm
 ```
 注意，部分软件包在更新之后可能需要重启系统才能正常工作。
-### 更新 arCNiso 项目仓库
+## 更新 arCNiso 项目仓库
 ```bash
 git pull
 ```
-### 更新 .emacs.d
+## 更新 .emacs.d
 ```bash
 ./homebase/prepareemacs.sh -f
 ```
 接下来按指示操作即可。
-### 更新 anotherpac
+## 更新 anotherpac
 ```bash
 ./anotherpac/full-prepare.sh
 ```
-### 更新 AUR 包
+## 更新 AUR 包
 ```bash
 ./aur/full-update.sh -f
 ```
-### 更新 mkarchiso
+## 更新 mkarchiso
 ```bash
 ./patchedmkarchiso/PATCH.sh
 ```
-### 正式构建
+## 正式构建
 ```bash
 ./makeiso
 ```
 
-## 延伸阅读
+# 延伸阅读
 - [定制与维护](./update.md)
