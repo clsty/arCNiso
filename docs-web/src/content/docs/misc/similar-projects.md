@@ -5,13 +5,13 @@ layout: /src/layouts/autonum.astro
 
 这里收集类似于 arCNiso 的第三方 archiso 项目，以供开发者与维护者参考。
 
-免责声明：
+:::important[免责声明]
 - 本项目不对以下任何项目作担保，也未对它们的安全与合规合法性等进行任何审查。
 - 读者须自行判断并承担使用它们（包括基于它们进行开发维护）所带来的责任与风险，并严格遵守当地所有法律法规。
 - 收集是手动进行的，会尽可能做到但无法保证全面性、准确性与实效性（欢迎 PR）。
+:::
 
-**分类标准**
-
+:::note[分类标准]
 在下面的分类中，越靠前的优先级越高。
 - 例如同时支持简体中文和 XFCE4，则放在“简体中文”下。
 - 换言之，出现在“XFCE4”分类下的并不支持简体中文（但是反之，出现在“简体中文”中的未必支持 XFCE4）。
@@ -20,12 +20,12 @@ layout: /src/layouts/autonum.astro
 此外的顺序安排则以字母或拼音排序为主。
 
 若有多个变种，分类时应全部纳入考量（比如一个项目有 XFCE4 和 KDE 版，可被归入“XFCE4”分类中）。
+:::
 
-**应特别标出的属性**
-
+:::note[应特别标出的属性]
 - `停更于 <year>`：最后一次更新距今超过一年，或作者明确说明已停更，或者 Git 仓库变为 archived。
 - `非自由开源`：非自由开源项目（许可非自由开源，或源代码不可得）。
-
+:::
 
 
 ---
@@ -116,7 +116,7 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 - 简称 G.A.R.T。
 - i3wm
 
-### Arch Linux Live/Rescue Image for Microsoft Surface（停更于 2021）
+## Arch Linux Live/Rescue Image for Microsoft Surface（停更于 2021）
 - 链接：
   - <https://github.com/SamLukeYes/archiso-surface>
 - GNOME
@@ -124,20 +124,21 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 
 
 
-## /////////////// 分类：安全启动  ///////////////
+---
+# 分类：安全启动
 
-### Archboot
+## Archboot
 - 链接：
   - <https://archboot.com>
 - 并不是基于 archiso，而是并行的。
 - 疑似具有半官方性质。其开发者为 [tpowa](https://archlinux.org/people/developers/#tpowa)，而 archiso 的开发者（团队）为 arch-releng team。
 
-### archiso-sb-shim
+## archiso-sb-shim
 - 链接：
   - <https://github.com/solsticedhiver/archiso-sb-shim>
 - 此项目也是 arCNiso 所采用的安全启动方案的最初来源。
 
 
 
-## /////////////// 分类：其他  ///////////////
-
+---
+# 分类：其他
