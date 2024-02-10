@@ -28,24 +28,25 @@ layout: /src/layouts/autonum.astro
 
 
 
-## /////////////// 分类：Arch Linux 衍生发行版 ///////////////
+---
+# 分类：Arch Linux 衍生发行版
 Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于 archiso 的 Live CD。
 
 更多衍生发行版可参考 [ArchWiki](https://wiki.archlinux.org/title/Arch-based_distributions)。
 
-### CachyOS
+## CachyOS
 - 链接：
   - <https://github.com/CachyOS/CachyOS-Live-ISO>
   - <https://cachyos.org>
 - 通过对 `x86-64-v3` 和 `x86-64-v4` 的支持实现了性能优化，但对 CPU 有要求。
 
-### EndeavourOS
+## EndeavourOS
 - 链接：
   - <https://endeavouros.com>
   - <https://github.com/endeavouros-team/EndeavourOS-ISO>
 - 经典的 Arch Linux 衍生发行版。
 
-### Parabola GNU/Linux-libre
+## Parabola GNU/Linux-libre
 - 链接：
   - <https://www.parabola.nu>
   - <https://git.parabola.nu/parabolaiso.git>
@@ -54,21 +55,22 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 
 
 
-## /////////////// 分类：简体中文  ///////////////
+---
+# 分类：简体中文
 标准：至少支持简体中文的输入法。
 
-### arCNiso
+## arCNiso
 - 链接：
   - <https://github.com/clsty/arCNiso>
 - 就是本项目（特性不再赘述）。
 
-### ArchLive（停更于 2018）
+## ArchLive（停更于 2018）
 - 链接：
   - <https://github.com/Yeyongmeng29/ArchLive>
   - <https://sourceforge.net/projects/archlive>
 - KDE|XFCE4
 
-### 更适合中国宝宝体质的Archlinux安装镜像（非自由开源）
+## 更适合中国宝宝体质的Archlinux安装镜像（非自由开源）
 - 链接：
   - <https://www.bilibili.com/video/BV1Qz4y1T7U2>
   - <https://www.aliyundrive.com/s/uViwdEjSAiN>
@@ -78,35 +80,37 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 
 
 
-## /////////////// 分类：XFCE4  ///////////////
+---
+# 分类：XFCE4
 
-### Custom Archlinux Livecd
+## Custom Archlinux Livecd
 - 链接：
   - <https://github.com/archlinux-jerry/custom-archiso>
 - XFCE4；此外还有不带 GUI 的几个变种，包括 arm 支持。
 - （疑似）利用 GitHub Actions 自动构建。
 
-### Archuseriso
+## Archuseriso
 - 链接：
   - <https://github.com/laurent85v/archuseriso>
 - XFCE4；其在定位上是构建 Live CD 或安装持久化 Live 系统到 U 盘的工具，XFCE4 是其中一种配置。
 
-### `Archiso_XFCE4`（停更于 2020）
+## `Archiso_XFCE4`（停更于 2020）
 - 链接：
   - <https://github.com/Dogcatfee/Archiso_XFCE4>
 - XFCE4
 
 
 
-## /////////////// 分类：GUI  ///////////////
+---
+# 分类：GUI
 
-### Arch Linux Calamares Installer
+## Arch Linux Calamares Installer
 - 链接：
   - <https://github.com/arch-linux-calamares-installer/alci-iso>
 - 简称 ALCI。
 - 采用 Linux 图形化安装器 [Calamares](https://github.com/calamares/calamares)。
 
-### Graphical Arch Repair Tool
+## Graphical Arch Repair Tool
 - 链接：
   - <https://github.com/matiasvlevi/archiso-gui>
 - 简称 G.A.R.T。

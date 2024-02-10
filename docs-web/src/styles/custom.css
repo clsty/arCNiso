@@ -92,6 +92,10 @@ img {
   border-radius: 7px;
 }
 
+code {
+  border-radius: 5px;
+}
+
 .card {
   border-radius: 25px;
 }
