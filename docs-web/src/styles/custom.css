@@ -87,3 +87,11 @@
   color: #9F70BD;
   font-size: 110%;
 }
+
+img {
+  border-radius: 7px;
+}
+
+.card {
+  border-radius: 25px;
+}
