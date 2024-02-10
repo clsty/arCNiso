@@ -1,5 +1,6 @@
 ---
 title: 关于
+layout: /src/layouts/autonum.astro
 ---
 
 要说明为什么有 arCNiso，就要从官方 archiso 说起。

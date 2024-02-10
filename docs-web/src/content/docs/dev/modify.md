@@ -1,5 +1,6 @@
 ---
 title: 如何定制
+layout: /src/layouts/autonum.astro
 ---
 
 简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 `motd-zh_CN` ，然后用 `./makeiso` 再次构建即可。

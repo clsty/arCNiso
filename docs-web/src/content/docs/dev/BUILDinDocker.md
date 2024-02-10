@@ -1,5 +1,6 @@
 ---
 title: 构建说明（docker 版）
+layout: /src/layouts/autonum.astro
 ---
 
 这里说明如何从一个 Arch Linux 的 Docker 容器内构建本项目文件。

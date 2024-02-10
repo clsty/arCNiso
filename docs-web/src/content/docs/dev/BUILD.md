@@ -1,5 +1,6 @@
 ---
 title: 构建说明
+layout: /src/layouts/autonum.astro
 ---
 
 这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。

@@ -1,5 +1,6 @@
 ---
 title: 特性列表与设计说明
+layout: /src/layouts/autonum.astro
 ---
 
 在特性列表中，尝试列举本镜像相对于官方 archiso 所具有的特性（细节过多，可能会有所遗漏）。

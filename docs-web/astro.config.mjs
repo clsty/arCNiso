@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
+// https://starlight.astro.build/reference/configuration
 export default defineConfig({
   site: 'https://clsty.github.io',
   base: '/arCNiso',
@@ -19,6 +19,20 @@ export default defineConfig({
       },
       customCss: ['./src/styles/custom.css'],
       favicon: '/favicon.ico',
+      defaultLocale: 'root',
+      tableOfContents: { minHeadingLevel: 1, maxHeadingLevel: 2, },
+      lastUpdated: true,
+      locales: {
+        'root': {
+          label: '简体中文',
+          lang: 'zh-CN',
+        },
+        // English docs in `src/content/docs/en/`
+        en: {
+          label: 'English',
+          lang: 'en',
+        },
+      },
 			sidebar: [
         { label: '总述', link: 'readme', },
         {
@@ -30,6 +44,11 @@ export default defineConfig({
             { label: '定制', link: 'dev/modify' },
             { label: '维护', link: 'dev/maintaining' },
           ]
+        },
+        {
+          label: '安装提示',
+          collapsed: false,
+          autogenerate: { directory: 'inst-hint' },
         },
         {
           label: '其他',

@@ -1,5 +1,6 @@
 ---
 title: 难与不难
+layout: /src/layouts/autonum.astro
 ---
 
 难或不难，这是一个问题。

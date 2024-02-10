@@ -1,5 +1,6 @@
 ---
 title: 学习路径与资源
+layout: /src/layouts/autonum.astro
 ---
 
 # 序

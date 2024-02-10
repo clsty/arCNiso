@@ -1,5 +1,6 @@
 ---
 title: 提交 PR
+layout: /src/layouts/autonum.astro
 ---
 
 非常感谢你来到这里！

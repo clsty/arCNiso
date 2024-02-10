@@ -1,5 +1,6 @@
 ---
 title: 长期维护
+layout: /src/layouts/autonum.astro
 ---
 
 维护工作包括若干方面。

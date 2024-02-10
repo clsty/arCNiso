@@ -1,5 +1,6 @@
 ---
 title: 安装途径
+layout: /src/layouts/autonum.astro
 ---
 
 这里收集一些 Arch Linux 的安装途径，仅供参考，而不作推荐（除了自己编写 bash 脚本与参阅 ArchWiki 的 Installation Guide 以外）。
