@@ -10,7 +10,7 @@ layout: /src/layouts/autonum.astro
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
 ## 在 Docker 容器中构建
-参见[构建说明（Docker 版）](./BUILDinDocker.md)。
+参见[构建说明（Docker 版）](../buildindocker)。
 
 # 分步说明
 
@@ -30,8 +30,8 @@ cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 克隆本仓库，为此在 bash 或 zsh 中运行：
 ```bash
 # 路径可自拟
-d=$HOME/arCNiso
-git clone --filter=blob:none https://github.com/clsty/arCNiso $d&&cd $d
+path=$HOME/arCNiso
+git clone --filter=blob:none https://github.com/clsty/arCNiso $path&&cd $path
 ```
 其中 `--filter=blob:none` 是为了仅下载所需的对象，而忽略多余的 blob，以便加快速度。
 
@@ -90,7 +90,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
 
 **步骤：**
-- 需要确保 `packages.x86_64` 含有的包名：mokutil shim-signed（来自 AUR）
+- 需要确保 `packages.x86_64` 含有的包名：`mokutil` `shim-signed`（来自 AUR）
 - 安装依赖：
 ```bash
 ./patchedmkarchiso/deps.sh
@@ -109,7 +109,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 > 
 > 而 `DIFF.sh` 则是用于追踪最新的 mkarchiso 并更新补丁。也就是说，`DIFF.sh` 不属于构建工具，而是维护工具，因此不在此处涉及。
 >
-> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[定制与维护](./update.md)。
+> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[长期维护](../maintaining)。
 
 ## 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 
@@ -161,6 +161,3 @@ git pull
 ```bash
 ./makeiso
 ```
-
-# 延伸阅读
-- [定制与维护](./update.md)

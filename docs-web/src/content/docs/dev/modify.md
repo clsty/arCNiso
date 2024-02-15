@@ -10,7 +10,7 @@ layout: /src/layouts/autonum.astro
 - 为此，请先知晓：本项目（除去一些其他文件以外）在最终构建时相当于 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
   因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
   - 注意，从 Git 仓库的角度来说，arCNiso 不包含 releng 本体，在某种意义上可视为对 releng 的一个补丁。
-- 其次，你可以看看 [feature.md](./feature.md) ，它能告诉你 arCNiso 的诸多设计细节。
+- 其次，你可以看看[特性列表与设计说明](/misc/feature/) ，它能告诉你 arCNiso 的诸多设计细节。
 
 **此外，你还应当了解以下信息：**
 
