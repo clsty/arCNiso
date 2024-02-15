@@ -34,7 +34,11 @@ export default defineConfig({
         },
       },
 			sidebar: [
-        { label: '总述', link: 'readme', },
+        {
+          label: '通用',
+          collapsed: false,
+          autogenerate: { directory: 'general' },
+        },
         {
           label: '构建与维护',
           collapsed: false,
