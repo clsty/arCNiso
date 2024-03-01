@@ -5,7 +5,9 @@ selfpath="${BASH_SOURCE[0]}"
 cd "$(dirname $selfpath)"
 basedir="$(pwd)"
 
-target="$basedir"/skel/.mozilla/firefox/fawis2kz.default-release
+target_o="$basedir"/skel/.mozilla/firefox/fawis2kz.default-release
+target=/tmp/preparefirefox
+rsync -av --delete $target_o/ $target/
 
 cleanff() {
 for i in $(cat<<EOF
@@ -39,7 +41,6 @@ sessionstore-backups
 bookmarkbackups
 AlternateServices.bin
 SiteSecurityServiceState.bin
-extensions.json
 EOF
 )
 do rm -rf "$target"/"$i";done
@@ -55,6 +56,7 @@ read -p "按回车继续：" tmpvar
 firefox --profile "$target"
 sleep 1
 cleanff
+rsync -av --delete $target/ $target_o/
 #for i in "favicons.sqlite-wal" "favicons.sqlite.corrupt" "protections.sqlte" "sessionstore.jsonlz4" "cookies.sqlite-wal" "cookies.sqlite" "key4.db" "logins.json" "sessionstore.js" "permissions.sqlite" "content-prefs.sqlite" "webappsstore.sqlite" "formhistory.sqlite" cache2 safebrowsing crashes storage datareporting startupCache minidumps saved-telemetry-pings thumbnails sessionstore-backups; do
 # 注意不要动 "storage-sync-v2.sqlite" 和 "storage-sync-v2.sqlite-wal" ，否则插件数据可能会没，比如 Dark Reader
 echo "Firefox 准备流程完毕。"

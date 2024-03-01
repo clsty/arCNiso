@@ -28,6 +28,9 @@ testthefile ./ignoredinfo/rsyncpath-publishiso
 
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
+
+aaa rsync --delete-before --info=progress2 -avre ssh \
+  $(mktemp -d)/ $(cat ./ignoredinfo/rsyncpath-publishiso)
 aaa rsync --delete-before --info=progress2 -avre ssh \
   -f._<(echo "$filter") \
   ./release/ $(cat ./ignoredinfo/rsyncpath-publishiso)
