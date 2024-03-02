@@ -3,8 +3,8 @@ import starlight from '@astrojs/starlight';
 
 // https://starlight.astro.build/reference/configuration
 export default defineConfig({
-  site: 'https://clsty.github.io',
-  base: '/arCNiso',
+  site: 'https://arcn.celestialy.top',
+  base: '/',
 //  build: {
 //      format: 'directory',
 //  },
