@@ -2,7 +2,7 @@
 title: README
 ---
 
-![Screenshot of arCNiso v2.3.2](/arCNiso/screenshot.png)
+![Screenshot of arCNiso v2.3.2](/screenshot.png)
 
 **To non-Chinese users**
 
