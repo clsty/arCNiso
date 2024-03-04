@@ -106,7 +106,6 @@ layout: /src/layouts/autonum.astro
 
 ## 录制截取
 
-- Screenkey：显示实时按键，辅助录屏。
 - Xfce4-screenshooter：用于截图。
 
 
