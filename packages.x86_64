@@ -49,6 +49,7 @@ blueman
 neofetch
 git
 curl
+axel
 fzf
 man-pages-zh_cn
 ## 字体
@@ -90,8 +91,8 @@ tesseract
 #tesseract-data-chi_sim
 tesseract-data-eng
 # 顺便再装一个 tesseract 的 GUI，以及其所需要的 hunspell 的拼写词典
-gimagereader-qt
-hunspell-en_us
+#gimagereader-qt
+#hunspell-en_us
 keepassxc
 vlc
 emacs
@@ -101,8 +102,8 @@ ristretto
 # 看软件包占用
 expac
 ## 截取
-obs-studio
-screenkey
+#obs-studio
+#screenkey
 ## 输入法
 fcitx5
 fcitx5-configtool
