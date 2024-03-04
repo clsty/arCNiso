@@ -97,5 +97,16 @@ code {
 }
 
 .card {
+  background-color: var(--sl-color-gray-5) !important;
   border-radius: 25px;
+}
+
+header {
+  /* 顶栏下边缘的横线 */
+  border-bottom: 1px solid var(--sl-color-gray-4) !important;
+}
+
+blockquote {
+  /* 引用块的左缘 */
+  border-left: 4px solid var(--sl-color-gray-4) !important;
 }
