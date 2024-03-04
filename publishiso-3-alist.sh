@@ -9,15 +9,6 @@ set -e
 cd $(dirname $0)
 
 iso="$(cat publishiso-filename)"
-filter=$(cat<<EOF
-+ $(cat publishiso-filename)
-+ README.md
--s *
-+r *
-EOF
-)
-
-cat <(echo "$filter")
 
 function testthefile {
 echo "正在测试 $1 是否存在..."
@@ -33,9 +24,10 @@ cp -f ./result.md ./release/README.md
 aaa rsync --delete-before --info=progress2 -avre ssh \
   $(mktemp -d)/ $(cat ./ignoredinfo/rsyncpath-publishiso)
 # --partial 断点续传
-aaa rsync --info=progress2 --partial -avre ssh \
-  -f._<(echo "$filter") \
-  ./release/ $(cat ./ignoredinfo/rsyncpath-publishiso)
+for i in "$iso" README.md;do
+  aaa rsync --info=progress2 --partial -avre ssh \
+    ./release/$i $(cat ./ignoredinfo/rsyncpath-publishiso)
+done
 
 # =================================
 # =================================
