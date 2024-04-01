@@ -12,7 +12,9 @@ layout: /src/layouts/autonum.astro
 > 当然，假如本项目最后一次发布镜像的时间距现在超过两个月，使用者就可能要参考本节内容来构建最新镜像了。
 
 ## mkarchiso
-应根据特定场景实行相应的步骤。
+首先要更新系统，确保使用了最新的 `archiso` 包。
+
+然后，根据特定场景实行相应的步骤。
 
 - 场景：源文件 `mkarchiso-original`（由 `/usr/bin/mkarchiso` 复制而来，Arch Linux 官方提供）可能有更新。
   1. 使用 `PATCH.sh`，将 mkarchiso 打补丁到位（若源文件的更新超过了补丁的容错范围，补丁可能会应用失败，这时需要手动操作）。

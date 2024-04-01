@@ -1,5 +1,5 @@
---- mkarchiso-original	2023-12-28 10:31:28.404278195 +0800
-+++ mkarchiso	2023-12-28 10:31:20.830317969 +0800
+--- mkarchiso-original	2024-04-01 16:46:52.548515442 +0800
++++ mkarchiso	2024-04-01 16:46:44.769546798 +0800
 @@ -1,6 +1,7 @@
  #!/usr/bin/env bash
 +# mkarchiso patched for arCNiso, mainly for secureboot.
@@ -8,7 +8,7 @@
  
  set -e -u
  shopt -s extglob
-@@ -372,10 +373,22 @@
+@@ -370,10 +371,22 @@
          exec {ARCHISO_GNUPG_FD}<&-
          unset ARCHISO_GNUPG_FD
      fi
@@ -31,7 +31,7 @@
  # Customize installation.
  _make_customize_airootfs() {
      local passwd=()
-@@ -692,15 +705,22 @@
+@@ -694,15 +707,22 @@
      grub-mkstandalone -O i386-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -55,7 +55,7 @@
          # TODO: Remove this branch.
          _run_once _make_bootmode_uefi-x64.systemd-boot.esp
      elif [[ " ${bootmodes[*]} " =~ uefi-x64.grub.esp ]]; then
-@@ -709,12 +729,21 @@
+@@ -711,12 +731,21 @@
          efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
          # Create a FAT image for the EFI system partition
          _make_efibootimg "$efiboot_imgsize"
@@ -79,7 +79,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi" ]]; then
-@@ -737,12 +766,22 @@
+@@ -739,12 +768,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -103,7 +103,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -769,23 +808,39 @@
+@@ -771,23 +810,39 @@
      grub-mkstandalone -O x86_64-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -146,7 +146,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/x64/Shell_Full.efi" ]]; then
-@@ -815,12 +870,22 @@
+@@ -817,12 +872,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -170,8 +170,8 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -842,17 +907,24 @@
-     done
+@@ -846,17 +911,24 @@
+     fi
      # Calculate the required FAT image size in bytes
      # shellcheck disable=SC2076
      if [[ " ${bootmodes[*]} " =~ ' uefi-x64.systemd-boot.esp ' || " ${bootmodes[*]} " =~ ' uefi-x64.systemd-boot.eltorito ' ]]; then
@@ -195,7 +195,7 @@
                      "${pacstrap_dir}/boot/initramfs-"*".img"
                      "${_available_ucodes[@]}")
      efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
-@@ -893,13 +965,21 @@
+@@ -897,13 +969,21 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -219,7 +219,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellx64.efi is picked up automatically when on /
-@@ -928,13 +1008,22 @@
+@@ -932,13 +1012,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -244,7 +244,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.isofs
  
      # edk2-shell based UEFI shell
-@@ -953,13 +1042,21 @@
+@@ -957,13 +1046,21 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -268,7 +268,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellia32.efi is picked up automatically when on /
-@@ -987,13 +1084,21 @@
+@@ -991,13 +1088,21 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
