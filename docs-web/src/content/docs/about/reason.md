@@ -1,6 +1,9 @@
 ---
-title: 关于
+title: 初心
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 初心
+  order: 20
 ---
 
 要说明为什么有 arCNiso，就要从官方 archiso 说起。
@@ -25,10 +28,10 @@ layout: /src/layouts/autonum.astro
 在眼睛被点阵字体折磨得通红、盈满泪花时，她终于把问题定位到了那个主题文件夹，
 里面赫然躺着一个文件：README.md。
 激动万分的李华当即用 nano 打开看看——屏幕上却出现了一堆白方块。
-这，分明是官方 archiso 的 tty 所不能显示的中文！李华脑海中浮现出朋友嘲讽的脸：“谁让你不先看说明来着喵～”
+这，分明是 archiso 的 tty 所不能显示的中文！李华脑海中浮现出朋友嘲讽的脸：“谁让你不先看说明来着喵～”
 
-“呜呜呜，大坏蛋！就知道欺负人家……”李华终于忍受不了这一切，她大哭起来，绝望地敲下 `rm -rf . /*` ，
-“删了你这破猫猫主题！老娘再也不用官方 archiso 了！”
+李华终于忍受不了这一切，她绝望地敲下 `rm -rf . /*` ，
+“这破主题，不用也罢！永别了，archiso！”
 
 啪一声回车，电光石火之间，李华忽然意识到了好像有什么不对。
 ```bash
@@ -94,13 +97,7 @@ archiso 是 Arch Linux 提供的 Live CD。
 
 以上，就是 arCNiso 出现的原因了。
 
-它所具有的特性，已经在 [README](https://github.com/clsty/arCNiso)、[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.md)、[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)等处说明，这里不再重复。
-
 总之，相比 archiso，用 arCNiso 来安装、维护或临时使用 Arch Linux 时，
 你的心情能够更加愉悦、效率能够超级加倍，也使得你在把 Arch Linux 安利出去时能够更有底气。
 
-
-# 更名历史
-
-此项目原名为 archisoCN，但是注意到 [ALG 的前车之鉴](https://distrowiki.miraheze.org/wiki/Arch_Linux_GUI)，以及 [Arch Linux 那模棱两可的 policy](https://wiki.archlinux.org/title/DeveloperWiki:TrademarkPolicy)，还是改名了，并加上 README 里面的那么一大堆声明——明明只是自由开源项目，商标法真是有够烦人的～
 

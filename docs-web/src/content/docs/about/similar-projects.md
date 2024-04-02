@@ -1,6 +1,9 @@
 ---
 title: 类似项目
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 类似项目
+  order: 90
 ---
 
 这里收集类似于 arCNiso 的第三方 archiso 项目，以供开发者与维护者参考。

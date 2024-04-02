@@ -1,6 +1,9 @@
 ---
 title: 难与不难
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 难度设计
+  order: 03
 ---
 
 难或不难，这是一个问题。

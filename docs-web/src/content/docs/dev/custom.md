@@ -1,6 +1,9 @@
 ---
 title: 如何定制
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 如何定制
+  order: 03
 ---
 
 简单的文件修改是可以直接进行的，例如你想修改欢迎界面，可直接修改 `motd-zh_CN` ，然后用 `./makeiso` 再次构建即可。
@@ -10,7 +13,7 @@ layout: /src/layouts/autonum.astro
 - 为此，请先知晓：本项目（除去一些其他文件以外）在最终构建时相当于 mkarchiso 的一个 config，原本基于官方 archiso 的 releng。
   因此，你所需要的正是 [ArchWiki 的 archiso 条目](https://wiki.archlinux.org/title/Archiso)。
   - 注意，从 Git 仓库的角度来说，arCNiso 不包含 releng 本体，在某种意义上可视为对 releng 的一个补丁。
-- 其次，你可以看看[特性列表与设计说明](/misc/feature/) ，它能告诉你 arCNiso 的诸多设计细节。
+- 其次，你可以看看[特性列表](/design/feature/)与[设计说明](/design/idea/)，它能告诉你 arCNiso 的诸多设计细节。
 
 **此外，你还应当了解以下信息：**
 

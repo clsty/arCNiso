@@ -1,21 +1,21 @@
 ---
-title: 其他
+title: 声明
 layout: /src/layouts/autonum.astro
 sidebar:
-  label: 其他
-  order: 90
+  label: 声明
+  order: 30
 ---
 
-# 商标声明
+# 商标
 
 - arCNiso™ 与 arCN™ 是本项目的未注册商标，本项目对此保留所有权利。
 - Arch Linux™ 是 [Arch Linux](https://archlinux.org) 的未注册商标。
   - 本项目 **不是** Arch Linux™ 官方发布的，与 Arch Linux™ 官方亦 **无** 任何关联。
 - Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
 
-> 部分读者可能会觉得此处小题大做（“有必要做这样一份声明吗”），
-> 为此请阅读[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
-
+:::note[更名历史]
+此项目原名为 archisoCN，但是注意到 [ALG 的前车之鉴](https://distrowiki.miraheze.org/wiki/Arch_Linux_GUI)，以及 [Arch Linux 那模棱两可的 policy](https://wiki.archlinux.org/title/DeveloperWiki:TrademarkPolicy)，还是改名了，并加上 README 里面的那么一大堆声明——明明只是自由开源项目，商标法真是有够烦人的。
+:::
 
 # 许可
 
@@ -48,6 +48,3 @@ sidebar:
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。
 - [archlinuxcn](https://www.archlinuxcn.org)：本项目引用的 ArchWiki 中文版页面的发布站点以及 archlinuxcn 软件源的提供者。
-
-# 类似项目
-见[类似项目](https://github.com/clsty/arCNiso/blob/main/docs/similar-projects.md)。

@@ -1,6 +1,9 @@
 ---
 title: 构建说明（docker 版）
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 于 Docker 中构建
+  order: 02
 ---
 
 这里说明如何从一个 Arch Linux 的 Docker 容器内构建本项目文件。
@@ -92,7 +95,7 @@ sudo docker exec -it -u archer -w /home/archer arch /bin/bash
 # 或者
 sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 ```
-余下步骤参见[构建说明](../build)。
+余下步骤参见[构建说明](/dev/build)。
 
 而在得到生成的镜像文件之后，可以使用 `docker cp` 等方法将其取出容器
 （如果之前 `docker run` 时配置了目录映射，也可直接利用被映射的目录）。

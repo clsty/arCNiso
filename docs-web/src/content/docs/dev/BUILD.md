@@ -1,6 +1,9 @@
 ---
 title: 构建说明
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 构建
+  order: 01
 ---
 
 这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。
@@ -10,7 +13,7 @@ layout: /src/layouts/autonum.astro
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
 ## 在 Docker 容器中构建
-参见[构建说明（Docker 版）](../buildindocker)。
+参见[构建说明（Docker 版）](/dev/buildindocker)。
 
 # 分步说明
 
@@ -109,7 +112,7 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 > 
 > 而 `DIFF.sh` 则是用于追踪最新的 mkarchiso 并更新补丁。也就是说，`DIFF.sh` 不属于构建工具，而是维护工具，因此不在此处涉及。
 >
-> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[长期维护](../maintaining)。
+> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[长期维护](/dev/maintaining)。
 
 ## 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 

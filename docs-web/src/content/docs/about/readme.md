@@ -8,7 +8,7 @@ sidebar:
 
 ![Screenshot of arCNiso v2.3.2](/arCNiso/screenshot.png)
 
-[arCNiso™](https://github.com/clsty/arCNiso)（简称 arCN™）是一个自由开源的 archiso 镜像。
+arCNiso™（简称 arCN™）是一个自由开源的 archiso 镜像。
 
 其保留了官方原版 archiso 镜像的所有功能，并面向<b>简体中文的中国用户</b>，就<b>安装系统、维护系统与临时使用</b>这三种用途进行了加强定制。
 
@@ -29,13 +29,9 @@ sidebar:
 > 
 > 总之，arCNiso 本质上仍是 archiso，只是体积更大（例如 v1.2.1 的镜像文件大小为 1.56 GB，差不多比同时期的官方 archiso 的 0.81 GB 大一倍不到）且更好用。
 
-arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.com/clsty/arCNiso/blob/main/docs/update.md)中（目前暂定大约每月更新一次），可放心使用，真心希望你能喜欢。
+arCNiso 历经较为充分的打磨，并且仍在维护更新中（目前暂定大约每月更新一次），可放心使用，真心希望你能喜欢。
 
 - 欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
-- 有任何看法或建议，欢迎在 [Issues](https://github.com/clsty/arCNiso/issues) 中反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中吐槽，也可直接提交 PR（为避免浪费你的时间，请先看 [PR 相关](https://github.com/clsty/arCNiso/blob/main/docs/howtoPR.md)）。
-
-> - **作为新手怕难度太高不会用** 或 **作为熟手担心难度太低把新手惯成白痴** ？来看[有多难](https://github.com/clsty/arCNiso/blob/main/docs/howhard.md)。
-> - 为什么会有这个项目？请看[关于](https://github.com/clsty/arCNiso/blob/main/docs/about.md)。
-> - 更多特性与细节，以及某些设计的背景与考量，详见[功能与设计](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
+- 有任何看法或建议，欢迎在 [Issues](https://github.com/clsty/arCNiso/issues) 中反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中吐槽，也可直接[提交 PR](/dev/howtopr)。
 
 祝你使用愉快！

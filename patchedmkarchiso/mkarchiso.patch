@@ -1,5 +1,5 @@
---- mkarchiso-original	2024-04-01 16:46:52.548515442 +0800
-+++ mkarchiso	2024-04-01 16:46:44.769546798 +0800
+--- mkarchiso-original	2024-04-02 16:59:31.540693683 +0800
++++ mkarchiso	2024-04-01 17:02:35.661540831 +0800
 @@ -1,6 +1,7 @@
  #!/usr/bin/env bash
 +# mkarchiso patched for arCNiso, mainly for secureboot.
@@ -31,7 +31,7 @@
  # Customize installation.
  _make_customize_airootfs() {
      local passwd=()
-@@ -694,15 +707,22 @@
+@@ -694,15 +707,20 @@
      grub-mkstandalone -O i386-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -44,8 +44,6 @@
 +
      # Add GRUB to the list of files used to calculate the required FAT image size.
      efiboot_files+=("${work_dir}/BOOTIA32.EFI"
-+                    "${pacstrap_dir}/usr/share/shim-signed/shimia32.efi"
-+                    "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi"
                      "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi")
 +    if [[ -f db.cer ]] ;then
 +        efiboot_files+=(db.cer)
@@ -55,7 +53,7 @@
          # TODO: Remove this branch.
          _run_once _make_bootmode_uefi-x64.systemd-boot.esp
      elif [[ " ${bootmodes[*]} " =~ uefi-x64.grub.esp ]]; then
-@@ -711,12 +731,21 @@
+@@ -711,12 +729,16 @@
          efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
          # Create a FAT image for the EFI system partition
          _make_efibootimg "$efiboot_imgsize"
@@ -64,11 +62,6 @@
 -    # Copy GRUB EFI binary to the default/fallback boot path
 -    mcopy -i "${efibootimg}" "${work_dir}/BOOTIA32.EFI" ::/EFI/BOOT/BOOTIA32.EFI
 +    # Copy shim EFI binary to the default/fallback boot path
-+     mcopy -i "${efibootimg}" \
-+        "${pacstrap_dir}/usr/share/shim-signed/shimia32.efi" ::/EFI/BOOT/BOOTIA32.EFI
-+    mcopy -i "${efibootimg}" \
-+        "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi" ::/EFI/BOOT/mmia32.efi
-+    # Copy GRUB EFI binary as grubia32.efi chainloaded by shimia32.efi
 +    mcopy -i "${efibootimg}" "${work_dir}/BOOTIA32.EFI" ::/EFI/BOOT/grubia32.efi
 +
 +    if [[ -f db.cer ]] ;then
@@ -79,17 +72,13 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi" ]]; then
-@@ -739,12 +768,22 @@
+@@ -739,12 +761,18 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
      install -d -m 0755 -- "${isofs_dir}/EFI/BOOT"
  
 +    # Copy shim EFI binary to the default/fallback boot path
-+    install -m 0644 -- "${pacstrap_dir}/usr/share/shim-signed/shimia32.efi" \
-+        "${isofs_dir}/EFI/BOOT/BOOTIA32.EFI"
-+    install -m 0644 -- "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi" \
-+        "${isofs_dir}/EFI/BOOT/mmia32.efi"
 +
      # Copy GRUB EFI binary to the default/fallback boot path
 -    install -m 0644 -- "${work_dir}/BOOTIA32.EFI" "${isofs_dir}/EFI/BOOT/BOOTIA32.EFI"
@@ -103,7 +92,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -771,23 +810,39 @@
+@@ -771,23 +799,39 @@
      grub-mkstandalone -O x86_64-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -146,7 +135,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/x64/Shell_Full.efi" ]]; then
-@@ -817,12 +872,22 @@
+@@ -817,12 +861,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -170,7 +159,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -846,17 +911,24 @@
+@@ -846,17 +900,22 @@
      fi
      # Calculate the required FAT image size in bytes
      # shellcheck disable=SC2076
@@ -183,8 +172,6 @@
      # shellcheck disable=SC2076
      if [[ " ${bootmodes[*]} " =~ ' uefi-ia32.systemd-boot.esp ' || " ${bootmodes[*]} " =~ ' uefi-ia32.systemd-boot.eltorito ' ]]; then
          efiboot_files+=("${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi"
-+                        "${pacstrap_dir}/usr/share/shim-signed/shimia32.efi"
-+                        "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi"
                          "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi")
      fi
 +    if [[ -f db.cer ]] ;then
@@ -195,7 +182,7 @@
                      "${pacstrap_dir}/boot/initramfs-"*".img"
                      "${_available_ucodes[@]}")
      efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
-@@ -897,13 +969,21 @@
+@@ -897,13 +956,21 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -203,13 +190,13 @@
  
 -    # Copy systemd-boot EFI binary to the default/fallback boot path
 +    # Copy shim EFI binary to the default/fallback boot path
-+    mcopy -i "${efibootimg}" \
+     mcopy -i "${efibootimg}" \
+-        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi" ::/EFI/BOOT/BOOTx64.EFI
 +        "${pacstrap_dir}/usr/share/shim-signed/shimx64.efi" ::/EFI/BOOT/BOOTx64.EFI
 +    mcopy -i "${efibootimg}" \
 +        "${pacstrap_dir}/usr/share/shim-signed/mmx64.efi" ::/EFI/BOOT/mmx64.efi
 +    # Copy systemd-boot EFI binary as grubx64.efi chainloaded by shimx64.efi
-     mcopy -i "${efibootimg}" \
--        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi" ::/EFI/BOOT/BOOTx64.EFI
++    mcopy -i "${efibootimg}" \
 +        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi" ::/EFI/BOOT/grubx64.efi
 +    if [[ -f db.cer ]] ;then
 +        mcopy -i "${efibootimg}" db.cer ::/EFI/BOOT/db.cer
@@ -219,7 +206,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellx64.efi is picked up automatically when on /
-@@ -932,13 +1012,22 @@
+@@ -932,13 +999,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -244,7 +231,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.isofs
  
      # edk2-shell based UEFI shell
-@@ -957,13 +1046,21 @@
+@@ -957,13 +1033,16 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -252,11 +239,6 @@
  
 -    # Copy systemd-boot EFI binary to the default/fallback boot path
 +    # Copy shim EFI binary to the default/fallback boot path
-+    mcopy -i "${efibootimg}" \
-+        "${pacstrap_dir}/usr/share/shim-signed/shimia32.efi" ::/EFI/BOOT/BOOTIA32.EFI
-+    mcopy -i "${efibootimg}" \
-+        "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi" ::/EFI/BOOT/mmia32.efi
-+    # Copy systemd-boot EFI binary as grubia32.efi chainloaded by shimia32.efi
      mcopy -i "${efibootimg}" \
 -        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi" ::/EFI/BOOT/BOOTIA32.EFI
 +        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi" ::/EFI/BOOT/grubia32.EFI
@@ -268,7 +250,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellia32.efi is picked up automatically when on /
-@@ -991,13 +1088,21 @@
+@@ -991,13 +1070,16 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -279,11 +261,6 @@
 +    # Copy shim EFI binary to the default/fallback boot path
 +    install -m 0644 -- "${pacstrap_dir}/usr/share/shim-signed/shimx64.efi" \
          "${isofs_dir}/EFI/BOOT/BOOTIA32.EFI"
-+    install -m 0644 -- "${pacstrap_dir}/usr/share/shim-signed/mmia32.efi" \
-+        "${isofs_dir}/EFI/BOOT/mmia32.efi"
-+    # Copy systemd-boot EFI binary as grubia32.efi chainloaded by shimia32.efi
-+    install -m 0644 -- "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi" \
-+        "${isofs_dir}/EFI/BOOT/grubia32.efi"
 +    if [[ -f db.cer ]] ;then
 +        install -m 0644 -- db.cer "${isofs_dir}/EFI/BOOT/db.cer"
 +    fi

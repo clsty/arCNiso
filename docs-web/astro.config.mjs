@@ -10,7 +10,7 @@ export default defineConfig({
 //  },
 	integrations: [
 		starlight({
-      title: 'arCNiso 文档',
+      title: 'arCNiso 指南',
 			social: {
         github: 'https://github.com/clsty/arCNiso',
 			},
@@ -35,29 +35,25 @@ export default defineConfig({
       },
 			sidebar: [
         {
-          label: '通用',
+          label: '关于',
           collapsed: false,
-          autogenerate: { directory: 'general' },
+          autogenerate: { directory: 'about' },
         },
         {
-          label: '构建与维护',
+          label: '获取与使用',
           collapsed: false,
-          items: [
-            { label: '构建', link: 'dev/build' },
-            { label: '于 Docker 中构建', link: 'dev/buildindocker' },
-            { label: '定制', link: 'dev/modify' },
-            { label: '维护', link: 'dev/maintaining' },
-          ]
+          autogenerate: { directory: 'using' },
         },
         {
-          label: '安装提示',
+          label: '设计与理念',
           collapsed: false,
-          autogenerate: { directory: 'inst-hint' },
+          autogenerate: { directory: 'design' },
         },
         {
-          label: '其他',
+          label: '构建与开发',
           collapsed: true,
-          autogenerate: { directory: 'misc' },
+          badge: { text: 'Dev' },
+          autogenerate: { directory: 'dev' },
         },
 			],
 		}),

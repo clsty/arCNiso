@@ -1,6 +1,9 @@
 ---
 title: 长期维护
 layout: /src/layouts/autonum.astro
+sidebar:
+  label: 长期维护
+  order: 04
 ---
 
 维护工作包括若干方面。
@@ -62,7 +65,7 @@ layout: /src/layouts/autonum.astro
 - `./getiso`：适用于在另一台机器上构建镜像的场景。
 
 - `./testiso`：用于利用 VirtualBox 对镜像进行测试运行。
-  - 使用前可能需要手动配置 VirtualBox 虚拟机（参见[环境要求](/readme#环境要求)），并使虚拟机名为 arCNiso。
+  - 使用前可能需要手动配置 VirtualBox 虚拟机（参见[环境要求](/usage/run/#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82)），并使虚拟机名为 arCNiso。
   - 推荐将 `ignored/path` 设置为共享目录，自动挂载到虚拟机内，以便在宿主机与虚拟机之间传输文件（但是 symlink 类的无法直接这样传输，可以先用 tar 打包，或换用 ssh 的 scp 传文件）。
 
 - `./publishiso` 等系列脚本：用于自动发布。

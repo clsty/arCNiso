@@ -2,14 +2,14 @@
 title: 使用指南
 layout: /src/layouts/autonum.astro
 sidebar:
-  label: 使用指南
-  order: 40
+  label: 使用
+  order: 30
 ---
 
 :::tip
 开机弹出的欢迎界面中已经给出了最关键的“注意事项”，**读完这个就可以直接开始使用了。**
 
-以下则是（没那么重要的）“技巧提示”及“问题与应对”。
+以下则是没那么重要的“技巧提示”及“问题与应对”。
 :::
 
 
@@ -62,8 +62,7 @@ sidebar:
 
 ## 更多
 
-- 有关 Arch Linux、Linux 等方面，推荐**新手**阅读[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
-- arCNiso 的更多功能，详见[特性列表](https://github.com/clsty/arCNiso/blob/main/docs/feature.md)。
+- arCNiso 的更多功能，详见[特性列表](/design/feature)。
 
 
 # 问题与应对（一般用不到）
