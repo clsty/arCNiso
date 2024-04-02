@@ -8,7 +8,7 @@ sidebar:
 
 非常感谢你来到这里！
 
-在 PR 之前，请注意以下几点：
+在提交 [Pull Request](https://github.com/clsty/arCNiso/pulls) 之前，请注意以下几点：
 
 1.  不要引入与本项目的许可（GPLv3）不兼容的代码或文件等。
 2.  请自己至少测试成功过一次再来提交（如果只是不成熟的建议，请使用 issue）。
