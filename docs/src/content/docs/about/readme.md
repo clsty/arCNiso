@@ -6,7 +6,7 @@ sidebar:
   order: 10
 ---
 
-![Screenshot of arCNiso v2.3.2](/arCNiso/screenshot.png)
+![Screenshot of arCNiso v2.3.2](/screenshot.png)
 
 arCNiso™（简称 arCN™）是一个自由开源的 archiso 镜像。
 

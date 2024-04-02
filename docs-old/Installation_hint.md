@@ -2,8 +2,6 @@
 
 本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
 
-关于其他安装途径，可参阅 [Installation_methods](https://github.com/clsty/arCNiso/blob/main/docs/Installation_methods.md)。
-
 ## 声明
 
 1.  **本文的适用性：本文同时适用于（官方的）原版 archiso 和（clsty 的）[arCNiso](https://github.com/clsty/arCNiso)。**
@@ -181,6 +179,6 @@
 
 <sup><a id="fn.1" href="#fnr.1">1</a></sup> arcnot 其实只是切换到 root 帐户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。
 
-<sup><a id="fn.2" href="#fnr.2">2</a></sup> <https://github.com/clsty/arCNiso/blob/main/docs/about.md>
+<sup><a id="fn.2" href="#fnr.2">2</a></sup> <https://arcn.celestialy.top/about/reason>
 
-<sup><a id="fn.3" href="#fnr.3">3</a></sup> <https://github.com/clsty/arCNiso/blob/main/docs/howhard.md>
+<sup><a id="fn.3" href="#fnr.3">3</a></sup> <https://arcn.celestialy.top/design/howhard>

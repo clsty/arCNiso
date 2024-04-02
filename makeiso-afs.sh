@@ -74,22 +74,22 @@ rsync -av --delete ./homebase/public/ ./airootfs/etc/skel/
 rsync -av ./homebase/public/ ./airootfs/root/
 rsync -av ./homebase/skel/ ./airootfs/etc/skel/
 rsync -av ./homebase/root/ ./airootfs/root/
-pandoc docs/README.md \
+pandoc README.md \
   -N \
   --output=./airootfs/etc/skel/README.html \
   --metadata title="arCNiso 自述文档（pandoc 离线版）" \
   --metadata date="$(date +%x)" \
   --to=html5 \
-  --css=docs/github.css \
+  --css=docs-old/github.css \
   --highlight-style=haddock \
   --standalone
-pandoc docs/Installation_hint.md \
+pandoc docs-old/Installation_hint.md \
   -N \
   --output=./airootfs/etc/skel/Installation_hint.html \
   --metadata title="Arch Linux 安装提示（pandoc 离线版）" \
   --metadata date="$(date +%x)" \
   --to=html5 \
-  --css=docs/github.css \
+  --css=docs-old/github.css \
   --highlight-style=haddock \
   --embed-resources \
   --standalone
@@ -105,7 +105,7 @@ pandoc "./airootfs/etc/skel/Installation_guide.curl.html" \
   --metadata title="安装指南（来自 Arch Linux 中文维基，pandoc 离线版）" \
   --metadata date="$(date +%x)" \
   --to=html5 \
-  --css=docs/github.css \
+  --css=docs-old/github.css \
   --highlight-style=haddock \
   --embed-resources \
   --standalone
