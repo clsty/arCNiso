@@ -37,7 +37,7 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 祝你使用愉快！
 
-> **更多内容请移步 [arCNiso 指南](https://arcn.celestialy.top/using/obtain/)。**
+> **下载镜像文件：见 [arCNiso 指南](https://arcn.celestialy.top/using/obtain/)。**
 
 # 商标声明
 
