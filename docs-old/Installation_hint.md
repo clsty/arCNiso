@@ -177,7 +177,7 @@
 
 # 注
 
-<sup><a id="fn.1" href="#fnr.1">1</a></sup> arcnot 其实只是切换到 root 帐户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。
+<sup><a id="fn.1" href="#fnr.1">1</a></sup> arcnot 其实只是切换到 root 用户及其家目录，再显示一个欢迎界面。这样，就与原本（original）的终端（terminal）保持了一致。
 
 <sup><a id="fn.2" href="#fnr.2">2</a></sup> <https://arcn.celestialy.top/about/reason>
 

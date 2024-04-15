@@ -24,5 +24,5 @@ sidebar:
 > 
 > - 首先会进入 GRUB 界面，5 秒后自动选择第一项。
 > - 执行 Linux 启动阶段，并由控制台展示（左侧给出每个单项的彩色状态指示）。
-> - 进入 tty 界面，展示 motd（即 Arch Linux 图标）并自动登录到 archer 帐户（其具有 sudo 权限）。
+> - 进入 tty 界面，展示 motd（即 Arch Linux 图标）并自动登录到 archer 用户（其具有 sudo 权限）。
 > - 图形环境（xfce4）启动，弹出欢迎界面（`/etc/motd-zh_CN`)。

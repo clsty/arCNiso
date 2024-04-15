@@ -67,7 +67,7 @@ sidebar:
 - 之所以也保留 Emacs，一方面是为了采用 evil-tutor-sc 这个插件提供的 Vi 系键位的学习路径，另一方面则是对 Emacs 进行一定程度上的宣传。
 
 # sufirefoxd
-- 在 xfce4 启动时，运行一个 sufirefoxd，以支持从 root 帐户命令 archer 帐户的 Firefox 打开网页。
+- 在 xfce4 启动时，运行一个 sufirefoxd，以支持从 root 用户命令 archer 用户的 Firefox 打开网页。
   - 之所以不使用 `nohup su archer -c "firefox foo.foo" &` ，是因为实验发现这种做法有重大缺陷：
     - 这样打开的 Firefox 是不支持输入法的。
     - 若已经有同一个 profile 的 Firefox 运行，则这样做会报错“Firefox 已经运行但无响应”。
