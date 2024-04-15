@@ -18,6 +18,7 @@ However, **feel free to fork** this project and modify to make your own (of cour
   - 需要 timeshift 等常用工具时，自带总比从 AUR 安装更省事；
   - 需要安全启动时，本镜像恰好支持（官方 archiso 目前不支持）；
   - 使用平板电脑时，若没有 USB 无线或有线键盘，可用蓝牙管理器连接蓝牙键盘，或使用屏幕键盘，而不是束手无策；
+  - xfce4 桌面环境总比裸 tty 看起来美观，也更护眼；
   - ……
 
 > arCNiso 不是什么：

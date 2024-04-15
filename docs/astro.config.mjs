@@ -15,7 +15,7 @@ export default defineConfig({
         github: 'https://github.com/clsty/arCNiso',
 			},
       editLink: {
-          baseUrl: 'https://github.com/clsty/arCNiso/tree/main/docs-web',
+          baseUrl: 'https://github.com/clsty/arCNiso/tree/main/docs',
       },
       customCss: ['./src/styles/custom.css'],
       favicon: '/favicon.ico',
