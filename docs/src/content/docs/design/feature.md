@@ -18,11 +18,9 @@ sidebar:
 ## 内核参数
 添加了 `usbcore.autosuspend=-1 btusb.enable_autosuspend=N bluetooth.disable_ertm=Y` 作为内核参数，以提升部分外设连接的稳定性。
 ## 分区与系统引导
-- 提供 PartitionManager 作为 GUI 磁盘管理器。
-- 提供 TestDisk 作为 TUI 的分区表恢复及引导修复软件。
+- 提供 TestDisk 作为 TUI 的分区表恢复及引导修复软件（原版 archiso 也有）。
 - 提供 Timeshift 、btrfs-assistant 及 Snapper 作为快照的备份恢复软件。
 - 提供 EFIBootEditor 作为 efibootmgr 的 GUI 前端。
-- 提供 grub-customizer 作为（功能有限的）GRUB 自定义配置工具。
 - 提供 Ventoy（同时具有 GUI 与 CLI）以进行一些特殊操作。
 ## 用户引导
 - motd：添加了中文版本的 motd，并在 arCNiso 启动时自动展示。
@@ -59,7 +57,7 @@ sidebar:
 ## 屏幕键盘
 安装了 onboard，并将其启动器放在 xfce 的右下角。
 ## 亮度
-提供了 brightnessctl 和 ddcutil。
+提供了 brightnessctl。
 ## 音频
 安装了 pipewire 相关的软件包。
 ## 显卡驱动
@@ -84,7 +82,7 @@ sidebar:
 移除了 lynx；若运行 lynx，则在找不到 lynx 时询问是否要立即安装或使用 Firefox 替代。
 
 ## 通讯软件
-由于这些软件在离线时无法使用，本项目不打算将它们内置，需要时可以手动安装。
+由于这些软件在离线时无法使用，本项目不打算将它们内置（所以并不属于本项目的特性），将安装命令放在这里仅供参考。
 - nheko：（开源开放的）Matrix 通讯架构的客户端，需要配合 keepassXC 使用。
   - 安装命令： `sudo pacman -S nheko`
 - Gajim：支持 Jabber/XMPP 协议（一种开源开放的即时通讯协议）。
@@ -121,17 +119,9 @@ sidebar:
 - 提供命令行工具 ack、tree、fd。
 - 提供 peazip 及 p7zip 以支持解压缩。
 
-## 录制截取
-
-- Xfce4-screenshooter：用于截图。
-
 ## 其它
 
-- keepassXC：密码管理器，并为 nheko 提供安全服务。同时安装了对应的 Firefox 插件。
-- vlc：音视频播放器。
-- zathura：文档阅读器，支持 PDF、EPUB、XPS 等格式。
-- gimagereader：基于 tesseract 的 OCR。
-  - 若需要识别中文，应手动安装 `tesseract-data-chi_sim`。
+- Xfce4-screenshooter：用于截图。
 - Ristretto：图像查看器。
 - neofetch：展示系统信息。
 

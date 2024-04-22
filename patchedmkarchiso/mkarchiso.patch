@@ -1,5 +1,5 @@
---- mkarchiso-original	2024-04-02 16:59:31.540693683 +0800
-+++ mkarchiso	2024-04-01 17:02:35.661540831 +0800
+--- mkarchiso-original	2024-04-22 10:51:40.498877018 +0800
++++ mkarchiso	2024-04-22 10:51:35.539891932 +0800
 @@ -1,6 +1,7 @@
  #!/usr/bin/env bash
 +# mkarchiso patched for arCNiso, mainly for secureboot.
@@ -159,7 +159,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -846,17 +900,22 @@
+@@ -846,14 +900,19 @@
      fi
      # Calculate the required FAT image size in bytes
      # shellcheck disable=SC2076
@@ -167,22 +167,19 @@
          efiboot_files+=("${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi"
 +                        "${pacstrap_dir}/usr/share/shim-signed/shimx64.efi"
 +                        "${pacstrap_dir}/usr/share/shim-signed/mmx64.efi"
-                         "${pacstrap_dir}/usr/share/edk2-shell/x64/Shell_Full.efi")
+                         "${pacstrap_dir}/usr/share/edk2-shell/x64/Shell_Full.efi"
+                         "${pacstrap_dir}/boot/memtest86+/memtest.efi"
+                         "${pacstrap_dir}/usr/share/licenses/spdx/GPL-2.0-only.txt")
      fi
++    if [[ -f db.cer ]] ;then
++        efiboot_files+=(db.cer)
++    fi
      # shellcheck disable=SC2076
      if [[ " ${bootmodes[*]} " =~ ' uefi-ia32.systemd-boot.esp ' || " ${bootmodes[*]} " =~ ' uefi-ia32.systemd-boot.eltorito ' ]]; then
          efiboot_files+=("${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi"
                          "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi")
      fi
-+    if [[ -f db.cer ]] ;then
-+        efiboot_files+=(db.cer)
-+    fi
-     efiboot_files+=("${work_dir}/loader/"
-                     "${pacstrap_dir}/boot/vmlinuz-"*
-                     "${pacstrap_dir}/boot/initramfs-"*".img"
-                     "${_available_ucodes[@]}")
-     efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
-@@ -897,13 +956,21 @@
+@@ -900,13 +959,21 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -206,7 +203,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellx64.efi is picked up automatically when on /
-@@ -932,13 +999,22 @@
+@@ -944,13 +1011,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -231,7 +228,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.isofs
  
      # edk2-shell based UEFI shell
-@@ -957,13 +1033,16 @@
+@@ -976,13 +1052,16 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -250,7 +247,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellia32.efi is picked up automatically when on /
-@@ -991,13 +1070,16 @@
+@@ -1010,13 +1089,16 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."

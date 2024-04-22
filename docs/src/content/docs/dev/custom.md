@@ -18,7 +18,6 @@ sidebar:
 **此外，你还应当了解以下信息：**
 
 - 由于 arCNiso 不包含 releng 本体，直接编辑 airootfs、efiboot、syslinux 等是无效的。正确做法是编辑 arCNiso 用以生成 airootfs 所用到的脚本 `makeiso-afs.sh` 及相关文件（夹）。
-  - `makeiso-afs.sh` 同时也用于生成 efiboot、syslinux 等；但是其实 arCNiso 采用 grub 作为 bootloader，故编辑 efiboot、syslinux 本来也是没有意义的，除非对 bootloader 也作更改。
 - 你可以使用 `arCNiso-expac` 来查看按“实际占用空间”（包括依赖等）排序的软件包列表。
 - 从 tty 可以手动启动图形环境，可运行 `arCNiso-xfce4` 。
 - `/usr/local/bin` 存放了大量 arCNiso 的脚本，其中以 `arcn` 开头的主要面向使用者，`arCNiso-` 开头的主要面向开发者。

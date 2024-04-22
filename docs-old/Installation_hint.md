@@ -1,20 +1,12 @@
 # 序
 
-本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
+本文（[在线版地址](https://github.com/clsty/arCNiso/blob/main/docs-old/Installation_hint.md)）针对 Arch Linux 中文维基上的安装指南（简称“官方指南”；[在线版地址](https://wiki.archlinuxcn.org/wiki/Installation_Guide)）对照式地给出部分提示。
 
 ## 声明
 
 1.  **本文的适用性：本文同时适用于（官方的）原版 archiso 和（clsty 的）[arCNiso](https://github.com/clsty/arCNiso)。**
 2.  **arCNiso 的适用性：此镜像完全适用于使用官方指南进行安装，但你应当使用 root 身份。为此，你可以使用开机启动时会自动弹出的 tilix。如果你手动打开了一个 tilix（可按 `Ctrl+Alt+T` 调出），你应当输入 `arcnot` 再按回车<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。**
 3.  arCNiso 相对于原版 archiso 的优点：arCNiso 不会降低最终要求，但会帮你优化学习路线。这意味着，当你最终完成 Arch Linux 的安装时，你的收获实际上与使用官方 archiso 是一致的<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>。
-
-
-## 建议
-
-先快速地略读一遍[入门与进阶帮助](https://github.com/clsty/arCNiso/blob/main/docs/learn.md)。
-这不是必须的，但无疑能让你在之后的安装或使用中更加得心应手。
-
-在安装完成之后，可以再次精读此文。
 
 
 # 与官方指南的对照提示
@@ -148,9 +140,6 @@
 - 你是一个对配置引导已经具有一定经验、不太可能翻车的熟手。
 - 你在这个阶段并没有花费什么时间与精力，比如你使用了某种自动化工具。
 
-> - archinstall：那么这个自动化工具……
-> - [ulerm](https://github.com/clsty/ulerm)： <del>没错，正是在下</del> （其实还没做好，敬请期待）。
-> 
 > 注：目前，新手不建议使用 archinstall，主要原因之一是用它安装的 Arch Linux 和与正常途径安装的可能会有一些差别，而这些差别可能在日后导致问题。
 
 

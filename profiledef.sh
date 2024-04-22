@@ -3,21 +3,24 @@
 
 iso_name="arCNiso"
 iso_label="${iso_name}_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="clsty"
+iso_publisher="clsty <https://arcn.celestialy.top>"
 iso_application="archiso customed by ${iso_publisher}"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"
 buildmodes=('iso')
 bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito'
-	'uefi-ia32.grub.esp' 'uefi-x64.grub.esp'
-	'uefi-ia32.grub.eltorito' 'uefi-x64.grub.eltorito')
+#          'uefi-ia32.grub.esp' 'uefi-x64.grub.esp'
+#          'uefi-ia32.grub.eltorito' 'uefi-x64.grub.eltorito')
+# archiso 目前改用 systemd-boot，但体积增大
+           'uefi-ia32.systemd-boot.esp' 'uefi-x64.systemd-boot.esp'
+           'uefi-ia32.systemd-boot.eltorito' 'uefi-x64.systemd-boot.eltorito')
 arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 # 从文件读取数组变量（一个元素一行）并赋给 airootfs_image_tool_options
 # 此文件由 makeiso 写入; touch 是防止其它程序 source 本文件时报错文件不存在
 touch /tmp/MKARCHISO_IMAGE_TOOL_PROFILE;readarray -t airootfs_image_tool_options < /tmp/MKARCHISO_IMAGE_TOOL_PROFILE
-bootstrap_tarball_compression=(gzip -cn9)
+bootstrap_tarball_compression=('zstd' '-c' '-T0' '--auto-threads=logical' '--long' '-19')
 file_permissions=(
 	["/etc/shadow"]="0:0:400"
 	["/etc/gshadow"]="0:0:400"

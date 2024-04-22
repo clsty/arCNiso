@@ -25,7 +25,7 @@ function afs-sync {
 # 这里暂时先把 --delete 注释掉
 #rsync -av --delete "$releng"/airootfs/ $AFS/
 rsync -av "$releng"/airootfs/ $AFS/
-rsync -av --delete "$releng"/syslinux/ syslinux/
+#rsync -av --delete "$releng"/syslinux/ syslinux/
 rsync -av --delete "$releng"/efiboot/ efiboot/
 rsync -av --delete "$releng"/grub/loopback.cfg grub/loopback.cfg
 rsync -av --delete "$releng"/bootstrap_packages.x86_64 bootstrap_packages.x86_64

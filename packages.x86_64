@@ -1,3 +1,4 @@
+# 以后如果还是超尺寸的话，可以尝试把Firefox换成Librewolf甚至更轻量级的浏览器
 # 尤其注意，行尾不能有注释或多余空格，否则可能找不到包。
 ### AUR
 # 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
@@ -38,7 +39,7 @@ xf86-input-synaptics
 xf86-input-evdev
 onboard
 brightnessctl
-ddcutil
+#ddcutil
 networkmanager
 network-manager-applet
 nm-connection-editor
@@ -51,7 +52,7 @@ git
 curl
 axel
 fzf
-man-pages-zh_cn
+#man-pages-zh_cn
 ## 字体
 fontconfig
 ttf-nerd-fonts-symbols-mono
@@ -69,8 +70,7 @@ pipewire-pulse
 pavucontrol
 wireplumber
 ## 磁盘与文件
-partitionmanager
-testdisk
+# partitionmanager 太大了，archiso 自己体积也在涨，有需要的还是用 cfdisk 去吧
 par2cmdline
 ack
 tree
@@ -83,18 +83,19 @@ ranger
 p7zip
 ## 日常应用
 firefox
-firefox-i18n-zh-cn
-zathura
-zathura-pdf-mupdf
-# tesseract 是 zathura-pdf-mupdf 依赖链中的一环，且它至少依赖一种语言的数据包，所以这里手动指定
-tesseract
-#tesseract-data-chi_sim
-tesseract-data-eng
+#firefox-i18n-zh-cn Firefox自己可以直接安装语言包
+# zathura 可以不要，因为 firefox 也能看 pdf
+#zathura
+#zathura-pdf-mupdf
+## tesseract 是 zathura-pdf-mupdf 依赖链中的一环，且它至少依赖一种语言的数据包，所以这里手动指定
+#tesseract
+##tesseract-data-chi_sim
+#tesseract-data-eng
 # 顺便再装一个 tesseract 的 GUI，以及其所需要的 hunspell 的拼写词典
 #gimagereader-qt
 #hunspell-en_us
-keepassxc
-vlc
+#keepassxc
+#vlc
 emacs
 neovim
 tilix
@@ -163,7 +164,7 @@ qt6ct
 #breeze-icons
 #adwaita-cursors
 libappindicator-gtk3
-grub-customizer
+# grub-customizer 大概没什么人用？而且也不是非得在 Live CD 里安装这个
 ## 杂项
 xclip
 rng-tools
