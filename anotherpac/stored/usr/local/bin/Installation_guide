@@ -2,7 +2,7 @@
 if ping -c1 archlinuxcn.org ;then
   sufirefox "https://wiki.archlinuxcn.org/wiki/Installation_Guide
 /home/archer/Installation_hint.html
-https://github.com/clsty/arCNiso/blob/main/docs/Installation_hint.md"
+https://github.com/clsty/arCNiso/blob/main/docs-old/Installation_hint.md"
 else
   echo "无法连接到 archlinuxcn.org，暂时使用离线版。注：一般是无法离线安装 Arch Linux 的。"
   sufirefox "/home/archer/Installation_guide.html

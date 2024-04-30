@@ -1,13 +1,11 @@
-" vim: filetype=vifm :
+" vim:fileencoding=utf-8:ft=vim:fdm=marker foldlevel=0
 " Sample configuration file for vifm (last updated: 8 August, 2022)
 " You can edit this file by hand.
 " The " character at the beginning of a line comments out the line.
 " Blank lines are ignored.
 " The basic format for each item is shown with an example.
 
-" ------------------------------------------------------------------------------
-" Main settings
-" ------------------------------------------------------------------------------
+""{{{ Main settings
 
 " Command used to edit files in various contexts.  The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
@@ -104,18 +102,9 @@ endif
 " Set custom status line look
 set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
-" ------------------------------------------------------------------------------
-" Bookmarks
-" ------------------------------------------------------------------------------
+""}}}
 
-" :mark mark /full/directory/path [filename]
-
-mark b ~/bin/
-mark h ~/
-
-" ------------------------------------------------------------------------------
-" Commands
-" ------------------------------------------------------------------------------
+""{{{ Commands
 
 " :com[mand][!] command_name action
 "
@@ -142,9 +131,9 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
 
-" ------------------------------------------------------------------------------
-" File types association
-" ------------------------------------------------------------------------------
+""}}}
+
+""{{{ File types association
 
 " :filetype pattern1,pattern2 defaultprogram,program2
 " :fileviewer pattern1,pattern2 consoleviewer
@@ -394,9 +383,9 @@ filextype */
 " For Windows:
 " filetype * explorer %"f &
 
-" ------------------------------------------------------------------------------
-" Panel configuration examples
-" ------------------------------------------------------------------------------
+""}}}
+
+""{{{ Panel configuration examples
 
 " Customize view columns a bit (enable ellipsis for truncated file names)
 " set viewcolumns=-{name}..,6{}.
@@ -407,9 +396,9 @@ filextype */
 " Filter-out build and temporary files
 " filter! {*.lo,*.o,*.d,*.class,*.pyc,*.pyo,.*~}
 
-" ------------------------------------------------------------------------------
-" Sample keyboard mappings
-" ------------------------------------------------------------------------------
+""}}}
+
+""{{{ Sample keyboard mappings
 
 " Start shell in current directory
 nnoremap s :shell<cr>
@@ -506,9 +495,9 @@ nnoremap <a-o> :sync %c<cr>
 " Swap panes
 nnoremap <c-u> <c-w>x
 
-" ------------------------------------------------------------------------------
-" Various customization examples
-" ------------------------------------------------------------------------------
+""}}}
+
+""{{{ Various customization examples
 
 " Use ag (the silver searcher) instead of grep
 " set grepprg='ag --line-numbers %i %a %s'
@@ -531,13 +520,20 @@ nnoremap <c-u> <c-w>x
 " Activate screen/tmux support
 " screen!
 
-" ------------------------------------------------------------------------------
-" Icon decorations example
-" ------------------------------------------------------------------------------
+""}}}
+
+""{{{ Icon decorations example
 
 " https://github.com/cirala/vifm_devicons
 
-" -------------------------------------------------------------------------------
+""}}}
+
+""{{{ Change workdir
 command! Q :execute '!echo %d > ~/.cache/vifmlastdir' | quit
 nnoremap ZZ :Q <cr>
+""}}}
 
+""{{{ Bookmarks
+source ~/.config/vifm/bookmark.vim
+nnoremap ,b :write | edit ~/.config/vifm/bookmark.vim | restart full<cr>
+""}}}
