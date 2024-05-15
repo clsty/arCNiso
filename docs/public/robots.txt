@@ -1,3 +1,2 @@
 User-agent: *
-Sitemap: https://arcn.celestialy.top/sitemap.xml
-
+Sitemap: https://arcn.celestialy.top/sitemap-index.xml
