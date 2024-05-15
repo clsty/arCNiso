@@ -42,7 +42,7 @@ export default defineConfig({
         {
           label: '获取与使用',
           collapsed: false,
-          autogenerate: { directory: 'using' },
+          autogenerate: { directory: 'usage' },
         },
         {
           label: '设计与理念',
