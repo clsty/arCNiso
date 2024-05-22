@@ -9,10 +9,10 @@ sidebar:
 这里说明如何从本项目文件构建得到 arCNiso 的镜像文件。
 
 # 环境要求
-## 在 Arch Linux 系统中构建
+## 法一：在 Arch Linux 系统中构建
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
-## 在 Docker 容器中构建
+## 法二：要在 Docker 容器中构建
 参见[构建说明（Docker 版）](/dev/buildindocker)。
 
 # 分步说明
