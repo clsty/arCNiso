@@ -22,60 +22,53 @@ sidebar:
 ## 准备 Docker 容器
 
 :::note[声明]
-以下操作并不特定于某发行版，但仅实际测试于 Debian Linux 宿主机。
+以下操作在设计上并不特定于某发行版，但仅于 Debian Linux 宿主机上测试过，
 :::
 
+下面，我们从 Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/archlinux/archlinux-docker)（自动）拉取 Arch Linux 的 base 版本镜像，并由它创建容器。
 
-:::note[提示]
-命令 `docker images/rmi` 可以列出/删除镜像。
+:::caution[注意]
+上述项目提供了多个镜像地址，这里以 `quay.io` 为例；**请据网络情况自行选择较快的地址。**
 :::
 
-首先（自动）拉取 Arch Linux 的 base 版本镜像，并由它创建容器。
-
-Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/archlinux/archlinux-docker) 提供了多个镜像地址，这里以 `quay.io` 为例，请据网络情况自行选择较快的地址。
-
-> 命令解释：
->
-> 名为 arch（`--name arch`）、允许终端登录（`-t`）并后台运行（`-d`）、持续运行（`--restart=unless-stopped`）、允许 mount（`--privileged`）。
->
-> 加 `-p <宿主端口>:<容器端口>` 映射端口。
->
-> 加 `-v <宿主目录路径>:<容器目录路径>` 将宿主机目录映射到容器内。
-> 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦。
-
-以下两种 `docker run` 二选一：
-
+命令如下：
 ```bash
-# 映射目录（根据实际需要自行修改 -v 参数）
+# ARCN_HOST_DIR 的值可以是一个空目录或尚不存在的目录，也可以是宿主机上已有的 arCNiso 项目目录
+ARCN_HOST_DIR=$HOME/arCNiso
+mkdir -p $ARCN_DIR
 sudo docker run \
-  -v $HOME/arCNiso-build:/home/archer/arCNiso \
+  -v "$ARCN_DIR":/home/archer/arCNiso \
   --privileged -dt \
   --restart=unless-stopped \
   --name arch \
   quay.io/archlinux/archlinux:latest
 ```
-```bash
-# 不映射目录
-sudo docker run \
-  --privileged -dt \
-  --restart=unless-stopped \
-  --name arch \
-  quay.io/archlinux/archlinux:latest
-```
+
+:::note[参数说明]
+- 名为 arch（`--name arch`），
+- 允许终端登录（`-t`）并后台运行（`-d`），
+- 持续运行除非手动停止（`--restart=unless-stopped`），
+- 提权以允许挂载（`--privileged`），
+- 加 `-p <宿主端口>:<容器端口>` 映射端口，
+- 加 `-v <宿主目录路径>:<容器目录路径>` 将宿主机目录映射到容器内。
+  - 若确实不需要映射目录，请删去 `-v` 这一行，但后续想再次映射目录会比较麻烦。
+:::
 
 :::caution[提示]
 重复使用 `docker run` 可能会因容器重名而报错，此时须先将重名容器停止并删除。
 参见文档末尾附录。
+
+此外，命令 `docker images/rmi` 可以列出/删除镜像。
 :::
 
-进入容器：
+## 配置基本环境
+
+首先进入容器中的 bash：
 ```bash
 sudo docker exec -it arch /bin/bash
 ```
 
-## 配置基本环境
-
-注：由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
+由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
 
 这里以教育网（CERNET）提供的联合镜像站 MirrorZ 为例；
 也可以从 [Arch Linux 国内镜像源列表](https://archlinux.org/mirrorlist/?country=CN&protocol=https&ip_version=4&use_mirror_status=on)里自己找一个镜像源。
@@ -87,8 +80,9 @@ ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo 'Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch' >/etc/pacman.d/mirrorlist
 
 # 更新并安装必要软件
+pacman-key --init
 pacman -Syu --noconfirm neovim
-pacman -S --noconfirm --needed archiso git rsync pandoc base-devel fd asp cmake less sudo
+pacman -S --noconfirm --needed archiso git rsync pandoc base-devel fd cmake less sudo
 
 # 创建普通用户并加入 wheel 组
 useradd -mG wheel archer
@@ -114,7 +108,7 @@ sudo docker exec -it -u archer -w /home/archer arch /bin/bash
 # 或者
 sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 ```
-余下步骤参见[构建说明](/dev/build)。
+余下步骤参见[构建说明](/dev/build)（直接在 docker 环境 中执行相应操作即可）。
 
 而在得到生成的镜像文件之后，可以使用 `docker cp` 等方法将其取出容器
 （如果之前 `docker run` 时配置了目录映射，也可直接利用被映射的目录）。

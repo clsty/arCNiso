@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+function try { "$@" || sleep 0; }
 
 selfpath="${BASH_SOURCE[0]}"
 cd "$(dirname $selfpath)"
@@ -13,7 +14,7 @@ esac
 rsync -av --delete "$target"/ "$target".gitignored/
 
 which xclip||sudo pacman -S --needed --noconfirm xclip
-which emacs||sudo pacman -S --noconfirm --needed emacs-nativecomp
+which emacs||sudo pacman -S --noconfirm --needed emacs
 ping -c1 mirrors.ustc.edu.cn||if true;then echo "请确保能够连接到网络。";exit 1;fi
 echo "!! 现在将准备 .emacs.d，请确保网络通畅。"
 echo "1. 接下来会调用两次 sudo，分别用于 mount --bind 和 umount 到 ~/.emacs.d 。"
@@ -24,7 +25,7 @@ emacs -nw
 sleep 3
 sudo umount ~/.emacs.d
 
-rsync -av --delete "$target".gitignored/eln-cache/ "$target"/eln-cache/
+try rsync -av --delete "$target".gitignored/eln-cache/ "$target"/eln-cache/
 rsync -av --delete "$target".gitignored/elpa/ "$target"/elpa/
 rm -rf "$target".gitignored
 

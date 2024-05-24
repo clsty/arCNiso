@@ -23,6 +23,8 @@ sidebar:
 sudo pacman -S --needed archiso git rsync pandoc base-devel fd cmake less sudo
 
 # 安装 paru（若已添加 archlinuxcn 等第三方源，也可用 pacman 直接安装）
+## 自定义函数 aaa（again and again）以便在失败时自动重试；
+## 若失败太多次，请按 Ctrl-C 来强制停止，再排查问题
 function aaa { while true;do if "$@";then break;else echo "[aaa] Retrying \"$@\"";sleep 1;fi;done; }
 git clone https://aur.archlinux.org/paru-bin.git /tmp/paru-bin
 cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
@@ -32,9 +34,10 @@ cd /tmp/paru-bin;aaa makepkg -si --noconfirm;cd /tmp;rm -rf /tmp/paru-bin
 
 克隆本仓库，为此在 bash 或 zsh 中运行：
 ```bash
-# 路径可自拟
-path=$HOME/arCNiso
-git clone --filter=blob:none https://github.com/clsty/arCNiso $path&&cd $path
+# arCNiso 项目目录，路径可据实际情况设置
+# 若于 docker 容器内构建，请确保它与之前 docker run 的 -v 参数映射到的容器目录路径一致，默认不需要改动
+ARCN_DIR=$HOME/arCNiso
+git clone --filter=blob:none https://github.com/clsty/arCNiso $ARCN_DIR && cd $ARCN_DIR
 ```
 其中 `--filter=blob:none` 是为了仅下载所需的对象，而忽略多余的 blob，以便加快速度。
 
@@ -45,18 +48,19 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 
 ## 准备 .emacs.d（可选；约 5 分钟，依赖网速）
 
+:::note
+若你不打算在 arCNiso 中离线使用 Emacs，则这一步不是必须的。
+
+本项目在 `.gitignore` 中忽略了 `.emacs.d` 中的 `eln-cache` 与 `elpa` 等目录与文件，但它们对于离线使用 Emacs 配置是必要的。
+
+目的是，一方面降低文件结构的复杂度，另一方面避免大量的 elisp 代码导致本项目的主要成分被 GitHub 误判为 Emacs Lisp。
+:::
+
 运行
 ```bash
 ./homebase/prepareemacs.sh
 ```
 接下来按指示操作即可。
-（可能需要重复运行几次，使得初始化全部完成，直到再次运行时 Emacs 不会弹窗报错或报警告。）
-
-注：若你不打算在 arCNiso 中离线使用 Emacs，则这一步不是必须的。
-
-> 本项目在 `.gitignore` 中忽略了 `.emacs.d` 中的 `eln-cache` 与 `elpa` 等目录与文件，但它们对于离线使用 Emacs 配置是必要的。
-> 目的是，一方面降低文件结构的复杂度，另一方面避免大量的 elisp 代码导致本项目的主要成分被 GitHub 误判为 Emacs Lisp。
-
 
 ## 准备 anotherpac（约 5 分钟，依赖网速和 CPU 速度）
 
@@ -72,8 +76,9 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分），
 因此需要提前构建它们。
 
-可以利用（加 `-f` 以强制全部构建）
+可以利用
 ```bash
+# 加 -f 参数以强制全部构建
 ./aur/full-update.sh
 ```
 自动构建这些包。
@@ -86,14 +91,17 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 为了支持安全启动，需要对 mkarchiso 进行修改。
 而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.patch` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
 
+:::caution[你真的需要安全启动吗]
 这是一个相对复杂的可选项。若一切顺利自然是最好的，但使用者不必执著于 Secure Boot（尤其是多次失败时）。
 
 1. 没有 Secure Boot 的系统依然可以正常使用。
-2. Secure Boot 只是一个名字，它也可能实际隐含了微软对软硬件生态的战略目的（并且这可能才是主要目的）。
+2. Secure Boot 只是一个名字，它也可能实际隐含了微软针对软、硬件生态的战略目的（并且这可能才是主要目的）。
 3. Secure Boot 只是诸多安全环节之一的诸多安全方案中的一种而已，对于达成真正的信息系统安全而言，既非充分也非必要。
+:::
 
 **步骤：**
 - 需要确保 `packages.x86_64` 含有的包名：`mokutil` `shim-signed`（来自 AUR）
+  - 如果你不需要安全启动，可以选择把这些包名从中移除。
 - 安装依赖：
 ```bash
 ./patchedmkarchiso/deps.sh
@@ -108,11 +116,13 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ```
   并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
 
-> 注：本项目会持续追踪 mkarchiso 的更新，在已经追踪到最新的 mkarchiso 的前提下，`PATCH.sh` 应当能顺利执行且无须手动操作；即使追踪不够及时，patch 工具也有一定的容错性，手动操作的工作量不至于太多。
-> 
-> 而 `DIFF.sh` 则是用于追踪最新的 mkarchiso 并更新补丁。也就是说，`DIFF.sh` 不属于构建工具，而是维护工具，因此不在此处涉及。
->
-> 当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[长期维护](/dev/maintaining)。
+:::note[时效性]
+本项目会持续追踪 mkarchiso 的更新，在已经追踪到最新的 mkarchiso 的前提下，`PATCH.sh` 应当能顺利执行且无须手动操作；即使追踪不够及时，patch 工具也有一定的容错性，手动操作的工作量不至于太多。
+
+而 `DIFF.sh` 则是用于追踪最新的 mkarchiso 并更新补丁。也就是说，`DIFF.sh` 不属于构建工具，而是维护工具，因此不在此处涉及。
+
+当然，维护工作是构建工作得以顺利进行的前提之一，读者若有兴趣也可参阅[长期维护](/dev/maintaining)。
+:::
 
 ## 正式构建（约 5 分钟，依赖网速和 CPU 速度）
 
