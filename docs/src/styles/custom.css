@@ -110,3 +110,8 @@ blockquote {
   /* 引用块的左缘 */
   border-left: 4px solid var(--sl-color-gray-4) !important;
 }
+
+/* aside 中的文字 */
+.starlight-aside__content {
+  color: var(--sl-color-gray-2);
+}

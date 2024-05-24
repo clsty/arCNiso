@@ -20,15 +20,22 @@ sidebar:
 # 分步说明
 
 ## 准备 Docker 容器
+
+:::note[声明]
 以下操作并不特定于某发行版，但仅实际测试于 Debian Linux 宿主机。
+:::
 
-:::note[镜像来源]
-Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/archlinux/archlinux-docker) 提供了多个镜像地址，这里以 `quay.io` 为例，请据网络情况自行选择较快的地址。
 
+:::note[提示]
 命令 `docker images/rmi` 可以列出/删除镜像。
 :::
 
-拉取 Arch Linux 的 base 版本镜像，并由它创建容器：
+首先（自动）拉取 Arch Linux 的 base 版本镜像，并由它创建容器。
+
+Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/archlinux/archlinux-docker) 提供了多个镜像地址，这里以 `quay.io` 为例，请据网络情况自行选择较快的地址。
+
+> 命令解释：
+>
 > 名为 arch（`--name arch`）、允许终端登录（`-t`）并后台运行（`-d`）、持续运行（`--restart=unless-stopped`）、允许 mount（`--privileged`）。
 >
 > 加 `-p <宿主端口>:<容器端口>` 映射端口。
@@ -36,7 +43,8 @@ Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/a
 > 加 `-v <宿主目录路径>:<容器目录路径>` 将宿主机目录映射到容器内。
 > 注意，如果想要映射目录的话最好趁现在，之后会比较麻烦。
 
-（以下两种 `docker run` 二选一）
+以下两种 `docker run` 二选一：
+
 ```bash
 # 映射目录（根据实际需要自行修改 -v 参数）
 sudo docker run \
