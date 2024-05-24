@@ -310,7 +310,6 @@ usb_modeswitch
 usbmuxd
 usbutils
 vpnc
-wezterm-terminfo
 wireless-regdb
 wireless_tools
 wpa_supplicant
