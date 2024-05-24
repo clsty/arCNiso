@@ -20,15 +20,15 @@ sidebar:
 # 分步说明
 
 ## 准备 Docker 容器
-参见 [archlinux/archlinux-docker](https://github.com/archlinux/archlinux-docker)，以 Debian Linux 作为宿主机为例。
+以下操作并不特定于某发行版，但仅实际测试于 Debian Linux 宿主机。
 
-拉取镜像：
-```bash
-#（docker images/rmi 可以列出/删除镜像）
-sudo docker pull ghcr.io/archlinux/archlinux:latest
-```
+:::note[镜像来源]
+Arch Linux 官方的 [archlinux/archlinux-docker](https://gitlab.archlinux.org/archlinux/archlinux-docker) 提供了多个镜像地址，这里以 `quay.io` 为例，请据网络情况自行选择较快的地址。
 
-从镜像创建容器：
+命令 `docker images/rmi` 可以列出/删除镜像。
+:::
+
+拉取 Arch Linux 的 base 版本镜像，并由它创建容器：
 > 名为 arch（`--name arch`）、允许终端登录（`-t`）并后台运行（`-d`）、持续运行（`--restart=unless-stopped`）、允许 mount（`--privileged`）。
 >
 > 加 `-p <宿主端口>:<容器端口>` 映射端口。
@@ -39,15 +39,26 @@ sudo docker pull ghcr.io/archlinux/archlinux:latest
 （以下两种 `docker run` 二选一）
 ```bash
 # 映射目录（根据实际需要自行修改 -v 参数）
-sudo docker run -v $HOME/arCNiso-build:/home/archer/arCNiso --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
+sudo docker run \
+  -v $HOME/arCNiso-build:/home/archer/arCNiso \
+  --privileged -dt \
+  --restart=unless-stopped \
+  --name arch \
+  quay.io/archlinux/archlinux:latest
 ```
 ```bash
 # 不映射目录
-sudo docker run --privileged -dt --restart=unless-stopped --name arch ghcr.io/archlinux/archlinux:latest
+sudo docker run \
+  --privileged -dt \
+  --restart=unless-stopped \
+  --name arch \
+  quay.io/archlinux/archlinux:latest
 ```
 
-> 提示：重复使用 `docker run` 可能会因容器重名而报错，此时须先将重名容器停止并删除。
-> 参见文档末尾附录。
+:::caution[提示]
+重复使用 `docker run` 可能会因容器重名而报错，此时须先将重名容器停止并删除。
+参见文档末尾附录。
+:::
 
 进入容器：
 ```bash
@@ -137,4 +148,3 @@ docker container rm <容器名或id>
 ```bash
 docker cp <源路径> <目标路径>
 ```
-
