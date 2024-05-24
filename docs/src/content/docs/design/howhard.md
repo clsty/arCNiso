@@ -35,7 +35,6 @@ arCNiso 本质上仍然是 archiso。
 |浏览器|lynx|Firefox 及其插件|
 |WiFi|iwctl|nmtui|
 |指针输入|无|鼠标、触摸屏、触控板|
-|安全启动|无|支持|
 
 ## 引导
 

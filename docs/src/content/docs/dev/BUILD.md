@@ -88,6 +88,10 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 ## 安全启动支持（可选，耗时未知）
 
+:::caution
+shim 最近更新之后强制要求 SBAT，而本项目在安全启动实现上的上游项目未随之更新，所以安全启动可能会出现问题。参见 https://github.com/rhboot/shim/blob/main/SBAT.md
+:::
+
 为了支持安全启动，需要对 mkarchiso 进行修改。
 而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.patch` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。
 
@@ -114,7 +118,10 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 ```bash
 ./patchedmkarchiso/PATCH.sh
 ```
-  并确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
+:::caution[提示]
+- 请确保按照提示将 `./patchedmkarchiso/mkarchiso` 打补丁到位。
+- 若想取消安全启动支持，删除 `./patchedmkarchiso/mkarchiso` 再执行后续步骤完成构建即可。
+:::
 
 :::note[时效性]
 本项目会持续追踪 mkarchiso 的更新，在已经追踪到最新的 mkarchiso 的前提下，`PATCH.sh` 应当能顺利执行且无须手动操作；即使追踪不够及时，patch 工具也有一定的容错性，手动操作的工作量不至于太多。
