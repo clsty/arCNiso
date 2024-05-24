@@ -12,7 +12,7 @@ sidebar:
 ## 法一：在 Arch Linux 系统中构建
 - 一个可联网的、AMD64 架构的 Arch Linux 系统。
 - 以普通用户身份登录，且具有 sudo 权限。
-## 法二：要在 Docker 容器中构建
+## 法二：在 Docker 容器中构建
 参见[构建说明（Docker 版）](/dev/buildindocker)。
 
 # 分步说明
@@ -87,10 +87,6 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 
 
 ## 安全启动支持（可选，耗时未知）
-
-:::caution
-shim 最近更新之后强制要求 SBAT，而本项目在安全启动实现上的上游项目未随之更新，所以安全启动可能会出现问题。参见 https://github.com/rhboot/shim/blob/main/SBAT.md
-:::
 
 为了支持安全启动，需要对 mkarchiso 进行修改。
 而 mkarchiso 脚本来自 Arch Linux 官方，可能不断更新，从而导致旧的补丁（指 `mkarchiso.patch` ）无效，加上其他的情况变动，均可能需要手动调整修改脚本、排查并解决问题。因此，若需要安全启动支持，则视顺利程度，耗时下限低于 5 分钟，上限则无穷大。

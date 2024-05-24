@@ -12,9 +12,6 @@ sidebar:
 
 ## 安全启动
 利用 shim 添加了安全启动支持。
-:::caution
-shim 最近更新之后强制要求 SBAT，而本项目在安全启动实现上的上游项目未随之更新，所以安全启动可能会出现问题。参见 https://github.com/rhboot/shim/blob/main/SBAT.md
-:::
 
 :::note
 这只是说，在开启安全启动时可以正常启动 arCNiso，并非是使用 arCNiso 安装的系统一定支持安全启动。当然，若要安装一份支持安全启动的 Linux，则本身支持安全启动的 Live CD 也是便利的。
