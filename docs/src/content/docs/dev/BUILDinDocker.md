@@ -104,10 +104,10 @@ su - archer
 
 之后每次从宿主机进入此 docker 环境，可使用以下命令：
 ```bash
-sudo docker exec -it -u archer -w /home/archer arch /bin/bash
-# 或者
 sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 ```
+这指定了在容器内的工作目录为 `/home/archer/arCNiso`，可按需调整。
+
 余下步骤参见[构建说明](/dev/build)（直接在 docker 环境中执行相应操作即可）。
 
 而在得到生成的镜像文件之后，可以使用 `docker cp` 等方法将其取出容器

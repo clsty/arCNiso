@@ -1,0 +1,772 @@
+#+TITLE: Emacs 配置文件
+#+AUTHOR: Celestial.y
+#+PROPERTY: header-args :tangle yes
+
+# STARTUP: overview
+
+* 序
+这是 arCNiso 默认的 Emacs 配置，采用 Org-mode 加 tangle 的方式组织而成。
+
+** 致谢
+- Lars Tveito，本配置部分借鉴了[[https://github.com/larstvei/dot-emacs][其 Emacs 配置]]。
+- Emacs 社区，提供了分布于 Emacs China、EmacsWiki、GitHub 等地方的关于 Emacs 的大量资料。
+  
+** 使用
+在每次修改 =init.0.org= 之后，应当按 =C-c C-v t= 来 tangle 此文件。
+
+此文件的顶部已经有了 =#+PROPERTY: header-args :tangle yes= ，
+因此各代码块默认会被 tangle，除非加 =:tangle no= 。
+
+用 =:tangle <file>= 指定 tangle 的目标文件。
+- 若不指定，则目标默认为与本文件文件名相同、扩展名不同的文件。
+- 可指定绝对或相对路径；若指定相对路径，则它相对于本文件所在目录。
+
+** init.el
+*** 初始化
+当 =init.0.el= 不存在时，进行 tangle 并重启 emacs。
+
+#+begin_src emacs-lisp :tangle init.el
+;;; -*- lexical-binding: t -*-
+;;; This file is generated from init.0.org, do not edit manually.
+
+(unless (file-exists-p (concat user-emacs-directory "init.0.el"))
+  (progn
+    (require 'org)
+    (find-file (concat user-emacs-directory "init.0.org"))
+    (org-babel-tangle)
+    (restart-emacs)
+    ))
+#+end_src
+
+*** 加载配置
+加载其他 elisp 文件。
+
+#+begin_src emacs-lisp :tangle init.el
+(setq custom-file (concat user-emacs-directory "custom.el"))
+
+; 在 init.0.el 之前加载
+(let ((init--1 (concat user-emacs-directory "init.-1.el"))
+      (init--2 (concat user-emacs-directory "init.-2.el"))
+      (init--3 (concat user-emacs-directory "init.-3.el")))
+  (when (file-exists-p init--3) (load-file init--3))
+  (when (file-exists-p init--2) (load-file init--2))
+  (when (file-exists-p init--1) (load-file init--1)))
+
+; 在 init.0.el 之后加载
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (let ((init-1 (concat user-emacs-directory "init.1.el"))
+         (init-2 (concat user-emacs-directory "init.2.el"))
+         (init-3 (concat user-emacs-directory "init.3.el"))
+         (private-file (concat user-emacs-directory "private.el")))
+     (when (file-exists-p init-1) (load-file init-1))
+     (when (file-exists-p init-2) (load-file init-2))
+     (when (file-exists-p init-3) (load-file init-3))
+     (when (file-exists-p private-file) (load-file private-file))
+     (when (and custom-file (file-exists-p custom-file)) (load-file custom-file))
+  ;        (server-start)
+     )))
+
+; 加载 init.0.el
+(load-file (concat user-emacs-directory "init.0.el"))
+#+end_src
+
+*** 自动 tangle
+为了避免每次发生变化都要手动 tangle，
+可以限定对本文件自定义一个函数加到 =after-save-hook=​，
+确保在 =org= 文件发生变化后总是 tangle 它。
+
+当然，以下配置决定了仅在 =user-emacs-directory= 与本文件所在目录相同时才会有用。
+
+#+begin_src emacs-lisp :tangle init.el
+    (defun tangle-for-init ()
+      "Tangle all blocks."
+      ;; Avoid running hooks when tangling.
+      (let ((prog-mode-hook nil))
+        (org-babel-tangle)
+        ))
+
+    ; 仅当本文件是 Emacs 配置目录下的 init.0.org 时，才添加到 after-save-hook
+    (add-hook
+     'org-mode-hook
+     (lambda ()
+       (when
+           (equal
+            (buffer-file-name)
+            (expand-file-name
+             (concat
+              user-emacs-directory
+              "init.0.org")))
+         (add-hook
+          'after-save-hook
+          'tangle-for-init
+          nil t))))
+#+end_src
+
+
+* 初始设置
+** lexical scoping
+至于什么是 lexical scoping，参见[[https://www.emacswiki.org/emacs/DynamicBindingVsLexicalBinding][这里]]。
+
+#+begin_src emacs-lisp :tangle init.-3.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp :tangle init.-2.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp :tangle init.-1.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp :tangle init.1.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp :tangle init.2.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+#+begin_src emacs-lisp :tangle init.3.el
+;;; -*- lexical-binding: t -*-
+#+end_src
+
+* 性能优化
+** GC
+在配置文件开头，提升 GC（garbage collection）的阈值 ~gc-cons-threshold~
+到一个非常大的值（默认是 800 kB）以降低触发 GC 的频率，
+从而缩短启动时间。
+
+在配置末尾（通过 =emacs-startup-hook= 或 =after-init-hook=​）再降回来。
+
+#+begin_src emacs-lisp :tangle early-init.el
+(setq gc-cons-threshold most-positive-fixnum)
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 100 1024 1024))))
+#+end_src
+
+注：这里利用了乘法命令来换算单位，例如 =(* 20 1024 1024)= 就是 20 MiB。
+
+** 禁用 compile
+Native compile 提升的性能并不明显，反而可能有负作用。
+
+#+begin_src emacs-lisp :tangle early-init.el
+  (setq native-comp-speed -1)
+  (setq-default no-native-compile t)
+  (setq comp-deferred-compilation nil)
+#+end_src
+
+** 禁用 bidi
+参见： https://emacs-china.org/t/topic/25811/8
+
+这可以优化超大规模文件的编辑性能。
+部分滥用 bidi 的插件可能无法正常工作，对这些插件单独启用 bidi 即可。
+
+#+begin_src emacs-lisp
+(setq-default bidi-display-reordering nil)
+(setq bidi-inhibit-bpa t
+      long-line-threshold 1000
+      large-hscroll-threshold 1000
+      syntax-wholeline-max 1000)
+#+end_src
+
+** 启动时间检测
+提示：可运行此命令来测试理论上的最短启动时间：
+#+begin_src bash :tangle no
+emacs -q --eval='(message "%s" (emacs-init-time))'
+#+end_src
+其中 =-q= 忽略用户 emacs 文件但加载 site 文件。
+
+加入时间检测：
+#+begin_src emacs-lisp
+  (add-hook 'emacs-startup-hook
+      (lambda ()
+          (message "Emacs ready in %s with %d garbage collections."
+              (format "%.2f seconds"
+                  (float-time
+                      (time-subtract after-init-time before-init-time)))
+          gcs-done)))
+#+end_src
+
+esup 能分析出更详细的信息。
+参见： https://github.com/jschaf/esup
+
+#+begin_src emacs-lisp
+(use-package esup
+  :ensure t
+  :pin melpa)
+(autoload 'esup "esup" "Emacs Start Up Profiler." nil)
+#+end_src
+
+
+* 插件加载与包管理
+** use-package
+[[https://lists.gnu.org/archive/html/emacs-devel/2022-12/msg00261.html][自 Emacs 29]]，[[https://github.com/jwiegley/use-package][use-package]] 成为内置的包。
+
+#+begin_src emacs-lisp :tangle init.-2.el
+(require 'package) ; 加载 package.el
+(require 'use-package)
+(setq use-package-always-ensure t)
+(setq package-check-signature nil) ; 是否检查签名
+#+end_src
+** 仓库
+注意，由于 Emacs 的 bug，URL 末尾必须为 =/=​。
+
+- gnu：一般是必备的，其它的 elpa 中的包会依赖 gnu 中的包。
+- nongnu：建议启用，类似于 melpa 但是 Emacs 官方维护的。
+- melpa：滚动升级，收录了的包的数量最大。
+- stable-melpa：依据源码的 Tag （Git）升级，数量比 melpa 少，因为很多包作者根本不打 Tag。
+  - 也有部分作者即使打了 Tag 也不推荐使用 stable-melpa。
+- org：仅仅为了 org-plus-contrib 这一个包，供 org-mode 重度用户使用
+- gnu-devel：收录 gnu 中的包的开发中版本，一般不必启用（与 gnu 的关系类似于 melpa 与 stable-melpa 的关系）
+- nongnu-devel：收录 nongnu 中的包的开发中版本，一般不必启用
+
+参考配置：
+#+begin_src emacs-lisp :tangle no
+(setq package-archives
+      '(("GNU ELPA"     . "https://elpa.gnu.org/packages/")
+        ("MELPA Stable" . "https://stable.melpa.org/packages/")
+        ("MELPA"        . "https://melpa.org/packages/")))
+#+end_src
+
+不过这里我们采用镜像源：
+#+begin_src emacs-lisp :tangle init.-2.el
+(setq package-archives '(("gnu" . "https://mirrors.cernet.edu.cn/elpa/gnu/")
+                         ("nongnu" . "http://mirrors.cernet.edu.cn/elpa/nongnu/")
+                         ("melpa-stable" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/stable-melpa/")
+                         ("melpa" . "https://mirrors.cernet.edu.cn/elpa/melpa/")
+                         ("nongnu" . "https://mirrors.cernet.edu.cn/elpa/nongnu/")))
+#+end_src
+
+最后再配置优先级：
+#+begin_src emacs-lisp :tangle init.-2.el
+(setq package-archive-priorities
+      '(("gnu"          . 10)
+        ("nongnu"       . 7)
+        ("melpa"        . 5)
+        ("melpa-stable" . 0)))
+#+end_src
+
+其他配置：
+#+begin_src emacs-lisp :tangle no
+; 自动安装所有使用 use-package 声明的插件
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+#+end_src
+
+未启用的配置：
+#+begin_src emacs-lisp :tangle no
+; 刷新插件列表
+(unless package-archive-contents (package-refresh-contents))
+(use-package quelpa
+  :ensure t
+  :commands quelpa
+  :custom
+  (quelpa-git-clone-depth 1)
+  (quelpa-self-upgrade-p nil)
+  (quelpa-update-melpa-p nil)
+  (quelpa-checkout-melpa-p nil))
+#+end_src
+
+** 其他包的加载
+直接用 =load-path= 可以指定 Emacs 在哪里寻找 Elisp 即 =*.el= 文件，但以下要做到递归。
+
+这里借鉴懒猫的实现。
+参见 https://manateelazycat.github.io/2022/03/02/emacs-load-directory-recursively/
+
+#+begin_src emacs-lisp :tangle init.-2.el :hidden t
+  (defun add-subdirs-to-load-path (search-dir)
+    (interactive)
+    (require 'cl-lib)
+    (let* ((dir (file-name-as-directory search-dir)))
+      (dolist (subdir
+               ;; 过滤出不必要的目录， 提升 Emacs 启动速度
+               (cl-remove-if
+                #'(lambda (subdir)
+                    (or
+                     ;; 不是目录的都移除
+                     (not (file-directory-p (concat dir subdir)))
+                     ;; 目录匹配下面规则的都移除
+                     (member subdir '("." ".." ;Linux 当前目录和父目录
+                                      "dist" "node_modules" "__pycache__" ;语言相关的模块目录
+                                      "RCS" "CVS" "rcs" "cvs" ".git" ".github")))) ;版本控制目录
+                (directory-files dir)))
+        (let ((subdir-path (concat dir (file-name-as-directory subdir))))
+          ;; 目录下有 .el .so .dll 文件的路径才添加到 load-path 中， 提升 Emacs 启动速度
+          (when (cl-some #'(lambda (subdir-file)
+                             (and (file-regular-p (concat subdir-path subdir-file))
+                                  ;; .so .dll 文件指非 Elisp 语言编写的 Emacs 动态库
+                                  (member (file-name-extension subdir-file) '("el" "so" "dll"))))
+                         (directory-files subdir-path))
+
+            ;; 注意： add-to-list 函数的第三个参数必须为 t ， 表示加到列表末尾
+            ;; 这样 Emacs 会从父目录到子目录的顺序搜索 Elisp 插件， 顺序反过来会导致 Emacs 无法正常启动
+            (add-to-list 'load-path subdir-path t))
+
+          ;; 继续递归搜索子目录
+          (add-subdirs-to-load-path subdir-path)))))
+
+  (add-subdirs-to-load-path (concat user-emacs-directory "locext/"))
+#+end_src
+
+* 一些合理的默认设置
+- Q: 为什么有时要 =setq-default= 而不是 =setq= ？
+- A: 有一些变量是缓冲区局部（buffer-local）的，
+  所以用 =setq= 来设置它们的值仅能在单个缓冲区改变它们，
+  而应当使用 =setq-default= 来配置它们的默认值。
+** 编码
+
+#+begin_src emacs-lisp
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+(set-buffer-file-coding-system 'utf-8-unix)
+(set-clipboard-coding-system 'utf-8-unix)
+(set-file-name-coding-system 'utf-8-unix)
+(set-keyboard-coding-system 'utf-8-unix)
+(set-next-selection-coding-system 'utf-8-unix)
+(set-selection-coding-system 'utf-8-unix)
+(set-terminal-coding-system 'utf-8-unix)
+(setq locale-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+#+end_src
+
+** 自动保存与备份
+确保自动保存与备份的文件都放在同一个目录下。
+#+begin_src emacs-lisp
+  (setq backup-by-copying t ; 自动备份
+        delete-old-versions t ; 自动删除旧的备份文件
+        kept-new-versions 6 ; 保留最近备份文件数量
+        kept-old-versions 2 ; 保留最早备份文件数量
+        version-control t) ; 多次备份
+ ; 路径位置
+  (defvar emacs-autosave-directory
+    (concat user-emacs-directory ".autosaves/")
+    "This variable dictates where to put auto saves.")
+  (setq
+   ; 自动备份的路径位置
+   backup-directory-alist
+   `((".*" . ,emacs-autosave-directory))
+   ; 自动保存的路径位置
+   auto-save-file-name-transforms
+   `((".*" ,emacs-autosave-directory t)))
+#+end_src
+
+** 启动界面
+#+begin_src emacs-lisp
+  (setq 
+        inhibit-startup-screen t          ; 防止在外部调用 emacs 打开文件时，一半界面用来显示欢迎界面
+        initial-scratch-message nil       ; 清空新的 scratch 缓冲区
+)
+#+end_src
+
+** isearch-mb
+主要用来增强 isearch，以解决 emacs-rime 无法在 isearch 中使用的问题。
+
+- Q: 为什么不用 evil-search？
+- A: 因为只有 isearch 能搜到 org-mode 中被折叠的部分，见 https://github.com/emacs-evil/evil/issues/1630
+
+#+begin_src emacs-lisp
+  (load (concat user-emacs-directory "locext/isearch-mb/isearch-mb.el"))
+  (add-hook 'org-mode-hook 'isearch-mb-mode)
+#+end_src
+
+** 其他
+用单字母 =y= =n= 而不是 =yes= 和 =no= 来回答。
+#+begin_src emacs-lisp
+(fset 'yes-or-no-p 'y-or-n-p)
+#+end_src
+
+为 =doc-view-mode= 启用 =auto-revert-mode=​。[fn::auto-revert 即，当磁盘上的文件变化时，自动反向同步到缓冲区。]
+#+begin_src emacs-lisp
+(add-hook 'doc-view-mode-hook 'auto-revert-mode)
+#+end_src
+
+其他一些未启用的示例：
+#+begin_src emacs-lisp :tangle no :hidden t
+  (setq 
+        auto-revert-interval 1            ; Refresh buffers fast
+        default-input-method "TeX"        ; Use TeX when toggling input method
+        echo-keystrokes 0.1               ; Show keystrokes asap
+        enable-recursive-minibuffers t    ; Allow recursive minibuffers
+        frame-inhibit-implied-resize 1    ; Don't resize frame implicitly
+        recentf-max-saved-items 10000     ; Show more recent files
+        ring-bell-function 'ignore        ; Quiet
+        sentence-end-double-space nil     ; 默认值 t 的行为：单空格不会结束一个句子。受影响的函数是 sentence-end，被用于正则匹配。
+  )
+  (setq-default 
+                fill-column 79                    ; Maximum line width
+                split-width-threshold 160         ; Split verticly by default
+                split-height-threshold nil        ; Split verticly by default
+                frame-resize-pixelwise t          ; Fine-grained frame resize
+                auto-fill-function 'do-auto-fill  ; Auto-fill-mode everywhere
+  )
+#+end_src
+
+* 按键绑定
+** 自定义 map 与 mode
+参见： [[http://stackoverflow.com/questions/683425/globally-override-key-binding-in-emacs][StackOverflow]]
+
+自定义一个 =custom-bindings-map= 来存放所有的自定义按键绑定。
+这样做有很多好处，比如只要禁要这个 map，别人就能直接使用你的 Emacs。
+
+#+begin_src emacs-lisp :tangle init.-1.el
+(defvar custom-bindings-map (make-keymap)
+  "A keymap for custom bindings.")
+#+end_src
+
+只需要切换辅模式就能切换启用这个 map。
+为了防止其他主模式覆盖这些绑定，这里放在最后加载。
+
+#+begin_src emacs-lisp :tangle init.3.el
+(define-minor-mode custom-bindings-mode
+  "A mode that activates custom-bindings."
+  :init-value t
+  :keymap custom-bindings-map)
+#+end_src
+
+** Evil
+
+#+begin_src emacs-lisp
+(setq evil-undo-system 'undo-redo) ;须先设置，再加载 evil
+(setq evil-search-module 'isearch) ;如果不设置这个，在切换输入法时搜索栏会消失
+(setq evil-want-keybinding nil)
+(setq evil-want-keybindings nil)
+(use-package evil)
+(use-package evil-collection)
+; 不加 require 会报 warning，要求先设置 evil-want-keybinding 为 nil，即使已经这么设了
+(require 'evil)
+(require 'evil-collection)
+(evil-mode 1)
+(evil-collection-init)
+;(define-key evil-insert-state-map (kbd "C-n") nil)
+;(define-key evil-insert-state-map (kbd "C-p") nil)
+
+(define-key evil-normal-state-map (kbd "C-=") #'text-scale-adjust)
+(define-key evil-normal-state-map (kbd "C--") #'text-scale-adjust)
+#+end_src
+
+*** evil-tutor-sc
+简体中文的 evil 实践式教程。
+#+begin_src emacs-lisp :tangle no
+  (use-package evil-tutor-sc)
+#+end_src
+
+* 外观
+
+** 减法
+#+begin_src emacs-lisp :tangle early-init.el
+  ; 禁用一些辅模式
+  (dolist (mode
+           '(tool-bar-mode     ; 工具栏
+;             menu-bar-mode     ; 菜单栏
+             scroll-bar-mode   ; 滚动栏
+             blink-cursor-mode ; 闪烁光标
+  )) (funcall mode 0))
+#+end_src
+
+** 主题
+#+begin_src emacs-lisp
+(use-package nord-theme)
+#+end_src
+
+简单加载，但不适用于 Emacs daemon 模式
+#+begin_src emacs-lisp :tangle no
+(add-hook 'after-init-hook (lambda ()
+  (load-theme 'nord t)
+))
+#+end_src
+
+适用于 Emacs daemon 模式，但似乎可能会有问题。
+#+begin_src emacs-lisp
+(if (daemonp)
+    (cl-labels ((load-nord (frame)
+                           (with-selected-frame frame
+                             (load-theme 'nord t))
+                           (remove-hook 'after-make-frame-functions #'load-nord)))
+      (add-hook 'after-make-frame-functions #'load-nord))
+  (load-theme 'nord t))
+#+end_src
+
+适用于 Emacs daemon 模式，但注意不适用于终端，见 https://github.com/nordtheme/emacs/issues/59#issuecomment-611610832
+#+begin_src emacs-lisp :hidden t :tangle no
+(defvar my:theme 'nord)
+(defvar my:theme-window-loaded nil)
+(defvar my:theme-terminal-loaded nil)
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions(lambda (frame)
+                                          (select-frame frame)
+                                          (if (window-system frame)
+                                              (unless my:theme-window-loaded
+                                                (if my:theme-terminal-loaded
+                                                    (enable-theme my:theme)
+                                                  (load-theme my:theme t))
+                                                (setq my:theme-window-loaded t)
+                                                )
+                                            (unless my:theme-terminal-loaded
+                                              (if my:theme-window-loaded
+                                                  (enable-theme my:theme)
+                                                (load-theme my:theme t))
+                                              (setq my:theme-terminal-loaded t)
+                                              )
+                                            )))
+
+  (progn
+    (load-theme my:theme t)
+    (if (display-graphic-p)
+        (setq my:theme-window-loaded t)
+      (setq my:theme-terminal-loaded t)))
+  )
+#+end_src
+
+另一种方案是在启动 emacsclient 的参数里加 =--eval "(load-theme 'nord t)"=​，但这可能会降低 Emacs 启动速度。
+
+与主题相适应的一些外观调整：
+#+begin_src emacs-lisp :tangle early-init.el
+  ; 菜单栏配色
+  (set-face-attribute 'menu nil
+                      :inverse-video nil
+                      :background "black"
+                      :foreground "white"
+                      :bold t)
+  ; 背景透明
+  (add-to-list 'default-frame-alist '(alpha-background . 60))
+#+end_src
+
+** 自动折行（换行）
+#+begin_src emacs-lisp
+(setq-default truncate-lines nil)
+(add-hook 'org-mode-hook
+	  (lambda()
+	    (setq truncate-lines nil)))
+#+end_src
+
+** 字体
+#+begin_src emacs-lisp
+;(add-to-list 'default-frame-alist '(font . "LXGW WenKai Mono-20"))
+(set-face-attribute 'default t :font "LXGW WenKai Mono-20")
+#+end_src
+
+** 行号栏
+#+begin_src emacs-lisp :tangle early-init.el
+(global-display-line-numbers-mode 1)
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-current-absolute t)
+; 防止因为行号位数不同，导致光标上下移动时界面左右晃动
+(setq display-line-numbers-grow-only t)
+;(setq display-line-numbers-width 4)
+#+end_src
+
+** 滚动
+#+begin_src emacs-lisp
+  ;(add-to-list 'load-path (concat user-emacs-directory "locext/good-scroll.el"))
+  (load (concat user-emacs-directory "locext/good-scroll.el/good-scroll.el"))
+  (good-scroll-mode 1)
+  (global-set-key (kbd "<f10>") #'good-scroll-up-full-screen)
+  (global-set-key (kbd "<f12>") #'good-scroll-down-full-screen)
+
+  (load (concat user-emacs-directory "locext/iscroll/iscroll.el"))
+  (iscroll-mode 1)
+  ;(setq scroll-margin 5) ; 光标与窗口上下边缘的距离
+  ;https://github.com/casouri/iscroll
+#+end_src
+
+** 复制粘贴、鼠标、菜单
+#+begin_src emacs-lisp
+(context-menu-mode 1)
+(use-package xclip)
+(xclip-mode 1)
+(setq select-enable-clipboard t)
+(use-package evil-terminal-cursor-changer)
+(unless (display-graphic-p)
+  (require 'evil-terminal-cursor-changer)
+  (evil-terminal-cursor-changer-activate) ; or (etcc-on)
+  (xterm-mouse-mode 1)
+  )
+#+end_src
+
+** 缩进
+#+begin_src emacs-lisp
+(setq-default tab-width 2) ;; 一个 tab 的字符宽
+(setq-default indent-tabs-mode nil) ;; 是否使用真实的 tab（否则替换成空格）
+#+end_src
+
+** 折叠
+#+begin_src emacs-lisp
+(use-package folding)
+
+(if (require 'folding nil 'noerror)
+        (folding-mode-add-find-file-hook)
+      (message "Library `folding' not found"))
+(folding-add-to-marks-list 'emacs-lisp-mode   ";;{{{" ";;}}}") (add-hook 'emacs-lisp-mode-hook #'folding-mode)
+(folding-add-to-marks-list 'shell-script-mode "# {{{" "# }}}") (add-hook 'shell-script-mode-hook #'folding-mode)
+(folding-add-to-marks-list 'org-mode      "# {{{" "# }}}") (add-hook 'org-mode-hook #'folding-mode)
+
+(define-key evil-normal-state-map "za" #'folding-toggle-show-hide)
+
+#+end_src
+
+** 辅助信息
+#+begin_src emacs-lisp
+(use-package which-key
+  :custom (which-key-idle-delay 0.5) ; 延迟时间, 以秒为单位
+  :config (which-key-mode)) ; 启用 which-key 模式
+
+; keycast 可能有点问题，再观察看看
+(use-package keycast
+  :config (keycast-header-line-mode 1)) ; 是否在标题显示
+
+(use-package helpful
+  :bind
+  ;; 将原本帮助系统的键位分配给 helpful
+  (([remap describe-function] . #'helpful-callable)
+   ([remap describe-variable] . #'helpful-variable)
+   ([remap describe-key] . #'helpful-key)
+   ([remap describe-command] . #'helpful-command)
+   ([remap describe-symbol] . #'helpful-symbol)
+   ; 新增两种帮助
+   ("C-h C-d" . #'helpful-at-point)
+   ("C-h F" . #'helpful-function)))
+
+(use-package marginalia ; 更多信息
+  :config (marginalia-mode))
+
+; 注意orderless这个插件可能与ivy冲突，使得在minibuffer里用tab补全（比如路径）时无法正常进行。
+(use-package ivy
+  :ensure t
+  :diminish ivy-mode
+  :hook (after-init . ivy-mode))
+#+end_src
+
+
+** 其他
+#+begin_src emacs-lisp
+(setq-default line-spacing 2) ; 行距
+#+end_src
+
+* Org 与 LaTeX
+** org-mode
+#+begin_src emacs-lisp :tangle init.-3.el
+(require 'org)
+#+end_src
+
+** Evil-org
+#+begin_src emacs-lisp
+;; evil-org
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode)))
+(setq evil-want-C-i-jump nil)
+#+end_src
+
+** valign表格对齐
+- https://github.com/casouri/valign
+- https://github.com/casouri/ftable
+#+begin_src emacs-lisp
+  (load (concat user-emacs-directory "locext/valign/valign.el"))
+  (require 'valign)
+  (load (concat user-emacs-directory "locext/ftable/ftable.el"))
+  (require 'ftable)
+  (add-hook 'org-mode-hook #'valign-mode)
+
+  (setq valign-fancy-bar t)
+#+end_src
+
+** Org 自动换行
+#+begin_src emacs-lisp
+(defun org-line-wrap ()
+  "org mode's line wrap automatically."
+  (setq-local word-wrap nil))
+(add-hook 'org-mode-hook 'org-line-wrap)
+#+end_src
+
+** 自动编号
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-num-mode)
+; 是否跳过UNNUMBERED的编号
+(setq org-num-skip-unnumbered t)
+#+end_src
+
+** 其他外观
+注：org-pretty-entities 会导致下划线几乎一律隐藏并显示为下标，
+即使它实际上并不是下标（比如，作为 PROPERTIES 中属性的键会正常显示，而作为值时就会显示为下标）。
+#+begin_src emacs-lisp
+(setq-default org-startup-indented t
+              org-pretty-entities nil
+              org-hide-emphasis-markers nil)
+#+end_src
+
+** org-modern
+#+begin_src emacs-lisp
+(load (concat user-emacs-directory "locext/org-modern/org-modern.el"))
+(require 'org-modern)
+(add-hook 'org-mode-hook 'global-org-modern-mode)
+(setq org-modern-block-name nil
+      org-modern-keyword nil
+      org-modern-checkbox nil
+      org-modern-table nil)
+#+end_src
+
+** faces
+设置Org mode标题以及每级标题行的大小
+以及 block 的上下沿、背景色
+#+begin_src emacs-lisp
+(custom-set-faces
+ '(org-document-title ((t (:height 1.75 :weight bold))))
+ '(org-level-1 ((t (:height 1.2 :weight bold))))
+ '(org-level-2 ((t (:height 1.15 :weight bold))))
+ '(org-level-3 ((t (:height 1.1 :weight bold))))
+ '(org-level-4 ((t (:height 1.05 :weight bold))))
+ '(org-level-5 ((t (:height 1.0 :weight bold))))
+ '(org-level-6 ((t (:height 1.0 :weight bold))))
+ '(org-level-7 ((t (:height 1.0 :weight bold))))
+ '(org-level-8 ((t (:height 1.0 :weight bold))))
+ '(org-level-9 ((t (:height 1.0 :weight bold))))
+ '(org-block ((t (:background "rgba(0, 0, 0, 0.5)"))))
+ '(org-block-begin-line ((t (:underline nil :background "rgba(30, 40, 50, 0.2)"))))
+ '(org-block-end-line ((t (:overline nil :underline nil :background "rgba(30, 40, 50, 0.2)")))))
+
+(setq org-fontify-whole-heading-line t)
+(setq org-fontify-quote-and-verse-blocks t)
+#+end_src
+
+** org 插入图片
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook 'org-display-inline-images)
+(setq org-image-actual-width '(900))
+#+end_src
+
+** 其他
+支持代码块自动折叠
+用法：在 begin_src 后面加 :hidden t
+https://emacs.stackexchange.com/questions/44914/choose-individual-startup-visibility-of-org-modes-source-blocks
+#+begin_src emacs-lisp :hidden t
+  (defun individual-visibility-source-blocks ()
+    "Fold some blocks in the current buffer."
+    (interactive)
+    (org-fold-show-all '(blocks))
+    (org-block-map
+     (lambda ()
+       (let ((case-fold-search t))
+         (when (and
+                (save-excursion
+                  (beginning-of-line 1)
+                  (looking-at org-block-regexp))
+                (cl-assoc
+                 ':hidden
+                 (cl-third
+                  (org-babel-get-src-block-info))))
+           (org-fold-hide-block-toggle))))))
+
+  (add-hook
+   'org-mode-hook
+   (function individual-visibility-source-blocks))
+#+end_src
+
+* sudo edit
+#+begin_src emacs-lisp
+(use-package auto-sudoedit)
+(auto-sudoedit-mode 1)
+#+end_src

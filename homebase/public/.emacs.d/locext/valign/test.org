@@ -1,0 +1,262 @@
+   | $A_4$ | $n_c$ | c        | $1$ | $1'$         | $1''$        |  3 |
+   |-------+-------+----------+-----+--------------+--------------+----|
+   | 1     |     1 | I        |   1 | 1            | 1            |  3 |
+   | $Z_2$ |     3 | (12)(34) |   1 | 1            | 1            | -1 |
+   | $Z_3$ |     4 | (123)    |   1 | $\omega$     | $\omega^{*}$ |  0 |
+   | $Z_3$ |     4 | (132)    |   1 | $\omega^{*}$ | $\omega$     |  0 |
+
+| 111111111111111111111111111111111111111111111111111111111111                                                     |
+| 我我我我我我我我我我我我我我我我我我我我我我我我我我我我                                                         |
+| 我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我我 |
+|                                                                                                                  |
+|                                                                                                                  |
+
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+
++ hi
++ good
++ gosh
+
+- wow
+- list
+
+
+#+begin_example
+|---+------------------------------|               |---+--------|
+|   |                              |               |   | <6>    |
+| 1 | one                          |               | 1 | one    |
+| 2 | two                          |     ----\     | 2 | two    |
+| 3 | This is a long chunk of text |     ----/     | 3 | This=> |
+| 4 | four                         |               | 4 | four   |
+|---+------------------------------|               |---+--------|
+#+end_example
+
+Unicode table:
+┌─────────────────────────┬─────────────────────────────────────────┐
+│Options                  │Description                              │
+├─────────────────────────┼─────────────────────────────────────────┤
+│~zeft-directory~         │Directory in where notes are stored.     │
+│                         │Must be a full path.                     │
+├─────────────────────────┼─────────────────────────────────────────┤
+│~zeft-find-file-hook~    │Hook run when Zeft opens a file.         │
+├─────────────────────────┼─────────────────────────────────────────┤
+│~zeft-selection~         │Face for the current selected search     │
+│                         │result.                                  │
+├─────────────────────────┼─────────────────────────────────────────┤
+│~zeft-inline-highlight~  │Face for inline highlighting in Zeft     │
+│                         │buffer.                                  │
+├─────────────────────────┼─────────────────────────────────────────┤
+│~zeft-preview-highlight~ │Face for highlighting in the preview     │
+│                         │buffer.                                  │
+└─────────────────────────┴─────────────────────────────────────────┘
+
+
+* Foo
+** Bar
+*** Baz
+| foo   | bar           | baz      |
+| thing | (foo bar baz) | bla      |
+| foo   | bar           | asdfasdf |
+| <0>   |               |          |
+
+* H
+
+|    Header |
+|-----------|
+|      Body |
+|      Text |
+|      Cell |
+|         3 |
+|         4 |
+|         5 |
+| 888888888 |
+|         4 |
+
++--+--------------------+-----------------+-----------------------+
+|  |Cardiorespiratory   |Strength         |Flexibility Training   |
+|  |Endurance           |Training         |                       |
++--+--------------------+-----------------+-----------------------+
+|F |Most days of the    |2–3 days/week    |2–3 days/week; ideally |
+|  |week                |non-consecutive  |5–7 days/week          |
++--+--------------------+-----------------+-----------------------+
+|I |55–85% of max heart |Should fatigue   |Feel slight tension    |
+|  |rate                |the muscle       |during the stretch,    |
+|  |                    |                 |but not pain           |
++--+--------------------+-----------------+-----------------------+
+|T |30–60 minutes or 20 |8–12 reps for 1  |2–4 reps holding each  |
+|  |minutes of vigorous |or more sets of  |stretch for 10–30      |
+|  |activity            |8–10 exercises   |seconds                |
++--+--------------------+-----------------+-----------------------+
+|T |Continuous activity |All major muscle |All major joints       |
+|  |that uses large     |groups           |                       |
+|  |muscle groups       |                 |                       |
++--+--------------------+-----------------+-----------------------+
+
++-----+-------------+-----+------+
+|你好 |中文长点更长 |     |      |
++-----+-------------+-----+------+
+|good |hi           |表格 |table |
++-----+-------------+-----+------+
+|     |             |     |      |
++-----+-------------+-----+------+
+|     |             |     |      |
++-----+-------------+-----+------+
+
++--------------------+--------------------+
+|这是一行中文       |这还是一行中文     |
++--------------------+--------------------+
+|HHH                |III                |
++--------------------+--------------------+
+
+#+latex: : | Table      | Header         | Header |
+|------------+---------------------------------+----|
+| 汉字中文…… | ddddddddddddddddddddddddddddddd | CC |
+| Serif……    | Variable width                  |    |
+#+latex: : Table 
+
+| Peace          | August       | Love |
+|----------------+--------------+------|
+| ssh tunnel     | woome        |  23f |
+| 对齐等宽       | 日本語もいい |   89 |
+| 中文汉字       | 感动         |  133 |
+| rgfe           | 图片         |   12 |
+| variable-pitch | x            |   13 |
+| thirteen       | Ω            |   88 |
+| great          | www          |   98 |
+
+**** header
+#+name: hey
+| a    | b            |    |
+|------+--------------+----|
+| 你好 | +我不好+     |    |
+| hi   | good morning |    |
+| ~hi~ | good         | hi |
+
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+
+
+* header
+
+|          |   | hi |
+| 测试一下 |   |    |
+| [[www.veemo.com][link]]     |   |    |
+
+|----------------------------------+---+---|
+| Data Zone                        |   |   |
+|                                  |   |   |
+| [[/Users/yuan/t/20200616151642.png]] |   |   |
+|                                  |   |   |
+|                                  |   |   |
+|                                  |   |   |
+|----------------------------------+---+---|
+
+* Large table
+
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+| header file                             | compile time (s) |
+|-----------------------------------------+------------------|
+| =ks/reco/leaf/common.h=                 |           35.487 |
+| =ks/reco/util/util_session_parameter.h= |            8.200 |
+| =ks/reco/util/config_key.h=             |            3.800 |
+| =serving_base/util/kconf_util.h=        |            3.526 |
+|                                         |                  |
+
+
+
+# Local Variables:
+# eval: (visual-line-mode -1)
+# End:

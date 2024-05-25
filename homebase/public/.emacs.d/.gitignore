@@ -1,0 +1,14 @@
+/auto-save-list
+/cache
+/eln-cache
+/elpa
+/transient
+/tramp
+/recentf
+/.autosaves/*
+/.org-id-locations
+
+/dirvish
+
+/init.*.el
+/early-init.el

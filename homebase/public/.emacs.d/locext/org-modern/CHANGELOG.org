@@ -1,0 +1,44 @@
+#+title: org-modern.el - Changelog
+#+author: Daniel Mendler
+#+language: en
+
+* Development
+
+- Add support for heading folding indicators. The option ~org-modern-star~ has
+  been changed to accept the values ~fold~, ~replace~ and ~nil~.
+- Add new customization options ~org-modern-replace-stars~ and
+  ~org-modern-fold-stars~.
+- Add ~org-modern-tag-faces~.
+- Add colored coded progress bars. The variable ~org-modern-progress~ specifies
+  the width of the bars.
+
+* Version 1.2 (2024-03-16)
+
+- =org-modern-star=, =org-modern-hide-stars=, =org-modern-progress=: Support string
+  values.
+
+* Version 1.1 (2023-12-01)
+
+- Bugfix: Do not use zero line width for box face attribute. Zero line widths
+  are disallowed in Emacs 30.
+
+* Version 1.0 (2023-12-01)
+
+- Bugfix: Remove line/wrap-prefix if fringe is enabled
+
+* Version 0.10 (2023-07-02)
+
+- Bugfixes.
+- Fix star prettification if =org-indent-mode= is enabled.
+- Prettify =filetags=.
+
+* Version 0.9 (2023-03-12)
+
+- Improve prettification of stars, such that line movement commands are not
+  affected negatively.
+- Use =natnum= custom types.
+- Depend on the Compat library.
+
+* Version 0.8 (2023-02-15)
+
+- Start of changelog.
