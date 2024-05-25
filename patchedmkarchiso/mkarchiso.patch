@@ -1,5 +1,5 @@
---- mkarchiso-original	2024-05-24 23:45:33.894614212 +0800
-+++ mkarchiso	2024-05-24 23:45:25.774628290 +0800
+--- mkarchiso-original	2024-05-25 12:55:09.971084592 +0800
++++ mkarchiso	2024-05-25 12:54:59.977109214 +0800
 @@ -1,6 +1,7 @@
  #!/usr/bin/env bash
 +# mkarchiso patched for arCNiso, mainly for secureboot.
@@ -196,7 +196,7 @@
 +    mcopy -i "${efibootimg}" \
 +        "${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootx64.efi" ::/EFI/BOOT/grubx64.efi
 +    if [[ -f db.cer ]] ;then
-+        mcopy -i "${efibootimg}" db.cer ::/EFI/BOOT/db.cer
++        mcopy -i "${efibootimg}" -D overwrite db.cer ::/EFI/BOOT/db.cer
 +    fi
  
      # Copy systemd-boot configuration files
