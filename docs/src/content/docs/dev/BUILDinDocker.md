@@ -40,12 +40,12 @@ sudo docker run \
   -v "$ARCN_DIR":/home/archer/arCNiso \
   --privileged -dt \
   --restart=unless-stopped \
-  --name arch \
+  --name arcn \
   quay.io/archlinux/archlinux:latest
 ```
 
 :::note[参数说明]
-- 名为 arch（`--name arch`），
+- 名为 arcn（`--name arcn`），
 - 允许终端登录（`-t`）并后台运行（`-d`），
 - 持续运行除非手动停止（`--restart=unless-stopped`），
 - 提权以允许挂载（`--privileged`），
@@ -65,7 +65,7 @@ sudo docker run \
 
 首先进入容器中的 bash：
 ```bash
-sudo docker exec -it arch /bin/bash
+sudo docker exec -it arcn /bin/bash
 ```
 
 由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
@@ -104,7 +104,7 @@ su - archer
 
 之后每次从宿主机进入此 docker 环境，可使用以下命令：
 ```bash
-sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
+sudo docker exec -it -u archer -w /home/archer/arCNiso arcn /bin/bash
 ```
 这指定了在容器内的工作目录为 `/home/archer/arCNiso`，可按需调整。
 
@@ -114,7 +114,7 @@ sudo docker exec -it -u archer -w /home/archer/arCNiso arch /bin/bash
 （如果之前 `docker run` 时配置了目录映射，也可直接利用被映射的目录）。
 例如：
 ```bash
-docker cp arch:/home/archer/arCNiso/OUT $HOME/OUT
+docker cp arcn:/home/archer/arCNiso/OUT $HOME/OUT
 ```
 
 # 附：一些常用的 docker 命令
@@ -146,7 +146,7 @@ docker container stop <容器名或id>
 docker container rm <容器名或id>
 ```
 
-在宿主与容器之间复制文件，其中容器路径以 `<容器名或id>:`开头（例如 `arch:/home/archer/`）
+在宿主与容器之间复制文件，其中容器路径以 `<容器名或id>:`开头（例如 `arcn:/home/archer/`）
 ```bash
 docker cp <源路径> <目标路径>
 ```
