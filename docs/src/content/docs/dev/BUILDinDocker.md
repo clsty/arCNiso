@@ -35,9 +35,9 @@ sidebar:
 ```bash
 # ARCN_HOST_DIR 的值可以是一个空目录或尚不存在的目录，也可以是宿主机上已有的 arCNiso 项目目录
 ARCN_HOST_DIR=$HOME/arCNiso
-mkdir -p $ARCN_DIR
+mkdir -p $ARCN_HOST_DIR
 sudo docker run \
-  -v "$ARCN_DIR":/home/archer/arCNiso \
+  -v "$ARCN_HOST_DIR":/home/archer/arCNiso \
   --privileged -dt \
   --restart=unless-stopped \
   --name arcn \
