@@ -738,6 +738,15 @@ esup 能分析出更详细的信息。
 (setq org-image-actual-width '(900))
 #+end_src
 
+** Org-babel
+
+#+begin_src emacs-lisp :hidden t
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((shell . t)
+   (emacs-lisp . t)))
+#+end_src
+
 ** 其他
 支持代码块自动折叠
 用法：在 begin_src 后面加 :hidden t
