@@ -27,7 +27,7 @@
 gitignored-
 # releng
 /airootfs
-/efiboot
+#/efiboot
 #/syslinux
 /grub/loopback.cfg
 /bootstrap_packages.x86_64
