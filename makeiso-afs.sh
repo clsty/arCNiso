@@ -42,11 +42,13 @@ for i in $(cat<<EOF
 choose-mirror.service
 iwd.service
 systemd-networkd.service
+reflector.service
 EOF
 )
 do
 rm $AFS/etc/systemd/system/multi-user.target.wants/"$i"
 done
+rm -r $AFS/etc/systemd/system/reflector.service.d
 
 rsync -av --delete $cache/icons/papirus-icon-theme/Papirus/ $AFSshare/icons/Papirus/
 rsync -av --delete $cache/icons/papirus-icon-theme/Papirus-Dark/ $AFSshare/icons/Papirus-Dark/
