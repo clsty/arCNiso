@@ -40,7 +40,6 @@ file_permissions=(
 	["/usr/local/bin/arcnadd-cn"]="0:0:755"
 	["/usr/local/bin/arcnot"]="0:0:755"
 	["/usr/local/bin/tilix-dconf"]="0:0:755"
-	["/usr/local/bin/resetkeymap"]="0:0:755"
 	["/usr/local/bin/aaa"]="0:0:755"
 	["/usr/local/bin/emacsnw"]="0:0:755"
 	["/usr/local/bin/emacstutor"]="0:0:755"

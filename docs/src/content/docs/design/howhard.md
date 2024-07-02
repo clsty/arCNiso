@@ -53,7 +53,6 @@ arCNiso 本质上仍然是 archiso。
 - 命令 eviltutor 可供学习 Vim 式编辑器的基本操作；
 - 命令 paru 与 parui 会自动先更新 pacman 数据库并安装 base-devel；
 - 命令 modifyrootspace 可修改根分区容量大小；
-- 命令 resetkeymap 将重置键位映射；
 - ……
 
 
