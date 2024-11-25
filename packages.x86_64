@@ -190,6 +190,8 @@ virtualbox-guest-utils
 # linux-zen-headers
 # broadcom-wl-dkms
 
+
+
 ### releng 原版包列表
 # 注：每过几个月，最好检查一下最新的 releng
 # 移除：vim grml-zsh-config virtualbox-guest-utils-nox
@@ -285,7 +287,6 @@ pv
 qemu-guest-agent
 refind
 reflector
-reiserfsprogs
 rp-pppoe
 rsync
 rxvt-unicode-terminfo
