@@ -1,5 +1,5 @@
---- mkarchiso-original	2024-09-01 22:06:24.248786500 +0800
-+++ mkarchiso	2024-09-01 22:06:21.620792817 +0800
+--- mkarchiso-original	2024-11-25 21:20:16.050515091 +0800
++++ mkarchiso	2024-11-25 21:19:59.469201070 +0800
 @@ -1,6 +1,7 @@
  #!/usr/bin/env bash
 +# mkarchiso patched for arCNiso, mainly for secureboot.
@@ -8,7 +8,7 @@
  
  set -e -u
  shopt -s extglob
-@@ -370,10 +371,22 @@
+@@ -368,10 +369,22 @@
          exec {ARCHISO_GNUPG_FD}<&-
          unset ARCHISO_GNUPG_FD
      fi
@@ -31,7 +31,7 @@
  # Customize installation.
  _make_customize_airootfs() {
      local passwd=()
-@@ -698,15 +711,20 @@
+@@ -696,15 +709,20 @@
      grub-mkstandalone -O i386-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -53,7 +53,7 @@
          # TODO: Remove this branch.
          _run_once _make_bootmode_uefi-x64.systemd-boot.esp
      elif [[ " ${bootmodes[*]} " =~ uefi-x64.grub.esp ]]; then
-@@ -715,12 +733,16 @@
+@@ -713,12 +731,16 @@
          efiboot_imgsize="$(du -bcs -- "${efiboot_files[@]}" 2>/dev/null | awk 'END { print $1 }')"
          # Create a FAT image for the EFI system partition
          _make_efibootimg "$efiboot_imgsize"
@@ -72,7 +72,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi" ]]; then
-@@ -743,12 +765,18 @@
+@@ -741,12 +763,18 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -92,7 +92,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -775,23 +803,39 @@
+@@ -773,23 +801,39 @@
      grub-mkstandalone -O x86_64-efi \
          --modules="${grubmodules[*]}" \
          --locales="en@quot" \
@@ -135,7 +135,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      if [[ -e "${pacstrap_dir}/usr/share/edk2-shell/x64/Shell_Full.efi" ]]; then
-@@ -821,12 +865,22 @@
+@@ -819,12 +863,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -159,7 +159,7 @@
      _run_once _make_common_bootmode_grub_copy_to_isofs
  
      # edk2-shell based UEFI shell
-@@ -850,14 +904,19 @@
+@@ -848,14 +902,19 @@
      fi
      # Calculate the required FAT image size in bytes
      # shellcheck disable=SC2076
@@ -179,7 +179,7 @@
          efiboot_files+=("${pacstrap_dir}/usr/lib/systemd/boot/efi/systemd-bootia32.efi"
                          "${pacstrap_dir}/usr/share/edk2-shell/ia32/Shell_Full.efi")
      fi
-@@ -904,13 +963,21 @@
+@@ -902,13 +961,21 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -203,7 +203,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellx64.efi is picked up automatically when on /
-@@ -948,13 +1015,22 @@
+@@ -946,13 +1013,22 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
@@ -228,7 +228,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.isofs
  
      # edk2-shell based UEFI shell
-@@ -980,13 +1056,16 @@
+@@ -978,13 +1054,16 @@
      _run_once _make_common_bootmode_systemd-boot_conf
  
      # Prepare a FAT image for the EFI system partition
@@ -247,7 +247,7 @@
      _run_once _make_common_bootmode_systemd-boot_conf.esp
  
      # shellia32.efi is picked up automatically when on /
-@@ -1014,13 +1093,16 @@
+@@ -1012,13 +1091,16 @@
      # manual partitioning and simply copying the ISO 9660 file system contents.
      # This is not related to El Torito booting and no firmware uses these files.
      _msg_info "Preparing an /EFI directory for the ISO 9660 file system..."
