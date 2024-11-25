@@ -41,6 +41,7 @@ sessionstore-backups
 bookmarkbackups
 AlternateServices.bin
 SiteSecurityServiceState.bin
+domain_to_categories.sqlite
 EOF
 )
 do rm -rf "$target"/"$i";done
