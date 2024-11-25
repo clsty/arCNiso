@@ -11,7 +11,7 @@ sidebar:
 # 环境要求
 
 - 一个可联网的、AMD64 架构的操作系统。
-- 可使用 root 用户或具有 sudo 权限的普通用户。
+- 已经加入了 docker 组的普通用户。
 - 已经安装 Docker。
   - 或者 podman，但以下仅以 docker 为例。
 - 启用了 Docker 相关服务，比如 `systemctl enable docker --now`。
@@ -36,16 +36,16 @@ sidebar:
 # ARCN_HOST_DIR 的值可以是一个空目录或尚不存在的目录，也可以是宿主机上已有的 arCNiso 项目目录
 ARCN_HOST_DIR=$HOME/arCNiso
 mkdir -p $ARCN_HOST_DIR
-sudo docker run \
+docker run \
   -v "$ARCN_HOST_DIR":/home/archer/arCNiso \
   --privileged -dt \
   --restart=unless-stopped \
-  --name arcn \
+  --name arCNiso \
   quay.io/archlinux/archlinux:latest
 ```
 
 :::note[参数说明]
-- 名为 arcn（`--name arcn`），
+- 名为 arCNiso（`--name arCNiso`），
 - 允许终端登录（`-t`）并后台运行（`-d`），
 - 持续运行除非手动停止（`--restart=unless-stopped`），
 - 提权以允许挂载（`--privileged`），
@@ -65,7 +65,7 @@ sudo docker run \
 
 首先进入容器中的 bash：
 ```bash
-sudo docker exec -it arcn /bin/bash
+docker exec -it arCNiso /bin/bash
 ```
 
 由于没有 vi/vim/nano 等编辑器，下面直接用命令替换镜像源。
@@ -104,7 +104,7 @@ su - archer
 
 之后每次从宿主机进入此 docker 环境，可使用以下命令：
 ```bash
-sudo docker exec -it -u archer -w /home/archer/arCNiso arcn /bin/bash
+docker exec -it -u archer -w /home/archer/arCNiso arCNiso /bin/bash
 ```
 这指定了在容器内的工作目录为 `/home/archer/arCNiso`，可按需调整。
 
@@ -114,7 +114,7 @@ sudo docker exec -it -u archer -w /home/archer/arCNiso arcn /bin/bash
 （如果之前 `docker run` 时配置了目录映射，也可直接利用被映射的目录）。
 例如：
 ```bash
-docker cp arcn:/home/archer/arCNiso/OUT $HOME/OUT
+docker cp arCNiso:/home/archer/arCNiso/OUT $HOME/OUT
 ```
 
 # 附：一些常用的 docker 命令
@@ -146,7 +146,7 @@ docker container stop <容器名或id>
 docker container rm <容器名或id>
 ```
 
-在宿主与容器之间复制文件，其中容器路径以 `<容器名或id>:`开头（例如 `arcn:/home/archer/`）
+在宿主与容器之间复制文件，其中容器路径以 `<容器名或id>:`开头（例如 `arCNiso:/home/archer/`）
 ```bash
 docker cp <源路径> <目标路径>
 ```
