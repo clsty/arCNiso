@@ -2,47 +2,42 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+
 ## These messages are used as headings in the recommendation doorhanger
 
-cfr-doorhanger-extension-heading = Recommended Extension
-cfr-doorhanger-feature-heading = Recommended Feature
+cfr-doorhanger-extension-heading = 推荐扩展
+cfr-doorhanger-feature-heading = 推荐功能
 
 ##
 
 cfr-doorhanger-extension-sumo-link =
-  .tooltiptext = Why am I seeing this
-
-cfr-doorhanger-extension-cancel-button = Not Now
-  .accesskey = N
-
-cfr-doorhanger-extension-ok-button = Add Now
-  .accesskey = A
-
-cfr-doorhanger-extension-manage-settings-button = Manage Recommendation Settings
-  .accesskey = M
-
-cfr-doorhanger-extension-never-show-recommendation = Don’t Show Me This Recommendation
-  .accesskey = S
-
-cfr-doorhanger-extension-learn-more-link = Learn more
-
+    .tooltiptext = 为什么我会看到这个？
+cfr-doorhanger-extension-cancel-button = 暂时不要
+    .accesskey = N
+cfr-doorhanger-extension-ok-button = 立刻添加
+    .accesskey = A
+cfr-doorhanger-extension-manage-settings-button = 管理推荐设置
+    .accesskey = M
+cfr-doorhanger-extension-never-show-recommendation = 不再显示此推荐
+    .accesskey = S
+cfr-doorhanger-extension-learn-more-link = 详细了解
 # This string is used on a new line below the add-on name
 # Variables:
 #   $name (String) - Add-on author name
-cfr-doorhanger-extension-author = by { $name }
-
+cfr-doorhanger-extension-author = 由 { $name } 开发
 # This is a notification displayed in the address bar.
 # When clicked it opens a panel with a message for the user.
-cfr-doorhanger-extension-notification = Recommendation
-cfr-doorhanger-extension-notification2 = Recommendation
-  .tooltiptext = Extension recommendation
-  .a11y-announcement = Extension recommendation available
-
+cfr-doorhanger-extension-notification = 推荐
+# .a11y-announcement is extracted in JS and announced via A11y.announce.
+cfr-doorhanger-extension-notification2 = 推荐
+    .tooltiptext = 推荐扩展
+    .a11y-announcement = 有推荐扩展可用
 # This is a notification displayed in the address bar.
 # When clicked it opens a panel with a message for the user.
-cfr-doorhanger-feature-notification = Recommendation
-  .tooltiptext = Feature recommendation
-  .a11y-announcement = Feature recommendation available
+# .a11y-announcement is extracted in JS and announced via A11y.announce.
+cfr-doorhanger-feature-notification = 推荐
+    .tooltiptext = 推荐功能
+    .a11y-announcement = 有推荐功能可用
 
 ## Add-on statistics
 ## These strings are used to display the total number of
@@ -51,45 +46,42 @@ cfr-doorhanger-feature-notification = Recommendation
 # Variables:
 #   $total (Number) - The rating of the add-on from 1 to 5
 cfr-doorhanger-extension-rating =
-  .tooltiptext =
-    { $total ->
-        [one] { $total } star
-       *[other] { $total } stars
-    }
+    .tooltiptext =
+        { $total ->
+           *[other] { $total } 星
+        }
 # Variables:
 #   $total (Number) - The total number of users using the add-on
 cfr-doorhanger-extension-total-users =
-  { $total ->
-      [one] { $total } user
-     *[other] { $total } users
-  }
+    { $total ->
+       *[other] { $total } 个用户
+    }
 
 ## Firefox Accounts Message
 
-cfr-doorhanger-bookmark-fxa-header = Sync your bookmarks everywhere.
-cfr-doorhanger-bookmark-fxa-body = Great find! Now don’t be left without this bookmark on your mobile devices. Get Started with a { -fxaccount-brand-name }.
-cfr-doorhanger-bookmark-fxa-link-text = Sync bookmarks now…
+cfr-doorhanger-bookmark-fxa-header = 书签随身带着走
+cfr-doorhanger-bookmark-fxa-body = 发现好网站了！接下来也把该书签同步至移动设备吧。开始使用 { -fxaccount-brand-name }。
+cfr-doorhanger-bookmark-fxa-body-2 = 发现好网站了！接下来也把该书签同步至移动设备吧。登录账户即可开始使用。
+cfr-doorhanger-bookmark-fxa-link-text = 立即同步书签...
 cfr-doorhanger-bookmark-fxa-close-btn-tooltip =
-  .aria-label = Close button
-  .title = Close
+    .aria-label = 关闭按钮
+    .title = 关闭
 
 ## Protections panel
 
-cfr-protections-panel-header = Browse without being followed
-cfr-protections-panel-body = Keep your data to yourself. { -brand-short-name } protects you from many of the most common trackers that follow what you do online.
-cfr-protections-panel-link-text = Learn more
+cfr-protections-panel-header = 自由上网，拒绝跟踪
+cfr-protections-panel-body = 你的数据只由你掌握。{ -brand-short-name } 可保护您免受众多常见跟踪器对您在线活动的窥视。
+cfr-protections-panel-link-text = 详细了解
 
 ## What's New toolbar button and panel
 
 # This string is used by screen readers to offer a text based alternative for
 # the notification icon
-cfr-badge-reader-label-newfeature = New feature:
-
+cfr-badge-reader-label-newfeature = 新功能
 cfr-whatsnew-button =
-  .label = What’s New
-  .tooltiptext = What’s New
-
-cfr-whatsnew-release-notes-link-text = Read the release notes
+    .label = 新版变化
+    .tooltiptext = 新版变化
+cfr-whatsnew-release-notes-link-text = 阅读发行说明
 
 ## Enhanced Tracking Protection Milestones
 
@@ -97,45 +89,29 @@ cfr-whatsnew-release-notes-link-text = Read the release notes
 #   $blockedCount (Number) - The total count of blocked trackers. This number will always be greater than 1.
 #   $date (Datetime) - The date we began recording the count of blocked trackers
 cfr-doorhanger-milestone-heading2 =
-  { $blockedCount ->
-    *[other] { -brand-short-name } blocked over <b>{ $blockedCount }</b> trackers since { DATETIME($date, month: "long", year: "numeric") }!
-  }
-cfr-doorhanger-milestone-ok-button = See All
-  .accesskey = S
-cfr-doorhanger-milestone-close-button = Close
-  .accesskey = C
+    { $blockedCount ->
+       *[other] 自{ DATETIME($date, month: "long", year: "numeric") }起，{ -brand-short-name }已拦截超过<b>{ $blockedCount }</b>个跟踪器！
+    }
+cfr-doorhanger-milestone-ok-button = 查看全部
+    .accesskey = S
+cfr-doorhanger-milestone-close-button = 关闭
+    .accesskey = C
 
 ## DOH Message
 
-cfr-doorhanger-doh-body = Your privacy matters. { -brand-short-name } now securely routes your DNS requests whenever possible to a partner service to protect you while you browse.
-cfr-doorhanger-doh-header = More secure, encrypted DNS lookups
-cfr-doorhanger-doh-primary-button-2 = Okay
-  .accesskey = O
-cfr-doorhanger-doh-secondary-button = Disable
-  .accesskey = D
-
-## Fission Experiment Message
-
-cfr-doorhanger-fission-body-approved = Your privacy matters. { -brand-short-name } now isolates, or sandboxes, websites from each other, which makes it harder for hackers to steal passwords, credit card numbers, and other sensitive information.
-cfr-doorhanger-fission-header = Site Isolation
-cfr-doorhanger-fission-primary-button = OK, Got it
-  .accesskey = O
-cfr-doorhanger-fission-secondary-button = Learn more
-  .accesskey = L
+cfr-doorhanger-doh-body = 隐私是公民的基本权利。{ -brand-short-name } 现在会尽可能使用合作伙伴提供的一项服务处理您的 DNS 请求，让您上网更安全。
+cfr-doorhanger-doh-header = 更安全、经加密的 DNS 查询
+cfr-doorhanger-doh-primary-button-2 = 好的
+    .accesskey = O
+cfr-doorhanger-doh-secondary-button = 禁用
+    .accesskey = D
 
 ## Full Video Support CFR message
 
-cfr-doorhanger-video-support-body = Videos on this site may not play correctly on this version of { -brand-short-name }. For full video support, update { -brand-short-name } now.
-cfr-doorhanger-video-support-header = Update { -brand-short-name } to play video
-cfr-doorhanger-video-support-primary-button = Update Now
-  .accesskey = U
-
-## Spotlight modal shared strings
-
-spotlight-learn-more-collapsed = Learn more
-  .title = Expand to learn more about the feature
-spotlight-learn-more-expanded = Learn more
-  .title = Close
+cfr-doorhanger-video-support-body = 该网站上的视频可能无法在此版本的 { -brand-short-name } 正常播放。若需完整的视频支持，请更新 { -brand-short-name }。
+cfr-doorhanger-video-support-header = 更新 { -brand-short-name } 以播放视频
+cfr-doorhanger-video-support-primary-button = 立即更新
+    .accesskey = U
 
 ## VPN promotion dialog for public Wi-Fi users
 ##
@@ -144,35 +120,193 @@ spotlight-learn-more-expanded = Learn more
 ## to the Mozilla VPN page and a link to dismiss the dialog.
 
 # This header text can be explicitly wrapped.
-spotlight-public-wifi-vpn-header = Looks like you’re using public Wi-Fi
-spotlight-public-wifi-vpn-body = To hide your location and browsing activity, consider a Virtual Private Network. It will help keep you protected when browsing in public places like airports and coffee shops.
-spotlight-public-wifi-vpn-primary-button = Stay private with { -mozilla-vpn-brand-name }
-  .accesskey = S
-spotlight-public-wifi-vpn-link = Not Now
-  .accesskey = N
-
-## Total Cookie Protection Rollout
-
-# "Test pilot" is used as a verb. Possible alternatives: "Be the first to try",
-# "Join an early experiment". This header text can be explicitly wrapped.
-spotlight-total-cookie-protection-header =
-  Test pilot our most powerful
-  privacy experience ever
-spotlight-total-cookie-protection-body = Total Cookie Protection stops trackers from using cookies to stalk you around the web.
-# "Early access" for this feature rollout means it's a "feature preview" or
-# "soft launch" as not everybody will get it yet.
-spotlight-total-cookie-protection-expanded = { -brand-short-name } builds a fence around cookies, limiting them to the site you’re on so trackers can’t use them to follow you. With early access, you’ll help optimize this feature so we can keep building a better web for everyone.
-spotlight-total-cookie-protection-primary-button = Turn on Total Cookie Protection
-spotlight-total-cookie-protection-secondary-button = Not now
+spotlight-public-wifi-vpn-header = 您似乎在使用公共 Wi-Fi
+spotlight-public-wifi-vpn-body = VPN 可帮助您在机场、咖啡厅等公共场所上网时，隐藏您的位置和浏览活动，请考虑使用。
+spotlight-public-wifi-vpn-primary-button = { -mozilla-vpn-brand-name } 可提供隐私保护
+    .accesskey = S
+spotlight-public-wifi-vpn-link = 暂时不要
+    .accesskey = N
 
 ## Emotive Continuous Onboarding
 
-spotlight-better-internet-header = A better internet starts with you
-spotlight-better-internet-body = When you use { -brand-short-name}, you’re voting for an open and accessible internet that’s better for everyone.
-spotlight-peace-mind-header = We’ve got you covered
-spotlight-peace-mind-body = Every month, { -brand-short-name } blocks an average of over 3,000 trackers per user. Because nothing, especially privacy nuisances like trackers, should stand between you and the good internet.
-spotlight-pin-primary-button = { PLATFORM() ->
-    [macos] Keep in Dock
-   *[other] Pin to taskbar
-}
-spotlight-pin-secondary-button = Not now
+spotlight-better-internet-header = 更好的互联网，始于你我
+spotlight-better-internet-body = 当您使用 { -brand-short-name }，即代表您投票支持一个人人可用、处处可及，能够造福于所有人的的互联网。
+spotlight-peace-mind-header = 保护您是我的职责
+spotlight-peace-mind-body = { -brand-short-name } 为每位用户月均拦截超过 3,000 个跟踪器。您良好的互联网体验，不应受到任何破坏，尤其是影响隐私的跟踪器。
+spotlight-pin-primary-button =
+    { PLATFORM() ->
+        [macos] 在程序坞中保留
+       *[other] 固定到任务栏
+    }
+spotlight-pin-secondary-button = 暂时不要
+
+## MR2022 Background Update Windows native toast notification strings.
+##
+## These strings will be displayed by the Windows operating system in
+## a native toast, like:
+##
+## <b>multi-line title</b>
+## multi-line text
+## <img>
+## [ primary button ] [ secondary button ]
+##
+## The button labels are fitted into narrow fixed-width buttons by
+## Windows and therefore must be as narrow as possible.
+
+mr2022-background-update-toast-title = { -brand-short-name } 新版本。更多隐私保护、更少跟踪骚扰。不将就，不妥协。
+mr2022-background-update-toast-text = 立即升级至最新版本的 { -brand-short-name }，获得我们迄今最为强大的反跟踪保护。
+# This button label will be fitted into a narrow fixed-width button by
+# Windows. Try to not exceed the width of the English text (compare it
+# using a variable font like Arial): the button can only fit 1-2
+# additional characters, exceeding characters will be truncated.
+mr2022-background-update-toast-primary-button-label = 立即打开 { -brand-shorter-name }
+# This button label will be fitted into a narrow fixed-width button by
+# Windows. Try to not exceed the width of the English text (compare it using a
+# variable font like Arial): the button can only fit 1-2 additional characters,
+# exceeding characters will be truncated.
+mr2022-background-update-toast-secondary-button-label = 稍后提醒我
+
+## Firefox View CFR
+
+firefoxview-cfr-primarybutton = 试试看
+    .accesskey = T
+firefoxview-cfr-secondarybutton = 暂时不要
+    .accesskey = N
+firefoxview-cfr-header-v2 = 快速从上次看到的地方继续浏览
+firefoxview-cfr-body-v2 = 通过 { -firefoxview-brand-name } 重新打开最近关闭的标签页，还能在设备间无缝切换。
+
+## Firefox View Spotlight
+
+firefoxview-spotlight-promo-title = 邂逅 { -firefoxview-brand-name }
+# “Poof” refers to the expression to convey when something or someone suddenly disappears, or in this case, reappears. For example, “Poof, it’s gone.”
+firefoxview-spotlight-promo-subtitle = 想要把标签页传到手机上？嘿，接稳了！还想重新打开刚浏览过的那个网页？瞧，回来了！这就是 { -firefoxview-brand-name } 带来的精彩功能。
+firefoxview-spotlight-promo-primarybutton = 看看怎么用
+firefoxview-spotlight-promo-secondarybutton = 跳过
+
+## Colorways expiry reminder CFR
+
+colorways-cfr-primarybutton = 选择配色
+    .accesskey = C
+# "shades" refers to the different color options available to users in colorways.
+colorways-cfr-body = 换上灵感来自“凡人之声，文化之味”的 { -brand-short-name } 独家配色，焕新您的浏览器外观。
+colorways-cfr-header-28days = “凡人之声”配色有效期至1月16日
+colorways-cfr-header-14days = “凡人之声”配色两周后到期
+colorways-cfr-header-7days = “凡人之声”配色本周到期
+colorways-cfr-header-today = “凡人之声”配色今日到期
+
+## Cookie Banner Handling CFR
+
+cfr-cbh-header = 要允许 { -brand-short-name } 自动拒绝 Cookie 横幅的请求吗？
+cfr-cbh-body = { -brand-short-name } 可以自动拒绝许多 Cookie 横幅的请求。
+cfr-cbh-confirm-button = 拒绝 Cookie 横幅
+    .accesskey = R
+cfr-cbh-dismiss-button = 暂时不要
+    .accesskey = N
+cookie-banner-blocker-onboarding-header = { -brand-short-name } 刚刚为您拒绝了 Cookie 横幅的请求
+cookie-banner-blocker-onboarding-body = 在此网站上专注浏览，少受 Cookie 跟踪。
+cookie-banner-blocker-onboarding-learn-more = 详细了解
+
+## These strings are used in the Fox doodle Pin/set default spotlights
+
+july-jam-headline = 保护您是我的职责
+july-jam-body = { -brand-short-name } 为每位用户月均拦截超过 3,000 个跟踪器，给您带来安全快速的良好互联网体验。
+july-jam-set-default-primary = 用 { -brand-short-name } 打开我的链接
+fox-doodle-pin-headline = 欢迎回来
+# “indie” is short for the term “independent”.
+# In this instance, free from outside influence or control.
+fox-doodle-pin-body = 小提示：您可以把最爱的独立浏览器固定起来，随时随地一键打开。
+fox-doodle-pin-primary = 用 { -brand-short-name } 打开我的链接
+fox-doodle-pin-secondary = 暂时不要
+
+## These strings are used in the Set Firefox as Default PDF Handler for Existing Users experiment
+
+set-default-pdf-handler-headline = <strong>现在起，您的 PDF 文件将在 { -brand-short-name } 中打开。</strong>您可以直接在浏览器中编辑或签署表单。若要更改，请在设置中搜索“PDF”。
+set-default-pdf-handler-primary = 明白了
+
+## FxA sync CFR
+
+fxa-sync-cfr-header = 打算换新设备？
+fxa-sync-cfr-body = 每次新打开 { -brand-product-name } 浏览器时，都会确保您的书签、密码和标签保持最新状态。
+fxa-sync-cfr-primary = 详细了解
+    .accesskey = L
+fxa-sync-cfr-secondary = 稍后提醒我
+    .accesskey = R
+
+## Device Migration FxA Spotlight
+
+device-migration-fxa-spotlight-heavy-user-header = 不要忘记备份数据
+device-migration-fxa-spotlight-heavy-user-body = 将书签和密码等重要信息跨设备安全保存，并随时更新。
+device-migration-fxa-spotlight-heavy-user-primary-button = 开始使用
+device-migration-fxa-spotlight-older-device-header = { -brand-product-name } 为您省心
+device-migration-fxa-spotlight-older-device-body = 登录账户，将重要信息跨设备安全保存并随时更新。
+device-migration-fxa-spotlight-older-device-primary-button = 创建账户
+device-migration-fxa-spotlight-getting-new-device-header-2 = 打算换新设备？
+device-migration-fxa-spotlight-getting-new-device-body-2 = 只需简单几步，即可将您的书签、历史记录、密码同步至新设备。
+device-migration-fxa-spotlight-getting-new-device-primary-button = 如何备份数据
+device-migration-fxa-spotlight-sync-header = 跨设备浏览也如行云流水
+device-migration-fxa-spotlight-sync-body = 加密同步书签、密码等所有重要信息，供您在使用 { -brand-product-name } 的各设备上随手取用。
+device-migration-fxa-spotlight-sync-primary-button = 开始使用
+
+## Set as Default PDF Reader Infobar
+
+# The question portion of the following message should have the <strong> and </strong> tags surrounding it.
+pdf-default-notification-message = <strong>想将 { -brand-short-name } 设为默认 PDF 阅读器吗？</strong>使用 { -brand-short-name } 阅读和编辑电脑中的 PDF 文档。
+pdf-default-notification-set-default-button =
+    .label = 设为默认
+pdf-default-notification-decline-button =
+    .label = 暂时不要
+
+## Launch on login infobar notification
+
+launch-on-login-infobar-message = <strong>想在重启电脑后自动打开 { -brand-short-name } 吗？</strong>现在可将 { -brand-short-name } 设为开机时自动打开。
+launch-on-login-learnmore = 详细了解
+launch-on-login-infobar-confirm-button = 打开 { -brand-short-name }
+    .accesskey = Y
+launch-on-login-infobar-reject-button = 暂时不要
+    .accesskey = N
+
+## These string variants are used when the “launch on login” infobar
+## notification is displayed for a second time.
+
+launch-on-login-infobar-final-message = <strong>想在重启电脑后自动打开 { -brand-short-name } 吗？</strong>在设置中搜索“启动”即可管理启动首选项。
+launch-on-login-infobar-final-reject-button = 不了，谢谢
+    .accesskey = N
+
+## Tail Fox Set Default Spotlight
+
+# This title is displayed together with the picture of a running fox with a long tail.
+# In English, this is a figure of speech meaning 'stop something from following you'.
+# If the localization of this message is challenging, consider using a simplified
+# alternative as a reference for translation: 'Keep unwanted trackers away'.
+tail-fox-spotlight-title = 甩掉讨厌的跟踪器
+tail-fox-spotlight-subtitle = 甩掉广告跟踪器，上网安全又快速。
+tail-fox-spotlight-primary-button = 用 { -brand-short-name } 打开我的链接
+tail-fox-spotlight-secondary-button = 暂时不要
+
+## Root Certificate Succession Infobar
+
+root-certificate-succession-infobar-january-message = <strong>2025 年 1 月 14 日起，旧版本 { -brand-short-name } 可能会出现问题。</strong>
+root-certificate-succession-infobar-march-message = <strong>更新以在 2025 年 3 月 14 日后继续使用 { -brand-short-name }。</strong>
+root-certificate-succession-infobar-link = 为什么要更新？
+root-certificate-succession-infobar-primary-button =
+    .label = 立即更新
+    .accesskey = U
+root-certificate-succession-infobar-secondary-button =
+    .label = 以后
+    .accesskey = L
+
+## FxA Menu Message variants
+
+fxa-menu-message-close-button =
+    .title = 关闭
+    .aria-label = 关闭
+fxa-menu-message-sign-up-button = 注册
+fxa-menu-message-sync-devices-primary-text = 同步各设备
+fxa-menu-message-sync-devices-secondary-text = 顷刻间让书签、密码等数据在您使用 { -brand-short-name } 的各设备上触手可得。
+fxa-menu-message-sync-devices-collapsed-text = 同步各设备
+fxa-menu-message-backup-data-secondary-text = 自动保护所有设备上的书签、密码等信息。
+fxa-menu-message-backup-sync-primary-text = 保持数据安全与同步
+fxa-menu-message-backup-sync-collapsed-text = 同步和备份数据
+fxa-menu-message-mobile-primary-text = 发送标签页到手机
+fxa-menu-message-mobile-secondary-text = 将标签页同步到移动设备，从上次看到的地方无缝接续浏览。
+fxa-menu-message-mobile-collapsed-text = 与手机同步
