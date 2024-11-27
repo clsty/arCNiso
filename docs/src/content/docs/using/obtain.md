@@ -9,7 +9,7 @@ sidebar:
 # 直接下载镜像文件
 目前提供两个地址，择一即可：
 - [GitHub Releases](https://github.com/clsty/arCNiso/releases/latest)
-- [Celestial.y 的存储分享](https://alist.celestialy.top/arCNiso/release)
+- [Celestial.y 的存储分享](https://alist.clsty.link/arCNiso/release)
   - 不需要登录，但是有密码：`clsty`
 
 :::tip

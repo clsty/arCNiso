@@ -32,7 +32,7 @@ ls $(cat ./ignoredinfo/rsyncpath-local)
 echo "$filterfile"
 echo "正在用 rsync 同步 iso..."
 cp -f ./result.md ./release/README.md
-aaa rsync --delete-before --info=progress2 -avr \
+aaa rsync --delete-before --info=progress2 -vr \
   -f._<(echo "$filter") \
   ./release/ $(cat ./ignoredinfo/rsyncpath-local)
 
