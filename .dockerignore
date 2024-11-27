@@ -1,0 +1,17 @@
+/TMP
+/OUT
+/TEST
+/aur/pkgs
+/aur/cache
+/aur/custom/origin-PKGBUILD
+/release
+/bt
+/ignoredinfo
+/ignored
+/result.log
+/result.md
+/publishiso-version
+/publishiso-filename
+/airootfs
+#/efiboot
+#/syslinux
