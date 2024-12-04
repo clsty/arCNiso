@@ -3,6 +3,6 @@ if test -f "/usr/bin/iwctl"
 then /usr/bin/iwctl $*
 else 
   echo "提供 iwctl 的 iwd 已被移除，建议使用 nmtui。
-原因是 iwd 不支持部分 WiFi 认证，详见 https://arcn.celestialy.top/design/idea/#wpa_supplicant 。"
+原因是 iwd 不支持部分 WiFi 认证，详见 https://arcn.clsty.link/design/idea/#wpa_supplicant 。"
   exit 1
 fi

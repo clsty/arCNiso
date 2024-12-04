@@ -33,11 +33,11 @@ However, **feel free to fork** this project and modify to make your own (of cour
 arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.com/clsty/arCNiso/blob/main/docs/update.md)中（目前暂定大约每月更新一次），可放心使用，真心希望你能喜欢。
 
 - 欢迎给[本项目](https://github.com/clsty/arCNiso)点 star 来表达你的支持或认可 `>v0` 。
-- 有任何看法或建议，欢迎在 [Issues](https://github.com/clsty/arCNiso/issues) 中反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中吐槽，也可直接[提交 PR](https://arcn.celestialy.top/dev/howtopr/)。
+- 有任何看法或建议，欢迎在 [Issues](https://github.com/clsty/arCNiso/issues) 中反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中吐槽，也可直接[提交 PR](https://arcn.clsty.link/dev/howtopr/)。
 
 祝你使用愉快！
 
-> **下载镜像文件：见 [arCNiso 指南](https://arcn.celestialy.top/using/obtain/)。**
+> **下载镜像文件：见 [arCNiso 指南](https://arcn.clsty.link/using/obtain/)。**
 
 # 商标声明
 

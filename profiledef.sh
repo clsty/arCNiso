@@ -3,7 +3,7 @@
 
 iso_name="arCNiso"
 iso_label="${iso_name}_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="clsty <https://arcn.celestialy.top>"
+iso_publisher="clsty <https://arcn.clsty.link>"
 iso_application="archiso customed by ${iso_publisher}"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"

@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight';
 
 // https://starlight.astro.build/reference/configuration
 export default defineConfig({
-  site: 'https://arcn.celestialy.top',
+  site: 'https://arcn.clsty.link',
   base: '/',
 //  build: {
 //      format: 'directory',
