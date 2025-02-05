@@ -53,4 +53,5 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 
 ---
 
+# Star 曲线
 [![Star 曲线](https://starchart.cc/clsty/arCNiso.svg?variant=adaptive)](https://starchart.cc/clsty/arCNiso)
