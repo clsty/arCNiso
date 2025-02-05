@@ -51,3 +51,6 @@ arCNiso 历经较为充分的打磨，并且仍在[维护更新](https://github.
 - 本项目以 GNU GPL 3.0 License 发布。
 - 项目文件中所包含的其他软件项目的部分，均维持其原有 License。
 
+---
+
+[![Star 曲线](https://starchart.cc/clsty/arCNiso.svg?variant=adaptive)](https://starchart.cc/clsty/arCNiso)
