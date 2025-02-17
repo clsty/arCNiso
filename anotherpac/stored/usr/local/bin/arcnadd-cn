@@ -7,8 +7,7 @@ function addcn {
 	echo "下面开始添加 archlinuxcn 仓库源及其密钥，此过程耗时约 1 至 6 分钟，在虚拟机中可能较慢。"
 	systemctl start pacman-init
 	grep -q '^\[archlinuxcn\]' /etc/pacman.conf || \
-    echo '\n[archlinuxcn]
-      Include = /etc/pacman.d/archlinuxcn-mirrorlist' \
+    printf '\n[archlinuxcn]\nInclude = /etc/pacman.d/archlinuxcn-mirrorlist' \
     >> /etc/pacman.conf
 	sleep 3
   # https://www.archlinuxcn.org/archlinuxcn-keyring-manually-trust-farseerfc-key/
