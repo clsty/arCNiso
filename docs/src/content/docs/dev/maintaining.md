@@ -43,8 +43,8 @@ sidebar:
 ```
 按照指示操作即可。
 
-## layer-fs
-主要是将 `layer-fs` 目录所引用的几个仓库与上游进行同步：
+## layer-rootfs
+主要是将 `layer-rootfs` 目录所引用的几个仓库与上游进行同步：
 - <https://github.com/clsty/papirus-icon-theme>
 - <https://github.com/clsty/sweet-theme-backup>
 

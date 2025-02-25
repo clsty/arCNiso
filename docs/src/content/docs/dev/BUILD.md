@@ -62,11 +62,11 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 ```
 接下来按指示操作即可。
 
-## 准备 layer-fs（约 5 分钟，依赖网速和 CPU 速度）
+## 准备 layer-rootfs（约 5 分钟，依赖网速和 CPU 速度）
 
 运行
 ```bash
-./layer-fs/full-prepare.sh
+./layer-rootfs/full-prepare.sh
 ```
 接下来按指示操作即可。
 
@@ -166,9 +166,9 @@ git pull
 ./layer-home/prepareemacs.sh -f
 ```
 接下来按指示操作即可。
-## 更新 layer-fs
+## 更新 layer-rootfs
 ```bash
-./layer-fs/full-prepare.sh
+./layer-rootfs/full-prepare.sh
 ```
 ## 更新 AUR 包
 ```bash

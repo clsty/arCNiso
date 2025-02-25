@@ -1,4 +1,4 @@
-/layer-fs/cache
+/layer-rootfs/cache
 /patchedmkarchiso/*
 !/patchedmkarchiso/mkarchiso.patch
 !/patchedmkarchiso/PATCH.sh
