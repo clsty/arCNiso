@@ -7,7 +7,7 @@ selfpath="${BASH_SOURCE[0]}"
 cd "$(dirname $selfpath)"
 basedir="$(pwd)"
 target="$basedir"/cache/icons/papirus-icon-theme
-tmpdir="/tmp/anotherpac/icons"
+tmpdir="/tmp/layer-misc/icons"
 
 rm -rf "$tmpdir"
 mkdir -p "$tmpdir"

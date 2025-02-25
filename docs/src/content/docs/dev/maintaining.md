@@ -36,12 +36,12 @@ sidebar:
 ## Firefox
 主要是对 Firefox 插件的更新，以及对书签作适当调整。
 ```bash
-./homebase/preparefirefox.sh
+./layer-home/preparefirefox.sh
 ```
 按照指示操作即可。
 
-## anotherpac
-主要是将 anotherpac 所引用的几个仓库与上游进行同步：
+## layer-fs
+主要是将 `layer-fs` 目录所引用的几个仓库与上游进行同步：
 - <https://github.com/clsty/papirus-icon-theme>
 - <https://github.com/clsty/sweet-theme-backup>
 

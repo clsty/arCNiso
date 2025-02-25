@@ -13,9 +13,9 @@ set -e # 遇错直接退出
 function try { "$@" || sleep 0; }
 
 releng="/usr/share/archiso/configs/releng"
-cache="anotherpac/cache"
+cache="layer-misc/cache"
 sweet="$cache/sweet-theme-backup"
-stored="anotherpac/stored"
+stored="layer-misc/stored"
 AFS="airootfs"
 AFSshare="airootfs/usr/share"
 
@@ -30,7 +30,7 @@ rsync -av "$releng"/airootfs/ $AFS/
 rsync -av --delete "$releng"/grub/loopback.cfg grub/loopback.cfg
 rsync -av --delete "$releng"/bootstrap_packages.x86_64 bootstrap_packages.x86_64
 
-# anotherpac 目录就位
+# layer-misc 目录就位
 mkdir -p $AFSshare/themes/sweet
 mkdir -p $AFSshare/Kvantum
 mkdir -p $AFSshare/color-schemes
@@ -72,10 +72,10 @@ do rsync -av --delete $sweet/"$i" $AFSshare/"$i"
 done
 
 # 家目录就位
-rsync -av --delete ./homebase/public/ ./airootfs/etc/skel/
-rsync -av ./homebase/public/ ./airootfs/root/
-rsync -av ./homebase/skel/ ./airootfs/etc/skel/
-rsync -av ./homebase/root/ ./airootfs/root/
+rsync -av --delete ./layer-home/public/ ./airootfs/etc/skel/
+rsync -av ./layer-home/public/ ./airootfs/root/
+rsync -av ./layer-home/skel/ ./airootfs/etc/skel/
+rsync -av ./layer-home/root/ ./airootfs/root/
 pandoc README.md \
   -N \
   --output=./airootfs/etc/skel/README.html \

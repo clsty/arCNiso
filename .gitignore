@@ -1,4 +1,4 @@
-/anotherpac/cache
+/layer-fs/cache
 /patchedmkarchiso/*
 !/patchedmkarchiso/mkarchiso.patch
 !/patchedmkarchiso/PATCH.sh
@@ -13,9 +13,9 @@
 /aur/custom/origin-PKGBUILD
 /release
 /bt
-/homebase/public/.emacs.d/eln-cache
-/homebase/public/.emacs.d/elpa
-/homebase/public/.emacs.d/quelpa
+/layer-home/public/.emacs.d/eln-cache
+/layer-home/public/.emacs.d/elpa
+/layer-home/public/.emacs.d/quelpa
 /ignoredinfo
 /ignored/*
 /result.log
