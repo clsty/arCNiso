@@ -45,7 +45,7 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
 此外，命令 `docker images/rmi` 可以列出/删除镜像。
 :::
 
-然后，请运行 `./dockerin.sh` 来进入容器内部，余下步骤**请接着在这个容器内部**完成，参见[构建说明](/dev/build)（一直到“获取本项目”的部分都要跳过）。
+然后，请运行 `./dockerin.sh` 来进入容器内部，余下步骤**请接着在这个容器内部**完成（注：你需要先运行一下 `sudo chown -R archer:archer .` 来确保容器内的属主正确，否则后面可能报错 `Permission denied`。），参见[构建说明](/dev/build)（一直到“获取本项目”的部分都要跳过）。
 
 # 附：一些常用的 docker 命令
 获取信息
