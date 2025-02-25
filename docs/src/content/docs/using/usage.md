@@ -74,5 +74,7 @@ sidebar:
   - 在 Linux 下建议改用 QEMU/KVM 虚拟机。
 - 桌面上的面板（任务栏）未加载出来。
   - 在 VirtualBox 虚拟机下，偶尔会遇到这种情况。此时可用 `arcnlogout` 退出（并自动重启）桌面环境。
+- GPG/PGP 密钥（keyring）问题
+  - 一般发生在所使用的 archiso 过时的情况下；arCNiso 作为 archiso 的改版也未能幸免，但你可以运行 `pacman-reinit` 来重置密钥。
 
 其他问题可以来 [Issues](https://github.com/clsty/arCNiso/issues) 反馈，或在 [Discussions](https://github.com/clsty/arCNiso/discussions) 中提问。
