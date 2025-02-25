@@ -85,6 +85,11 @@ arCNiso 使用了部分来自 AUR 的包（见 `packages.x86_64` 的开头部分
 但请注意，此脚本可能仍存在一些问题，可能无法一次直接地完成所有工作，或者无法合理避免重复工作，还可能会出现构建时缺依赖报错的问题，对此只要据报错信息手动解决即可（大概需要你会一点 Bash）。
 或者，清理一下 `./aur/cache` 目录，或者其下造成问题的子目录。
 
+:::note
+如果遇到 `One or more PGP signatures could not be verified!` 这种报错，可以用 `gpg --recv-keys <Pubkey>` 手动导入公钥。
+（[参考链接](https://bbs.archlinux.org/viewtopic.php?id=191954)）
+:::
+
 
 ## 安全启动支持（可选，耗时未知）
 
