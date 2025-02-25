@@ -1,7 +1,11 @@
 #!/bin/bash
-set -e
-echo "5 秒后将执行 pacman 的初始化，请耐心等待。"
-sleep 5
+#set -e
+case $1 in
+  '-f') break;;
+  *) echo "5 秒后将执行 pacman 的初始化，请耐心等待。";sleep 5;;
+esac
+
+killall gpg-agent
 rm -rf /etc/pacman.d/gnupg/* /root/.gnupg/* /var/cache/pacman/pkg/*
 gpg --refresh-keys
 pacman-key --init --verbose

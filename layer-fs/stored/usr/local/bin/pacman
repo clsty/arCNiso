@@ -1,4 +1,5 @@
 #!/bin/bash
+# vim:fileencoding=utf-8:ft=bash:fdm=marker foldlevel=0
 
 # {{{ 判断参数
 parabackup="$@"
@@ -23,21 +24,21 @@ eval set -- "$parabackup"
 
 T=10
 while $waitinit; do
-	stat=$(systemctl is-active pacman-init)
-	case "$stat" in
-	"activating")
-		echo "现在时间：$(date)；将要执行：pacman" "$@"
-		echo "但是，pacman-init.service 仍在运行中（最久可能持续至联网后 1 分钟才能完成），暂不可使用 pacman，否则可能导致 pacman 初始化失败。"
-		echo "$T 秒之后重试（直到 pacman-init.service 运行完毕）..."
-		sleep $T
-		;;
-	"active") break ;;
-	"inactive" | *)
-		echo "注意：pacman-init.service 的状态为\"$stat\"。"
-		echo "若之后 pacman 遇到 PGP/GPG 密钥的相关报错，说明 pacman 未成功初始化，可以运行 pacman-reinit 来强制进行初始化。"
-		break
-		;;
-	esac
+  stat=$(systemctl is-active pacman-init)
+  case "$stat" in
+    "activating")
+      echo "现在时间：$(date)；将要执行：pacman" "$@"
+      echo "但是，pacman-init.service 仍在运行中（最久可能持续至联网后 1 分钟才能完成），暂不可使用 pacman，否则可能导致 pacman 初始化失败。"
+      echo "$T 秒之后重试（直到 pacman-init.service 运行完毕）..."
+      sleep $T
+      ;;
+    "active") break ;;
+    "inactive" | *)
+      echo "注意：pacman-init.service 的状态为\"$stat\"。"
+      echo "若之后 pacman 遇到 PGP/GPG 密钥的相关报错，说明 pacman 未成功初始化，可以运行 pacman-reinit -f 来强制进行初始化。"
+      break
+      ;;
+  esac
 done
 
 /usr/bin/pacman "$@"
