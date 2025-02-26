@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-panel" version="1.0">
   <property name="configver" type="int" value="2"/>
@@ -14,8 +14,10 @@
       <property name="size" type="uint" value="32"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="40"/>
+        <value type="int" value="38"/>
         <value type="int" value="39"/>
         <value type="int" value="3"/>
+        <value type="int" value="28"/>
         <value type="int" value="29"/>
         <value type="int" value="6"/>
         <value type="int" value="10"/>
@@ -102,7 +104,6 @@
         <value type="string" value="Fcitx"/>
       </property>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="ethernet network connection “wired connection 1” active"/>
         <value type="string" value="electron"/>
         <value type="string" value="fcitx5 tray window"/>
         <value type="string" value="xfce4-power-manager"/>
