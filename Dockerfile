@@ -8,10 +8,8 @@ RUN function aaa { while true;do if "$@";then break;else echo "[aaa] Retrying \"
     aaa pacman -Sy --noconfirm archlinux-keyring && \
     aaa pacman -Su --noconfirm && \
     aaa pacman -S --noconfirm --needed archiso git rsync pandoc base-devel fd cmake less sudo && \
-    aaa pacman -S --noconfirm --needed patchelf && \
     useradd -m archer && \
     echo "archer ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/archer
-# peazip-gtk2-bin 依赖 patchelf
 USER archer:archer
 RUN function aaa { while true;do if "$@";then break;else echo "[aaa] Retrying \"$@\"";sleep 1;fi;done; } && \
     mkdir /home/archer/arCNiso && \

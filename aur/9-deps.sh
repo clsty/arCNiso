@@ -5,4 +5,4 @@
 # efibooteditor: qt6-tools efivar
 # zsh-theme-powerlevel10k-git: wget
 
-sudo pacman -S --noconfirm --needed qt5-tools qt6-tools btrfs-progs efivar wget
+sudo pacman -S --noconfirm --needed qt5-tools qt6-tools btrfs-progs efivar wget patchelf
