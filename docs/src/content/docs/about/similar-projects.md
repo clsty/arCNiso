@@ -113,7 +113,7 @@ Arch Linux 的衍生发行版往往都会提供图形化的、类似于或基于
 - 简称 ALCI。
 - 采用 Linux 图形化安装器 [Calamares](https://github.com/calamares/calamares)。
 
-## Graphical Arch Repair Tool
+## Graphical Arch Repair Tool（停更于 2023）
 - 链接：
   - <https://github.com/matiasvlevi/archiso-gui>
 - 简称 G.A.R.T。
