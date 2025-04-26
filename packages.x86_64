@@ -72,7 +72,6 @@ wireplumber
 ## 磁盘与文件
 # partitionmanager 太大了，archiso 自己体积也在涨，有需要的还是用 cfdisk 去吧
 par2cmdline
-ack
 tree
 fd
 ncdu
