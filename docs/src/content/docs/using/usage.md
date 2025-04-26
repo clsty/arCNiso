@@ -18,7 +18,7 @@ sidebar:
 
 ## 推荐
 
-先学会 vim 式编辑器的基本使用方法（为此可运行 `eviltutor`），以便获得本镜像中 vifm/emacs/firefox 等软件所带来的效率提升。
+先学会 vim 式编辑器的基本使用方法（为此可运行 `eviltutor`），以便获得本镜像中 vifm/ranger/emacs/firefox 等软件所带来的效率提升。
 
 > vim 本身是高效的、人体工学友好的编辑器，而它的键位设计在很多别的程序中也会以默认方案或可选插件等形式出现。
 

@@ -20,7 +20,7 @@ sidebar:
 添加了 `usbcore.autosuspend=-1 btusb.enable_autosuspend=N bluetooth.disable_ertm=Y` 作为内核参数，以提升部分外设连接的稳定性。
 ## 分区与系统引导
 - 提供 TestDisk 作为 TUI 的分区表恢复及引导修复软件（原版 archiso 也有）。
-- 提供 Timeshift 、btrfs-assistant 作为快照的备份恢复软件。
+- 提供 Timeshift 、btrfs-assistant 及 Snapper 作为快照的备份恢复软件。
 - 提供 EFIBootEditor 作为 efibootmgr 的 GUI 前端。
 - 提供 Ventoy（同时具有 GUI 与 CLI）以进行一些特殊操作。
 ## 用户引导
@@ -115,7 +115,7 @@ sidebar:
 - 提供了 TUI 的 nvim 及简单配置与美化。
 - 移除了 vim；在找不到 vi、vim 时，使用 nvim 自动替代之。
 - 提供 GUI 文件管理器 Thunar。
-- 提供 vi 键位风格的 TUI 文件管理器 vifm，以增强文件操作效率。
+- 提供 vi 键位风格的 TUI 文件管理器 vifm 与 ranger，以增强文件操作效率。
 - 提供 TUI 的 ncdu 以快速查看存储占用分布。
 - 提供命令行工具 ack、tree、fd。
 - 提供 peazip 及 p7zip 以支持解压缩。

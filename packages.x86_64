@@ -75,11 +75,11 @@ par2cmdline
 tree
 fd
 ncdu
-#snapper
+snapper
 timeshift
 vifm
-#ranger
-7zip
+ranger
+p7zip
 ## 日常应用
 firefox
 #firefox-i18n-zh-cn Firefox自己可以直接安装语言包
