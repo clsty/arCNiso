@@ -3,6 +3,7 @@
 ### AUR
 # 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
 # ---- BEGINof AUR ---- #
+tilix
 btrfs-assistant
 efibooteditor
 oh-my-zsh-git
@@ -47,7 +48,7 @@ bluez
 bluez-utils
 blueman
 ## 终端工具
-neofetch
+fastfetch
 git
 curl
 axel
@@ -79,7 +80,7 @@ snapper
 timeshift
 vifm
 ranger
-p7zip
+7zip
 ## 日常应用
 firefox
 #firefox-i18n-zh-cn Firefox自己可以直接安装语言包
@@ -97,7 +98,6 @@ firefox
 #vlc
 emacs
 neovim
-tilix
 ristretto
 # 看软件包占用
 expac

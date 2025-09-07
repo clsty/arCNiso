@@ -4,5 +4,8 @@
 # btrfs-assistant: qt5-tools btrfs-progs
 # efibooteditor: qt6-tools efivar
 # zsh-theme-powerlevel10k-git: wget
+# tilix: ldc meson appstream libx11 vte3 dconf gsettings-desktop-schemas liblphobos libunwind gtkd(AUR)
 
 sudo pacman -S --noconfirm --needed qt5-tools qt6-tools btrfs-progs efivar wget patchelf
+sudo pacman -S --noconfirm --needed ldc meson appstream libx11 vte3 dconf gsettings-desktop-schemas liblphobos libunwind
+paru -S --noconfirm --needed gtkd

@@ -124,7 +124,7 @@ sidebar:
 
 - Xfce4-screenshooter：用于截图。
 - Ristretto：图像查看器。
-- neofetch：展示系统信息。
+- fastfetch：展示系统信息。
 
 # 软件包与源
 
