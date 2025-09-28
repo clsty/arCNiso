@@ -14,7 +14,7 @@ sidebar:
 - Linux® 是 [Linux Foundation](https://www.linuxfoundation.org) 的注册商标。
 
 :::note[更名历史]
-此项目原名为 archisoCN，但是注意到 [ALG 的前车之鉴](https://distrowiki.miraheze.org/wiki/Arch_Linux_GUI)，以及 [Arch Linux 那模棱两可的 policy](https://wiki.archlinux.org/title/DeveloperWiki:TrademarkPolicy)，还是改名了，并加上 README 里面的那么一大堆声明——明明只是自由开源项目，商标法真是有够烦人的。
+此项目原名为 archisoCN，但是注意到 [ALG 的前车之鉴](https://distrowiki.miraheze.org/wiki/Arch_Linux_GUI)，以及 [Arch Linux 那模棱两可的 policy](https://wiki.archlinux.org/title/DeveloperWiki:TrademarkPolicy)，还是改名了，并加上 README 里面的那么一大堆声明——明明只是自由开源项目，商标法真是有够麻烦的。
 :::
 
 # 许可
