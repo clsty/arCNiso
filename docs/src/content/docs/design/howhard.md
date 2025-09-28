@@ -32,7 +32,7 @@ arCNiso 本质上仍然是 archiso。
 |语言环境|仅英文|默认中文界面、中文输入法|
 |终端|tty|Tilix 及 pty|
 |shell|grml-zsh|oh-my-zsh、p10k|
-|浏览器|lynx|Firefox 及其插件|
+|浏览器|lynx|Firefox|
 |WiFi|iwctl|nmtui|
 |指针输入|无|鼠标、触摸屏、触控板|
 |安全启动|无|支持|

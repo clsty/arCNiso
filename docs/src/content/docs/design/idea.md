@@ -16,6 +16,10 @@ sidebar:
 # 弃用 Firefox 的动态主题
 - 减少卡死几率。
 
+# 弃用 Firefox 预配置
+- 原本会对 Firefox 进行书签、主题、扩展等方面的预配置。
+- 实际维护下来发现，Firefox 扩展会随时间推移失效，且书签等也会在维护过程中莫名丢失，总之非常麻烦。 
+
 # squashfs 使用 zstd 压缩算法
 对 squashfs 使用 zstd 而非 xz 的压缩算法参数。
 - 涉及到的文件： `/etc/mkinitcpio.conf.d/archiso.conf` 和 `profiledef.sh` 。

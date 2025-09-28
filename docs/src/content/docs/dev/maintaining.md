@@ -36,13 +36,6 @@ sidebar:
   2. 按需修改 `DIFF.sh` 中的所有 diff 命令。
   3. 删除 `mkarchiso.patch`，再使用 `DIFF.sh` 创建新补丁。
 
-## Firefox
-主要是对 Firefox 插件的更新，以及对书签作适当调整。
-```bash
-./layer-home/preparefirefox.sh
-```
-按照指示操作即可。
-
 ## layer-rootfs
 主要是将 `layer-rootfs` 目录所引用的几个仓库与上游进行同步：
 - <https://github.com/clsty/papirus-icon-theme>

@@ -1,7 +1,6 @@
 #!/bin/bash
 # 注意，此脚本必须由 $user 直接运行（例如通过 .config/autostart/*.desktop）
 # 否则，若是由 root 等其他用户通过 su 或 sudo 切换用户到 $user 再运行此脚本，会使得运行得到的 firefox 无法与后续的 firefox --newtab 取得通信。
-profile=$HOME/.mozilla/firefox/fawis2kz.default-release
 urlfile=$HOME/.cache/tempwebpageurl
 while true;do
   whoami >/tmp/sufirefoxuser
@@ -11,7 +10,7 @@ while true;do
     # 当检测不到 firefox 时，提前运行 firefox 并等待一段时间（因为在这之前 firefox --newtab 很可能会无法与已有的 firefox 进程取得通信，导致多余的 firefox 进程被创建并弹窗报错）
     ps -C firefox||(firefox >/dev/null 2>&1 & sleep 10)
     for i in ${urls[@]}
-      do firefox --profile "$profile" --new-tab "$i"
+      do firefox --new-tab "$i"
       sleep "0.5"
     done
   fi

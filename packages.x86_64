@@ -83,7 +83,7 @@ ranger
 7zip
 ## 日常应用
 firefox
-#firefox-i18n-zh-cn Firefox自己可以直接安装语言包
+firefox-i18n-zh-cn
 # zathura 可以不要，因为 firefox 也能看 pdf
 #zathura
 #zathura-pdf-mupdf
