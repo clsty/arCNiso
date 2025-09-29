@@ -56,6 +56,17 @@ sidebar:
   - [releng 的 commits](https://gitlab.archlinux.org/archlinux/releng/-/commits/master/?ref_type=HEADS)
 - 使用 diff 类工具（除 diff 本身以外还有多种 TUI/GUI 前端可选）对比本项目目录与 archiso 所提供的 `/usr/share/archiso/configs/releng` 目录。
 
+## Arch 官方包与 AUR 包
+这一点在构建的时候会体现出来。
+例如 `btrfs-assistant` 曾是 AUR 的包，后来被移到官方的 Extra 仓库，这就导致报错：
+```plain
+!! Retrying "paru -G --noredownload btrfs-assistant"
+ (1/1) downloading: btrfs-assistant
+error: failed to run: pkgctl export btrfs-assistant: No such file or directory (os error 2)
+```
+同理，`tilix` 曾是官方的包，现在已经变成 AUR 的包。
+
+这种情况下就需要调整包名列表（即 `packages.x86_64`）。
 
 # 其他
 - `./getiso`：适用于在另一台机器上构建镜像的场景。

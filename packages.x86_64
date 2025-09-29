@@ -4,7 +4,6 @@
 # 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
 # ---- BEGINof AUR ---- #
 tilix
-btrfs-assistant
 efibooteditor
 oh-my-zsh-git
 peazip-gtk2-bin
@@ -72,6 +71,7 @@ pavucontrol
 wireplumber
 ## 磁盘与文件
 # partitionmanager 太大了，archiso 自己体积也在涨，有需要的还是用 cfdisk 去吧
+btrfs-assistant
 par2cmdline
 tree
 fd
