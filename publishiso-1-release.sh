@@ -8,7 +8,8 @@ function try { "$@" || sleep 0; }
 set -e
 cd $(dirname $0)
 
-echo ${1? 错误：请指定一个参数，作为版本号（git tag），例如 v1.0.0。当前已有版本号：$(git tag -l)} || exit
+git for-each-ref --sort=creatordate --format='%(creatordate:iso8601) %(refname:short)' refs/tags
+echo ${1? 错误：请指定一个参数，作为版本号（git tag），例如 v1.0.0；上面已列出当前所有版本号。}
 echo $1 >publishiso-version
 
 git add .
