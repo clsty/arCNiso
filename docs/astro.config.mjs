@@ -11,9 +11,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
       title: 'arCNiso 指南',
-			social: {
-        github: 'https://github.com/clsty/arCNiso',
-			},
+			social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/clsty/arCNiso', },
+      ],
       editLink: {
           baseUrl: 'https://github.com/clsty/arCNiso/tree/main/docs',
       },

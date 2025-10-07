@@ -20,27 +20,27 @@
 /* Headings */
 :root[data-theme='dark'] .sl-markdown-content h1 {
   color: #CD8D7A;
-  font-size: 200%;
+  font-size: 100%;
 }
 :root[data-theme='dark'] .sl-markdown-content h2 {
   color: #F6B17A;
-  font-size: 165%;
+  font-size: 100%;
 }
 :root[data-theme='dark'] .sl-markdown-content h3 {
   color: #F6ECA9;
-  font-size: 140%;
+  font-size: 100%;
 }
 :root[data-theme='dark'] .sl-markdown-content h4 {
   color: #AAD9BB;
-  font-size: 125%;
+  font-size: 100%;
 }
 :root[data-theme='dark'] .sl-markdown-content h5 {
   color: #6DA4AA;
-  font-size: 116%;
+  font-size: 100%;
 }
 :root[data-theme='dark'] .sl-markdown-content h6 {
   color: #BF90DD;
-  font-size: 110%;
+  font-size: 100%;
 }
 
 /* Light mode colors. */
@@ -65,27 +65,27 @@
 /* Headings */
 :root[data-theme='light'] .sl-markdown-content h1 {
   color: #AD6D5A;
-  font-size: 200%;
+  font-size: 100%;
 }
 :root[data-theme='light'] .sl-markdown-content h2 {
   color: #E6A16A;
-  font-size: 165%;
+  font-size: 100%;
 }
 :root[data-theme='light'] .sl-markdown-content h3 {
   color: #D6CC99;
-  font-size: 140%;
+  font-size: 100%;
 }
 :root[data-theme='light'] .sl-markdown-content h4 {
   color: #8AB99B;
-  font-size: 125%;
+  font-size: 100%;
 }
 :root[data-theme='light'] .sl-markdown-content h5 {
   color: #4D848A;
-  font-size: 116%;
+  font-size: 100%;
 }
 :root[data-theme='light'] .sl-markdown-content h6 {
   color: #9F70BD;
-  font-size: 110%;
+  font-size: 100%;
 }
 
 img {
