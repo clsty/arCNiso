@@ -7,6 +7,9 @@ This is an **unofficial** project which builds customised archiso with GUI(xfce4
 **Currently the project has no plan for other regions**. 
 However, **feel free to fork** this project and modify to make your own (of course, under GNU GPL 3.0 License).
 
+
+# 注意：此分支尚未完成
+
 # 简介
 
 [arCNiso™](https://github.com/clsty/arCNiso)（简称 arCN™）是一个自由开源的 archiso 镜像。

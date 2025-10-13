@@ -34,16 +34,13 @@ sidebar:
 - [archiso](https://github.com/archlinux/archiso)：本项目的直接基础，来自 Arch Linux 官方。
 - [Sweet Themes](https://github.com/EliverLara/Sweet)：本项目图形环境中 xfce4 等的主题。
 - [Papirus icon](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme)：本项目所使用的图标主题。
-- [Tilix](https://github.com/gnunn1/tilix)：本项目所使用的终端模拟器。
+- [Foot](https://codeberg.org/dnkl/foot)：本项目所使用的终端模拟器。
 - [Ventoy](https://www.ventoy.net)：本项目所含工具，以及推荐使用的运行方案。
 - [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh)：本项目采用的 zsh 配置框架。
 - [Powerlevel10k](https://github.com/romkatv/powerlevel10k)：本项目采用的 zsh 主题。
 - [neovim](https://github.com/neovim/neovim)：本项目所采用的编辑器之一。
 - [Everforest](https://github.com/sainnhe/everforest)：本项目采用的 neovim 主题。
 - [霞鹜文楷](https://github.com/lxgw/WenKai)：本项目所采用的字体。
-- [GNU Emacs](https://www.gnu.org/software/emacs)：本项目所采用的编辑器之一。
-- [Emacs Evil](https://github.com/emacs-evil)：本项目所使用的 Emacs 插件。
-- [evil-tutor-sc](https://github.com/clsty/evil-tutor-sc)：本项目所使用的 Emacs 插件（作者也是 clsty `>v0` ）。
 - [otsaloma's markdown-css](https://github.com/otsaloma/markdown-css)：本项目的部分文档转为 html 所采用的 pandoc css 文件 `github.css` 。
 - [high-rise buildings during nighttime](https://unsplash.com/photos/lmvGn9rTGvY)：本项目所使用的壁纸。
 - [archiso-sb-shim](https://github.com/solsticedhiver/archiso-sb-shim)：本项目实现安全启动所采用的方案来源。

@@ -10,4 +10,3 @@ zsh 配置的区别：
 - root 的 zshrc 则不会这样提醒用户，所以 p10k 的 INSTANT PROMPT 照旧为 verbose。
 
 此外，在 root 与 skel 中都保留一个空的 .cache 目录是有用的，防止部分程序试图在 .cache 中新建文件（夹）时报错。
-其中的 autosaves 和 backups 目录则供 emacs 使用。

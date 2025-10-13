@@ -3,7 +3,6 @@
 ### AUR
 # 下面一段的开头行与结尾行由脚本自动识别，不可轻易修改
 # ---- BEGINof AUR ---- #
-tilix
 efibooteditor
 oh-my-zsh-git
 peazip-gtk2-bin
@@ -47,6 +46,8 @@ bluez
 bluez-utils
 blueman
 ## 终端工具
+ripgrep
+foot
 fastfetch
 git
 curl
@@ -96,9 +97,7 @@ firefox-i18n-zh-cn
 #hunspell-en_us
 #keepassxc
 #vlc
-emacs
 neovim
-ristretto
 # 看软件包占用
 expac
 ## 截取
@@ -112,49 +111,11 @@ fcitx5-qt
 fcitx5-nord
 fcitx5-rime
 ## 图形化
-exo
-garcon
+sway
+swayimg
 thunar
 thunar-volman
 gvfs-mtp
-tumbler
-xfce4-screenshooter
-xfce4-appfinder
-xfce4-panel
-#xfce4-power-manager
-xfce4-session
-xfce4-settings
-#xfce4-terminal
-xfconf
-xfdesktop
-xfwm4
-#xfwm4-themes
-#xfburn
-xfce4-battery-plugin
-xfce4-clipman-plugin
-#xfce4-cpufreq-plugin
-#xfce4-cpugraph-plugin
-#xfce4-diskperf-plugin
-xfce4-fsguard-plugin
-#xfce4-genmon-plugin
-#genmon: 显示某个脚本的 stdout ，暂时用不到
-#xfce4-mount-plugin
-#xfce4-mpc-plugin
-#xfce4-netload-plugin
-xfce4-notifyd
-xfce4-pulseaudio-plugin
-#xfce4-screensaver
-#xfce4-sensors-plugin
-xfce4-systemload-plugin
-xfce4-taskmanager
-#xfce4-time-out-plugin
-#xfce4-timer-plugin
-#xfce4-wavelan-plugin
-#xfce4-weather-plugin
-xfce4-xkb-plugin
-#wmctrl tilix自带--maxmize，不需要wmctrl最大化
-#xorg-xwininfo wmctrl自己就能据-r Konsole找到窗口了，不需要从xwininfo获得id
-xorg-server
 #picom
 ## 主题
 kvantum
@@ -165,7 +126,7 @@ qt6ct
 libappindicator-gtk3
 # grub-customizer 大概没什么人用？而且也不是非得在 Live CD 里安装这个
 ## 杂项
-xclip
+wl-clipboard
 rng-tools
 ## AMD 独显
 mesa

@@ -155,5 +155,5 @@ alias ls='ls --color=auto'
 
 export QT_QPA_PLATFORMTHEME=qt6ct
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec arCNiso-xfce4
+  exec arCNiso-sway
 fi

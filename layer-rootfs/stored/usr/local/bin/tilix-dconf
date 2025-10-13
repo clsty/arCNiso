@@ -1,7 +1,0 @@
-#!/bin/bash
-#注意要用合适的用户运行 dconf，比如普通用户用 sudo dconf 和 dconf 得到的结果是完全不同的。
-case $1 in
-	dump)dconf dump '/com/gexperts/Tilix/' > ~/.config/Tilix.dconf;;
-	load)dconf load '/com/gexperts/Tilix/' < ~/.config/Tilix.dconf;;
-	*)echo "[$0]: choose a subcommand: dump, load";exit 1;;
-esac
