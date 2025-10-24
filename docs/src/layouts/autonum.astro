@@ -2,66 +2,70 @@
 const { title } = Astro.props.frontmatter || Astro.props;
 ---
 <style is:global>
-/* 修复说明：
-   原实现中 `.sl-markdown-content body { counter-reset: ch1 -1 }` 实际上不会选中任何元素（`.sl-markdown-content` 内通常没有独立的 body 元素），
-   所以根计数器没有被正确重置，导致计数表现异常（所有 h1 显示为 1，h2 显示为 0.1 等）。
-   参考 starlight 的做法：在容器上初始化计数器，并通过 :not(#_top) / :not(#starlight__on-thispage) 排除页面总标题和侧栏标题，
-   同时把 counter-increment 放在 heading 元素上，把 content 放在 ::before 上。
+/* 自动编号样式（基于 starlight 的结构）
+   说明要点：
+   - 计数器在 .sl-markdown-content 容器上初始化；
+   - 每个 heading 块由 .sl-heading-wrapper.level-hX 包裹，因此把 counter-increment / counter-reset 放在 wrapper 上，
+     再在实际的 h1/h2/h3/h4 元素上使用 ::before 显示编号；
+   - 排除页面的顶级 metadata 标题（id 为 _top 的 h1）以及侧栏的 “On this page” 标题（id 为 starlight__on-thispage）。
 */
 
-/* 在容器上初始化一级计数器（从 0 开始） */
+/* 初始化一级计数器（从 0 开始） */
 .sl-markdown-content {
   counter-reset: ch1 0;
 }
 
-/* 每遇到 h1，重置二级计数器 ch2；（但实际增量只对非元数据标题生效）*/
-.sl-markdown-content h1 {
+/* h1 wrapper：遇到新的 h1 增加一级计数并重置二级计数 */
+.sl-markdown-content .sl-heading-wrapper.level-h1 {
+  counter-increment: ch1;
   counter-reset: ch2;
 }
 
-/* 不对 id 为 _top 的 h1（页面元标题 / metadata 标题）进行计数 */
-.sl-markdown-content h1:not(#_top) {
-  counter-increment: ch1;
-}
-
-/* 在非元标题 h1 前显示计数 */
+/* 显示 h1 编号（排除 metadata 主标题 #_top） */
 .sl-markdown-content h1:not(#_top)::before {
   content: counter(ch1) "  ";
 }
 
-/* h2：排除右侧目录标题（starlight__on-thispage），对其他 h2 进行计数并重置 ch3 */
-.sl-markdown-content h2 {
+/* h2 wrapper：遇到新的 h2 增加二级计数并重置三级计数 */
+.sl-markdown-content .sl-heading-wrapper.level-h2 {
+  counter-increment: ch2;
   counter-reset: ch3;
 }
 
-.sl-markdown-content h2:not(#starlight__on-thispage) {
-  counter-increment: ch2;
-}
-
+/* 显示 h2 编号（排除侧栏标题 #starlight__on-thispage） */
 .sl-markdown-content h2:not(#starlight__on-thispage)::before {
   content: counter(ch1) "." counter(ch2) "  ";
 }
 
-/* h3 */
-.sl-markdown-content h3 {
+/* h3 wrapper：遇到新的 h3 增加三级计数并重置四级计数 */
+.sl-markdown-content .sl-heading-wrapper.level-h3 {
+  counter-increment: ch3;
   counter-reset: ch4;
 }
 
+/* 显示 h3 编号 */
 .sl-markdown-content h3::before {
   content: counter(ch1) "." counter(ch2) "." counter(ch3) "  ";
 }
 
-.sl-markdown-content h3 {
-  counter-increment: ch3;
-}
-
-/* h4 */
-.sl-markdown-content h4 {
+/* h4 wrapper：遇到新的 h4 增加四级计数 */
+.sl-markdown-content .sl-heading-wrapper.level-h4 {
   counter-increment: ch4;
 }
 
+/* 显示 h4 编号 */
 .sl-markdown-content h4::before {
   content: counter(ch1) "." counter(ch2) "." counter(ch3) "." counter(ch4) "  ";
+}
+
+/* 小的视觉调整：编号与标题间距 */
+.sl-markdown-content h1::before,
+.sl-markdown-content h2::before,
+.sl-markdown-content h3::before,
+.sl-markdown-content h4::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-weight: 600;
 }
 </style>
 
