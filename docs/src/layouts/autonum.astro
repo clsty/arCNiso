@@ -5,26 +5,26 @@ const { title } = Astro.props.frontmatter || Astro.props;
 /* For astro, the total title i.e. the "Metadata title" for the markdown file is counted as `h1' as well. */
 /* Of course, it's not the h1 we really want. so we just make its counter value as -1, not the default 0 */
 .sl-markdown-content body {
-    counter-reset: h1 -1;
+    counter-reset: h1 -1 !important;
 }
 
 .sl-markdown-content h1 {
-    counter-increment: h1;
-    counter-reset: h2;
+    counter-increment: h1 !important;
+    counter-reset: h2 !important;
 }
 
 .sl-markdown-content h2 {
-    counter-increment: h2;
-    counter-reset: h3
+    counter-increment: h2 !important;
+    counter-reset: h3 !important;
 }
 
 .sl-markdown-content h3 {
-    counter-increment: h3;
-    counter-reset: h4
+    counter-increment: h3 !important;
+    counter-reset: h4 !important;
 }
 
 .sl-markdown-content h4 {
-    counter-increment: h4;
+    counter-increment: h4 !important;
 }
 
 /* 排除 id 为 _top 的 h1 元素，即页面的总标题，或者说 markdown 的 metadata 标题。 */
@@ -47,4 +47,3 @@ const { title } = Astro.props.frontmatter || Astro.props;
 </style>
 
 <slot />
-
